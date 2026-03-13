@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PulseEdit — Auto Video Editor Synced to Beats | DaVinci Resolve</title>
+    <meta name="description" content="PulseEdit automatically edits your video clips to the beat of the music in DaVinci Resolve. 11 cut patterns, energy mapping, beat markers. From €24.99.">
+    <meta name="keywords" content="DaVinci Resolve, beat sync, auto edit, music video, beat markers, video editor plugin, PulseEdit, beat detection">
+    <meta property="og:title" content="PulseEdit — Auto Video Editor Synced to Beats">
+    <meta property="og:description" content="Automatically edit video clips to the beat of the music in DaVinci Resolve. 11 cut patterns, energy mapping, beat markers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fnax94.github.io/pulseedit">
+    <link rel="canonical" href="https://fnax94.github.io/pulseedit">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 0 60px;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: #1a1a2e;
+            color: #7c6ff7;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            border: 1px solid #2a2a4a;
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .hero h1 span { color: #7c6ff7; }
+        .hero p {
+            font-size: 18px;
+            color: #999;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+        .hero-cta {
+            display: inline-flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: #7c6ff7;
+            color: #fff;
+        }
+        .btn-primary:hover { background: #6a5ce0; transform: translateY(-1px); }
+        .btn-secondary {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            border: 1px solid #333;
+        }
+        .btn-secondary:hover { border-color: #7c6ff7; }
+
+        /* Video placeholder */
+        .demo-section {
+            padding: 40px 0 60px;
+            text-align: center;
+        }
+        .video-placeholder {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 12px;
+            aspect-ratio: 16/9;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-size: 18px;
+        }
+        .video-placeholder iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            border: none;
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 0;
+        }
+        .features h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #fff;
+            margin-bottom: 48px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .feature-card {
+            background: #111;
+            border: 1px solid #1a1a1a;
+            border-radius: 12px;
+            padding: 28px;
+        }
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+        .feature-card h3 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .feature-card p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* Patterns */
+        .patterns {
+            padding: 60px 0;
+            text-align: center;
+        }
+        .patterns h2 {
+            font-size: 32px;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .patterns > p {
+            color: #888;
+            margin-bottom: 32px;
+        }
+        .pattern-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .pattern-tag {
+            background: #1a1a2e;
+            color: #b0a6f7;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid #2a2a4a;
+        }
+
+        /* Compare */
+        .compare {
+            padding: 60px 0;
+        }
+        .compare h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #fff;
+            margin-bottom: 32px;
+        }
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .compare-table th, .compare-table td {
+            padding: 14px 20px;
+            text-align: left;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .compare-table th {
+            color: #999;
+            font-weight: 500;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .compare-table td { font-size: 15px; }
+        .compare-table .check { color: #4ade80; }
+        .compare-table .cross { color: #555; }
+        .compare-table .highlight { color: #7c6ff7; font-weight: 600; }
+
+        /* Pricing */
+        .pricing {
+            padding: 80px 0;
+        }
+        .pricing h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #fff;
+            margin-bottom: 48px;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .price-card {
+            background: #111;
+            border: 1px solid #1a1a1a;
+            border-radius: 16px;
+            padding: 36px;
+            text-align: center;
+            position: relative;
+        }
+        .price-card.featured {
+            border-color: #7c6ff7;
+            background: #0f0f1a;
+        }
+        .price-card.featured::before {
+            content: "BEST VALUE";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #7c6ff7;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 12px;
+        }
+        .price-card h3 {
+            color: #fff;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+        .price-card .description {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .price-card .price {
+            font-size: 42px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .price-card .price-note {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 24px;
+        }
+        .price-card ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 28px;
+        }
+        .price-card ul li {
+            padding: 6px 0;
+            font-size: 14px;
+            color: #bbb;
+        }
+        .price-card ul li::before {
+            content: "✓ ";
+            color: #4ade80;
+            font-weight: 700;
+        }
+        .price-card .btn { width: 100%; text-align: center; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid #1a1a1a;
+            padding: 40px 0;
+            text-align: center;
+            color: #555;
+            font-size: 13px;
+        }
+        footer a { color: #7c6ff7; text-decoration: none; }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">For DaVinci Resolve</div>
+            <h1>Edit videos to the <span>beat</span>, automatically</h1>
+            <p>PulseEdit detects beats in your music and auto-edits your clips to match. 11 cut patterns, energy mapping, and intelligent sync. No more manual cutting.</p>
+            <div class="hero-cta">
+                <a href="#pricing" class="btn btn-primary">Get PulseEdit — €34.99</a>
+                <a href="#demo" class="btn btn-secondary">Watch Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Video -->
+    <section class="demo-section" id="demo">
+        <div class="container">
+            <div class="video-placeholder">
+                <!-- Replace with: <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe> -->
+                Demo video coming soon
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <h2>Everything you need to edit on beat</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎵</div>
+                    <h3>Beat Detection</h3>
+                    <p>Powered by librosa. Detects beats, downbeats, and BPM with adjustable sensitivity. Supports any time signature: 2/4, 3/4, 4/4, 5/4, 6/4, 7/4.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✂️</div>
+                    <h3>Auto-Edit</h3>
+                    <p>Automatically cuts and places clips from your Media Pool to the timeline, perfectly synced to beats. Sequential or random order, unique clips, trim controls.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Energy Map</h3>
+                    <p>Analyzes 7 audio features to map the energy of your music. More energy = more cuts. Calm sections = longer shots. Your edit breathes with the music.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Beat Markers</h3>
+                    <p>Gold markers for downbeats, red markers for subdivisions. See the rhythm on your timeline. Subdivisions: 1/2, 1/3, 1/4, 1/6, 1/8.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Transitions</h3>
+                    <p>Auto-apply Cross Dissolve, Dip to Black, or Dip to White between cuts. FPS drift correction ensures frame-accurate sync throughout the timeline.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>English & Italian</h3>
+                    <p>Full interface in English and Italian. Switch language anytime. Built by a professional video editor for professional video editors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cut Patterns -->
+    <section class="patterns">
+        <div class="container">
+            <h2>11 Cut Patterns</h2>
+            <p>Choose the rhythm of your edit. From fast-paced energy to smooth slow builds.</p>
+            <div class="pattern-list">
+                <span class="pattern-tag">Energy Map</span>
+                <span class="pattern-tag">Every Beat</span>
+                <span class="pattern-tag">Every Bar</span>
+                <span class="pattern-tag">Beat + Upbeat</span>
+                <span class="pattern-tag">Half Time</span>
+                <span class="pattern-tag">Fast → Slow</span>
+                <span class="pattern-tag">Slow → Fast</span>
+                <span class="pattern-tag">Buildup</span>
+                <span class="pattern-tag">Wedding</span>
+                <span class="pattern-tag">Random Fast</span>
+                <span class="pattern-tag">Random Slow</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="compare">
+        <div class="container">
+            <h2>PulseEdit vs BeatEdit</h2>
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>PulseEdit</th>
+                        <th>BeatEdit ($49.99)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Beat Detection</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Beat Markers on Timeline</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Auto-Edit Clips to Beats</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                    </tr>
+                    <tr>
+                        <td>Energy Map (adaptive cuts)</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                    </tr>
+                    <tr>
+                        <td>11 Cut Patterns</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                    </tr>
+                    <tr>
+                        <td>Auto Transitions</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td class="highlight">€34.99</td>
+                        <td>$49.99</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Simple pricing. Pay once, use forever.</h2>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Beat Markers</h3>
+                    <p class="description">Markers only</p>
+                    <div class="price">€24.99</div>
+                    <p class="price-note">One-time payment. Perpetual license.</p>
+                    <ul>
+                        <li>Beat detection with adjustable sensitivity</li>
+                        <li>Gold &amp; red markers on timeline</li>
+                        <li>All time signatures</li>
+                        <li>Beat subdivisions</li>
+                        <li>English &amp; Italian</li>
+                    </ul>
+                    <!-- Replace # with Lemon Squeezy checkout URL -->
+                    <a href="#" class="btn btn-secondary">Get Beat Markers</a>
+                </div>
+                <div class="price-card featured">
+                    <h3>PulseEdit</h3>
+                    <p class="description">Markers + Auto-Edit</p>
+                    <div class="price">€34.99</div>
+                    <p class="price-note">One-time payment. Perpetual license.</p>
+                    <ul>
+                        <li>Everything in Beat Markers</li>
+                        <li>Auto-edit clips to beats</li>
+                        <li>11 cut patterns + Energy Map</li>
+                        <li>Auto transitions</li>
+                        <li>FPS drift correction</li>
+                        <li>Free trial (6 uses)</li>
+                    </ul>
+                    <!-- Replace # with Lemon Squeezy checkout URL -->
+                    <a href="#" class="btn btn-primary">Get PulseEdit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Made by <a href="https://www.instagram.com/aki.vhs/" target="_blank">Abramo Benedetti</a> — Professional Video Editor</p>
+            <p style="margin-top: 8px;">Questions? DM on <a href="https://www.instagram.com/aki.vhs/" target="_blank">Instagram</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
