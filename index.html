@@ -3,14 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AB Tools — Professional Plugins for DaVinci Resolve</title>
-    <meta name="description" content="Pulse Edit auto-edits your videos to the beat with AI mood analysis, speed ramps, and zoom effects. Beat Markers places real snappable markers. For DaVinci Resolve Studio.">
-    <meta name="keywords" content="DaVinci Resolve, beat sync, auto edit, music video, beat markers, video editor plugin, Pulse Edit, Beat Markers, speed ramp, zoom effects, AI mood">
-    <meta property="og:title" content="AB Tools — Professional Plugins for DaVinci Resolve">
-    <meta property="og:description" content="Pulse Edit auto-edits your videos to the beat. Beat Markers places real snappable markers. For DaVinci Resolve Studio.">
+    <title>Pulse Edit — Auto Edit Videos to the Beat | DaVinci Resolve Plugin</title>
+    <meta name="description" content="Auto-edit videos to the beat of music in DaVinci Resolve. Beat detection, 11 cut patterns, speed ramps, zoom effects, AI mood analysis. BeatEdit alternative with auto-editing. Free trial.">
+    <meta name="keywords" content="auto edit video to beat, beat sync video editor, DaVinci Resolve beat marker plugin, auto cut video to music, edit to beat DaVinci Resolve, BeatEdit alternative, speed ramp plugin, AI video editing, music video auto edit, beat detection plugin, sync video to music, Pulse Edit, Beat Markers">
+    <meta property="og:title" content="Pulse Edit — Auto Edit Videos to the Beat in DaVinci Resolve">
+    <meta property="og:description" content="Automatically cut and edit videos synced to music beats. Speed ramps, zoom effects, AI mood analysis. The most powerful beat-sync editing tool for DaVinci Resolve.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://fnax94.github.io/pulseedit">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pulse Edit — Auto Edit Videos to the Beat in DaVinci Resolve">
+    <meta name="twitter:description" content="Auto-edit videos to music beats. 11 cut patterns, speed ramps, zoom effects, AI mood. Free trial for DaVinci Resolve Studio.">
     <link rel="canonical" href="https://fnax94.github.io/pulseedit">
+
+    <!-- FAQ Schema for Google Rich Snippets -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do I auto-edit videos to the beat in DaVinci Resolve?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pulse Edit automatically detects beats in your music, then cuts and places clips from your Media Pool to the timeline perfectly synced to beats. Choose from 11 cut patterns including Energy Map which adapts cut density to the music's energy. It works inside DaVinci Resolve Studio 18 or later."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the best BeatEdit alternative for DaVinci Resolve?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pulse Edit is a BeatEdit alternative that goes beyond markers. While BeatEdit only places beat markers ($49.99), Pulse Edit auto-edits your clips, applies speed ramps with Optical Flow, zoom effects with 14 easing curves, AI mood analysis, and freeze frames — all synced to the beat. Price: €79.99 one-time."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need DaVinci Resolve Studio?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Both Pulse Edit and Beat Markers require DaVinci Resolve Studio 18 or later. The scripting API is only available in the Studio version. The free version of Resolve is not supported."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is there a free trial?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Beat Markers has 3 free uses and Pulse Edit has 4 free uses. No credit card required. Full functionality during the trial period."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is this a subscription?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. One-time payment, lifetime license. You buy it once and use it forever, including free updates. No monthly fees."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between Beat Markers and Pulse Edit?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Beat Markers only places markers on your timeline. Pulse Edit does that plus auto-edits your clips to beats, applies speed ramps with Optical Flow, zoom effects with 14 easing curves, AI mood matching with 6 presets, and freeze frames. Pulse Edit includes everything Beat Markers does and much more."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does the AI Mood Analysis work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Choose a mood preset (Calm, Happy, Melancholic, Energetic, Aggressive, Epic) and adjust the intensity slider. Pulse Edit automatically selects the right speed ramp types, zoom curves, easing styles, and effect distribution for each clip based on the music's characteristics."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I sync video cuts to music automatically?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Pulse Edit analyzes the beats in your music track, then automatically cuts and places video clips from your Media Pool onto the timeline synced to those beats. You can choose from 11 cut patterns to control the rhythm of your edit."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Software Application Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Pulse Edit",
+        "description": "Auto-edit videos to the beat of music in DaVinci Resolve. Beat detection, speed ramps, zoom effects, and AI mood analysis.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "macOS",
+        "offers": {
+            "@type": "Offer",
+            "price": "79.99",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/PreOrder"
+        },
+        "softwareRequirements": "DaVinci Resolve Studio 18 or later",
+        "author": {
+            "@type": "Organization",
+            "name": "AB Tools"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Beat Markers",
+        "description": "Place beat markers on the DaVinci Resolve timeline. Automatic beat detection with adjustable sensitivity and subdivision support.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "macOS",
+        "offers": {
+            "@type": "Offer",
+            "price": "9.99",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+        },
+        "softwareRequirements": "DaVinci Resolve Studio 18 or later",
+        "author": {
+            "@type": "Organization",
+            "name": "AB Tools"
+        }
+    }
+    </script>
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -209,6 +331,41 @@
             border-radius: 4px;
             margin-left: 8px;
             vertical-align: middle;
+        }
+
+        /* How it works */
+        .how-it-works { padding: 60px 0; }
+        .steps {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .step {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 32px;
+            align-items: flex-start;
+        }
+        .step-number {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: #7c6ff7;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .step-content h3 {
+            color: #fff;
+            font-size: 17px;
+            margin-bottom: 4px;
+        }
+        .step-content p {
+            color: #888;
+            font-size: 14px;
         }
 
         /* Patterns */
@@ -423,6 +580,7 @@
             .pricing-grid { grid-template-columns: 1fr; }
             .nav-links { gap: 16px; }
             .nav-links a { font-size: 13px; }
+            .step { flex-direction: column; align-items: center; text-align: center; }
         }
     </style>
 </head>
@@ -431,9 +589,10 @@
     <!-- Nav -->
     <nav>
         <div class="container nav-inner">
-            <a href="#" class="nav-brand">AB <span>Tools</span></a>
+            <a href="#" class="nav-brand">Pulse <span>Edit</span></a>
             <div class="nav-links">
                 <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
                 <a href="#compare">Compare</a>
                 <a href="#pricing">Pricing</a>
                 <a href="#faq">FAQ</a>
@@ -444,9 +603,9 @@
     <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <div class="hero-badge">For DaVinci Resolve Studio</div>
-            <h1>Edit videos to the <span>beat</span>, automatically</h1>
-            <p>Pulse Edit detects beats in your music, auto-edits your clips, and applies speed ramps, zoom effects, and AI mood matching. All inside DaVinci Resolve.</p>
+            <div class="hero-badge">Plugin for DaVinci Resolve Studio</div>
+            <h1>Auto-edit videos to the <span>beat</span> of your music</h1>
+            <p>Pulse Edit detects beats, auto-cuts your clips to the music, and applies speed ramps, zoom effects, and AI mood matching. The most powerful beat-sync editing tool for DaVinci Resolve.</p>
             <div class="hero-cta">
                 <a href="#pricing" class="btn btn-primary">See Pricing</a>
                 <a href="#features" class="btn btn-secondary">Explore Features</a>
@@ -454,56 +613,87 @@
         </div>
     </section>
 
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How to auto-edit videos to music in DaVinci Resolve</h2>
+            <p class="section-subtitle">Three steps. Zero manual cutting. Your edit synced perfectly to every beat.</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Detect beats in your music</h3>
+                        <p>Select your audio track and click Detect. Pulse Edit uses AI-powered beat analysis to find every beat, bar, and subdivision. Adjust sensitivity to catch only strong beats or every nuance. Supports any time signature: 2/4, 3/4, 4/4, 5/4, 6/4, 7/4.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Auto-edit clips to beats</h3>
+                        <p>Choose a cut pattern (Energy Map, Every Beat, Buildup, Wedding, and 7 more). Pulse Edit automatically takes clips from your Media Pool, cuts them to length, and places them on the timeline perfectly synced to every beat. Sequential or random clip order, with transitions.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Apply effects with AI mood matching</h3>
+                        <p>Choose a mood (Calm, Energetic, Epic...) or manually apply speed ramps with Optical Flow, zoom effects with 14 easing curves, and freeze frames. Each clip gets unique, non-repetitive effects matched to the music's energy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Features -->
     <section class="features" id="features">
         <div class="container">
-            <h2 class="section-title">Everything you need to edit on beat</h2>
-            <p class="section-subtitle">From beat detection to AI-powered effects. One app, zero manual work.</p>
+            <h2 class="section-title">Beat sync editing features for DaVinci Resolve</h2>
+            <p class="section-subtitle">From automatic beat detection to AI-powered speed ramps and zoom effects. One plugin, zero manual work.</p>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">&#127925;</div>
-                    <h3>Beat Detection</h3>
-                    <p>AI-powered BPM and beat analysis with adjustable sensitivity. Supports any time signature: 2/4, 3/4, 4/4, 5/4, 6/4, 7/4.</p>
+                    <h3>Automatic Beat Detection</h3>
+                    <p>AI-powered BPM and beat analysis with adjustable sensitivity. Detects beats, bars, and subdivisions in any music track. Supports time signatures from 2/4 to 7/4.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">&#9986;&#65039;</div>
-                    <h3>Auto-Edit</h3>
-                    <p>Automatically cuts and places clips from your Media Pool to the timeline, perfectly synced to beats. 11 cut patterns including Energy Map.</p>
+                    <h3>Auto-Edit Clips to Beats</h3>
+                    <p>Automatically cuts and places clips from your Media Pool to the timeline, perfectly synced to detected beats. 11 cut patterns including Energy Map that adapts to your music's intensity.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">&#9889;</div>
-                    <h3>Speed Ramps <span class="feature-new">NEW</span></h3>
-                    <p>Fusion-based speed ramps with Optical Flow for smooth slow motion. Three ramp types: Normal, Fast-Slow, Slow-Fast. Applied automatically to every clip.</p>
+                    <h3>Speed Ramps &amp; Optical Flow</h3>
+                    <p>Fusion-based speed ramps with Optical Flow for smooth slow motion. Three ramp types: Normal, Fast-Slow, Slow-Fast. Applied automatically to every clip with 14 easing curves.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">&#128269;</div>
-                    <h3>Zoom Effects <span class="feature-new">NEW</span></h3>
-                    <p>14 easing curves including Elastic, Bounce, and Overshoot. Directions: In, Out, In-Out, Alternate, Random. No black borders, ever.</p>
+                    <h3>Zoom Effects &amp; Camera Motion</h3>
+                    <p>14 easing curves including Elastic, Bounce, and Overshoot. Directions: In, Out, In-Out, Alternate, Random. No black borders guaranteed. Cinematic motion on every clip.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">&#129504;</div>
-                    <h3>AI Mood Analysis <span class="feature-new">NEW</span></h3>
-                    <p>6 presets — Calm, Happy, Melancholic, Energetic, Aggressive, Epic. The AI matches effects, easing, and intensity to your music automatically.</p>
+                    <h3>AI Mood Analysis</h3>
+                    <p>6 presets: Calm, Happy, Melancholic, Energetic, Aggressive, Epic. The AI matches effects, easing, and intensity to your music. Adjustable intensity slider from gentle to extreme.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">&#10052;&#65039;</div>
-                    <h3>Freeze Frames <span class="feature-new">NEW</span></h3>
-                    <p>Dramatic freeze moments synced to the beat. Toggle on/off. Combined with speed ramps for cinematic reel-style edits.</p>
+                    <h3>Freeze Frames</h3>
+                    <p>Dramatic freeze moments synced to the beat. Toggle on/off. Combined with speed ramps for cinematic reel-style edits that stop time at the perfect moment.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">&#128202;</div>
-                    <h3>Energy Map</h3>
-                    <p>Analyzes 7 audio features to map your music's energy. More energy = more cuts. Calm sections = longer shots. Your edit breathes with the music.</p>
+                    <h3>Energy Map Auto-Cutting</h3>
+                    <p>Analyzes 7 audio features to map your music's energy. More energy = more cuts. Calm sections = longer shots. Your edit breathes with the music automatically.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">&#127919;</div>
-                    <h3>Beat Markers</h3>
-                    <p>Gold downbeat + red subdivision markers with time signature support. Real snappable markers, not just visual lines. Subdivisions: 1/2, 1/3, 1/4, 1/6, 1/8.</p>
+                    <h3>Beat Markers on Timeline</h3>
+                    <p>Gold downbeat + red subdivision markers placed directly on the DaVinci Resolve timeline. Real snappable markers. Subdivisions: 1/2, 1/3, 1/4, 1/6, 1/8.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">&#127760;</div>
-                    <h3>English & Italian</h3>
-                    <p>Full interface in English and Italian. Built by a professional video editor who uses it every day on real projects.</p>
+                    <h3>Built by a Professional Editor</h3>
+                    <p>Created by a professional video editor who uses it every day on real projects. Full interface in English and Italian. macOS with Apple Silicon (M1/M2/M3/M4).</p>
                 </div>
             </div>
         </div>
@@ -512,10 +702,10 @@
     <!-- Cut Patterns -->
     <section class="patterns">
         <div class="container">
-            <h2 class="section-title">11 Cut Patterns</h2>
-            <p class="section-subtitle">Choose the rhythm of your edit. From fast-paced energy to smooth slow builds.</p>
+            <h2 class="section-title">11 Cut Patterns for Every Style</h2>
+            <p class="section-subtitle">From fast-paced energy cuts to smooth slow builds. Choose the rhythm that fits your music video, reel, or commercial.</p>
             <div class="pattern-list">
-                <span class="pattern-tag">Energy Map</span>
+                <span class="pattern-tag">Energy Map (Auto)</span>
                 <span class="pattern-tag">Every Beat</span>
                 <span class="pattern-tag">Every Bar</span>
                 <span class="pattern-tag">Beat + Upbeat</span>
@@ -523,7 +713,7 @@
                 <span class="pattern-tag">Fast &rarr; Slow</span>
                 <span class="pattern-tag">Slow &rarr; Fast</span>
                 <span class="pattern-tag">Buildup</span>
-                <span class="pattern-tag">Wedding</span>
+                <span class="pattern-tag">Wedding / Slow</span>
                 <span class="pattern-tag">Random Fast</span>
                 <span class="pattern-tag">Random Slow</span>
             </div>
@@ -533,8 +723,8 @@
     <!-- Comparison -->
     <section class="compare" id="compare">
         <div class="container">
-            <h2 class="section-title">Pulse Edit vs BeatEdit</h2>
-            <p class="section-subtitle">BeatEdit places markers. Pulse Edit does everything else too.</p>
+            <h2 class="section-title">Pulse Edit vs BeatEdit for DaVinci Resolve</h2>
+            <p class="section-subtitle">BeatEdit places markers. Pulse Edit auto-edits your entire video to the beat.</p>
             <table class="compare-table">
                 <thead>
                     <tr>
@@ -591,8 +781,8 @@
                     </tr>
                     <tr>
                         <td>Price</td>
-                        <td class="highlight">&euro;79.99</td>
-                        <td>$49.99</td>
+                        <td class="highlight">&euro;79.99 (one-time)</td>
+                        <td>$49.99 (one-time)</td>
                     </tr>
                 </tbody>
             </table>
@@ -602,8 +792,8 @@
     <!-- Pricing -->
     <section class="pricing" id="pricing">
         <div class="container">
-            <h2 class="section-title">Simple pricing. Pay once, use forever.</h2>
-            <p class="section-subtitle">Lifetime license. No subscription. Free updates.</p>
+            <h2 class="section-title">Simple pricing. Pay once, own forever.</h2>
+            <p class="section-subtitle">Lifetime license. No subscription. No monthly fees. Free updates included.</p>
             <div class="pricing-grid">
                 <!-- Beat Markers -->
                 <div class="price-card entry">
@@ -612,7 +802,7 @@
                     <div class="price"><span class="price-original">&euro;35</span> &euro;9.99</div>
                     <p class="price-note">One-time payment &mdash; <strong>71% OFF</strong></p>
                     <ul>
-                        <li>Beat detection (adjustable)</li>
+                        <li>Automatic beat detection</li>
                         <li>Blue markers on timeline</li>
                         <li>Beat subdivisions</li>
                         <li>English &amp; Italian</li>
@@ -676,42 +866,50 @@
         </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQ (SEO-optimized questions matching real search queries) -->
     <section class="faq" id="faq">
         <div class="container">
-            <h2 class="section-title">FAQ</h2>
+            <h2 class="section-title">Frequently Asked Questions</h2>
             <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>How do I auto-edit videos to the beat in DaVinci Resolve?</h3>
+                    <p>Pulse Edit detects beats in your music, then automatically cuts and places clips from your Media Pool to the timeline synced to every beat. Choose from 11 cut patterns including Energy Map. Works inside DaVinci Resolve Studio 18 or later.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What is the best BeatEdit alternative for DaVinci Resolve?</h3>
+                    <p>Pulse Edit is a BeatEdit alternative that goes beyond markers. While BeatEdit only places beat markers ($49.99), Pulse Edit auto-edits your clips, applies speed ramps with Optical Flow, zoom effects with 14 easing curves, AI mood analysis, and freeze frames &mdash; all synced to the beat.</p>
+                </div>
                 <div class="faq-item">
                     <h3>Do I need DaVinci Resolve Studio?</h3>
                     <p>Yes. Both Pulse Edit and Beat Markers require DaVinci Resolve Studio 18 or later (the scripting API is only available in Studio). The free version of Resolve is not supported.</p>
                 </div>
                 <div class="faq-item">
-                    <h3>What platforms are supported?</h3>
-                    <p>macOS with Apple Silicon (M1, M2, M3, M4). Windows support is planned for a future release.</p>
+                    <h3>Can I sync video cuts to music automatically?</h3>
+                    <p>Yes. Pulse Edit analyzes the beats in your music track, then automatically cuts and places video clips onto the timeline synced to those beats. You can choose from 11 cut patterns to control the rhythm and pace of your edit.</p>
                 </div>
                 <div class="faq-item">
                     <h3>Is there a free trial?</h3>
-                    <p>Yes. Beat Markers has 3 free uses, Pulse Edit has 4 free uses. No credit card required. Full functionality during the trial.</p>
+                    <p>Yes. Beat Markers has 3 free uses, Pulse Edit has 4 free uses. No credit card required. Full functionality during the trial. Download and try it before you buy.</p>
                 </div>
                 <div class="faq-item">
                     <h3>Is this a subscription?</h3>
-                    <p>No. One-time payment, lifetime license. You buy it once and use it forever, including free updates.</p>
+                    <p>No. One-time payment, lifetime license. You buy it once and use it forever, including free updates. No monthly fees, no annual renewals.</p>
                 </div>
                 <div class="faq-item">
                     <h3>What's the difference between Beat Markers and Pulse Edit?</h3>
-                    <p>Beat Markers only places markers on your timeline. Pulse Edit does that plus auto-edits your clips, applies speed ramps, zoom effects, and AI mood matching. Pulse Edit includes everything Beat Markers does and much more.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Can I upgrade from Beat Markers to Pulse Edit?</h3>
-                    <p>Yes. Use discount code UPGRADE20 at checkout to get &euro;20 off Pulse Edit. You effectively pay the difference.</p>
+                    <p>Beat Markers only places markers on your timeline. Pulse Edit does that plus auto-edits your clips to beats, applies speed ramps, zoom effects, AI mood matching with 6 presets, and freeze frames. Pulse Edit includes everything Beat Markers does and much more.</p>
                 </div>
                 <div class="faq-item">
                     <h3>How does the AI Mood Analysis work?</h3>
-                    <p>Choose a mood preset (Calm, Happy, Melancholic, Energetic, Aggressive, Epic) and adjust the intensity. Pulse Edit automatically selects the right speed ramp types, zoom curves, easing styles, and effect distribution for each clip.</p>
+                    <p>Choose a mood preset (Calm, Happy, Melancholic, Energetic, Aggressive, Epic) and adjust the intensity. Pulse Edit automatically selects the right speed ramp types, zoom curves, easing styles, and effect distribution for each clip based on the music.</p>
                 </div>
                 <div class="faq-item">
-                    <h3>What is Optical Flow?</h3>
-                    <p>Optical Flow is DaVinci Resolve's advanced motion estimation for retiming. When Pulse Edit applies a speed ramp, it enables Optical Flow so slow motion looks smooth instead of choppy.</p>
+                    <h3>What is Optical Flow in speed ramps?</h3>
+                    <p>Optical Flow is DaVinci Resolve's advanced motion estimation for retiming. When Pulse Edit applies a speed ramp, it enables Optical Flow automatically so slow motion looks smooth and cinematic instead of choppy or stuttering.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What platforms are supported?</h3>
+                    <p>macOS with Apple Silicon (M1, M2, M3, M4). Windows support is planned for a future release. Requires DaVinci Resolve Studio 18 or later.</p>
                 </div>
             </div>
         </div>
@@ -720,7 +918,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p style="margin-bottom: 8px;"><strong style="color: #fff;">AB Tools</strong> &mdash; Professional plugins for DaVinci Resolve</p>
+            <p style="margin-bottom: 8px;"><strong style="color: #fff;">Pulse Edit</strong> &mdash; Auto-edit videos to the beat in DaVinci Resolve</p>
             <p>Made by <a href="https://www.instagram.com/aki.vhs/" target="_blank">Abramo Benedetti</a> &mdash; Professional Video Editor</p>
             <p style="margin-top: 8px;">Questions? DM on <a href="https://www.instagram.com/aki.vhs/" target="_blank">Instagram</a></p>
         </div>

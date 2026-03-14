@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fnax94.github.io/pulseedit/sitemap.xml
