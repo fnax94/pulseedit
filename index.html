@@ -19,10 +19,30 @@
     <meta property="og:description" content="Automatically cut and edit videos synced to music beats. Speed ramps, zoom effects, AI mood analysis. The most powerful beat-sync editing tool for DaVinci Resolve.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pulseedit.com">
+    <meta property="og:image" content="https://img.youtube.com/vi/HuBBewe2f40/maxresdefault.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Pulse Edit — Auto Edit Videos to the Beat in DaVinci Resolve">
     <meta name="twitter:description" content="Auto-edit videos to music beats. 11 cut patterns, speed ramps, zoom effects, AI mood. Free trial for DaVinci Resolve Studio.">
+    <meta name="twitter:image" content="https://img.youtube.com/vi/HuBBewe2f40/maxresdefault.jpg">
     <link rel="canonical" href="https://pulseedit.com">
+
+    <!-- VideoObject Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "Pulse Edit Demo — Auto Edit Videos to the Beat in DaVinci Resolve",
+        "description": "See how Pulse Edit automatically cuts and edits video clips synced to music beats in DaVinci Resolve. Beat detection, 11 cut patterns, speed ramps, zoom effects, and AI mood analysis.",
+        "thumbnailUrl": "https://img.youtube.com/vi/HuBBewe2f40/maxresdefault.jpg",
+        "uploadDate": "2026-03-14",
+        "contentUrl": "https://www.youtube.com/watch?v=HuBBewe2f40",
+        "embedUrl": "https://www.youtube.com/embed/HuBBewe2f40",
+        "publisher": {
+            "@type": "Organization",
+            "name": "AB Tools"
+        }
+    }
+    </script>
 
     <!-- WebSite Schema -->
     <script type="application/ld+json">
@@ -224,6 +244,29 @@
             transition: color 0.2s;
         }
         .nav-links a:hover { color: #fff; }
+
+        /* Video Demo */
+        .video-demo {
+            padding: 0 0 80px;
+        }
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-bottom: 56.25%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(124, 111, 247, 0.15);
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
 
         /* Hero */
         .hero {
@@ -657,6 +700,15 @@
             <div class="hero-cta">
                 <a href="#pricing" class="btn btn-primary">See Pricing</a>
                 <a href="#features" class="btn btn-secondary">Explore Features</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Demo -->
+    <section class="video-demo">
+        <div class="container">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/HuBBewe2f40" title="Pulse Edit Demo — Auto Edit Videos to the Beat in DaVinci Resolve" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
         </div>
     </section>
