@@ -155,7 +155,7 @@
             "@type": "Offer",
             "price": "79.99",
             "priceCurrency": "EUR",
-            "availability": "https://schema.org/PreOrder"
+            "availability": "https://schema.org/InStock"
         },
         "softwareRequirements": "DaVinci Resolve Studio 18 or later",
         "author": {
@@ -174,7 +174,7 @@
         "operatingSystem": ["macOS", "Windows"],
         "offers": {
             "@type": "Offer",
-            "price": "17.50",
+            "price": "9.99",
             "priceCurrency": "EUR",
             "availability": "https://schema.org/InStock"
         },
@@ -707,20 +707,27 @@
         var text = link.textContent.trim();
 
         // Download Free Trial
-        if (href.includes('BeatMarkers.zip')) {
+        if (href.includes('BeatMarkers.zip') || href.includes('PulseEdit')) {
+            var product = href.includes('PulseEdit') ? 'Pulse Edit' : 'Beat Markers';
             gtag('event', 'download_trial', {
                 event_category: 'conversion',
-                event_label: text,
+                event_label: product + ' - ' + text,
                 link_url: href
             });
         }
-        // Purchase Beat Markers
+        // Purchase
         if (href.includes('buy.stripe.com')) {
+            var label = text;
+            var val = 79.99;
+            if (href.includes('awo00')) { label = 'Beat Markers'; val = 9.99; }
+            else if (href.includes('awo04')) { label = 'Pulse Edit 1 lic'; val = 79.99; }
+            else if (href.includes('awo05')) { label = 'Pulse Edit 2 lic'; val = 129.99; }
+            else if (href.includes('awo06')) { label = 'Pulse Edit 5 lic'; val = 249.99; }
             gtag('event', 'begin_checkout', {
                 event_category: 'conversion',
-                event_label: 'Beat Markers',
+                event_label: label,
                 link_url: href,
-                value: 17.50,
+                value: val,
                 currency: 'EUR'
             });
         }
@@ -765,8 +772,8 @@
             <h1>Auto-edit videos to the <span>beat</span> of your music</h1>
             <p>Pulse Edit detects beats, auto-cuts your clips to the music, and applies zoom effects, freeze frames, and AI mood matching. The best BeatEdit &amp; AutoCut alternative for DaVinci Resolve. One-time purchase, no subscription.</p>
             <div class="hero-cta">
-                <a href="https://github.com/fnax94/pulseedit/releases/download/beat-markers-v1.0/BeatMarkers.zip" class="btn btn-primary">Download for macOS</a>
-                <a href="https://github.com/fnax94/pulseedit/releases/download/beat-markers-v1.0/BeatMarkers-Windows.zip" class="btn btn-primary">Download for Windows</a>
+                <a href="https://github.com/fnax94/pulseedit/releases/download/pulse-edit-v1.0/PulseEdit-macOS.zip" class="btn btn-primary">Download Free Trial &mdash; macOS</a>
+                <a href="https://github.com/fnax94/pulseedit/releases/download/pulse-edit-v1.0/PulseEdit-Windows.zip" class="btn btn-primary">Download Free Trial &mdash; Windows</a>
                 <a href="#pricing" class="btn btn-secondary">See Pricing</a>
             </div>
             <p class="hero-trust">macOS &amp; Windows &mdash; Requires <strong style="color:#e0e0e0">DaVinci Resolve Studio</strong> 18+ (not free version) &mdash; No credit card required</p>
@@ -849,7 +856,7 @@
                 <div class="feature-card">
                     <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
                     <h3>Built by a Professional Editor</h3>
-                    <p>Created by a professional video editor who uses it every day on real projects. Full interface in English and Italian. macOS with Apple Silicon (M1/M2/M3/M4).</p>
+                    <p>Created by a professional video editor who uses it every day on real projects. Full interface in English and Italian. macOS (Apple Silicon) &amp; Windows 10/11.</p>
                 </div>
                 <div class="feature-card coming-soon-card">
                     <div class="feature-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
@@ -988,8 +995,8 @@
                 <div class="price-card entry">
                     <h3>Beat Markers</h3>
                     <p class="description">Markers only</p>
-                    <div class="price"><span class="price-original">&euro;35</span> &euro;17.50</div>
-                    <p class="price-note">Launch price &mdash; <strong>50% OFF</strong></p>
+                    <div class="price">&euro;9.99</div>
+                    <p class="price-note">One-time payment</p>
                     <ul>
                         <li>Automatic beat detection</li>
                         <li>Blue markers on timeline</li>
@@ -997,13 +1004,12 @@
                         <li>English &amp; Italian</li>
                         <li>3 free trial uses</li>
                     </ul>
-                    <a href="https://buy.stripe.com/28EcN466abfC5gsfHnawo08?prefilled_promo_code=LAUNCH50" class="btn btn-green btn-small">Get Beat Markers</a>
+                    <a href="https://buy.stripe.com/28E8wO2TY3Na7oAcvbawo00" class="btn btn-green btn-small">Get Beat Markers</a>
                     <a href="https://github.com/fnax94/pulseedit/releases/download/beat-markers-v1.0/BeatMarkers.zip" class="btn btn-outline btn-small" style="margin-top:8px">Trial macOS</a>
                     <a href="https://github.com/fnax94/pulseedit/releases/download/beat-markers-v1.0/BeatMarkers-Windows.zip" class="btn btn-outline btn-small" style="margin-top:4px">Trial Windows</a>
                 </div>
                 <!-- Pulse Edit 1 License -->
-                <div class="price-card featured coming-soon">
-                    <span class="badge-coming-soon">Coming Soon</span>
+                <div class="price-card featured">
                     <h3>Pulse Edit</h3>
                     <p class="description">1 License</p>
                     <div class="price">&euro;79.99</div>
@@ -1017,11 +1023,12 @@
                         <li><strong>Free lifetime updates</strong></li>
                         <li>4 free trial uses</li>
                     </ul>
-                    <a href="#notify" class="btn btn-primary btn-small" style="opacity:0.85">Get Notified</a>
+                    <a href="https://buy.stripe.com/9B65kC526cjG7oA3YFawo04" class="btn btn-green btn-small">Get Pulse Edit</a>
+                    <a href="https://github.com/fnax94/pulseedit/releases/download/pulse-edit-v1.0/PulseEdit-macOS.zip" class="btn btn-outline btn-small" style="margin-top:8px">Trial macOS</a>
+                    <a href="https://github.com/fnax94/pulseedit/releases/download/pulse-edit-v1.0/PulseEdit-Windows.zip" class="btn btn-outline btn-small" style="margin-top:4px">Trial Windows</a>
                 </div>
                 <!-- Pulse Edit 2 Licenses -->
-                <div class="price-card coming-soon">
-                    <span class="badge-coming-soon">Coming Soon</span>
+                <div class="price-card">
                     <h3>Pulse Edit</h3>
                     <p class="description">2 Licenses</p>
                     <div class="price">&euro;129.99</div>
@@ -1029,15 +1036,14 @@
                     <p class="price-note">One-time payment</p>
                     <ul>
                         <li>Everything in 1 License</li>
-                        <li>Use on 2 Macs</li>
+                        <li>Use on 2 computers</li>
                         <li><strong>Free lifetime updates</strong></li>
                         <li>Perfect for desktop + laptop</li>
                     </ul>
-                    <a href="#notify" class="btn btn-primary btn-small" style="opacity:0.85">Get Notified</a>
+                    <a href="https://buy.stripe.com/28EfZg9im6ZmdMY0Mtawo05" class="btn btn-green btn-small">Get 2 Licenses</a>
                 </div>
                 <!-- Pulse Edit 5 Licenses -->
-                <div class="price-card coming-soon">
-                    <span class="badge-coming-soon">Coming Soon</span>
+                <div class="price-card">
                     <h3>Pulse Edit</h3>
                     <p class="description">5 Licenses</p>
                     <div class="price">&euro;249.99</div>
@@ -1045,26 +1051,25 @@
                     <p class="price-note">One-time payment</p>
                     <ul>
                         <li>Everything in 1 License</li>
-                        <li>Use on 5 Macs</li>
+                        <li>Use on 5 computers</li>
                         <li><strong>Free lifetime updates</strong></li>
                         <li>Perfect for teams &amp; studios</li>
                     </ul>
-                    <a href="#notify" class="btn btn-primary btn-small" style="opacity:0.85">Get Notified</a>
+                    <a href="https://buy.stripe.com/bJe7sKfGK0AYgZa2UBawo06" class="btn btn-green btn-small">Get 5 Licenses</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Waitlist / Notify -->
-    <section class="notify-section" id="notify">
+    <!-- Download CTA -->
+    <section class="notify-section" id="download">
         <div class="container">
-            <h2 class="section-title">Get notified when Pulse Edit launches</h2>
-            <p class="section-subtitle">One email when it's ready. No spam, no newsletter &mdash; just the launch.</p>
-            <form id="waitlist-form" class="notify-form">
-                <input type="email" id="waitlist-email" placeholder="your@email.com" required autocomplete="email">
-                <button type="submit" class="btn btn-primary">Notify Me</button>
-            </form>
-            <p id="waitlist-msg" class="notify-msg"></p>
+            <h2 class="section-title">Try Pulse Edit for free</h2>
+            <p class="section-subtitle">4 free uses. Full functionality. No credit card required.</p>
+            <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+                <a href="https://github.com/fnax94/pulseedit/releases/download/pulse-edit-v1.0/PulseEdit-macOS.zip" class="btn btn-primary">Download for macOS</a>
+                <a href="https://github.com/fnax94/pulseedit/releases/download/pulse-edit-v1.0/PulseEdit-Windows.zip" class="btn btn-primary">Download for Windows</a>
+            </div>
         </div>
     </section>
 
@@ -1138,37 +1143,6 @@
         </div>
     </footer>
 
-    <script>
-    document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        var email = document.getElementById('waitlist-email').value.trim();
-        var msg = document.getElementById('waitlist-msg');
-        var btn = this.querySelector('button');
-        btn.disabled = true;
-        btn.textContent = '...';
-        try {
-            var resp = await fetch('https://license-server.abtools.workers.dev/waitlist', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: email })
-            });
-            var data = await resp.json();
-            if (data.ok) {
-                msg.textContent = "You're in! We'll email you when Pulse Edit launches.";
-                msg.style.color = '#22c55e';
-                document.getElementById('waitlist-email').value = '';
-            } else {
-                msg.textContent = data.error || 'Something went wrong. Try again.';
-                msg.style.color = '#ef4444';
-            }
-        } catch (err) {
-            msg.textContent = 'Network error. Try again.';
-            msg.style.color = '#ef4444';
-        }
-        btn.disabled = false;
-        btn.textContent = 'Notify Me';
-    });
-    </script>
 
 </body>
 </html>
