@@ -19,12 +19,15 @@
     <meta property="og:description" content="Automatically cut and edit videos synced to music beats. Speed ramps, zoom effects, AI mood analysis. The most powerful beat-sync editing tool for DaVinci Resolve.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pulseedit.com">
-    <meta property="og:image" content="https://img.youtube.com/vi/HuBBewe2f40/maxresdefault.jpg">
+    <meta property="og:image" content="https://pulseedit.com/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Pulse Edit — Auto Edit Videos to the Beat in DaVinci Resolve">
     <meta name="twitter:description" content="Auto-edit videos to music beats. 11 cut patterns, speed ramps, zoom effects, AI mood. Free trial for DaVinci Resolve Studio.">
-    <meta name="twitter:image" content="https://img.youtube.com/vi/HuBBewe2f40/maxresdefault.jpg">
+    <meta name="twitter:image" content="https://pulseedit.com/og-image.png">
     <link rel="canonical" href="https://pulseedit.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- WebSite Schema -->
     <script type="application/ld+json">
@@ -187,13 +190,19 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #0a0a0a;
             color: #e0e0e0;
             line-height: 1.6;
         }
 
         .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+        /* Focus states for keyboard navigation */
+        a:focus-visible, button:focus-visible, .btn:focus-visible {
+            outline: 2px solid #7c6ff7;
+            outline-offset: 2px;
+        }
 
         /* Nav */
         nav {
@@ -264,6 +273,11 @@
             flex-wrap: wrap;
             justify-content: center;
         }
+        .hero-trust {
+            margin-top: 16px;
+            font-size: 13px;
+            color: #9ca3af;
+        }
         .btn {
             display: inline-block;
             padding: 14px 32px;
@@ -294,9 +308,15 @@
             color: #fff;
         }
         .btn-green:hover { background: #16a34a; transform: translateY(-1px); }
+        .btn-outline {
+            background: transparent;
+            color: #e0e0e0;
+            border: 1px solid #333;
+        }
+        .btn-outline:hover { border-color: #7c6ff7; color: #fff; }
         .btn-disabled {
             background: #333;
-            color: #666;
+            color: #9ca3af;
             cursor: default;
             pointer-events: none;
         }
@@ -359,8 +379,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
             margin-bottom: 16px;
+        }
+        .feature-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: #7c6ff7;
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
         .feature-card h3 {
             color: #fff;
@@ -534,18 +562,18 @@
         }
         .price-original {
             font-size: 22px;
-            color: #666;
+            color: #9ca3af;
             text-decoration: line-through;
             font-weight: 400;
             margin-right: 6px;
         }
         .price-card .price-per {
-            color: #666;
+            color: #9ca3af;
             font-size: 12px;
             margin-bottom: 4px;
         }
         .price-card .price-note {
-            color: #666;
+            color: #9ca3af;
             font-size: 13px;
             margin-bottom: 20px;
         }
@@ -658,9 +686,10 @@
             <h1>Auto-edit videos to the <span>beat</span> of your music</h1>
             <p>Pulse Edit detects beats, auto-cuts your clips to the music, and applies speed ramps, zoom effects, and AI mood matching. The best BeatEdit &amp; AutoCut alternative for DaVinci Resolve. One-time purchase, no subscription.</p>
             <div class="hero-cta">
-                <a href="#pricing" class="btn btn-primary">See Pricing</a>
-                <a href="#features" class="btn btn-secondary">Explore Features</a>
+                <a href="https://github.com/fnax94/pulseedit/releases/download/beat-markers-v1.0/BeatMarkers.zip" class="btn btn-primary">Download Free Trial</a>
+                <a href="#pricing" class="btn btn-secondary">See Pricing</a>
             </div>
+            <p class="hero-trust">macOS only &mdash; DaVinci Resolve Studio 18+ &mdash; No credit card required</p>
         </div>
     </section>
 
@@ -703,47 +732,47 @@
             <p class="section-subtitle">From automatic beat detection to AI-powered speed ramps and zoom effects. One plugin, zero manual work.</p>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">&#127925;</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
                     <h3>Automatic Beat Detection</h3>
                     <p>AI-powered BPM and beat analysis with adjustable sensitivity. Detects beats, bars, and subdivisions in any music track. Supports time signatures from 2/4 to 7/4.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">&#9986;&#65039;</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
                     <h3>Auto-Edit Clips to Beats</h3>
                     <p>Automatically cuts and places clips from your Media Pool to the timeline, perfectly synced to detected beats. 11 cut patterns including Energy Map that adapts to your music's intensity.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">&#9889;</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
                     <h3>Speed Ramps &amp; Optical Flow</h3>
                     <p>Fusion-based speed ramps with Optical Flow for smooth slow motion. Three ramp types: Normal, Fast-Slow, Slow-Fast. Applied automatically to every clip with 14 easing curves.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">&#128269;</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
                     <h3>Zoom Effects &amp; Camera Motion</h3>
                     <p>14 easing curves including Elastic, Bounce, and Overshoot. Directions: In, Out, In-Out, Alternate, Random. No black borders guaranteed. Cinematic motion on every clip.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">&#129504;</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M20.66 8A10 10 0 0 0 12 2v10h10a10 10 0 0 0-1.34-4z" style="opacity:0.5"/></svg></div>
                     <h3>AI Mood Analysis</h3>
                     <p>6 presets: Calm, Happy, Melancholic, Energetic, Aggressive, Epic. The AI matches effects, easing, and intensity to your music. Adjustable intensity slider from gentle to extreme.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">&#10052;&#65039;</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/></svg></div>
                     <h3>Freeze Frames</h3>
                     <p>Dramatic freeze moments synced to the beat. Toggle on/off. Combined with speed ramps for cinematic reel-style edits that stop time at the perfect moment.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">&#128202;</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
                     <h3>Energy Map Auto-Cutting</h3>
                     <p>Analyzes 7 audio features to map your music's energy. More energy = more cuts. Calm sections = longer shots. Your edit breathes with the music automatically.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">&#127919;</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
                     <h3>Beat Markers on Timeline</h3>
                     <p>Gold downbeat + red subdivision markers placed directly on the DaVinci Resolve timeline. Real snappable markers. Subdivisions: 1/2, 1/3, 1/4, 1/6, 1/8.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">&#127760;</div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
                     <h3>Built by a Professional Editor</h3>
                     <p>Created by a professional video editor who uses it every day on real projects. Full interface in English and Italian. macOS with Apple Silicon (M1/M2/M3/M4).</p>
                 </div>
