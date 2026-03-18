@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="gbFMCBXWgDK3Tqa_aNvF8cAw--jC0UAw30LJeLuzXZ0" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JV9DJHLCY2');
+    </script>
+    <title>Blog — Pulse Edit | DaVinci Resolve Beat Sync Editing Tips</title>
+    <meta name="description" content="Guides, tutorials, and tips for beat-synced video editing in DaVinci Resolve. Learn how to sync video to music, auto-place markers, and speed up your editing workflow.">
+    <meta property="og:title" content="Blog — Pulse Edit">
+    <meta property="og:description" content="Guides and tutorials for beat-synced video editing in DaVinci Resolve.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pulseedit.com/blog/">
+    <meta property="og:image" content="https://pulseedit.com/og-image.png">
+    <link rel="canonical" href="https://pulseedit.com/blog/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        a:focus-visible { outline: 2px solid #7c6ff7; outline-offset: 2px; }
+
+        nav {
+            padding: 20px 0;
+            border-bottom: 1px solid #1a1a1a;
+            position: sticky;
+            top: 0;
+            background: #0a0a0aee;
+            backdrop-filter: blur(12px);
+            z-index: 100;
+        }
+        .nav-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-brand {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+        .nav-brand span { color: #7c6ff7; }
+        .nav-links { display: flex; gap: 28px; }
+        .nav-links a {
+            color: #888;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #fff; }
+
+        .page-header {
+            padding: 80px 0 48px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 40px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .page-header p {
+            color: #888;
+            font-size: 17px;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .blog-list {
+            padding-bottom: 80px;
+        }
+        .blog-card {
+            display: block;
+            background: #111;
+            border: 1px solid #1a1a1a;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 20px;
+            text-decoration: none;
+            transition: border-color 0.2s;
+        }
+        .blog-card:hover { border-color: #7c6ff7; }
+        .blog-card h2 {
+            color: #fff;
+            font-size: 22px;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        .blog-card p {
+            color: #888;
+            font-size: 15px;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        .blog-card .meta {
+            font-size: 13px;
+            color: #9ca3af;
+        }
+        .blog-card .tag {
+            display: inline-block;
+            background: #1a1a2e;
+            color: #7c6ff7;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 8px;
+        }
+
+        footer {
+            border-top: 1px solid #1a1a1a;
+            padding: 40px 0;
+            text-align: center;
+            color: #555;
+            font-size: 13px;
+        }
+        footer a { color: #7c6ff7; text-decoration: none; }
+
+        @media (max-width: 640px) {
+            .page-header h1 { font-size: 30px; }
+            .blog-card h2 { font-size: 19px; }
+            .nav-links { gap: 16px; }
+            .nav-links a { font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
+            <div class="nav-links">
+                <a href="/blog/" style="color:#fff">Blog</a>
+                <a href="/#features">Features</a>
+                <a href="/#pricing">Pricing</a>
+                <a href="/#faq">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Blog</h1>
+            <p>Guides and tutorials for beat-synced video editing in DaVinci Resolve.</p>
+        </div>
+    </header>
+
+    <section class="blog-list">
+        <div class="container">
+
+            <a href="/blog/sync-video-to-music-davinci-resolve.html" class="blog-card">
+                <span class="tag">Guide</span>
+                <h2>How to Sync Video to Music Beats in DaVinci Resolve (2026 Guide)</h2>
+                <p>3 methods to sync your video edits to music — from manual cutting to fully automatic. Comparison table included.</p>
+                <span class="meta">March 18, 2026 &mdash; 5 min read</span>
+            </a>
+
+            <a href="/blog/beat-detection-plugin-davinci-resolve.html" class="blog-card">
+                <span class="tag">Comparison</span>
+                <h2>Best Beat Detection Plugins for DaVinci Resolve (2026 Comparison)</h2>
+                <p>Compare BeatEdit, Beat Markers, Pulse Edit, and Resolve's built-in detection. Features, pricing, and recommendations.</p>
+                <span class="meta">March 18, 2026 &mdash; 6 min read</span>
+            </a>
+
+            <a href="/blog/auto-place-beat-markers-davinci-resolve.html" class="blog-card">
+                <span class="tag">Tutorial</span>
+                <h2>How to Auto-Place Beat Markers in DaVinci Resolve (No Manual Tapping)</h2>
+                <p>Step-by-step: automatically detect beats and place real, snappable markers on your timeline in under 2 minutes.</p>
+                <span class="meta">March 18, 2026 &mdash; 4 min read</span>
+            </a>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 8px;"><strong style="color: #fff;">Pulse Edit</strong> &mdash; Auto-edit videos to the beat in DaVinci Resolve</p>
+            <p>Made by <a href="https://www.instagram.com/aki.vhs/" target="_blank">Abramo Benedetti</a> &mdash; Professional Video Editor</p>
+        </div>
+    </footer>
+
+</body>
+</html>
