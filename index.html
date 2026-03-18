@@ -662,6 +662,48 @@
             .step { flex-direction: column; align-items: center; text-align: center; }
         }
     </style>
+    <script>
+    document.addEventListener('click', function(e) {
+        var link = e.target.closest('a');
+        if (!link) return;
+        var href = link.href || '';
+        var text = link.textContent.trim();
+
+        // Download Free Trial
+        if (href.includes('BeatMarkers.zip')) {
+            gtag('event', 'download_trial', {
+                event_category: 'conversion',
+                event_label: text,
+                link_url: href
+            });
+        }
+        // Purchase Beat Markers
+        if (href.includes('buy.stripe.com')) {
+            gtag('event', 'begin_checkout', {
+                event_category: 'conversion',
+                event_label: 'Beat Markers',
+                link_url: href,
+                value: 17.50,
+                currency: 'EUR'
+            });
+        }
+        // See Pricing click
+        if (href.includes('#pricing') && !link.closest('.pricing')) {
+            gtag('event', 'view_pricing', {
+                event_category: 'engagement',
+                event_label: text
+            });
+        }
+        // Blog link
+        if (href.includes('/blog')) {
+            gtag('event', 'click_blog', {
+                event_category: 'engagement',
+                event_label: text,
+                link_url: href
+            });
+        }
+    });
+    </script>
 </head>
 <body>
 

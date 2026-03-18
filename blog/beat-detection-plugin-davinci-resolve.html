@@ -202,6 +202,32 @@
             .nav-links a { font-size: 13px; }
         }
     </style>
+    <script>
+    document.addEventListener('click', function(e) {
+        var link = e.target.closest('a');
+        if (!link) return;
+        var href = link.href || '';
+        var text = link.textContent.trim();
+        if (href.includes('BeatMarkers.zip')) {
+            gtag('event', 'download_trial', {
+                event_category: 'conversion',
+                event_label: text,
+                link_url: href,
+                source: 'blog'
+            });
+        }
+        if (href.includes('buy.stripe.com')) {
+            gtag('event', 'begin_checkout', {
+                event_category: 'conversion',
+                event_label: 'Beat Markers',
+                link_url: href,
+                value: 17.50,
+                currency: 'EUR',
+                source: 'blog'
+            });
+        }
+    });
+    </script>
 </head>
 <body>
 
