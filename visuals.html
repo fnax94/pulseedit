@@ -1,0 +1,718 @@
+<!-- ============================================================
+     PULSE EDIT — REUSABLE SVG/CSS VISUAL COMPONENTS
+     Copy sections into index.html as needed.
+     Colors: #0a0a0a bg, #111 card, #7c6ff7 purple, #22c55e green,
+             #1a1a2e panel, #2a2a4a border
+     ============================================================ -->
+
+
+<!-- ============================================================
+     1. HERO PRODUCT MOCKUP (800x500 SVG)
+     A stylized dark app window showing waveform, timeline,
+     settings panel, and beat markers.
+     ============================================================ -->
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" style="border-radius:12px; filter: drop-shadow(0 20px 60px rgba(124,111,247,0.15));">
+  <defs>
+    <!-- Waveform gradient -->
+    <linearGradient id="waveGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7c6ff7" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#4f46e5" stop-opacity="0.3"/>
+    </linearGradient>
+    <!-- Timeline track gradient -->
+    <linearGradient id="timelineGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#111"/>
+    </linearGradient>
+    <!-- Green marker gradient -->
+    <linearGradient id="markerGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
+    <!-- Playhead glow -->
+    <filter id="playheadGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Panel bg -->
+    <linearGradient id="panelGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#141420"/>
+      <stop offset="100%" stop-color="#0e0e16"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Window background -->
+  <rect width="800" height="500" rx="12" fill="#0a0a0a"/>
+
+  <!-- Title bar -->
+  <rect width="800" height="40" rx="12" fill="#111"/>
+  <rect y="28" width="800" height="12" fill="#111"/>
+  <!-- Traffic lights -->
+  <circle cx="20" cy="20" r="6" fill="#ff5f57"/>
+  <circle cx="40" cy="20" r="6" fill="#febc2e"/>
+  <circle cx="60" cy="20" r="6" fill="#28c840"/>
+  <!-- Title -->
+  <text x="400" y="25" text-anchor="middle" fill="#888" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600">Pulse Edit</text>
+
+  <!-- Left settings panel -->
+  <rect x="0" y="40" width="190" height="460" fill="url(#panelGrad)"/>
+  <line x1="190" y1="40" x2="190" y2="500" stroke="#1a1a1a" stroke-width="1"/>
+
+  <!-- Panel: section title -->
+  <text x="16" y="72" fill="#7c6ff7" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="1">SETTINGS</text>
+
+  <!-- Panel: Audio file -->
+  <rect x="12" y="84" width="166" height="32" rx="6" fill="#1a1a2e" stroke="#2a2a4a" stroke-width="0.5"/>
+  <text x="22" y="104" fill="#666" font-family="Inter, sans-serif" font-size="10">Audio File</text>
+  <text x="90" y="104" fill="#ccc" font-family="Inter, sans-serif" font-size="10">track_01.wav</text>
+
+  <!-- Panel: Sensitivity slider -->
+  <text x="16" y="138" fill="#888" font-family="Inter, sans-serif" font-size="10">Sensitivity</text>
+  <rect x="12" y="146" width="166" height="4" rx="2" fill="#1a1a2e"/>
+  <rect x="12" y="146" width="110" height="4" rx="2" fill="#7c6ff7"/>
+  <circle cx="122" cy="148" r="6" fill="#7c6ff7" stroke="#fff" stroke-width="1.5"/>
+
+  <!-- Panel: Cut Pattern dropdown -->
+  <text x="16" y="180" fill="#888" font-family="Inter, sans-serif" font-size="10">Cut Pattern</text>
+  <rect x="12" y="188" width="166" height="30" rx="6" fill="#1a1a2e" stroke="#2a2a4a" stroke-width="0.5"/>
+  <text x="22" y="208" fill="#ccc" font-family="Inter, sans-serif" font-size="11" font-weight="500">Energy Map</text>
+  <polyline points="160,200 165,206 170,200" fill="none" stroke="#666" stroke-width="1.5"/>
+
+  <!-- Panel: Zoom toggle -->
+  <text x="16" y="244" fill="#888" font-family="Inter, sans-serif" font-size="10">Zoom Effects</text>
+  <rect x="12" y="252" width="36" height="20" rx="10" fill="#7c6ff7"/>
+  <circle cx="38" cy="262" r="7" fill="#fff"/>
+  <text x="56" y="266" fill="#ccc" font-family="Inter, sans-serif" font-size="10">On</text>
+
+  <!-- Panel: AI Mood -->
+  <text x="16" y="298" fill="#888" font-family="Inter, sans-serif" font-size="10">AI Mood</text>
+  <rect x="12" y="306" width="166" height="30" rx="6" fill="#1a1a2e" stroke="#2a2a4a" stroke-width="0.5"/>
+  <text x="22" y="326" fill="#ccc" font-family="Inter, sans-serif" font-size="11" font-weight="500">Energetic</text>
+  <!-- Mood indicator dots -->
+  <circle cx="140" cy="321" r="3" fill="#22c55e"/>
+  <circle cx="150" cy="321" r="3" fill="#22c55e" opacity="0.6"/>
+  <circle cx="160" cy="321" r="3" fill="#22c55e" opacity="0.3"/>
+
+  <!-- Panel: Freeze Frames toggle -->
+  <text x="16" y="362" fill="#888" font-family="Inter, sans-serif" font-size="10">Freeze Frames</text>
+  <rect x="12" y="370" width="36" height="20" rx="10" fill="#333"/>
+  <circle cx="22" cy="380" r="7" fill="#888"/>
+  <text x="56" y="384" fill="#666" font-family="Inter, sans-serif" font-size="10">Off</text>
+
+  <!-- Panel: Generate button -->
+  <rect x="12" y="420" width="166" height="36" rx="8" fill="#7c6ff7"/>
+  <text x="95" y="443" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="600">Generate Edit</text>
+
+  <!-- Main area: Waveform -->
+  <rect x="200" y="50" width="590" height="260" fill="#0d0d14" rx="4"/>
+
+  <!-- Waveform bars (music visualization) -->
+  <g transform="translate(210, 170)" opacity="0.95">
+    <!-- Upper half (mirrored waveform) -->
+    <rect x="0" y="-40" width="4" height="40" rx="2" fill="url(#waveGrad)" opacity="0.5"/>
+    <rect x="8" y="-65" width="4" height="65" rx="2" fill="url(#waveGrad)" opacity="0.6"/>
+    <rect x="16" y="-90" width="4" height="90" rx="2" fill="url(#waveGrad)" opacity="0.7"/>
+    <rect x="24" y="-55" width="4" height="55" rx="2" fill="url(#waveGrad)" opacity="0.6"/>
+    <rect x="32" y="-110" width="4" height="110" rx="2" fill="url(#waveGrad)" opacity="0.85"/>
+    <rect x="40" y="-70" width="4" height="70" rx="2" fill="url(#waveGrad)" opacity="0.6"/>
+    <rect x="48" y="-45" width="4" height="45" rx="2" fill="url(#waveGrad)" opacity="0.55"/>
+    <rect x="56" y="-95" width="4" height="95" rx="2" fill="url(#waveGrad)" opacity="0.8"/>
+    <rect x="64" y="-120" width="4" height="120" rx="2" fill="url(#waveGrad)" opacity="0.9"/>
+    <rect x="72" y="-80" width="4" height="80" rx="2" fill="url(#waveGrad)" opacity="0.7"/>
+    <rect x="80" y="-50" width="4" height="50" rx="2" fill="url(#waveGrad)" opacity="0.55"/>
+    <rect x="88" y="-100" width="4" height="100" rx="2" fill="url(#waveGrad)" opacity="0.85"/>
+    <rect x="96" y="-60" width="4" height="60" rx="2" fill="url(#waveGrad)" opacity="0.6"/>
+    <rect x="104" y="-115" width="4" height="115" rx="2" fill="url(#waveGrad)" opacity="0.9"/>
+    <rect x="112" y="-75" width="4" height="75" rx="2" fill="url(#waveGrad)" opacity="0.65"/>
+    <rect x="120" y="-40" width="4" height="40" rx="2" fill="url(#waveGrad)" opacity="0.5"/>
+    <rect x="128" y="-105" width="4" height="105" rx="2" fill="url(#waveGrad)" opacity="0.85"/>
+    <rect x="136" y="-85" width="4" height="85" rx="2" fill="url(#waveGrad)" opacity="0.75"/>
+    <rect x="144" y="-55" width="4" height="55" rx="2" fill="url(#waveGrad)" opacity="0.6"/>
+    <rect x="152" y="-110" width="4" height="110" rx="2" fill="url(#waveGrad)" opacity="0.85"/>
+    <rect x="160" y="-70" width="4" height="70" rx="2" fill="url(#waveGrad)" opacity="0.65"/>
+    <rect x="168" y="-95" width="4" height="95" rx="2" fill="url(#waveGrad)" opacity="0.8"/>
+    <rect x="176" y="-120" width="4" height="120" rx="2" fill="url(#waveGrad)" opacity="0.9"/>
+    <rect x="184" y="-65" width="4" height="65" rx="2" fill="url(#waveGrad)" opacity="0.6"/>
+    <rect x="192" y="-100" width="4" height="100" rx="2" fill="url(#waveGrad)" opacity="0.85"/>
+    <rect x="200" y="-45" width="4" height="45" rx="2" fill="url(#waveGrad)" opacity="0.5"/>
+    <rect x="208" y="-80" width="4" height="80" rx="2" fill="url(#waveGrad)" opacity="0.7"/>
+    <rect x="216" y="-115" width="4" height="115" rx="2" fill="url(#waveGrad)" opacity="0.9"/>
+    <rect x="224" y="-60" width="4" height="60" rx="2" fill="url(#waveGrad)" opacity="0.6"/>
+    <rect x="232" y="-90" width="4" height="90" rx="2" fill="url(#waveGrad)" opacity="0.75"/>
+    <rect x="240" y="-50" width="4" height="50" rx="2" fill="url(#waveGrad)" opacity="0.55"/>
+    <rect x="248" y="-105" width="4" height="105" rx="2" fill="url(#waveGrad)" opacity="0.85"/>
+    <rect x="256" y="-75" width="4" height="75" rx="2" fill="url(#waveGrad)" opacity="0.65"/>
+    <rect x="264" y="-110" width="4" height="110" rx="2" fill="url(#waveGrad)" opacity="0.85"/>
+    <rect x="272" y="-45" width="4" height="45" rx="2" fill="url(#waveGrad)" opacity="0.5"/>
+    <rect x="280" y="-85" width="4" height="85" rx="2" fill="url(#waveGrad)" opacity="0.75"/>
+    <rect x="288" y="-120" width="4" height="120" rx="2" fill="url(#waveGrad)" opacity="0.9"/>
+    <rect x="296" y="-55" width="4" height="55" rx="2" fill="url(#waveGrad)" opacity="0.6"/>
+    <rect x="304" y="-100" width="4" height="100" rx="2" fill="url(#waveGrad)" opacity="0.85"/>
+    <rect x="312" y="-70" width="4" height="70" rx="2" fill="url(#waveGrad)" opacity="0.65"/>
+    <rect x="320" y="-90" width="4" height="90" rx="2" fill="url(#waveGrad)" opacity="0.75"/>
+    <rect x="328" y="-115" width="4" height="115" rx="2" fill="url(#waveGrad)" opacity="0.9"/>
+    <rect x="336" y="-50" width="4" height="50" rx="2" fill="url(#waveGrad)" opacity="0.55"/>
+    <rect x="344" y="-80" width="4" height="80" rx="2" fill="url(#waveGrad)" opacity="0.7"/>
+    <rect x="352" y="-105" width="4" height="105" rx="2" fill="url(#waveGrad)" opacity="0.85"/>
+    <rect x="360" y="-60" width="4" height="60" rx="2" fill="url(#waveGrad)" opacity="0.6"/>
+    <rect x="368" y="-95" width="4" height="95" rx="2" fill="url(#waveGrad)" opacity="0.8"/>
+    <rect x="376" y="-40" width="4" height="40" rx="2" fill="url(#waveGrad)" opacity="0.5"/>
+    <rect x="384" y="-110" width="4" height="110" rx="2" fill="url(#waveGrad)" opacity="0.85"/>
+    <rect x="392" y="-70" width="4" height="70" rx="2" fill="url(#waveGrad)" opacity="0.65"/>
+    <rect x="400" y="-90" width="4" height="90" rx="2" fill="url(#waveGrad)" opacity="0.75"/>
+    <rect x="408" y="-55" width="4" height="55" rx="2" fill="url(#waveGrad)" opacity="0.6"/>
+    <rect x="416" y="-120" width="4" height="120" rx="2" fill="url(#waveGrad)" opacity="0.9"/>
+    <rect x="424" y="-65" width="4" height="65" rx="2" fill="url(#waveGrad)" opacity="0.6"/>
+    <rect x="432" y="-85" width="4" height="85" rx="2" fill="url(#waveGrad)" opacity="0.75"/>
+    <rect x="440" y="-100" width="4" height="100" rx="2" fill="url(#waveGrad)" opacity="0.85"/>
+    <rect x="448" y="-50" width="4" height="50" rx="2" fill="url(#waveGrad)" opacity="0.55"/>
+    <rect x="456" y="-75" width="4" height="75" rx="2" fill="url(#waveGrad)" opacity="0.65"/>
+    <rect x="464" y="-110" width="4" height="110" rx="2" fill="url(#waveGrad)" opacity="0.85"/>
+    <rect x="472" y="-45" width="4" height="45" rx="2" fill="url(#waveGrad)" opacity="0.5"/>
+    <rect x="480" y="-95" width="4" height="95" rx="2" fill="url(#waveGrad)" opacity="0.8"/>
+    <rect x="488" y="-60" width="4" height="60" rx="2" fill="url(#waveGrad)" opacity="0.6"/>
+    <rect x="496" y="-80" width="4" height="80" rx="2" fill="url(#waveGrad)" opacity="0.7"/>
+    <rect x="504" y="-115" width="4" height="115" rx="2" fill="url(#waveGrad)" opacity="0.9"/>
+    <rect x="512" y="-50" width="4" height="50" rx="2" fill="url(#waveGrad)" opacity="0.55"/>
+    <rect x="520" y="-100" width="4" height="100" rx="2" fill="url(#waveGrad)" opacity="0.85"/>
+    <rect x="528" y="-70" width="4" height="70" rx="2" fill="url(#waveGrad)" opacity="0.65"/>
+    <rect x="536" y="-40" width="4" height="40" rx="2" fill="url(#waveGrad)" opacity="0.5"/>
+    <rect x="544" y="-90" width="4" height="90" rx="2" fill="url(#waveGrad)" opacity="0.75"/>
+    <rect x="552" y="-55" width="4" height="55" rx="2" fill="url(#waveGrad)" opacity="0.6"/>
+    <rect x="560" y="-105" width="4" height="105" rx="2" fill="url(#waveGrad)" opacity="0.85"/>
+
+    <!-- Lower half (mirror) -->
+    <rect x="0" y="2" width="4" height="20" rx="2" fill="url(#waveGrad)" opacity="0.3"/>
+    <rect x="8" y="2" width="4" height="32" rx="2" fill="url(#waveGrad)" opacity="0.35"/>
+    <rect x="16" y="2" width="4" height="45" rx="2" fill="url(#waveGrad)" opacity="0.4"/>
+    <rect x="24" y="2" width="4" height="28" rx="2" fill="url(#waveGrad)" opacity="0.35"/>
+    <rect x="32" y="2" width="4" height="55" rx="2" fill="url(#waveGrad)" opacity="0.45"/>
+    <rect x="40" y="2" width="4" height="35" rx="2" fill="url(#waveGrad)" opacity="0.35"/>
+    <rect x="48" y="2" width="4" height="22" rx="2" fill="url(#waveGrad)" opacity="0.3"/>
+    <rect x="56" y="2" width="4" height="48" rx="2" fill="url(#waveGrad)" opacity="0.4"/>
+    <rect x="64" y="2" width="4" height="60" rx="2" fill="url(#waveGrad)" opacity="0.45"/>
+    <rect x="72" y="2" width="4" height="40" rx="2" fill="url(#waveGrad)" opacity="0.38"/>
+    <rect x="80" y="2" width="4" height="25" rx="2" fill="url(#waveGrad)" opacity="0.3"/>
+    <rect x="88" y="2" width="4" height="50" rx="2" fill="url(#waveGrad)" opacity="0.42"/>
+    <rect x="96" y="2" width="4" height="30" rx="2" fill="url(#waveGrad)" opacity="0.35"/>
+    <rect x="104" y="2" width="4" height="58" rx="2" fill="url(#waveGrad)" opacity="0.45"/>
+    <rect x="112" y="2" width="4" height="38" rx="2" fill="url(#waveGrad)" opacity="0.36"/>
+    <rect x="120" y="2" width="4" height="20" rx="2" fill="url(#waveGrad)" opacity="0.3"/>
+    <rect x="128" y="2" width="4" height="52" rx="2" fill="url(#waveGrad)" opacity="0.42"/>
+    <rect x="136" y="2" width="4" height="42" rx="2" fill="url(#waveGrad)" opacity="0.4"/>
+    <rect x="144" y="2" width="4" height="28" rx="2" fill="url(#waveGrad)" opacity="0.35"/>
+    <rect x="152" y="2" width="4" height="55" rx="2" fill="url(#waveGrad)" opacity="0.45"/>
+    <rect x="160" y="2" width="4" height="35" rx="2" fill="url(#waveGrad)" opacity="0.35"/>
+    <rect x="168" y="2" width="4" height="48" rx="2" fill="url(#waveGrad)" opacity="0.4"/>
+    <rect x="176" y="2" width="4" height="60" rx="2" fill="url(#waveGrad)" opacity="0.45"/>
+    <rect x="184" y="2" width="4" height="32" rx="2" fill="url(#waveGrad)" opacity="0.35"/>
+    <rect x="192" y="2" width="4" height="50" rx="2" fill="url(#waveGrad)" opacity="0.42"/>
+    <rect x="200" y="2" width="4" height="22" rx="2" fill="url(#waveGrad)" opacity="0.3"/>
+    <rect x="208" y="2" width="4" height="40" rx="2" fill="url(#waveGrad)" opacity="0.38"/>
+    <rect x="216" y="2" width="4" height="58" rx="2" fill="url(#waveGrad)" opacity="0.45"/>
+    <rect x="224" y="2" width="4" height="30" rx="2" fill="url(#waveGrad)" opacity="0.35"/>
+    <rect x="232" y="2" width="4" height="45" rx="2" fill="url(#waveGrad)" opacity="0.4"/>
+    <rect x="240" y="2" width="4" height="25" rx="2" fill="url(#waveGrad)" opacity="0.3"/>
+    <rect x="248" y="2" width="4" height="52" rx="2" fill="url(#waveGrad)" opacity="0.42"/>
+    <rect x="256" y="2" width="4" height="38" rx="2" fill="url(#waveGrad)" opacity="0.36"/>
+    <rect x="264" y="2" width="4" height="55" rx="2" fill="url(#waveGrad)" opacity="0.45"/>
+    <rect x="272" y="2" width="4" height="22" rx="2" fill="url(#waveGrad)" opacity="0.3"/>
+    <rect x="280" y="2" width="4" height="42" rx="2" fill="url(#waveGrad)" opacity="0.4"/>
+    <rect x="288" y="2" width="4" height="60" rx="2" fill="url(#waveGrad)" opacity="0.45"/>
+    <rect x="296" y="2" width="4" height="28" rx="2" fill="url(#waveGrad)" opacity="0.35"/>
+    <rect x="304" y="2" width="4" height="50" rx="2" fill="url(#waveGrad)" opacity="0.42"/>
+    <rect x="312" y="2" width="4" height="35" rx="2" fill="url(#waveGrad)" opacity="0.35"/>
+    <rect x="320" y="2" width="4" height="45" rx="2" fill="url(#waveGrad)" opacity="0.4"/>
+    <rect x="328" y="2" width="4" height="58" rx="2" fill="url(#waveGrad)" opacity="0.45"/>
+    <rect x="336" y="2" width="4" height="25" rx="2" fill="url(#waveGrad)" opacity="0.3"/>
+    <rect x="344" y="2" width="4" height="40" rx="2" fill="url(#waveGrad)" opacity="0.38"/>
+    <rect x="352" y="2" width="4" height="52" rx="2" fill="url(#waveGrad)" opacity="0.42"/>
+    <rect x="360" y="2" width="4" height="30" rx="2" fill="url(#waveGrad)" opacity="0.35"/>
+    <rect x="368" y="2" width="4" height="48" rx="2" fill="url(#waveGrad)" opacity="0.4"/>
+    <rect x="376" y="2" width="4" height="20" rx="2" fill="url(#waveGrad)" opacity="0.3"/>
+    <rect x="384" y="2" width="4" height="55" rx="2" fill="url(#waveGrad)" opacity="0.45"/>
+    <rect x="392" y="2" width="4" height="35" rx="2" fill="url(#waveGrad)" opacity="0.35"/>
+    <rect x="400" y="2" width="4" height="45" rx="2" fill="url(#waveGrad)" opacity="0.4"/>
+    <rect x="408" y="2" width="4" height="28" rx="2" fill="url(#waveGrad)" opacity="0.35"/>
+    <rect x="416" y="2" width="4" height="60" rx="2" fill="url(#waveGrad)" opacity="0.45"/>
+    <rect x="424" y="2" width="4" height="32" rx="2" fill="url(#waveGrad)" opacity="0.35"/>
+    <rect x="432" y="2" width="4" height="42" rx="2" fill="url(#waveGrad)" opacity="0.4"/>
+    <rect x="440" y="2" width="4" height="50" rx="2" fill="url(#waveGrad)" opacity="0.42"/>
+    <rect x="448" y="2" width="4" height="25" rx="2" fill="url(#waveGrad)" opacity="0.3"/>
+    <rect x="456" y="2" width="4" height="38" rx="2" fill="url(#waveGrad)" opacity="0.36"/>
+    <rect x="464" y="2" width="4" height="55" rx="2" fill="url(#waveGrad)" opacity="0.45"/>
+    <rect x="472" y="2" width="4" height="22" rx="2" fill="url(#waveGrad)" opacity="0.3"/>
+    <rect x="480" y="2" width="4" height="48" rx="2" fill="url(#waveGrad)" opacity="0.4"/>
+    <rect x="488" y="2" width="4" height="30" rx="2" fill="url(#waveGrad)" opacity="0.35"/>
+    <rect x="496" y="2" width="4" height="40" rx="2" fill="url(#waveGrad)" opacity="0.38"/>
+    <rect x="504" y="2" width="4" height="58" rx="2" fill="url(#waveGrad)" opacity="0.45"/>
+    <rect x="512" y="2" width="4" height="25" rx="2" fill="url(#waveGrad)" opacity="0.3"/>
+    <rect x="520" y="2" width="4" height="50" rx="2" fill="url(#waveGrad)" opacity="0.42"/>
+    <rect x="528" y="2" width="4" height="35" rx="2" fill="url(#waveGrad)" opacity="0.35"/>
+    <rect x="536" y="2" width="4" height="20" rx="2" fill="url(#waveGrad)" opacity="0.3"/>
+    <rect x="544" y="2" width="4" height="45" rx="2" fill="url(#waveGrad)" opacity="0.4"/>
+    <rect x="552" y="2" width="4" height="28" rx="2" fill="url(#waveGrad)" opacity="0.35"/>
+    <rect x="560" y="2" width="4" height="52" rx="2" fill="url(#waveGrad)" opacity="0.42"/>
+  </g>
+
+  <!-- Playhead -->
+  <line x1="460" y1="55" x2="460" y2="305" stroke="#fff" stroke-width="1.5" filter="url(#playheadGlow)" opacity="0.9"/>
+  <polygon points="456,55 464,55 460,48" fill="#fff"/>
+
+  <!-- Beat marker lines on waveform -->
+  <line x1="272" y1="55" x2="272" y2="305" stroke="#22c55e" stroke-width="1" opacity="0.6"/>
+  <line x1="340" y1="55" x2="340" y2="305" stroke="#22c55e" stroke-width="1" opacity="0.6"/>
+  <line x1="405" y1="55" x2="405" y2="305" stroke="#22c55e" stroke-width="1" opacity="0.6"/>
+  <line x1="520" y1="55" x2="520" y2="305" stroke="#22c55e" stroke-width="1" opacity="0.6"/>
+  <line x1="590" y1="55" x2="590" y2="305" stroke="#22c55e" stroke-width="1" opacity="0.6"/>
+  <line x1="660" y1="55" x2="660" y2="305" stroke="#22c55e" stroke-width="1" opacity="0.6"/>
+  <line x1="730" y1="55" x2="730" y2="305" stroke="#22c55e" stroke-width="1" opacity="0.6"/>
+
+  <!-- Timecode ruler -->
+  <rect x="200" y="310" width="590" height="20" fill="#0e0e14"/>
+  <text x="220" y="324" fill="#555" font-family="monospace" font-size="9">00:00</text>
+  <text x="340" y="324" fill="#555" font-family="monospace" font-size="9">00:04</text>
+  <text x="460" y="324" fill="#555" font-family="monospace" font-size="9">00:08</text>
+  <text x="580" y="324" fill="#555" font-family="monospace" font-size="9">00:12</text>
+  <text x="700" y="324" fill="#555" font-family="monospace" font-size="9">00:16</text>
+
+  <!-- Timeline area -->
+  <rect x="200" y="335" width="590" height="165" fill="#0a0a0a"/>
+
+  <!-- Video track label -->
+  <rect x="200" y="340" width="60" height="24" fill="#111"/>
+  <text x="210" y="356" fill="#666" font-family="Inter, sans-serif" font-size="9" font-weight="500">V1</text>
+
+  <!-- Video clips on timeline (colored blocks) -->
+  <rect x="268" y="340" width="68" height="24" rx="3" fill="#2d5a3d" stroke="#22c55e" stroke-width="0.5" opacity="0.85"/>
+  <rect x="340" y="340" width="62" height="24" rx="3" fill="#3d2d5a" stroke="#7c6ff7" stroke-width="0.5" opacity="0.85"/>
+  <rect x="405" y="340" width="112" height="24" rx="3" fill="#2d5a3d" stroke="#22c55e" stroke-width="0.5" opacity="0.85"/>
+  <rect x="520" y="340" width="67" height="24" rx="3" fill="#5a3d2d" stroke="#f59e0b" stroke-width="0.5" opacity="0.85"/>
+  <rect x="590" y="340" width="67" height="24" rx="3" fill="#3d2d5a" stroke="#7c6ff7" stroke-width="0.5" opacity="0.85"/>
+  <rect x="660" y="340" width="67" height="24" rx="3" fill="#2d5a3d" stroke="#22c55e" stroke-width="0.5" opacity="0.85"/>
+  <rect x="730" y="340" width="55" height="24" rx="3" fill="#5a3d2d" stroke="#f59e0b" stroke-width="0.5" opacity="0.85"/>
+
+  <!-- Clip thumbnails (mini rectangles inside clips) -->
+  <rect x="272" y="344" width="16" height="16" rx="2" fill="#1a3a25" opacity="0.6"/>
+  <rect x="344" y="344" width="16" height="16" rx="2" fill="#2a1a3a" opacity="0.6"/>
+  <rect x="409" y="344" width="16" height="16" rx="2" fill="#1a3a25" opacity="0.6"/>
+  <rect x="524" y="344" width="16" height="16" rx="2" fill="#3a2a1a" opacity="0.6"/>
+
+  <!-- Audio track label -->
+  <rect x="200" y="375" width="60" height="24" fill="#111"/>
+  <text x="210" y="391" fill="#666" font-family="Inter, sans-serif" font-size="9" font-weight="500">A1</text>
+
+  <!-- Audio waveform on timeline -->
+  <rect x="268" y="375" width="520" height="24" rx="3" fill="#1a1a2e" opacity="0.6"/>
+  <g transform="translate(270, 387)" opacity="0.5">
+    <rect x="0" y="-4" width="2" height="8" rx="1" fill="#7c6ff7"/>
+    <rect x="4" y="-6" width="2" height="12" rx="1" fill="#7c6ff7"/>
+    <rect x="8" y="-3" width="2" height="6" rx="1" fill="#7c6ff7"/>
+    <rect x="12" y="-8" width="2" height="16" rx="1" fill="#7c6ff7"/>
+    <rect x="16" y="-5" width="2" height="10" rx="1" fill="#7c6ff7"/>
+    <rect x="20" y="-7" width="2" height="14" rx="1" fill="#7c6ff7"/>
+    <rect x="24" y="-3" width="2" height="6" rx="1" fill="#7c6ff7"/>
+    <rect x="28" y="-9" width="2" height="18" rx="1" fill="#7c6ff7"/>
+    <rect x="32" y="-5" width="2" height="10" rx="1" fill="#7c6ff7"/>
+    <rect x="36" y="-7" width="2" height="14" rx="1" fill="#7c6ff7"/>
+    <rect x="40" y="-4" width="2" height="8" rx="1" fill="#7c6ff7"/>
+    <rect x="44" y="-8" width="2" height="16" rx="1" fill="#7c6ff7"/>
+    <rect x="48" y="-6" width="2" height="12" rx="1" fill="#7c6ff7"/>
+    <rect x="52" y="-3" width="2" height="6" rx="1" fill="#7c6ff7"/>
+  </g>
+
+  <!-- Beat markers on timeline (triangles on top of clips) -->
+  <polygon points="270,336 274,330 266,330" fill="#22c55e"/>
+  <polygon points="342,336 346,330 338,330" fill="#22c55e"/>
+  <polygon points="407,336 411,330 403,330" fill="#22c55e"/>
+  <polygon points="522,336 526,330 518,330" fill="#22c55e"/>
+  <polygon points="592,336 596,330 588,330" fill="#22c55e"/>
+  <polygon points="662,336 666,330 658,330" fill="#22c55e"/>
+  <polygon points="732,336 736,330 728,330" fill="#22c55e"/>
+
+  <!-- Zoom effect indicator -->
+  <rect x="200" y="410" width="60" height="24" fill="#111"/>
+  <text x="210" y="426" fill="#666" font-family="Inter, sans-serif" font-size="9" font-weight="500">Zoom</text>
+  <!-- Zoom curve visualization -->
+  <path d="M268,430 C290,430 290,414 320,414 C340,414 340,430 370,430 C390,430 390,414 420,414 C440,414 440,430 470,430 C490,430 490,414 520,414" fill="none" stroke="#7c6ff7" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Status bar -->
+  <rect x="200" y="470" width="590" height="30" fill="#111" rx="0"/>
+  <text x="216" y="489" fill="#22c55e" font-family="Inter, sans-serif" font-size="10" font-weight="500">7 beats detected</text>
+  <text x="400" y="489" fill="#555" font-family="Inter, sans-serif" font-size="10">Pattern: Energy Map</text>
+  <text x="660" y="489" fill="#555" font-family="Inter, sans-serif" font-size="10">24 fps</text>
+
+  <!-- Window border -->
+  <rect width="800" height="500" rx="12" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+</svg>
+
+
+<!-- ============================================================
+     2. HOW IT WORKS DIAGRAM (3 steps, inline SVG + CSS)
+     Each step is a glassmorphism card connected by animated
+     dashed arrows.
+     ============================================================ -->
+
+<style>
+  .hiw-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 60px 20px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .hiw-card {
+    position: relative;
+    width: 240px;
+    padding: 36px 24px;
+    background: rgba(26, 26, 46, 0.6);
+    border: 1px solid rgba(124, 111, 247, 0.15);
+    border-radius: 16px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    text-align: center;
+    transition: border-color 0.3s, transform 0.3s;
+    flex-shrink: 0;
+  }
+
+  .hiw-card:hover {
+    border-color: rgba(124, 111, 247, 0.4);
+    transform: translateY(-4px);
+  }
+
+  .hiw-step-num {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 28px;
+    background: #7c6ff7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(124, 111, 247, 0.4);
+  }
+
+  .hiw-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 16px;
+    background: rgba(124, 111, 247, 0.1);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hiw-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hiw-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .hiw-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #888;
+    line-height: 1.5;
+  }
+
+  .hiw-arrow {
+    flex-shrink: 0;
+    width: 80px;
+    height: 40px;
+  }
+
+  @keyframes dashFlow {
+    to { stroke-dashoffset: -20; }
+  }
+
+  .hiw-arrow-line {
+    stroke-dasharray: 6, 6;
+    animation: dashFlow 1s linear infinite;
+  }
+
+  @media (max-width: 768px) {
+    .hiw-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .hiw-arrow {
+      transform: rotate(90deg);
+      width: 40px;
+      height: 40px;
+    }
+  }
+</style>
+
+<div class="hiw-container">
+  <!-- Step 1: Drop your music -->
+  <div class="hiw-card">
+    <div class="hiw-step-num">1</div>
+    <div class="hiw-icon">
+      <svg viewBox="0 0 28 28" fill="none" stroke="#7c6ff7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="6" width="22" height="16" rx="3"/>
+        <path d="M8 18 V10"/>
+        <path d="M11 18 V12"/>
+        <path d="M14 18 V8"/>
+        <path d="M17 18 V11"/>
+        <path d="M20 18 V13"/>
+      </svg>
+    </div>
+    <div class="hiw-title">Drop your music</div>
+    <div class="hiw-desc">Drag any audio file. Beats are detected instantly.</div>
+  </div>
+
+  <!-- Arrow 1→2 -->
+  <svg class="hiw-arrow" viewBox="0 0 80 40" fill="none">
+    <line x1="0" y1="20" x2="68" y2="20" class="hiw-arrow-line" stroke="#7c6ff7" stroke-width="2" opacity="0.5"/>
+    <polyline points="62,14 72,20 62,26" stroke="#7c6ff7" stroke-width="2" fill="none" opacity="0.7"/>
+  </svg>
+
+  <!-- Step 2: Choose your style -->
+  <div class="hiw-card">
+    <div class="hiw-step-num">2</div>
+    <div class="hiw-icon">
+      <svg viewBox="0 0 28 28" fill="none" stroke="#7c6ff7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="6" y1="8" x2="22" y2="8"/>
+        <line x1="6" y1="14" x2="22" y2="14"/>
+        <line x1="6" y1="20" x2="22" y2="20"/>
+        <circle cx="11" cy="8" r="2.5" fill="#1a1a2e" stroke="#7c6ff7"/>
+        <circle cx="17" cy="14" r="2.5" fill="#1a1a2e" stroke="#7c6ff7"/>
+        <circle cx="13" cy="20" r="2.5" fill="#1a1a2e" stroke="#7c6ff7"/>
+      </svg>
+    </div>
+    <div class="hiw-title">Choose your style</div>
+    <div class="hiw-desc">Pick a cut pattern, mood, and effects. 11 patterns available.</div>
+  </div>
+
+  <!-- Arrow 2→3 -->
+  <svg class="hiw-arrow" viewBox="0 0 80 40" fill="none">
+    <line x1="0" y1="20" x2="68" y2="20" class="hiw-arrow-line" stroke="#7c6ff7" stroke-width="2" opacity="0.5"/>
+    <polyline points="62,14 72,20 62,26" stroke="#7c6ff7" stroke-width="2" fill="none" opacity="0.7"/>
+  </svg>
+
+  <!-- Step 3: Auto-edited timeline -->
+  <div class="hiw-card">
+    <div class="hiw-step-num">3</div>
+    <div class="hiw-icon">
+      <svg viewBox="0 0 28 28" fill="none" stroke="#7c6ff7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Timeline with clips -->
+        <rect x="3" y="8" width="8" height="5" rx="1"/>
+        <rect x="12" y="8" width="6" height="5" rx="1"/>
+        <rect x="19" y="8" width="6" height="5" rx="1"/>
+        <rect x="3" y="15" width="22" height="5" rx="1" opacity="0.5"/>
+        <!-- Play triangle -->
+        <path d="M12 22 L17 25 L12 28 Z" fill="#22c55e" stroke="#22c55e"/>
+      </svg>
+    </div>
+    <div class="hiw-title">Auto-edited timeline</div>
+    <div class="hiw-desc">Clips placed and cut perfectly to every beat. Done.</div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     3. DECORATIVE ELEMENTS
+     - Gradient orb (CSS)
+     - Grid pattern (SVG)
+     - Floating music notes (SVG + CSS animation)
+     ============================================================ -->
+
+<style>
+  /* --- 3a. Gradient Orb (hero background decoration) --- */
+  .hero-orb {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(124, 111, 247, 0.25) 0%, rgba(79, 70, 229, 0.1) 40%, transparent 70%);
+    filter: blur(80px);
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* --- 3c. Floating Music Notes --- */
+  @keyframes floatUp1 {
+    0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.6; }
+    90%  { opacity: 0.6; }
+    100% { transform: translateY(-180px) rotate(15deg); opacity: 0; }
+  }
+  @keyframes floatUp2 {
+    0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.4; }
+    90%  { opacity: 0.4; }
+    100% { transform: translateY(-200px) rotate(-10deg); opacity: 0; }
+  }
+  @keyframes floatUp3 {
+    0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.5; }
+    90%  { opacity: 0.5; }
+    100% { transform: translateY(-160px) rotate(20deg); opacity: 0; }
+  }
+  @keyframes floatUp4 {
+    0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.35; }
+    90%  { opacity: 0.35; }
+    100% { transform: translateY(-190px) rotate(-15deg); opacity: 0; }
+  }
+
+  .floating-notes {
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .floating-note {
+    position: absolute;
+    bottom: 0;
+  }
+  .floating-note:nth-child(1) {
+    left: 15%;
+    animation: floatUp1 6s ease-in-out infinite;
+  }
+  .floating-note:nth-child(2) {
+    left: 40%;
+    animation: floatUp2 8s ease-in-out infinite 2s;
+  }
+  .floating-note:nth-child(3) {
+    left: 65%;
+    animation: floatUp3 7s ease-in-out infinite 1s;
+  }
+  .floating-note:nth-child(4) {
+    left: 85%;
+    animation: floatUp4 9s ease-in-out infinite 3s;
+  }
+</style>
+
+<!-- 3a. Gradient Orb — place inside .hero (position:relative) -->
+<div class="hero-orb"></div>
+
+<!-- 3b. Grid Pattern — use as background-image via inline SVG data URI, or embed directly -->
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;top:0;left:0;pointer-events:none;z-index:0;">
+  <defs>
+    <pattern id="subtleGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="0.8" fill="#fff" opacity="0.04"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#subtleGrid)"/>
+</svg>
+
+<!-- 3c. Floating Music Notes — place inside hero area -->
+<div class="floating-notes">
+  <!-- Note 1: eighth note -->
+  <svg class="floating-note" width="20" height="28" viewBox="0 0 20 28" fill="none">
+    <ellipse cx="7" cy="23" rx="5" ry="3.5" fill="#7c6ff7" opacity="0.7"/>
+    <line x1="12" y1="23" x2="12" y2="3" stroke="#7c6ff7" stroke-width="1.5" opacity="0.7"/>
+    <path d="M12 3 C16 5 18 9 14 12" stroke="#7c6ff7" stroke-width="1.5" fill="none" opacity="0.7"/>
+  </svg>
+  <!-- Note 2: quarter note -->
+  <svg class="floating-note" width="16" height="28" viewBox="0 0 16 28" fill="none">
+    <ellipse cx="6" cy="23" rx="5" ry="3.5" fill="#7c6ff7" opacity="0.5"/>
+    <line x1="11" y1="23" x2="11" y2="3" stroke="#7c6ff7" stroke-width="1.5" opacity="0.5"/>
+  </svg>
+  <!-- Note 3: double eighth -->
+  <svg class="floating-note" width="24" height="28" viewBox="0 0 24 28" fill="none">
+    <ellipse cx="5" cy="23" rx="4" ry="3" fill="#7c6ff7" opacity="0.6"/>
+    <ellipse cx="19" cy="23" rx="4" ry="3" fill="#7c6ff7" opacity="0.6"/>
+    <line x1="9" y1="23" x2="9" y2="5" stroke="#7c6ff7" stroke-width="1.5" opacity="0.6"/>
+    <line x1="23" y1="23" x2="23" y2="5" stroke="#7c6ff7" stroke-width="1.5" opacity="0.6"/>
+    <line x1="9" y1="5" x2="23" y2="5" stroke="#7c6ff7" stroke-width="2" opacity="0.6"/>
+  </svg>
+  <!-- Note 4: eighth note (smaller) -->
+  <svg class="floating-note" width="16" height="22" viewBox="0 0 16 22" fill="none">
+    <ellipse cx="5" cy="18" rx="4" ry="3" fill="#7c6ff7" opacity="0.4"/>
+    <line x1="9" y1="18" x2="9" y2="2" stroke="#7c6ff7" stroke-width="1.5" opacity="0.4"/>
+    <path d="M9 2 C12 4 14 7 11 9" stroke="#7c6ff7" stroke-width="1.5" fill="none" opacity="0.4"/>
+  </svg>
+</div>
+
+
+<!-- ============================================================
+     4. FEATURE ICONS (24x24 SVG)
+     Use inside .feature-icon containers.
+     Stroke-based, matching existing site style.
+     ============================================================ -->
+
+<!-- 4a. Beat Detection (waveform + marker) -->
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7c6ff7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3 12 h2 l2 -6 2 12 2 -8 2 10 2 -4 2 6 2 -10 h2"/>
+  <line x1="18" y1="4" x2="18" y2="20" stroke="#22c55e" stroke-width="1.5" opacity="0.8"/>
+  <polygon points="16,4 20,4 18,2" fill="#22c55e" stroke="none" opacity="0.8"/>
+</svg>
+
+<!-- 4b. Cut Patterns (scissors + grid) -->
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7c6ff7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Scissors -->
+  <circle cx="6" cy="6" r="2.5"/>
+  <circle cx="6" cy="18" r="2.5"/>
+  <path d="M8.2 7.8 L18 16"/>
+  <path d="M8.2 16.2 L18 8"/>
+  <!-- Grid lines -->
+  <line x1="15" y1="4" x2="15" y2="20" stroke="#7c6ff7" stroke-width="1" opacity="0.4"/>
+  <line x1="19" y1="4" x2="19" y2="20" stroke="#7c6ff7" stroke-width="1" opacity="0.4"/>
+  <line x1="13" y1="8" x2="21" y2="8" stroke="#7c6ff7" stroke-width="1" opacity="0.4"/>
+  <line x1="13" y1="16" x2="21" y2="16" stroke="#7c6ff7" stroke-width="1" opacity="0.4"/>
+</svg>
+
+<!-- 4c. Zoom Effects (magnifier + curve) -->
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7c6ff7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="10" cy="10" r="6"/>
+  <line x1="14.5" y1="14.5" x2="20" y2="20"/>
+  <!-- Easing curve inside lens -->
+  <path d="M6 14 C8 14 8 6 12 6" stroke="#7c6ff7" stroke-width="1.5"/>
+  <!-- Zoom arrows -->
+  <path d="M16 3 L20 3 L20 7" stroke="#22c55e" stroke-width="1.5" opacity="0.6"/>
+</svg>
+
+<!-- 4d. AI Mood (brain + music note) -->
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7c6ff7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Brain outline -->
+  <path d="M12 2 C8 2 5 5 5 8 C4 8 3 9.5 3 11 C3 13 4.5 14 5 14 C5 16 7 18 9 18 L12 18"/>
+  <path d="M12 2 C16 2 19 5 19 8 C20 8 21 9.5 21 11 C21 13 19.5 14 19 14 C19 16 17 18 15 18 L12 18"/>
+  <line x1="12" y1="2" x2="12" y2="18"/>
+  <!-- Music note -->
+  <ellipse cx="17" cy="21" rx="2.5" ry="1.8" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.7"/>
+  <line x1="19.5" y1="21" x2="19.5" y2="15" stroke="#22c55e" stroke-width="1.5" opacity="0.7"/>
+  <path d="M19.5 15 C21 15.5 22 16.5 21 17.5" stroke="#22c55e" stroke-width="1.5" fill="none" opacity="0.7"/>
+</svg>
+
+<!-- 4e. Freeze Frames (snowflake + frame) -->
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7c6ff7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Frame -->
+  <rect x="3" y="5" width="18" height="14" rx="2"/>
+  <polyline points="3 9 7 9"/>
+  <polyline points="17 9 21 9"/>
+  <!-- Snowflake (centered) -->
+  <line x1="12" y1="8" x2="12" y2="16"/>
+  <line x1="8" y1="12" x2="16" y2="12"/>
+  <line x1="9.2" y1="9.2" x2="14.8" y2="14.8"/>
+  <line x1="14.8" y1="9.2" x2="9.2" y2="14.8"/>
+  <!-- Crystal tips -->
+  <line x1="12" y1="8" x2="10.5" y2="9" stroke-width="1.5"/>
+  <line x1="12" y1="8" x2="13.5" y2="9" stroke-width="1.5"/>
+  <line x1="12" y1="16" x2="10.5" y2="15" stroke-width="1.5"/>
+  <line x1="12" y1="16" x2="13.5" y2="15" stroke-width="1.5"/>
+</svg>
