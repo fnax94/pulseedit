@@ -42,33 +42,37 @@
         "@type": "HowTo",
         "name": "How to Auto-Place Beat Markers in DaVinci Resolve",
         "description": "Automatically detect beats and place real markers on your DaVinci Resolve timeline using Beat Markers plugin.",
+        "totalTime": "PT2M",
+        "tool": [
+            {"@type": "HowToTool", "name": "DaVinci Resolve Studio 18+"},
+            {"@type": "HowToTool", "name": "Beat Markers"}
+        ],
         "step": [
             {
                 "@type": "HowToStep",
-                "name": "Download Beat Markers",
-                "text": "Download the Beat Markers app from pulseedit.com. It's a standalone macOS app — no installation needed, just open it."
+                "name": "Step 1: Open your project in DaVinci Resolve",
+                "text": "Open your project in DaVinci Resolve Studio 18+. Make sure your music is on an audio track in the timeline. Beat Markers analyzes the audio file directly, so the audio needs to be present.",
+                "url": "https://pulseedit.com/blog/auto-place-beat-markers-davinci-resolve#step-1"
             },
             {
                 "@type": "HowToStep",
-                "name": "Open DaVinci Resolve and select your audio track",
-                "text": "Open your project in DaVinci Resolve Studio 18+. Make sure your music is on an audio track in the timeline."
+                "name": "Step 2: Launch Beat Markers",
+                "text": "Open the Beat Markers app. It automatically detects DaVinci Resolve and connects to your current project and timeline. No configuration needed.",
+                "url": "https://pulseedit.com/blog/auto-place-beat-markers-davinci-resolve#step-2"
             },
             {
                 "@type": "HowToStep",
-                "name": "Connect and detect beats",
-                "text": "Beat Markers connects to DaVinci Resolve automatically. Select the audio track, adjust sensitivity if needed, and click Detect Beats."
+                "name": "Step 3: Select your audio track and adjust sensitivity",
+                "text": "Beat Markers shows all audio tracks with clips. Select the track with your music. The sensitivity slider controls how many beats are detected — lower values for strong beats only, higher values for every nuance.",
+                "url": "https://pulseedit.com/blog/auto-place-beat-markers-davinci-resolve#step-3"
             },
             {
                 "@type": "HowToStep",
-                "name": "Place markers",
-                "text": "Click Place Markers. Blue markers appear on your timeline at every detected beat position. They're real, snappable markers — your clips snap to them when you drag."
+                "name": "Step 4: Click Detect Beats then Place Markers",
+                "text": "Beat Markers analyzes your audio with AI-powered beat detection and shows BPM and beat count. Click Place Markers to put Blue markers on your timeline at every beat position.",
+                "url": "https://pulseedit.com/blog/auto-place-beat-markers-davinci-resolve#step-4"
             }
-        ],
-        "tool": {
-            "@type": "HowToTool",
-            "name": "Beat Markers for DaVinci Resolve"
-        },
-        "totalTime": "PT2M"
+        ]
     }
     </script>
 
@@ -297,7 +301,7 @@
 
                 <h2>Step-by-Step: Auto-Place Beat Markers</h2>
 
-                <div class="step-box">
+                <div class="step-box" id="step-1">
                     <div class="step-num">1</div>
                     <div>
                         <h3>Open your project in DaVinci Resolve</h3>
@@ -305,7 +309,7 @@
                     </div>
                 </div>
 
-                <div class="step-box">
+                <div class="step-box" id="step-2">
                     <div class="step-num">2</div>
                     <div>
                         <h3>Launch Beat Markers</h3>
@@ -313,7 +317,7 @@
                     </div>
                 </div>
 
-                <div class="step-box">
+                <div class="step-box" id="step-3">
                     <div class="step-num">3</div>
                     <div>
                         <h3>Select your audio track and adjust sensitivity</h3>
@@ -321,7 +325,7 @@
                     </div>
                 </div>
 
-                <div class="step-box">
+                <div class="step-box" id="step-4">
                     <div class="step-num">4</div>
                     <div>
                         <h3>Click "Detect Beats" then "Place Markers"</h3>

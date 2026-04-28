@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="gbFMCBXWgDK3Tqa_aNvF8cAw--jC0UAw30LJeLuzXZ0" />
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadGA() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-JV9DJHLCY2');
+    }
+    if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
+    </script>
+    <title>How to Sync Video to Music in DaVinci Resolve &mdash; Step by Step (2026)</title>
+    <meta name="description" content="Sync video clips to music beats in DaVinci Resolve. Step-by-step tutorial covering manual marker workflow, blade tool cuts, and automatic beat sync with Pulse Edit.">
+    <meta name="keywords" content="sync video to music davinci resolve, beat sync video, davinci resolve beat marker, edit on the beat tutorial, music sync video editing">
+    <meta property="og:title" content="How to Sync Video to Music in DaVinci Resolve &mdash; Step by Step">
+    <meta property="og:description" content="Manual vs automatic beat sync in DaVinci Resolve, with a full walkthrough using Pulse Edit.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://pulseedit.com/blog/sync-video-music-davinci-resolve-tutorial.html">
+    <meta property="og:image" content="https://pulseedit.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Sync Video to Music in DaVinci Resolve &mdash; Step by Step">
+    <meta name="twitter:description" content="Manual vs automatic beat sync in DaVinci Resolve.">
+    <meta name="twitter:image" content="https://pulseedit.com/og-image.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#7c6ff7">
+    <link rel="canonical" href="https://pulseedit.com/blog/sync-video-music-davinci-resolve-tutorial">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles-v2.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Sync Video to Music in DaVinci Resolve",
+        "description": "Step-by-step guide to syncing video clips to music beats in DaVinci Resolve, covering both manual marker workflow and automatic beat detection with Pulse Edit.",
+        "step": [
+            {"@type": "HowToStep", "name": "Import music and video into Resolve", "text": "Drop the music track on Audio 1 and import all video clips into the Media Pool. Create a timeline matching your delivery resolution and frame rate."},
+            {"@type": "HowToStep", "name": "Mark the beats", "text": "Manually: play the audio and tap M on every beat to drop markers. Automatically: open Pulse Edit, click Detect Beats — markers appear on every detected beat in 5 seconds."},
+            {"@type": "HowToStep", "name": "Cut clips at marker positions", "text": "Move the playhead to each marker and use Blade tool (B) to slice your video track. Or let Pulse Edit handle it during Auto-Edit."},
+            {"@type": "HowToStep", "name": "Replace clips between cuts", "text": "Drag clips from the Media Pool into each cut segment. Trim to fit the segment length. Pulse Edit does this automatically based on the chosen cut pattern."},
+            {"@type": "HowToStep", "name": "Refine timing with sub-frame nudges", "text": "Beat sync needs frame-accurate alignment. Nudge clips by 1 frame using comma/period keys until cuts land exactly on the beat."},
+            {"@type": "HowToStep", "name": "Add transitions and effects", "text": "Add cross dissolves on softer beats, hard cuts on hits. Speed ramps before drops add anticipation. Pulse Edit applies these automatically per pattern."},
+            {"@type": "HowToStep", "name": "Export and verify", "text": "Render at native frame rate (mixed FPS introduces beat drift). Watch on a fresh playthrough — if any cut feels off, the timing is off."}
+        ],
+        "tool": {"@type": "HowToTool", "name": "Pulse Edit for DaVinci Resolve"},
+        "totalTime": "PT15M"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Sync Video to Music in DaVinci Resolve &mdash; Step by Step (2026)",
+        "description": "Manual and automatic beat sync workflows in DaVinci Resolve.",
+        "author": {"@type": "Person", "name": "Abramo Benedetti"},
+        "publisher": {"@type": "Organization", "name": "AB Tools"},
+        "datePublished": "2026-04-28",
+        "dateModified": "2026-04-28",
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://pulseedit.com/blog/sync-video-music-davinci-resolve-tutorial"}
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+        a:focus-visible { outline: 2px solid #7c6ff7; outline-offset: 2px; }
+        nav { padding: 20px 0; border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; background: #0a0a0aee; backdrop-filter: blur(12px); z-index: 100; }
+        .nav-inner { max-width: 1000px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand { font-size: 20px; font-weight: 700; color: #fff; text-decoration: none; }
+        .nav-brand span { color: #7c6ff7; }
+        .nav-links { display: flex; gap: 28px; }
+        .nav-links a { color: #888; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: #fff; }
+        .article-header { padding: 80px 0 40px; }
+        .breadcrumb { font-size: 13px; color: #9ca3af; margin-bottom: 24px; }
+        .breadcrumb a { color: #7c6ff7; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .article-header h1 { font-size: 40px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 16px; }
+        .article-meta { font-size: 14px; color: #9ca3af; }
+        .article-body { padding-bottom: 80px; }
+        .article-body h2 { font-size: 26px; color: #fff; margin: 48px 0 16px; line-height: 1.3; }
+        .article-body h3 { font-size: 20px; color: #fff; margin: 32px 0 12px; }
+        .article-body p { color: #bbb; font-size: 16px; margin-bottom: 16px; }
+        .article-body ul, .article-body ol { margin: 0 0 16px 24px; color: #bbb; font-size: 16px; }
+        .article-body li { margin-bottom: 8px; }
+        .article-body strong { color: #e0e0e0; }
+        .article-body a { color: #7c6ff7; text-decoration: none; }
+        .article-body a:hover { text-decoration: underline; }
+        .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; margin: 24px 0; border-radius: 12px; overflow: hidden; background: #111; border: 1px solid #1a1a1a; }
+        .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .img-placeholder { background: #111; border: 1px dashed #2a2a2a; border-radius: 10px; padding: 40px 24px; text-align: center; color: #555; font-size: 13px; margin: 16px 0; }
+        .callout { background: #111; border: 1px solid #2a2a4a; border-left: 3px solid #7c6ff7; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+        .callout p { color: #bbb; margin-bottom: 0; }
+        .callout strong { color: #7c6ff7; }
+        .tip-box { background: #0a2e1a; border: 1px solid #22c55e33; border-left: 3px solid #22c55e; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+        .tip-box p { color: #bbb; margin-bottom: 0; }
+        .tip-box strong { color: #22c55e; }
+        .cta-box { background: #0f0f1a; border: 1px solid #7c6ff7; border-radius: 12px; padding: 32px; text-align: center; margin: 48px 0; }
+        .cta-box h3 { color: #fff; font-size: 22px; margin-bottom: 8px; }
+        .cta-box p { color: #9ca3af; font-size: 15px; margin-bottom: 20px; }
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; transition: all 0.2s; margin: 0 6px; }
+        .btn-green { background: #22c55e; color: #fff; }
+        .btn-green:hover { background: #16a34a; transform: translateY(-1px); text-decoration: none; }
+        .btn-outline { background: transparent; color: #e0e0e0; border: 1px solid #333; }
+        .btn-outline:hover { border-color: #7c6ff7; color: #fff; text-decoration: none; }
+        footer { border-top: 1px solid #1a1a1a; padding: 40px 0; text-align: center; color: #555; font-size: 13px; }
+        footer a { color: #7c6ff7; text-decoration: none; }
+        @media (max-width: 640px) { .article-header h1 { font-size: 28px; } .article-body h2 { font-size: 22px; } .nav-links { gap: 16px; } .nav-links a { font-size: 13px; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
+            <div class="nav-links">
+                <a href="/blog/">Blog</a>
+                <a href="/#features">Features</a>
+                <a href="/#pricing">Pricing</a>
+                <a href="/#faq">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <article>
+        <header class="article-header">
+            <div class="container">
+                <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/blog/">Blog</a> &rsaquo; Sync Video to Music Tutorial</div>
+                <h1>How to Sync Video to Music in DaVinci Resolve &mdash; Step by Step</h1>
+                <p class="article-meta">By Abramo Benedetti &mdash; April 28, 2026 &mdash; 6 min read</p>
+            </div>
+        </header>
+
+        <div class="article-body">
+            <div class="container">
+
+                <p>Syncing video to music in DaVinci Resolve sounds simple: cut the clip on the beat, repeat. In practice, the manual workflow eats hours and your cuts are never frame-accurate because human tapping drifts. This tutorial covers both methods &mdash; the traditional marker workflow and the automatic approach with <a href="/">Pulse Edit</a> &mdash; so you can pick what fits your project.</p>
+
+                <div class="video-wrap"><iframe src="https://www.youtube.com/embed/PLACEHOLDER_VIDEO_ID" title="How to Sync Video to Music in DaVinci Resolve" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+                <h2>Step 1: Import Music and Video into Resolve</h2>
+                <p>Open DaVinci Resolve Studio 18+ and create a new timeline matching your delivery format. Drop the music track on Audio 1. Import all video clips into the Media Pool. Set the timeline frame rate to match your source clips &mdash; mixing 24fps and 30fps clips on the same timeline causes beat drift you can't fix later.</p>
+                <p>Place a placeholder clip on Video 1 spanning the full length of the song so you have a visual reference while marking beats.</p>
+                <div class="img-placeholder">[Screenshot: Resolve timeline with music track loaded]</div>
+
+                <h2>Step 2: Mark the Beats</h2>
+                <p><strong>Manual method:</strong> click Audio 1 to select it. Press play. Tap <strong>M</strong> on every beat. The marker bar above the timeline fills with red flags. Once the song ends, you have your beat map. Expect 200-400 markers for a 3-minute song at 100-130 BPM. This usually takes 15-20 minutes of careful tapping per song.</p>
+                <p><strong>Automatic method:</strong> open Pulse Edit, select your audio track, click <strong>Detect Beats</strong>. In 5 seconds you have the same markers, but generated by AI from the audio waveform &mdash; frame-accurate, no human drift. Adjust the sensitivity slider to control how many beats are detected.</p>
+                <div class="img-placeholder">[Screenshot: timeline with beat markers placed]</div>
+
+                <h2>Step 3: Cut Clips at Marker Positions</h2>
+                <p>With markers in place, you need to slice your video track at each marker. Move the playhead to a marker (use the <strong>Up/Down</strong> arrow keys to jump between markers), then press <strong>B</strong> to activate the Blade tool and click on the video track. Repeat for every marker.</p>
+                <p>This is where the manual workflow becomes unbearable: 200 markers means 200 blade cuts. With Pulse Edit's Auto-Edit, you skip this entirely &mdash; the tool slices and replaces clips in one pass.</p>
+
+                <h2>Step 4: Replace Clips Between Cuts</h2>
+                <p>For each segment between two cuts, drag a clip from the Media Pool to fill it. Use the in/out handles to pick the best portion of each source clip. If a segment is 0.5 seconds, you can't show a 3-second action &mdash; pick the most visually interesting half-second.</p>
+                <p>Pulse Edit handles this with cut patterns. <strong>Energy Map</strong> matches clip pacing to music intensity automatically. <strong>Every Beat</strong> places one clip per beat. <strong>Buildup</strong> starts slow and accelerates. See <a href="/blog/auto-edit-video-to-music-davinci-resolve.html">our full Auto-Edit guide</a> for the complete pattern list.</p>
+
+                <h2>Step 5: Refine Timing with Sub-Frame Nudges</h2>
+                <p>Even with markers in place, your cuts might land 1-2 frames off the beat. Use the comma (<strong>,</strong>) and period (<strong>.</strong>) keys to nudge clips one frame at a time. At 30fps, a 1-frame error is 33ms &mdash; visible on hard-hitting kicks.</p>
+                <p>Pulse Edit places cuts at the audio sample level then snaps to the nearest frame using floor rounding (never round, which causes 1-frame jitter on alternating beats). This is automatic.</p>
+
+                <div class="callout">
+                    <p><strong>Why floor and not round?</strong> Round causes alternating frame numbers when beats land between frame boundaries (e.g., 12.4 &rarr; 12, 12.6 &rarr; 13). Floor always rounds down, keeping the cut consistently before the audible beat.</p>
+                </div>
+
+                <h2>Step 6: Add Transitions and Effects</h2>
+                <p>Beat-synced edits feel more dynamic with selective transitions. Use cross dissolves on softer beats (off-beats, breaks), hard cuts on the strongest hits. Add 2-3 frame speed ramps right before drops to amplify the impact. Avoid over-using transitions &mdash; the beat is the rhythm; transitions should support it, not compete.</p>
+                <p>Pulse Edit's patterns apply these effects automatically based on the audio energy curve. Energy Map adds zooms on peaks; Buildup adds speed ramps before drops.</p>
+
+                <h2>Step 7: Export and Verify</h2>
+                <p>Render at the native timeline frame rate. Watch the export on a fresh playthrough &mdash; if any cut feels late, it is. The brain detects 30-50ms beat misalignment as "off" without being able to articulate why. Trust your instinct; if it feels wrong, fix it.</p>
+
+                <div class="tip-box">
+                    <p><strong>Tip:</strong> Wear headphones during the final review. Speakers introduce slight audio delay (5-15ms depending on the device) that masks small timing errors. Headphones expose them.</p>
+                </div>
+
+                <h2>Manual vs Automatic: When to Use Each</h2>
+                <ul>
+                    <li><strong>Manual</strong> &mdash; one-off creative shorts where you want hand-crafted control over every cut. Good for film school exercises and very stylized edits.</li>
+                    <li><strong>Automatic</strong> &mdash; everything else. Music videos, social content, weddings, travel reels, brand work. The bottleneck is creative selection of clips, not mechanical cutting. <a href="/">Pulse Edit</a> removes the mechanical part so you spend time on the creative part.</li>
+                </ul>
+
+                <h2>Requirements</h2>
+                <ul>
+                    <li><strong>DaVinci Resolve Studio 18+</strong> for either method (free Resolve doesn't support the API for plugins)</li>
+                    <li><strong>macOS</strong> or <strong>Windows 10/11</strong></li>
+                    <li><strong>Pulse Edit</strong> for the automatic workflow &mdash; <a href="/#pricing">try free with 4 free uses</a></li>
+                </ul>
+
+                <div class="cta-box">
+                    <h3>Try Pulse Edit Free &rarr; 4 Free Uses</h3>
+                    <p>Skip the marker tapping and blade clicking. Auto-sync your next edit in 30 seconds.</p>
+                    <a href="https://pulseedit.com/#pricing" class="btn btn-green">Get Pulse Edit</a>
+                    <a href="/blog/auto-edit-video-to-music-davinci-resolve.html" class="btn btn-outline">Read Auto-Edit Guide</a>
+                </div>
+
+            </div>
+        </div>
+
+<aside style="margin:32px 0;padding:20px 24px;background:linear-gradient(135deg,rgba(56,189,248,0.07),rgba(124,111,247,0.07));border-left:3px solid #38bdf8;border-radius:8px;">
+<div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#38bdf8;margin-bottom:6px;">Workflow tip</div>
+<p style="margin:0;font-size:14px;line-height:1.65;color:#cfcfdb;">Pulse Edit cuts inside DaVinci Resolve. To plan the content calendar, track edits per client, and collect timestamped review feedback from stakeholders, we built <a href="https://lumiqa.io" target="_blank" rel="noopener" style="color:#38bdf8;font-weight:600;">Lumiqa</a> &mdash; a creative production workspace for agencies and freelance editors. <strong>14-day free trial</strong>, no credit card.</p>
+</aside>
+</article>
+
+    <section style="padding: 0 0 60px;">
+        <div class="container" style="max-width:720px;margin:0 auto;padding:0 24px;">
+            <h2 style="font-size:22px;color:#fff;margin-bottom:20px;">Related Articles</h2>
+            <ul style="list-style:none;padding:0;margin:0;display:grid;gap:12px;">
+                <li><a href="/blog/auto-edit-video-to-music-davinci-resolve.html" style="color:#7c6ff7;text-decoration:none;font-size:15px;">How to auto-edit videos to music in DaVinci Resolve</a></li>
+                <li><a href="/blog/wedding-highlight-reel-davinci-resolve.html" style="color:#7c6ff7;text-decoration:none;font-size:15px;">How to auto-edit a wedding highlight reel</a></li>
+                <li><a href="/blog/best-davinci-resolve-plugins-music-videos.html" style="color:#7c6ff7;text-decoration:none;font-size:15px;">Best DaVinci Resolve plugins for music videos</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 8px;"><strong style="color: #fff;">Pulse Edit</strong> &mdash; Auto-edit videos to the beat in DaVinci Resolve</p>
+            <p>Made by <a href="https://www.instagram.com/aki.vhs/" target="_blank">Abramo Benedetti</a> &mdash; Professional Video Editor</p>
+            <p style="margin-top: 8px;"><a href="/privacy.html" style="margin-right:16px;">Privacy Policy</a> <a href="/terms.html">Terms of Service</a></p>
+        </div>
+    </footer>
+
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;border-top:1px solid rgba(124,111,247,0.2);padding:16px 24px;z-index:9999;font-size:14px;color:#a0a0b8;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+    <span>We use cookies to analyze site traffic. <a href="/privacy.html" style="color:#7c6ff7;">Privacy Policy</a></span>
+    <div style="display:flex;gap:8px;">
+      <button onclick="acceptCookies()" style="background:#7c6ff7;color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;">Accept</button>
+      <button onclick="declineCookies()" style="background:transparent;color:#a0a0b8;border:1px solid rgba(124,111,247,0.3);padding:8px 20px;border-radius:8px;cursor:pointer;font-size:13px;">Decline</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){ if (!localStorage.getItem('cookie_consent')) { document.getElementById('cookie-banner').style.display = 'block'; } })();
+function acceptCookies() { localStorage.setItem('cookie_consent', 'accepted'); document.getElementById('cookie-banner').style.display = 'none'; loadGA(); }
+function declineCookies() { localStorage.setItem('cookie_consent', 'declined'); document.getElementById('cookie-banner').style.display = 'none'; }
+</script>
+
+</body>
+</html>

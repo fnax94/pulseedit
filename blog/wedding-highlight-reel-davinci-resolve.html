@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="gbFMCBXWgDK3Tqa_aNvF8cAw--jC0UAw30LJeLuzXZ0" />
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadGA() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-JV9DJHLCY2');
+    }
+    if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
+    </script>
+    <title>How to Auto-Edit a Wedding Highlight Reel in DaVinci Resolve (2026)</title>
+    <meta name="description" content="Cut a wedding highlight reel in DaVinci Resolve in under 30 minutes. Auto-sync ceremony and reception clips to music with Pulse Edit's Wedding cut pattern.">
+    <meta name="keywords" content="wedding highlight reel davinci resolve, wedding video editing, auto edit wedding video, davinci resolve wedding plugin, wedding video to music">
+    <meta property="og:title" content="How to Auto-Edit a Wedding Highlight Reel in DaVinci Resolve (2026)">
+    <meta property="og:description" content="Stop spending 8 hours per wedding edit. Auto-cut ceremony and reception footage to music in DaVinci Resolve with Pulse Edit.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://pulseedit.com/blog/wedding-highlight-reel-davinci-resolve.html">
+    <meta property="og:image" content="https://pulseedit.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Auto-Edit a Wedding Highlight Reel in DaVinci Resolve (2026)">
+    <meta name="twitter:description" content="Cut a wedding highlight reel in under 30 minutes with Pulse Edit's Wedding pattern.">
+    <meta name="twitter:image" content="https://pulseedit.com/og-image.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#7c6ff7">
+    <link rel="canonical" href="https://pulseedit.com/blog/wedding-highlight-reel-davinci-resolve">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles-v2.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Auto-Edit a Wedding Highlight Reel in DaVinci Resolve",
+        "description": "Cut a wedding highlight reel in DaVinci Resolve by auto-syncing ceremony, vows, and reception clips to music using Pulse Edit's Wedding cut pattern.",
+        "step": [
+            {"@type": "HowToStep", "name": "Organize wedding footage by section", "text": "Sort raw clips into bins: Prep, Ceremony, Speeches, Reception, Dance. Trim unusable parts before importing into Resolve."},
+            {"@type": "HowToStep", "name": "Pick the right music track", "text": "Choose a song with a clear emotional arc — soft intro, build, climax. 90-110 BPM works best for cinematic wedding edits."},
+            {"@type": "HowToStep", "name": "Build the timeline in DaVinci Resolve", "text": "Drop the music on an audio track, place clips in the Media Pool ordered chronologically. Pulse Edit picks from the Media Pool top-to-bottom."},
+            {"@type": "HowToStep", "name": "Detect beats with Pulse Edit", "text": "Open Pulse Edit, select the music track, click Detect Beats. Lower the sensitivity to catch only the strong downbeats — wedding edits need breathing room."},
+            {"@type": "HowToStep", "name": "Choose the Wedding cut pattern", "text": "Select Wedding/Slow pattern. It uses long opening clips, holds on emotional moments, then accelerates during reception buildup."},
+            {"@type": "HowToStep", "name": "Auto-edit and review", "text": "Click Auto-Edit. Pulse Edit places clips on the timeline cut to the beats. Review and swap any clip that doesn't fit the moment."},
+            {"@type": "HowToStep", "name": "Polish in Resolve", "text": "Add a color grade, lower thirds for names, and a final fade. Export ProRes for delivery, H.264 for the couple's preview."}
+        ],
+        "tool": {"@type": "HowToTool", "name": "Pulse Edit for DaVinci Resolve"},
+        "totalTime": "PT30M"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Auto-Edit a Wedding Highlight Reel in DaVinci Resolve (2026)",
+        "description": "Auto-edit ceremony and reception clips to music in DaVinci Resolve with Pulse Edit's Wedding cut pattern.",
+        "author": {"@type": "Person", "name": "Abramo Benedetti"},
+        "publisher": {"@type": "Organization", "name": "AB Tools"},
+        "datePublished": "2026-04-28",
+        "dateModified": "2026-04-28",
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://pulseedit.com/blog/wedding-highlight-reel-davinci-resolve"}
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+        a:focus-visible { outline: 2px solid #7c6ff7; outline-offset: 2px; }
+        nav { padding: 20px 0; border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; background: #0a0a0aee; backdrop-filter: blur(12px); z-index: 100; }
+        .nav-inner { max-width: 1000px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand { font-size: 20px; font-weight: 700; color: #fff; text-decoration: none; }
+        .nav-brand span { color: #7c6ff7; }
+        .nav-links { display: flex; gap: 28px; }
+        .nav-links a { color: #888; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: #fff; }
+        .article-header { padding: 80px 0 40px; }
+        .breadcrumb { font-size: 13px; color: #9ca3af; margin-bottom: 24px; }
+        .breadcrumb a { color: #7c6ff7; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .article-header h1 { font-size: 40px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 16px; }
+        .article-meta { font-size: 14px; color: #9ca3af; }
+        .article-body { padding-bottom: 80px; }
+        .article-body h2 { font-size: 26px; color: #fff; margin: 48px 0 16px; line-height: 1.3; }
+        .article-body h3 { font-size: 20px; color: #fff; margin: 32px 0 12px; }
+        .article-body p { color: #bbb; font-size: 16px; margin-bottom: 16px; }
+        .article-body ul, .article-body ol { margin: 0 0 16px 24px; color: #bbb; font-size: 16px; }
+        .article-body li { margin-bottom: 8px; }
+        .article-body strong { color: #e0e0e0; }
+        .article-body a { color: #7c6ff7; text-decoration: none; }
+        .article-body a:hover { text-decoration: underline; }
+        .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; margin: 24px 0; border-radius: 12px; overflow: hidden; background: #111; border: 1px solid #1a1a1a; }
+        .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .img-placeholder { background: #111; border: 1px dashed #2a2a2a; border-radius: 10px; padding: 40px 24px; text-align: center; color: #555; font-size: 13px; margin: 16px 0; }
+        .callout { background: #111; border: 1px solid #2a2a4a; border-left: 3px solid #7c6ff7; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+        .callout p { color: #bbb; margin-bottom: 0; }
+        .callout strong { color: #7c6ff7; }
+        .tip-box { background: #0a2e1a; border: 1px solid #22c55e33; border-left: 3px solid #22c55e; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+        .tip-box p { color: #bbb; margin-bottom: 0; }
+        .tip-box strong { color: #22c55e; }
+        .cta-box { background: #0f0f1a; border: 1px solid #7c6ff7; border-radius: 12px; padding: 32px; text-align: center; margin: 48px 0; }
+        .cta-box h3 { color: #fff; font-size: 22px; margin-bottom: 8px; }
+        .cta-box p { color: #9ca3af; font-size: 15px; margin-bottom: 20px; }
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; transition: all 0.2s; margin: 0 6px; }
+        .btn-green { background: #22c55e; color: #fff; }
+        .btn-green:hover { background: #16a34a; transform: translateY(-1px); text-decoration: none; }
+        .btn-outline { background: transparent; color: #e0e0e0; border: 1px solid #333; }
+        .btn-outline:hover { border-color: #7c6ff7; color: #fff; text-decoration: none; }
+        footer { border-top: 1px solid #1a1a1a; padding: 40px 0; text-align: center; color: #555; font-size: 13px; }
+        footer a { color: #7c6ff7; text-decoration: none; }
+        @media (max-width: 640px) { .article-header h1 { font-size: 28px; } .article-body h2 { font-size: 22px; } .nav-links { gap: 16px; } .nav-links a { font-size: 13px; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
+            <div class="nav-links">
+                <a href="/blog/">Blog</a>
+                <a href="/#features">Features</a>
+                <a href="/#pricing">Pricing</a>
+                <a href="/#faq">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <article>
+        <header class="article-header">
+            <div class="container">
+                <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/blog/">Blog</a> &rsaquo; Wedding Highlight Reel</div>
+                <h1>How to Auto-Edit a Wedding Highlight Reel in DaVinci Resolve (2026)</h1>
+                <p class="article-meta">By Abramo Benedetti &mdash; April 28, 2026 &mdash; 6 min read</p>
+            </div>
+        </header>
+
+        <div class="article-body">
+            <div class="container">
+
+                <p>A typical wedding shoot produces 4-8 hours of raw footage. Couples want a 3-5 minute highlight reel that hits every emotional beat: the first look, the vows, the kiss, the speeches, the dance floor chaos. Most wedding editors spend a full day on a single reel. This guide shows how to cut that down to under an hour using DaVinci Resolve and <a href="/">Pulse Edit</a>.</p>
+
+                <div class="video-wrap"><iframe src="https://www.youtube.com/embed/PLACEHOLDER_VIDEO_ID" title="How to Auto-Edit a Wedding Highlight Reel in DaVinci Resolve" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+                <h2>Why Wedding Edits Are Different</h2>
+
+                <p>A music video can repeat the chorus visually. A wedding can't. The narrative is fixed: prep, ceremony, vows, reception, dance. Cuts have to respect chronology and let emotional moments breathe. A wedding reel cut on every beat feels like a TikTok, not a memory. The trick is using a <strong>slow-paced cut pattern</strong> at the start and gradually accelerating.</p>
+
+                <h2>Step 1: Organize Footage by Section</h2>
+                <p>Before opening Resolve, sort clips into folders on disk: <code>01_prep</code>, <code>02_ceremony</code>, <code>03_vows</code>, <code>04_speeches</code>, <code>05_reception</code>, <code>06_dance</code>. Trim out shaky takes and out-of-focus shots now — Pulse Edit picks from what's available, so cleaner input means a cleaner edit.</p>
+                <p>Keep clips between 3-15 seconds long. Anything shorter doesn't read on screen; anything longer is wasted unless it's a wide establishing shot.</p>
+                <div class="img-placeholder">[Screenshot: organized wedding footage in Finder bins]</div>
+
+                <h2>Step 2: Pick the Right Music Track</h2>
+                <p>The song dictates everything. For wedding highlights, pick a track with a clear three-act structure: a soft intro (vows section), a build (first kiss / first dance), and a peak (reception party). Tempo between 90-110 BPM gives enough rhythm without feeling rushed.</p>
+                <p>Avoid songs with sudden tempo changes or instrumental breaks longer than 8 seconds — Pulse Edit's beat detection works on consistent rhythm. Licensed music from Musicbed, Artlist, or Soundstripe is safer than commercial tracks if the couple plans to share publicly.</p>
+                <div class="img-placeholder">[Screenshot: music track waveform showing arc]</div>
+
+                <h2>Step 3: Build the Timeline in DaVinci Resolve</h2>
+                <p>Open DaVinci Resolve Studio 18+ and create a new timeline matching your delivery format (typically 1080p25 or 4K25 for cinematic feel). Drop the music on Audio 1. Import all your trimmed clips into the Media Pool — order them chronologically because Pulse Edit fills the timeline top-to-bottom by default.</p>
+                <p>Tip: keep the project resolution and frame rate consistent across all clips. Mixed frame rates cause subtle drift on beat cuts.</p>
+
+                <h2>Step 4: Detect Beats with Pulse Edit</h2>
+                <p>Launch Pulse Edit. Select your music audio track. Click <strong>Detect Beats</strong>. For wedding edits, lower the sensitivity slider to around 30-40% — you want only the strong downbeats, not every snare hit. A 3-minute song should give you 60-100 cut points instead of 300+.</p>
+                <p>Check the BPM display matches what you expect. If the detection is off, adjust sensitivity and re-run.</p>
+                <div class="img-placeholder">[Screenshot: Pulse Edit beat detection interface]</div>
+
+                <h2>Step 5: Choose the Wedding/Slow Cut Pattern</h2>
+                <p>In the cut pattern menu, select <strong>Wedding/Slow</strong>. This pattern is built for emotional pacing: long opening clips (4-8 beats per shot), holds on key moments, gradual acceleration through the reception, then rapid cuts during the dance peak.</p>
+                <p>If your song has a particularly strong drop, switch to <strong>Energy Map</strong> for the second half — it analyzes audio intensity and matches visual pacing to it automatically.</p>
+
+                <h2>Step 6: Auto-Edit and Review</h2>
+                <p>Click <strong>Auto-Edit</strong>. In 10-30 seconds, Pulse Edit places clips on the timeline cut to the beats. Play it back. Identify any clip that lands on the wrong moment (a wide reception shot during the vows, for example) and swap it manually — drag a better clip from the Media Pool over the wrong one. Pulse Edit's edits are non-destructive: re-running with a different pattern won't lose your manual swaps if you duplicate the timeline first.</p>
+
+                <h2>Step 7: Polish in Resolve</h2>
+                <p>Add color grade in the Color page — wedding edits typically use warm highlights, soft shadows, slightly desaturated greens. On the Edit page, add lower thirds for the couple's names at the start, a fade-out at the end, and any audio clips you want layered (vows, laughter, applause).</p>
+                <p>Export ProRes 422 HQ for the master archive, H.264 at 20 Mbps for the couple's preview, and a 1:1 vertical version for Instagram.</p>
+
+                <div class="tip-box">
+                    <p><strong>Pro tip:</strong> If the couple gives you a list of "must-include" moments, mark those clips with a Resolve color flag before auto-editing. Pulse Edit prioritizes flagged clips when filling the timeline.</p>
+                </div>
+
+                <h2>Common Wedding Edit Mistakes</h2>
+                <ul>
+                    <li><strong>Cutting too fast in the ceremony.</strong> Vows need to breathe. Use 4-8 second clips, not 1-2.</li>
+                    <li><strong>Mixing clip orientations.</strong> Vertical phone clips next to horizontal cinema clips look amateur. Stick to one or letterbox the verticals.</li>
+                    <li><strong>Forgetting natural sound.</strong> Layer applause and laughter under the music at -18dB. Even a hint of natural audio adds emotion.</li>
+                    <li><strong>Over-color-grading.</strong> Weddings should look timeless, not trendy. Keep the LUT subtle.</li>
+                </ul>
+
+                <h2>Requirements</h2>
+                <ul>
+                    <li><strong>DaVinci Resolve Studio 18+</strong> (free version doesn't expose the scripting API)</li>
+                    <li><strong>macOS</strong> (Apple Silicon or Intel) or <strong>Windows 10/11</strong></li>
+                    <li><strong>Pulse Edit</strong> &mdash; <a href="/#pricing">try free with 4 free uses</a></li>
+                </ul>
+
+                <div class="cta-box">
+                    <h3>Try Pulse Edit Free &rarr; 4 Free Uses</h3>
+                    <p>Auto-edit your next wedding highlight in under an hour. No credit card. Full functionality.</p>
+                    <a href="https://pulseedit.com/#pricing" class="btn btn-green">Get Pulse Edit</a>
+                    <a href="/blog/auto-edit-video-to-music-davinci-resolve.html" class="btn btn-outline">See how Auto-Edit works</a>
+                </div>
+
+            </div>
+        </div>
+
+<aside style="margin:32px 0;padding:20px 24px;background:linear-gradient(135deg,rgba(56,189,248,0.07),rgba(124,111,247,0.07));border-left:3px solid #38bdf8;border-radius:8px;">
+<div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#38bdf8;margin-bottom:6px;">Workflow tip</div>
+<p style="margin:0;font-size:14px;line-height:1.65;color:#cfcfdb;">Pulse Edit cuts inside DaVinci Resolve. To plan the wedding delivery calendar, track edits per couple, and collect timestamped review feedback from the bride and groom, we built <a href="https://lumiqa.io" target="_blank" rel="noopener" style="color:#38bdf8;font-weight:600;">Lumiqa</a> &mdash; a creative production workspace for wedding videographers and freelance editors. <strong>14-day free trial</strong>, no credit card.</p>
+</aside>
+</article>
+
+    <section style="padding: 0 0 60px;">
+        <div class="container" style="max-width:720px;margin:0 auto;padding:0 24px;">
+            <h2 style="font-size:22px;color:#fff;margin-bottom:20px;">Related Articles</h2>
+            <ul style="list-style:none;padding:0;margin:0;display:grid;gap:12px;">
+                <li><a href="/blog/auto-edit-video-to-music-davinci-resolve.html" style="color:#7c6ff7;text-decoration:none;font-size:15px;">How to auto-edit videos to music in DaVinci Resolve</a></li>
+                <li><a href="/blog/sync-video-music-davinci-resolve-tutorial.html" style="color:#7c6ff7;text-decoration:none;font-size:15px;">How to sync video to music in DaVinci Resolve</a></li>
+                <li><a href="/blog/travel-montage-auto-edit-davinci-resolve.html" style="color:#7c6ff7;text-decoration:none;font-size:15px;">How to auto-edit a travel montage in DaVinci Resolve</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 8px;"><strong style="color: #fff;">Pulse Edit</strong> &mdash; Auto-edit videos to the beat in DaVinci Resolve</p>
+            <p>Made by <a href="https://www.instagram.com/aki.vhs/" target="_blank">Abramo Benedetti</a> &mdash; Professional Video Editor</p>
+            <p style="margin-top: 8px;"><a href="/privacy.html" style="margin-right:16px;">Privacy Policy</a> <a href="/terms.html">Terms of Service</a></p>
+        </div>
+    </footer>
+
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;border-top:1px solid rgba(124,111,247,0.2);padding:16px 24px;z-index:9999;font-size:14px;color:#a0a0b8;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+    <span>We use cookies to analyze site traffic. <a href="/privacy.html" style="color:#7c6ff7;">Privacy Policy</a></span>
+    <div style="display:flex;gap:8px;">
+      <button onclick="acceptCookies()" style="background:#7c6ff7;color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;">Accept</button>
+      <button onclick="declineCookies()" style="background:transparent;color:#a0a0b8;border:1px solid rgba(124,111,247,0.3);padding:8px 20px;border-radius:8px;cursor:pointer;font-size:13px;">Decline</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){ if (!localStorage.getItem('cookie_consent')) { document.getElementById('cookie-banner').style.display = 'block'; } })();
+function acceptCookies() { localStorage.setItem('cookie_consent', 'accepted'); document.getElementById('cookie-banner').style.display = 'none'; loadGA(); }
+function declineCookies() { localStorage.setItem('cookie_consent', 'declined'); document.getElementById('cookie-banner').style.display = 'none'; }
+</script>
+
+</body>
+</html>

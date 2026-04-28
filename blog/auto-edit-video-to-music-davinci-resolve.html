@@ -42,43 +42,49 @@
         "@type": "HowTo",
         "name": "How to Auto-Edit Videos to Music in DaVinci Resolve",
         "description": "Automatically sync and edit video clips to music beats in DaVinci Resolve using Pulse Edit's beat detection and smart cut patterns.",
+        "totalTime": "PT5M",
+        "tool": [
+            {"@type": "HowToTool", "name": "DaVinci Resolve Studio 18+"},
+            {"@type": "HowToTool", "name": "Pulse Edit"}
+        ],
         "step": [
             {
                 "@type": "HowToStep",
-                "name": "Install Pulse Edit",
-                "text": "Download Pulse Edit for macOS or Windows from pulseedit.com. Open the app — no installation wizard, just launch and go."
+                "name": "Step 1: Install Pulse Edit",
+                "text": "Download Pulse Edit for macOS or Windows from pulseedit.com. Open the app — no installation wizard, just launch and go.",
+                "url": "https://pulseedit.com/blog/auto-edit-video-to-music-davinci-resolve#step-1"
             },
             {
                 "@type": "HowToStep",
-                "name": "Load your timeline in DaVinci Resolve",
-                "text": "Open DaVinci Resolve Studio 18+ with your project. Place your music on an audio track and your video clips in the Media Pool. Pulse Edit connects to Resolve automatically."
+                "name": "Step 2: Load your timeline in DaVinci Resolve",
+                "text": "Open DaVinci Resolve Studio 18+ with your project. Place your music on an audio track and your video clips in the Media Pool. Pulse Edit connects to Resolve automatically.",
+                "url": "https://pulseedit.com/blog/auto-edit-video-to-music-davinci-resolve#step-2"
             },
             {
                 "@type": "HowToStep",
-                "name": "Select your audio track",
-                "text": "In Pulse Edit, select the audio track containing your music. The app detects all audio tracks with clips on the current timeline."
+                "name": "Step 3: Select your audio track",
+                "text": "In Pulse Edit, select the audio track containing your music. The app detects all audio tracks with clips on the current timeline.",
+                "url": "https://pulseedit.com/blog/auto-edit-video-to-music-davinci-resolve#step-3"
             },
             {
                 "@type": "HowToStep",
-                "name": "Detect beats",
-                "text": "Click Detect Beats. Pulse Edit analyzes your audio with AI-powered beat detection and shows the BPM, beat count, and beat positions. Adjust sensitivity to catch more or fewer beats."
+                "name": "Step 4: Detect beats",
+                "text": "Click Detect Beats. Pulse Edit analyzes your audio with AI-powered beat detection and shows the BPM, beat count, and beat positions. Adjust sensitivity to catch more or fewer beats.",
+                "url": "https://pulseedit.com/blog/auto-edit-video-to-music-davinci-resolve#step-4"
             },
             {
                 "@type": "HowToStep",
-                "name": "Choose a cut pattern",
-                "text": "Select a cut pattern that matches the energy of your edit: Energy Map for AI-driven pacing, Every Beat for fast cuts, Buildup for gradual intensity, or custom patterns for full control."
+                "name": "Step 5: Choose a cut pattern",
+                "text": "Select a cut pattern that matches the energy of your edit: Energy Map for AI-driven pacing, Every Beat for fast cuts, Buildup for gradual intensity, or custom patterns for full control.",
+                "url": "https://pulseedit.com/blog/auto-edit-video-to-music-davinci-resolve#step-5"
             },
             {
                 "@type": "HowToStep",
-                "name": "Auto-edit",
-                "text": "Click Auto-Edit. Pulse Edit pulls clips from your Media Pool and places them on the timeline, cut precisely to every beat. Speed ramps, zoom effects, and transitions are applied automatically based on your chosen pattern."
+                "name": "Step 6: Auto-edit",
+                "text": "Click Auto-Edit. Pulse Edit pulls clips from your Media Pool and places them on the timeline, cut precisely to every beat. Speed ramps, zoom effects, and transitions are applied automatically based on your chosen pattern.",
+                "url": "https://pulseedit.com/blog/auto-edit-video-to-music-davinci-resolve#step-6"
             }
-        ],
-        "tool": {
-            "@type": "HowToTool",
-            "name": "Pulse Edit for DaVinci Resolve"
-        },
-        "totalTime": "PT5M"
+        ]
     }
     </script>
 
@@ -379,7 +385,7 @@
 
                 <h2>Step-by-Step Tutorial: Auto-Edit Videos to Music</h2>
 
-                <div class="step-box">
+                <div class="step-box" id="step-1">
                     <div class="step-num">1</div>
                     <div>
                         <h3>Install Pulse Edit</h3>
@@ -387,7 +393,7 @@
                     </div>
                 </div>
 
-                <div class="step-box">
+                <div class="step-box" id="step-2">
                     <div class="step-num">2</div>
                     <div>
                         <h3>Load your timeline in DaVinci Resolve</h3>
@@ -395,7 +401,7 @@
                     </div>
                 </div>
 
-                <div class="step-box">
+                <div class="step-box" id="step-3">
                     <div class="step-num">3</div>
                     <div>
                         <h3>Select your audio track</h3>
@@ -403,7 +409,7 @@
                     </div>
                 </div>
 
-                <div class="step-box">
+                <div class="step-box" id="step-4">
                     <div class="step-num">4</div>
                     <div>
                         <h3>Detect beats</h3>
@@ -411,7 +417,7 @@
                     </div>
                 </div>
 
-                <div class="step-box">
+                <div class="step-box" id="step-5">
                     <div class="step-num">5</div>
                     <div>
                         <h3>Choose a cut pattern</h3>
@@ -419,7 +425,7 @@
                     </div>
                 </div>
 
-                <div class="step-box">
+                <div class="step-box" id="step-6">
                     <div class="step-num">6</div>
                     <div>
                         <h3>Click Auto-Edit</h3>

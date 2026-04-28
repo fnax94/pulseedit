@@ -64,6 +64,40 @@
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Switch from BeatEdit to Pulse Edit in DaVinci Resolve",
+        "description": "Move your beat-synced editing workflow from BeatEdit (Premiere Pro) to Pulse Edit for DaVinci Resolve in three steps.",
+        "totalTime": "PT2M",
+        "tool": [
+            {"@type": "HowToTool", "name": "DaVinci Resolve Studio 18+"},
+            {"@type": "HowToTool", "name": "Pulse Edit"}
+        ],
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Step 1: Download Pulse Edit",
+                "text": "Grab the free trial for macOS or Windows. No installation required — just unzip and open the app.",
+                "url": "https://pulseedit.com/blog/beatedit-alternative-davinci-resolve#step-1"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Step 2: Open your project in DaVinci Resolve",
+                "text": "Pulse Edit connects to DaVinci Resolve automatically. Make sure your music is on a timeline audio track and your clips are in the Media Pool.",
+                "url": "https://pulseedit.com/blog/beatedit-alternative-davinci-resolve#step-2"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Step 3: Detect beats and auto-edit",
+                "text": "Select your audio track, click Detect Beats, then choose what you want: markers only, auto-edit with clips, speed ramps, or zoom effects. Pulse Edit handles the rest.",
+                "url": "https://pulseedit.com/blog/beatedit-alternative-davinci-resolve#step-3"
+            }
+        ]
+    }
+    </script>
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -422,7 +456,7 @@
 
                 <p>Moving from BeatEdit (or any Premiere-based beat tool) to Pulse Edit takes about 2 minutes:</p>
 
-                <div class="step-box">
+                <div class="step-box" id="step-1">
                     <div class="step-num">1</div>
                     <div>
                         <h3>Download Pulse Edit</h3>
@@ -430,7 +464,7 @@
                     </div>
                 </div>
 
-                <div class="step-box">
+                <div class="step-box" id="step-2">
                     <div class="step-num">2</div>
                     <div>
                         <h3>Open your project in DaVinci Resolve</h3>
@@ -438,7 +472,7 @@
                     </div>
                 </div>
 
-                <div class="step-box">
+                <div class="step-box" id="step-3">
                     <div class="step-num">3</div>
                     <div>
                         <h3>Detect beats and auto-edit</h3>

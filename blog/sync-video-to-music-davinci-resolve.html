@@ -57,6 +57,46 @@
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Sync Video to Music Beats in DaVinci Resolve",
+        "description": "Manual workflow to sync video cuts to music beats in DaVinci Resolve, plus the automated alternative.",
+        "totalTime": "PT30M",
+        "tool": [
+            {"@type": "HowToTool", "name": "DaVinci Resolve Studio 18+"},
+            {"@type": "HowToTool", "name": "Beat Markers"}
+        ],
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Step 1: Import your music into the timeline",
+                "text": "Drag your music track from the Media Pool onto an audio track in the DaVinci Resolve timeline. This is the reference for every cut you place.",
+                "url": "https://pulseedit.com/blog/sync-video-to-music-davinci-resolve#step-1"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Step 2: Mark every beat with the M key",
+                "text": "Play the audio and press M on each beat to drop a marker. For an automated alternative, run Beat Markers to place AI-detected beat markers in seconds.",
+                "url": "https://pulseedit.com/blog/sync-video-to-music-davinci-resolve#step-2"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Step 3: Cut your video clips at each marker",
+                "text": "Use the Blade tool (B) to cut the video track at each marker position. Enable snapping so cuts land exactly on the beat markers.",
+                "url": "https://pulseedit.com/blog/sync-video-to-music-davinci-resolve#step-3"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Step 4: Trim and adjust each clip to fill the gaps",
+                "text": "Drag clip edges to fill each beat-to-beat segment. Choose the most impactful frames so the strongest part of each clip lines up with the beat.",
+                "url": "https://pulseedit.com/blog/sync-video-to-music-davinci-resolve#step-4"
+            }
+        ]
+    }
+    </script>
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -320,10 +360,10 @@
 
                 <h3>Steps:</h3>
                 <ol>
-                    <li>Import your music into the timeline</li>
-                    <li>Play the audio and press <strong>M</strong> on every beat to place a marker</li>
-                    <li>Manually cut each video clip at the marker positions</li>
-                    <li>Trim and adjust each clip to fill the gaps</li>
+                    <li id="step-1">Import your music into the timeline</li>
+                    <li id="step-2">Play the audio and press <strong>M</strong> on every beat to place a marker</li>
+                    <li id="step-3">Manually cut each video clip at the marker positions</li>
+                    <li id="step-4">Trim and adjust each clip to fill the gaps</li>
                 </ol>
 
                 <p><strong>Pros:</strong> Free, complete control over every cut.<br>
