@@ -385,8 +385,8 @@
             <h1 class="animate-scale-in">Auto-edit videos to the <span>beat</span> of your music</h1>
             <p>Pulse Edit detects beats, auto-cuts your clips to the music, and applies zoom effects, freeze frames, and AI mood matching. The best BeatEdit &amp; AutoCut alternative for DaVinci Resolve. One-time purchase, no subscription.</p>
             <div class="hero-cta">
-                <a href="/download.html" class="btn btn-primary">Download Free Trial &mdash; macOS</a>
-                <a href="/download.html" class="btn btn-primary">Download Free Trial &mdash; Windows</a>
+                <a href="#" onclick="event.preventDefault();openDownloadModal()" class="btn btn-primary">Download Free Trial &mdash; macOS</a>
+                <a href="#" onclick="event.preventDefault();openDownloadModal()" class="btn btn-primary">Download Free Trial &mdash; Windows</a>
                 <a href="#pricing" class="btn btn-secondary">See Pricing</a>
             </div>
             <p class="hero-trust" style="margin-top:12px;"><span style="display:inline-block;background:rgba(245,158,11,0.15);color:#fbbf24;padding:4px 12px;border-radius:6px;font-size:12px;font-weight:600;border:1px solid rgba(245,158,11,0.3);">&#x26A0; Requires DaVinci Resolve Studio 18+ &mdash; does NOT work with the free version</span></p>
@@ -759,8 +759,8 @@
                         <li>4 free trial uses</li>
                     </ul>
                     <a href="https://buy.stripe.com/9B65kC526cjG7oA3YFawo04?prefilled_promo_code=LAUNCH50" class="btn btn-green btn-small">Get Pulse Edit &mdash; 50% OFF</a>
-                    <a href="/download.html" class="btn btn-outline btn-small" style="margin-top:8px">Trial macOS</a>
-                    <a href="/download.html" class="btn btn-outline btn-small" style="margin-top:4px">Trial Windows</a>
+                    <a href="#" onclick="event.preventDefault();openDownloadModal()" class="btn btn-outline btn-small" style="margin-top:8px">Trial macOS</a>
+                    <a href="#" onclick="event.preventDefault();openDownloadModal()" class="btn btn-outline btn-small" style="margin-top:4px">Trial Windows</a>
                 </div>
                 <!-- Pulse Edit 2 Licenses -->
                 <div class="price-card animate-scale-in">
@@ -802,8 +802,8 @@
             <h2 class="section-title animate-fade-up">Try Pulse Edit for free</h2>
             <p class="section-subtitle animate-fade-up">4 free uses. Full functionality. No credit card required.</p>
             <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-                <a href="/download.html" class="btn btn-primary">Download for macOS</a>
-                <a href="/download.html" class="btn btn-primary">Download for Windows</a>
+                <a href="#" onclick="event.preventDefault();openDownloadModal()" class="btn btn-primary">Download for macOS</a>
+                <a href="#" onclick="event.preventDefault();openDownloadModal()" class="btn btn-primary">Download for Windows</a>
             </div>
             <p style="margin-top:12px;font-size:11px;color:#8a8a9e;opacity:0.7;">&#x2705; macOS: Signed &amp; notarized by Apple. &#x1f6e1; Windows: SmartScreen may show a warning &mdash; click &ldquo;More info&rdquo; &rarr; &ldquo;Run anyway&rdquo;.</p>
         </div>
@@ -973,6 +973,77 @@ function declineCookies() {
 </script>
 
 <p style="font-size:11px;color:var(--muted);margin:32px auto 16px;max-width:1100px;padding:0 24px;text-align:center;border-top:1px solid var(--line);padding-top:16px;line-height:1.5;">All third-party product names mentioned (BeatEdit, AutoCut, Descript, Runway, CapCut, Adobe Premiere Pro, DaVinci Resolve, Frame.io, etc. &mdash; where applicable) are trademarks of their respective owners. Pulse Edit is not affiliated with or endorsed by these companies. Pricing references accurate as of April 2026 &mdash; check vendor sites for the latest.</p>
+<!-- Download Modal -->
+<div id="dlModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.8);align-items:center;justify-content:center;padding:20px;" onclick="if(event.target===this)closeDlModal()">
+  <div style="background:#12121e;border:1px solid #262636;border-radius:18px;padding:36px 32px;max-width:440px;width:100%;text-align:center;position:relative;">
+    <button onclick="closeDlModal()" style="position:absolute;top:12px;right:16px;background:none;border:none;color:#8a8a9e;font-size:20px;cursor:pointer;">&times;</button>
+    <div style="font-size:24px;font-weight:700;margin-bottom:8px;">Pulse Edit</div>
+    <div id="dlModalContent">
+      <p style="color:#8a8a9e;font-size:14px;margin-bottom:24px;">Sign in to download the free trial</p>
+      <div id="clerkMount" style="min-height:200px;display:flex;align-items:center;justify-content:center;color:#8a8a9e;font-size:13px;">Loading...</div>
+    </div>
+  </div>
+</div>
+
+<script>
+let clerkLoaded = false;
+function closeDlModal() { document.getElementById('dlModal').style.display = 'none'; }
+async function openDownloadModal() {
+  const modal = document.getElementById('dlModal');
+  modal.style.display = 'flex';
+
+  if (window.Clerk?.session) { showDlLinks(); return; }
+  if (clerkLoaded) return;
+  clerkLoaded = true;
+
+  try {
+    const cfg = await fetch('https://lumiqa.io/api/config').then(r => r.json());
+    if (!cfg.clerkPubKey) { document.getElementById('clerkMount').textContent = 'Auth not available'; return; }
+    const pk = cfg.clerkPubKey;
+    const frontendApi = atob(pk.split('_')[2]).replace(/\$+$/, '');
+    const s = document.createElement('script');
+    s.src = `https://${frontendApi}/npm/@clerk/clerk-js@5/dist/clerk.browser.js`;
+    s.setAttribute('data-clerk-publishable-key', pk);
+    s.async = true; s.crossOrigin = 'anonymous';
+    await new Promise((res, rej) => { s.onload = res; s.onerror = rej; document.head.appendChild(s); });
+    if (!window.Clerk.loaded) await window.Clerk.load();
+
+    if (window.Clerk.session) { showDlLinks(); return; }
+
+    window.Clerk.mountSignUp(document.getElementById('clerkMount'), {
+      appearance: {
+        variables: { colorPrimary:'#7c6ff7', colorBackground:'#12121e', colorText:'#f5f5fa', colorTextSecondary:'#8a8a9e', colorInputBackground:'#0a0a14', colorInputText:'#f5f5fa' },
+        layout: { socialButtonsPlacement:'top', socialButtonsVariant:'blockButton', showOptionalFields:false },
+      },
+      afterSignUpUrl: window.location.href,
+      afterSignInUrl: window.location.href,
+    });
+
+    const check = setInterval(() => {
+      if (window.Clerk?.session) { clearInterval(check); showDlLinks(); }
+    }, 500);
+  } catch (e) {
+    document.getElementById('clerkMount').innerHTML = '<p style="color:#8a8a9e;">Authentication unavailable. Please try again later.</p>';
+  }
+}
+
+function showDlLinks() {
+  document.getElementById('dlModalContent').innerHTML = `
+    <p style="color:#7c6ff7;font-weight:500;margin-bottom:20px;">Choose your platform:</p>
+    <a href="https://github.com/fnax94/pulseedit/releases/download/pulse-edit-v1.3/PulseEdit-macOS.zip" style="display:block;background:linear-gradient(135deg,#7c6ff7,#6366f1);color:#fff;padding:12px;border-radius:10px;text-decoration:none;font-weight:500;margin-bottom:10px;">Download for macOS</a>
+    <a href="https://github.com/fnax94/pulseedit/releases/download/pulse-edit-v1.3/PulseEdit-Setup.exe" style="display:block;background:linear-gradient(135deg,#7c6ff7,#6366f1);color:#fff;padding:12px;border-radius:10px;text-decoration:none;font-weight:500;margin-bottom:16px;">Download for Windows</a>
+    <p style="font-size:11px;color:#8a8a9e;">4 free uses. Requires DaVinci Resolve Studio 18+</p>`;
+  try {
+    const email = window.Clerk?.user?.primaryEmailAddress?.emailAddress;
+    if (email) {
+      fetch('https://license-server.abtools.workers.dev/download-lead', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({email, source:'pulseedit-modal', ts:new Date().toISOString()}),
+      }).catch(()=>{});
+    }
+  } catch(_){}
+}
+</script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"9173f9481a644af98a8dbd0eca5ec352"}'></script>
 </body>
 </html>
