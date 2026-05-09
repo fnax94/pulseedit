@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Analytics 4 (consent-gated) -->
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadGA() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-JV9DJHLCY2');
+    }
+    if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
+    </script>
+    <title>Pulse Edit Tutorial — How to Auto-Edit to the Beat in DaVinci Resolve</title>
+    <meta name="description" content="Step-by-step Pulse Edit tutorial: install, connect to DaVinci Resolve, detect beats, and auto-edit your video to music in 5 minutes. Screenshots included.">
+    <meta name="keywords" content="Pulse Edit tutorial, how to use Pulse Edit, DaVinci Resolve beat tutorial, auto edit to music tutorial, beat detection plugin guide, Pulse Edit setup, install Pulse Edit, music sync video editing tutorial">
+    <meta property="og:title" content="Pulse Edit Tutorial — From install to first beat-synced edit in 5 min">
+    <meta property="og:description" content="Step-by-step beginner walkthrough with screenshots. Install, connect Resolve, detect beats, auto-edit.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://pulseedit.com/tutorial.html">
+    <meta property="og:image" content="https://pulseedit.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pulse Edit Tutorial — Get from install to first edit in 5 minutes">
+    <meta name="twitter:description" content="Beginner walkthrough with screenshots. DaVinci Resolve auto-edit to the beat.">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#7c6ff7">
+    <link rel="canonical" href="https://pulseedit.com/tutorial.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-v2.css">
+
+    <!-- HowTo schema (Google rich snippets) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to use Pulse Edit to auto-edit videos to the beat in DaVinci Resolve",
+      "description": "Beginner walkthrough: install Pulse Edit, connect to DaVinci Resolve, detect beats from your music track, and auto-edit clips to the rhythm. Takes about 5 minutes.",
+      "image": "https://pulseedit.com/og-image.png",
+      "totalTime": "PT5M",
+      "supply": [
+        {"@type": "HowToSupply", "name": "DaVinci Resolve Studio 18 or newer"},
+        {"@type": "HowToSupply", "name": "An audio track (music) on your timeline"},
+        {"@type": "HowToSupply", "name": "Video clips to edit"}
+      ],
+      "tool": [
+        {"@type": "HowToTool", "name": "Pulse Edit"},
+        {"@type": "HowToTool", "name": "macOS Apple Silicon or Windows 10/11 64-bit"}
+      ],
+      "step": [
+        {"@type": "HowToStep", "name": "Install Pulse Edit", "text": "Download the DMG (macOS) or installer (Windows) from pulseedit.com. On macOS, drag the app to /Applications. On Windows, run the setup."},
+        {"@type": "HowToStep", "name": "Open DaVinci Resolve", "text": "Launch DaVinci Resolve Studio, load a project with a timeline that already contains your music track on an audio channel."},
+        {"@type": "HowToStep", "name": "Open Pulse Edit and verify the connection", "text": "Launch Pulse Edit. The header should turn green and read 'Connected — Timeline X (FPS)'. If not, check Resolve preferences: External scripting must be set to 'Local'."},
+        {"@type": "HowToStep", "name": "Detect beats", "text": "On the Detect Beats tab, choose your audio track, set sensitivity (0.50 default), confirm the time signature (4/4 default), and click Detect Beats. Gold and red markers appear on your Resolve timeline."},
+        {"@type": "HowToStep", "name": "Auto-edit to the beat", "text": "Switch to Auto-Edit tab. Choose a media pool folder with your clips, pick a cut pattern (Energy Map by default), enable Apply Zoom for movement, and click Auto-Edit. Pulse Edit places clips on the timeline synced to every detected beat."}
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <div class="container nav-inner">
+            <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
+            <div class="nav-links">
+                <a href="/blog/">Blog</a>
+                <a href="/tutorial.html" aria-current="page" style="color:#7c6ff7">Tutorial</a>
+                <a href="/#features">Features</a>
+                <a href="/#pricing">Pricing</a>
+                <a href="/#faq">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tutorial Hero -->
+    <section class="hero" style="padding:80px 0 40px">
+        <div class="container">
+            <h1 class="animate-scale-in" style="text-align:center;font-size:clamp(2.2rem,5vw,3.2rem)">Pulse Edit Tutorial</h1>
+            <p style="text-align:center;max-width:680px;margin:16px auto 0;font-size:1.15rem;color:#cbd5e1">From install to your first beat-synced edit in <strong style="color:#7c6ff7">about 5 minutes</strong>. Screenshots included for every step.</p>
+        </div>
+    </section>
+
+    <!-- Quick nav (sticky jump links) -->
+    <div style="background:#0f0f1a;border-top:1px solid #1f1f2e;border-bottom:1px solid #1f1f2e;position:sticky;top:0;z-index:50;padding:14px 0">
+      <div class="container" style="display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;font-size:0.9rem">
+        <a href="#requirements" style="color:#94a3b8;text-decoration:none">Requirements</a>
+        <span style="color:#3a3a52">·</span>
+        <a href="#step-1" style="color:#94a3b8;text-decoration:none">1. Install</a>
+        <span style="color:#3a3a52">·</span>
+        <a href="#step-2" style="color:#94a3b8;text-decoration:none">2. Open Resolve</a>
+        <span style="color:#3a3a52">·</span>
+        <a href="#step-3" style="color:#94a3b8;text-decoration:none">3. Detect Beats</a>
+        <span style="color:#3a3a52">·</span>
+        <a href="#step-4" style="color:#94a3b8;text-decoration:none">4. Auto-Edit</a>
+        <span style="color:#3a3a52">·</span>
+        <a href="#step-5" style="color:#94a3b8;text-decoration:none">5. Render</a>
+        <span style="color:#3a3a52">·</span>
+        <a href="#cut-patterns" style="color:#94a3b8;text-decoration:none">Cut patterns</a>
+        <span style="color:#3a3a52">·</span>
+        <a href="#faq-tut" style="color:#94a3b8;text-decoration:none">FAQ</a>
+      </div>
+    </div>
+
+    <!-- Tutorial body -->
+    <section style="padding:48px 0 80px">
+        <div class="container" style="max-width:820px">
+
+            <!-- Requirements -->
+            <div id="requirements" style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.3);border-radius:12px;padding:24px;margin-bottom:48px">
+              <h2 style="margin:0 0 14px;color:#fbbf24;font-size:1.25rem">⚠ Before you start</h2>
+              <ul style="margin:0;padding-left:22px;line-height:1.9;color:#e2e8f0">
+                <li><strong>DaVinci Resolve Studio</strong> 18, 19, or 20 — the <em>free</em> edition does NOT support external scripting and Pulse Edit cannot connect to it.</li>
+                <li><strong>macOS</strong> Apple Silicon (M1/M2/M3/M4) or <strong>Windows 10/11</strong> 64-bit.</li>
+                <li>Pulse Edit installed (<a href="/#pricing" style="color:#7c6ff7">free trial available</a>) — 4 free runs, no credit card.</li>
+                <li>An <strong>audio track</strong> (your music) already placed on the Resolve timeline.</li>
+              </ul>
+            </div>
+
+            <!-- STEP 1 -->
+            <article id="step-1" style="margin-bottom:64px">
+              <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:18px">
+                <span style="background:#7c6ff7;color:#fff;width:38px;height:38px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;flex-shrink:0">1</span>
+                <h2 style="margin:0;font-size:1.7rem">Install Pulse Edit</h2>
+              </div>
+              <p>Download the installer from <a href="/" style="color:#7c6ff7">pulseedit.com</a> (top of the page). On macOS you'll get a <code style="background:#1f1f2e;padding:2px 6px;border-radius:4px">.dmg</code>; on Windows a <code style="background:#1f1f2e;padding:2px 6px;border-radius:4px">.exe</code> setup.</p>
+              <p><strong>macOS:</strong> open the DMG and drag <strong>Pulse Edit</strong> onto the <strong>Applications</strong> folder shown right next to it. Then open it from <code style="background:#1f1f2e;padding:2px 6px;border-radius:4px">/Applications</code> — running it from <em>Downloads</em> won't work (macOS quarantine breaks the bundled libraries). If you accidentally try, Pulse Edit will offer to install itself in Applications with one click.</p>
+              <p><strong>Windows:</strong> double-click <code style="background:#1f1f2e;padding:2px 6px;border-radius:4px">PulseEdit-Setup.exe</code>, follow the wizard. SmartScreen may show a warning the first time — click "More info" → "Run anyway". Pulse Edit isn't yet code-signed by Microsoft, but it's safe (zero telemetry, zero ads).</p>
+            </article>
+
+            <!-- STEP 2 -->
+            <article id="step-2" style="margin-bottom:64px">
+              <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:18px">
+                <span style="background:#7c6ff7;color:#fff;width:38px;height:38px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;flex-shrink:0">2</span>
+                <h2 style="margin:0;font-size:1.7rem">Open DaVinci Resolve</h2>
+              </div>
+              <p>Launch <strong>DaVinci Resolve Studio</strong> and open a project with a timeline that already contains your music on an audio track. Pulse Edit reads beats from a timeline track — not from a raw mp3 file — so the music must be placed in Resolve first.</p>
+              <p><strong>One-time setup in Resolve:</strong> go to <em>Preferences → System → General</em> and set <strong>"External scripting using" → "Local"</strong>. This allows Pulse Edit to talk to Resolve. Restart Resolve after enabling it.</p>
+              <p>Then open <strong>Pulse Edit</strong>. The status line at the top should turn green and read something like <code style="background:#1f1f2e;padding:2px 6px;border-radius:4px;color:#10b981">Connected — Timeline 1 (24.0 fps)</code>. If it says "Resolve not detected", click <em>Refresh Connection</em> at the bottom.</p>
+            </article>
+
+            <!-- STEP 3 -->
+            <article id="step-3" style="margin-bottom:64px">
+              <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:18px">
+                <span style="background:#7c6ff7;color:#fff;width:38px;height:38px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;flex-shrink:0">3</span>
+                <h2 style="margin:0;font-size:1.7rem">Detect the beats</h2>
+              </div>
+              <p>Stay on the <strong>Detect Beats</strong> tab and configure four things:</p>
+              <ol style="line-height:2;color:#e2e8f0">
+                <li><strong>Audio track</strong> — pick the timeline audio track that contains your music.</li>
+                <li><strong>Sensitivity</strong> — 0.50 is a sensible default. Lower it (0.20–0.40) for music with very distinct kicks; raise it (0.60–0.80) for music with weaker percussion or where you want more beats detected.</li>
+                <li><strong>Time signature</strong> — 4/4 covers ~95% of pop, rock, EDM, hip-hop. Use 3/4 for waltz, 6/8 for ballads.</li>
+                <li>Choose whether to also place <strong>red subdivision markers</strong> (eighth notes, triplets, etc.) — useful for faster cutting patterns.</li>
+              </ol>
+              <p>Click the big blue <strong>Detect Beats</strong> button. Pulse Edit analyzes the audio (a few seconds) and places markers directly on your Resolve timeline: <strong style="color:#fbbf24">gold markers</strong> on every downbeat (bar start) and <strong style="color:#ef4444">red markers</strong> on subdivisions.</p>
+              <figure style="margin:28px 0;text-align:center">
+                <img src="images/tutorial/01_detect_beats.png" alt="Pulse Edit Detect Beats tab showing audio track selector, sensitivity slider, time signature, and Detect Beats button" loading="lazy" style="max-width:380px;width:100%;border-radius:12px;border:1px solid #1f1f2e;box-shadow:0 12px 40px rgba(0,0,0,0.35)">
+                <figcaption style="color:#94a3b8;font-size:0.9rem;margin-top:10px">The Detect Beats tab — choose a track, tune sensitivity, click the button.</figcaption>
+              </figure>
+            </article>
+
+            <!-- STEP 4 -->
+            <article id="step-4" style="margin-bottom:64px">
+              <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:18px">
+                <span style="background:#7c6ff7;color:#fff;width:38px;height:38px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;flex-shrink:0">4</span>
+                <h2 style="margin:0;font-size:1.7rem">Auto-edit your clips to the beat</h2>
+              </div>
+              <p>Switch to the <strong>Auto-Edit</strong> tab. This is where Pulse Edit takes your raw clips and arranges them on the timeline, cutting on every beat or every bar following the pattern you choose.</p>
+              <ol style="line-height:2;color:#e2e8f0">
+                <li><strong>Media Pool folder</strong> — pick the bin in Resolve that contains the video clips you want to edit. Pulse Edit shows you how many clips are ready.</li>
+                <li><strong>Cut pattern</strong> — see the <a href="#cut-patterns" style="color:#7c6ff7">11 patterns explained below</a>. Default is <strong>Energy Map (Auto)</strong>, which adapts to the music's energy curve (sparse cuts in the intro, dense in the chorus).</li>
+                <li><strong>Clip order</strong> — Random for variety, Sequential for chronological storytelling.</li>
+                <li><strong>Trim start / Trim end</strong> — discard the first/last seconds of every clip (useful if your clips have shaky starts or fade-outs).</li>
+                <li><strong>Video track</strong> — which Resolve track to place the new edit on.</li>
+                <li><strong>Apply Zoom</strong> ✅ — adds a tasteful zoom-in to every cut for cinematic motion.</li>
+                <li><strong>AI Intensity</strong> — Calm (slow zooms, longer holds) ↔ Intense (fast zooms, hard cuts).</li>
+              </ol>
+              <p>Click <strong>Auto-Edit</strong>. In a few seconds your timeline is filled with clips synced to every beat detected in Step 3.</p>
+              <figure style="margin:28px 0;text-align:center">
+                <img src="images/tutorial/02_auto_edit.png" alt="Pulse Edit Auto-Edit tab with media pool selector, cut pattern, clip order, trim sliders, zoom and AI intensity controls" loading="lazy" style="max-width:380px;width:100%;border-radius:12px;border:1px solid #1f1f2e;box-shadow:0 12px 40px rgba(0,0,0,0.35)">
+                <figcaption style="color:#94a3b8;font-size:0.9rem;margin-top:10px">The Auto-Edit tab — full control over how clips are arranged on the beat.</figcaption>
+              </figure>
+            </article>
+
+            <!-- STEP 5 -->
+            <article id="step-5" style="margin-bottom:80px">
+              <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:18px">
+                <span style="background:#7c6ff7;color:#fff;width:38px;height:38px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;flex-shrink:0">5</span>
+                <h2 style="margin:0;font-size:1.7rem">Review and render</h2>
+              </div>
+              <p>Switch back to Resolve. Your timeline now has the audio track + the auto-edited video. Press <strong>Space</strong> to play and verify the cuts hit the beat. If anything is off:</p>
+              <ul style="line-height:1.9;color:#e2e8f0">
+                <li>You can manually drag any clip on the timeline to fine-tune.</li>
+                <li>Re-run Pulse Edit with a different sensitivity or cut pattern — it'll replace the previous auto-edit.</li>
+                <li>Add transitions, color grading, titles in Resolve as you normally would.</li>
+              </ul>
+              <p>When happy, jump to Resolve's <strong>Deliver</strong> page and render. Done.</p>
+            </article>
+
+            <!-- Cut patterns explained -->
+            <article id="cut-patterns" style="margin-bottom:80px;background:rgba(124,111,247,0.05);border:1px solid rgba(124,111,247,0.2);border-radius:14px;padding:28px">
+              <h2 style="margin:0 0 18px;font-size:1.6rem">The 11 cut patterns explained</h2>
+              <p>Each pattern decides <em>which</em> beats trigger a cut. Mix and match for different vibes.</p>
+              <figure style="margin:18px 0 24px;text-align:center">
+                <img src="images/tutorial/03_cut_patterns.png" alt="Pulse Edit cut pattern dropdown listing all 11 patterns" loading="lazy" style="max-width:380px;width:100%;border-radius:12px;border:1px solid #1f1f2e;box-shadow:0 12px 40px rgba(0,0,0,0.35)">
+                <figcaption style="color:#94a3b8;font-size:0.9rem;margin-top:10px">All 11 cut patterns in one dropdown.</figcaption>
+              </figure>
+              <dl style="line-height:1.7;color:#e2e8f0">
+                <dt style="color:#7c6ff7;font-weight:600;margin-top:14px">Energy Map (Auto)</dt>
+                <dd style="margin:4px 0 0">Adaptive — sparse cuts during low-energy intros, denser during chorus. Best default for music videos.</dd>
+
+                <dt style="color:#7c6ff7;font-weight:600;margin-top:14px">Every Beat</dt>
+                <dd style="margin:4px 0 0">Hard cuts on every single beat. Maximum density, very intense.</dd>
+
+                <dt style="color:#7c6ff7;font-weight:600;margin-top:14px">Every Bar (4/4)</dt>
+                <dd style="margin:4px 0 0">Cuts only on the downbeat of each bar. Great for slower, contemplative edits.</dd>
+
+                <dt style="color:#7c6ff7;font-weight:600;margin-top:14px">Beat + Upbeat</dt>
+                <dd style="margin:4px 0 0">Beats plus the off-beats — adds a syncopated, swinging rhythm.</dd>
+
+                <dt style="color:#7c6ff7;font-weight:600;margin-top:14px">Half Time</dt>
+                <dd style="margin:4px 0 0">Cut every other beat. Cinematic, breathing room.</dd>
+
+                <dt style="color:#7c6ff7;font-weight:600;margin-top:14px">Fast → Slow</dt>
+                <dd style="margin:4px 0 0">Cuts start dense and gradually slow down. Good for energy-drop endings.</dd>
+
+                <dt style="color:#7c6ff7;font-weight:600;margin-top:14px">Slow → Fast</dt>
+                <dd style="margin:4px 0 0">Cuts start sparse and accelerate. Build-up effect for drops.</dd>
+
+                <dt style="color:#7c6ff7;font-weight:600;margin-top:14px">Buildup</dt>
+                <dd style="margin:4px 0 0">Logarithmic acceleration. Perfect for EDM drops, action sequences.</dd>
+
+                <dt style="color:#7c6ff7;font-weight:600;margin-top:14px">Wedding / Slow</dt>
+                <dd style="margin:4px 0 0">Long, soft holds with cuts on bar boundaries. Ideal for ceremonies, weddings, slow-paced narratives.</dd>
+
+                <dt style="color:#7c6ff7;font-weight:600;margin-top:14px">Random Energy Fast</dt>
+                <dd style="margin:4px 0 0">Random selection biased toward fast cuts. Chaotic, organic feel.</dd>
+
+                <dt style="color:#7c6ff7;font-weight:600;margin-top:14px">Random Energy Slow</dt>
+                <dd style="margin:4px 0 0">Random selection biased toward slow cuts. Dreamy, unpredictable.</dd>
+              </dl>
+            </article>
+
+            <!-- FAQ -->
+            <article id="faq-tut" style="margin-bottom:64px">
+              <h2 style="font-size:1.6rem;margin:0 0 18px">Frequently asked questions</h2>
+
+              <details style="border-bottom:1px solid #1f1f2e;padding:14px 0">
+                <summary style="cursor:pointer;font-weight:600;color:#e2e8f0">"Resolve not detected" — what do I do?</summary>
+                <p style="margin:10px 0 0;color:#cbd5e1">Three things to check, in order: (1) DaVinci Resolve is open AND a project is loaded AND a timeline exists. (2) You have <em>Studio</em>, not the free edition (free has no scripting API). (3) <em>Preferences → System → General → External scripting using</em> is set to "Local". Then click "Refresh Connection" in Pulse Edit.</p>
+              </details>
+
+              <details style="border-bottom:1px solid #1f1f2e;padding:14px 0">
+                <summary style="cursor:pointer;font-weight:600;color:#e2e8f0">Does Pulse Edit work with the free DaVinci Resolve?</summary>
+                <p style="margin:10px 0 0;color:#cbd5e1">No. Blackmagic disabled external scripting in the free edition. Pulse Edit needs Resolve <strong>Studio</strong> (one-time $295 license from Blackmagic, or included with their cameras).</p>
+              </details>
+
+              <details style="border-bottom:1px solid #1f1f2e;padding:14px 0">
+                <summary style="cursor:pointer;font-weight:600;color:#e2e8f0">The beat detection is off on my song. What can I do?</summary>
+                <p style="margin:10px 0 0;color:#cbd5e1">First, raise or lower the <strong>sensitivity</strong> slider and re-run. If the song has a complex intro (no percussion at the start), Pulse Edit automatically extends regular beats backward and forward to fill the song. If you still get drift on a specific song, try a different time signature (3/4 instead of 4/4 for a waltz). For very complex orchestral or ambient music without a steady beat, beat detection is fundamentally limited — that's a property of the music, not the tool.</p>
+              </details>
+
+              <details style="border-bottom:1px solid #1f1f2e;padding:14px 0">
+                <summary style="cursor:pointer;font-weight:600;color:#e2e8f0">Can I undo an Auto-Edit?</summary>
+                <p style="margin:10px 0 0;color:#cbd5e1">Yes — Resolve's Cmd+Z (Mac) / Ctrl+Z (Win) undoes the auto-edit. Or enable "Clear video track first" before running Auto-Edit again, and Pulse Edit will replace the previous edit cleanly.</p>
+              </details>
+
+              <details style="border-bottom:1px solid #1f1f2e;padding:14px 0">
+                <summary style="cursor:pointer;font-weight:600;color:#e2e8f0">My free trial ran out. How do I activate?</summary>
+                <p style="margin:10px 0 0;color:#cbd5e1">Buy a license from <a href="/#pricing" style="color:#7c6ff7">pulseedit.com/#pricing</a>. You'll receive an email with your license key — paste it in the "Licensed/Trial" widget at the bottom-right of Pulse Edit. One license = one machine, lifetime, free updates.</p>
+              </details>
+            </article>
+
+            <!-- Final CTA -->
+            <div style="text-align:center;margin-top:60px">
+              <h2 style="font-size:1.8rem;margin-bottom:14px">Ready to try it?</h2>
+              <p style="color:#cbd5e1;margin-bottom:24px">Free trial — 4 runs, no credit card required.</p>
+              <a href="/#pricing" class="btn btn-primary" style="display:inline-block;padding:14px 32px;font-size:1.05rem">Download Pulse Edit</a>
+              <a href="/" class="btn btn-secondary" style="display:inline-block;padding:14px 32px;font-size:1.05rem;margin-left:8px">Back to home</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer (minimal, matches site) -->
+    <footer style="border-top:1px solid #1f1f2e;padding:32px 0;text-align:center;color:#64748b;font-size:0.9rem">
+        <div class="container">
+            <p style="margin:0">© 2026 AB Tools — Pulse Edit · <a href="/privacy.html" style="color:#94a3b8">Privacy</a> · <a href="/terms.html" style="color:#94a3b8">Terms</a> · <a href="/blog/" style="color:#94a3b8">Blog</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
