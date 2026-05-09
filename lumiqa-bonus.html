@@ -6,6 +6,7 @@
     <title>Claim your 6 free months of Lumiqa — Pulse Edit Bonus</title>
     <meta name="description" content="Claim 6 months of Lumiqa free, included with your Pulse Edit purchase. Activate now.">
     <meta name="robots" content="noindex,nofollow">
+    <meta name="referrer" content="strict-origin">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -83,6 +84,7 @@
 
     <script>
     (function() {
+        const ENDPOINT = 'https://license-server.abtools.workers.dev/lumiqa/claim';
         const params = new URLSearchParams(window.location.search);
         const token = params.get('token');
         const showOnly = (id) => {
@@ -95,7 +97,14 @@
             showOnly('error');
             return;
         }
-        fetch(`https://license-server.abtools.workers.dev/lumiqa/claim?token=${encodeURIComponent(token)}`)
+        // Strip the token from the visible URL once we have it in memory — keeps
+        // it out of bookmarks, share-sheets, and the Referer header on outbound
+        // clicks. Replace state so back button works.
+        try { history.replaceState({}, '', window.location.pathname); } catch (_) {}
+
+        // Step 1: GET preview (no mutation — safe even if Gmail/Outlook scanner
+        // followed the link, they won't burn the claim).
+        fetch(`${ENDPOINT}?token=${encodeURIComponent(token)}`, { method: 'GET' })
             .then(r => r.json().then(j => ({status: r.status, body: j})))
             .then(({status, body}) => {
                 if (!body.ok) {
@@ -114,6 +123,22 @@
                 } else {
                     document.getElementById('email-display').textContent = body.email;
                     showOnly('success');
+
+                    // Wire the "Open Lumiqa to sign up" button to POST consume
+                    // BEFORE navigating. This is the only call that mutates state.
+                    const cta = document.querySelector('#success a.btn-primary');
+                    if (cta) {
+                        cta.setAttribute('rel', 'noopener noreferrer');
+                        cta.addEventListener('click', (ev) => {
+                            ev.preventDefault();
+                            const targetUrl = cta.href;
+                            // Fire consume; navigate regardless of success (we don't
+                            // want to leave the user stuck if the network blips).
+                            fetch(`${ENDPOINT}?token=${encodeURIComponent(token)}`, { method: 'POST' })
+                                .catch(() => {})
+                                .finally(() => { window.location.href = targetUrl; });
+                        });
+                    }
                 }
             })
             .catch(() => {
