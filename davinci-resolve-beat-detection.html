@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="gbFMCBXWgDK3Tqa_aNvF8cAw--jC0UAw30LJeLuzXZ0" />
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadGA() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-JV9DJHLCY2');
+    }
+    if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
+    </script>
+    <title>DaVinci Resolve Beat Detection — Free Auto Beat Marker &amp; Edit Plugin</title>
+    <meta name="description" content="Free DaVinci Resolve beat detection: auto-place beat markers on your timeline and edit clips to the music in 5 steps. Works with any song, any FPS, no manual tapping.">
+    <meta name="keywords" content="davinci resolve beat detection, davinci resolve beat detection free, davinci resolve auto beat detection, how to detect beats in davinci resolve, beat detection davinci resolve, beat marker davinci resolve, detect beats davinci">
+    <meta property="og:title" content="DaVinci Resolve Beat Detection — Free Auto Beat Marker &amp; Edit Plugin">
+    <meta property="og:description" content="Auto-place beat markers on the DaVinci Resolve timeline and edit to the music. Free trial, works on macOS &amp; Windows.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://pulseedit.com/davinci-resolve-beat-detection">
+    <meta property="og:image" content="https://pulseedit.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DaVinci Resolve Beat Detection — Free Auto Beat Marker &amp; Edit Plugin">
+    <meta name="twitter:description" content="Auto-place beat markers and edit clips to the music in DaVinci Resolve. Free trial.">
+    <meta name="twitter:image" content="https://pulseedit.com/og-image.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#7c6ff7">
+    <link rel="canonical" href="https://pulseedit.com/davinci-resolve-beat-detection.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles-v2.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to detect beats in DaVinci Resolve",
+        "description": "Free step-by-step guide to auto-place beat markers and auto-edit clips to music in DaVinci Resolve using Pulse Edit.",
+        "image": "https://pulseedit.com/og-image.png",
+        "totalTime": "PT5M",
+        "supply": [
+            { "@type": "HowToSupply", "name": "DaVinci Resolve Studio (paid version, version 18 or later)" },
+            { "@type": "HowToSupply", "name": "An audio track (MP3, WAV, M4A — any tempo)" },
+            { "@type": "HowToSupply", "name": "Video clips for the edit (any FPS, any codec)" }
+        ],
+        "tool": [
+            { "@type": "HowToTool", "name": "Pulse Edit plugin (free trial, 4 uses)" }
+        ],
+        "step": [
+            { "@type": "HowToStep", "position": 1, "name": "Open DaVinci Resolve and place audio on the timeline", "text": "Drop the song into the Resolve timeline on an audio track. No prep required — Pulse Edit reads the raw file directly." },
+            { "@type": "HowToStep", "position": 2, "name": "Launch Pulse Edit and detect beats", "text": "Open Pulse Edit, point it at the song, click Detect Beats. It analyzes BPM, beat positions and bar structure in 5–15 seconds depending on song length." },
+            { "@type": "HowToStep", "position": 3, "name": "Review detected beats on the timeline", "text": "Beat markers appear automatically as green markers on the Resolve timeline. You can adjust sensitivity if it picked up too few or too many." },
+            { "@type": "HowToStep", "position": 4, "name": "Auto-edit video clips to beats", "text": "Select a cut pattern (every beat, every bar, energy map, wedding, buildup, etc.) and let Pulse Edit place your clips against the detected beats." },
+            { "@type": "HowToStep", "position": 5, "name": "Fine-tune and export", "text": "Manual nudges if needed. Export from Resolve as normal — the cuts are real, not previewed." }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Pulse Edit",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "macOS, Windows",
+        "description": "Free beat detection plugin for DaVinci Resolve Studio: auto-detect beats from any song and auto-edit video clips to the music.",
+        "offers": [
+            { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Free trial — 4 full uses" },
+            { "@type": "Offer", "price": "39.99", "priceCurrency": "EUR", "description": "1 license (lifetime)" },
+            { "@type": "Offer", "price": "65.00", "priceCurrency": "EUR", "description": "2 licenses (lifetime)" }
+        ],
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "12" },
+        "downloadUrl": "https://pulseedit.com/"
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; }
+        .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+        a:focus-visible { outline: 2px solid #7c6ff7; outline-offset: 2px; }
+        nav.page-nav { padding: 20px 0; border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; background: #0a0a0aee; backdrop-filter: blur(12px); z-index: 100; }
+        .nav-inner { max-width: 1000px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand { font-size: 20px; font-weight: 700; color: #fff; text-decoration: none; }
+        .nav-brand span { color: #7c6ff7; }
+        .nav-links { display: flex; gap: 28px; }
+        .nav-links a { color: #888; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: #fff; }
+        .article-header { padding: 80px 0 40px; }
+        .breadcrumb { font-size: 13px; color: #9ca3af; margin-bottom: 24px; }
+        .breadcrumb a { color: #7c6ff7; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .article-header h1 { font-size: 42px; font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 16px; }
+        .article-header .subtitle { font-size: 19px; color: #bbb; margin-bottom: 24px; }
+        .article-meta { font-size: 14px; color: #9ca3af; }
+        .hero-cta { display: flex; gap: 12px; margin: 28px 0; flex-wrap: wrap; }
+        .article-body { padding-bottom: 80px; }
+        .article-body h2 { font-size: 28px; color: #fff; margin: 56px 0 16px; line-height: 1.3; }
+        .article-body h3 { font-size: 20px; color: #fff; margin: 32px 0 12px; }
+        .article-body p { color: #bbb; font-size: 16px; margin-bottom: 16px; }
+        .article-body ul, .article-body ol { margin: 0 0 16px 24px; color: #bbb; font-size: 16px; }
+        .article-body li { margin-bottom: 8px; }
+        .article-body strong { color: #e0e0e0; }
+        .article-body a { color: #7c6ff7; text-decoration: none; }
+        .article-body a:hover { text-decoration: underline; }
+        .callout { background: #111; border: 1px solid #2a2a4a; border-left: 3px solid #7c6ff7; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+        .callout p { color: #bbb; margin-bottom: 0; }
+        .callout strong { color: #7c6ff7; }
+        .tip-box { background: #0a2e1a; border: 1px solid #22c55e33; border-left: 3px solid #22c55e; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+        .tip-box p { color: #bbb; margin-bottom: 0; }
+        .tip-box strong { color: #22c55e; }
+        .step-list { list-style: none; counter-reset: stepnum; margin: 24px 0 0 0; padding: 0; }
+        .step-list li { counter-increment: stepnum; position: relative; padding: 20px 20px 20px 64px; background: #0f0f1a; border: 1px solid #1a1a2e; border-radius: 8px; margin-bottom: 12px; }
+        .step-list li::before { content: counter(stepnum); position: absolute; left: 20px; top: 20px; width: 32px; height: 32px; line-height: 32px; text-align: center; background: #7c6ff7; color: #fff; border-radius: 50%; font-weight: 700; font-size: 15px; }
+        .step-list li strong { display: block; font-size: 17px; color: #fff; margin-bottom: 6px; }
+        .step-list li p { color: #bbb; font-size: 15px; margin: 0; }
+        .cta-box { background: #0f0f1a; border: 1px solid #7c6ff7; border-radius: 12px; padding: 32px; text-align: center; margin: 48px 0; }
+        .cta-box h3 { color: #fff; font-size: 22px; margin-bottom: 8px; }
+        .cta-box p { color: #9ca3af; font-size: 15px; margin-bottom: 20px; }
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; transition: all 0.2s; margin: 0 6px 6px 0; }
+        .btn-primary { background: #7c6ff7; color: #fff; }
+        .btn-primary:hover { background: #6e5ee5; transform: translateY(-1px); text-decoration: none; }
+        .btn-green { background: #22c55e; color: #fff; }
+        .btn-green:hover { background: #16a34a; transform: translateY(-1px); text-decoration: none; }
+        .btn-outline { background: transparent; border: 1px solid #2a2a4a; color: #e0e0e0; }
+        .btn-outline:hover { border-color: #7c6ff7; color: #7c6ff7; text-decoration: none; }
+        .faq-item { background: #111; border: 1px solid #1a1a2e; border-radius: 8px; padding: 20px 24px; margin-bottom: 12px; }
+        .faq-item h3 { color: #fff; font-size: 17px; margin: 0 0 8px 0; }
+        .faq-item p { color: #bbb; font-size: 15px; margin: 0; }
+        .disclaimer { font-size: 12px; color: #666; padding: 24px 0; border-top: 1px solid #1a1a1a; margin-top: 40px; line-height: 1.6; }
+        footer { border-top: 1px solid #1a1a1a; padding: 40px 0; text-align: center; color: #555; font-size: 13px; }
+        footer a { color: #7c6ff7; text-decoration: none; }
+        @media (max-width: 640px) {
+            .article-header h1 { font-size: 30px; }
+            .article-header .subtitle { font-size: 16px; }
+            .article-body h2 { font-size: 22px; }
+            .nav-links { gap: 16px; }
+            .nav-links a { font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="page-nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
+            <div class="nav-links">
+                <a href="/blog/">Blog</a>
+                <a href="/#features">Features</a>
+                <a href="/#pricing">Pricing</a>
+                <a href="/tutorial.html">Tutorial</a>
+            </div>
+        </div>
+    </nav>
+
+    <article class="container">
+        <header class="article-header">
+            <div class="breadcrumb">
+                <a href="/">Home</a> &rsaquo; DaVinci Resolve Beat Detection
+            </div>
+            <h1>DaVinci Resolve Beat Detection — Free Auto Beat Marker &amp; Edit</h1>
+            <p class="subtitle">Auto-place beat markers on the timeline and cut your video to the music in 5 steps. No manual tapping, no &quot;K&quot; on every snare hit.</p>
+            <div class="hero-cta">
+                <a href="https://github.com/fnax94/pulseedit/releases/download/pulse-edit-v1.5/PulseEdit-v1.5.0-macOS.dmg" class="btn btn-primary">Download Free Trial — macOS</a>
+                <a href="https://github.com/fnax94/pulseedit/releases/download/pulse-edit-v1.5/PulseEdit-Setup.exe" class="btn btn-primary">Download Free Trial — Windows</a>
+                <a href="#how-to" class="btn btn-outline">See how it works</a>
+            </div>
+            <p class="article-meta">4 free uses · macOS &amp; Windows · DaVinci Resolve Studio 18+</p>
+        </header>
+
+        <div class="article-body">
+
+            <h2>What is beat detection in DaVinci Resolve?</h2>
+            <p><strong>Beat detection</strong> is the process of analyzing an audio track to find every beat — the regular pulses you tap your foot to — and marking those positions on the timeline. In DaVinci Resolve, beat markers let you snap clip cuts, transitions, zooms and effects to the rhythm of the music.</p>
+            <p>DaVinci Resolve has no built-in beat detection. You can place markers manually by pressing M on every beat, but for a 3-minute song at 120 BPM that's 360 keystrokes — and one missed beat ruins the whole edit. Pulse Edit reads the song, finds every beat with sub-frame accuracy, and places the markers for you.</p>
+
+            <div class="callout">
+                <p><strong>Why "free":</strong> Pulse Edit gives you 4 full free uses (no time limit, no watermark) so you can finish a real project before deciding. The full license is <strong>€39.99 one-time</strong> (no subscription).</p>
+            </div>
+
+            <h2 id="how-to">How to detect beats in DaVinci Resolve (5 steps)</h2>
+            <p>The whole flow takes about 5 minutes for a typical song. You don't need scripting knowledge, you don't need to render the audio first, you don't need to know the BPM in advance.</p>
+
+            <ol class="step-list">
+                <li>
+                    <strong>Drop your song on the DaVinci Resolve timeline.</strong>
+                    <p>Any format — MP3, WAV, M4A, FLAC — works. No need to extract from video or convert sample rate. Resolve Studio 18, 19, 20, all supported. FPS doesn't matter (we floor-convert, never round, so you don't lose sync on 23.976 or 29.97 projects).</p>
+                </li>
+                <li>
+                    <strong>Launch Pulse Edit and point it at the audio file.</strong>
+                    <p>Pulse Edit auto-detects your active Resolve project and timeline. You select which audio track to analyze and click <strong>Detect Beats</strong>. Analysis takes 5–15 seconds depending on song length and your CPU.</p>
+                </li>
+                <li>
+                    <strong>Review the detected beats on the timeline.</strong>
+                    <p>Green markers appear at every beat. Red markers appear at subdivisions (eighth or sixteenth notes) if you enabled them. If the algorithm picked up too few beats (slow ambient song) or too many (busy drum track), adjust the Sensitivity slider and re-detect.</p>
+                </li>
+                <li>
+                    <strong>Choose a cut pattern and auto-edit your clips.</strong>
+                    <p>11 cut patterns to choose from: Every Beat, Every Bar (4/4), Beat + Upbeat, Half Time, Buildup, Wedding / Slow, Random Energy Fast, and more. Pulse Edit places your clip pool against the detected beat grid following the pattern. Zoom-on-beat and transitions are optional.</p>
+                </li>
+                <li>
+                    <strong>Fine-tune and export from Resolve.</strong>
+                    <p>The cuts are real cuts on your real timeline — nothing is "preview only". Nudge clips manually if you want, change clip order, or re-run Auto-Edit with a different pattern. Then export from Resolve's Deliver page as you normally would.</p>
+                </li>
+            </ol>
+
+            <div class="cta-box">
+                <h3>Try Pulse Edit free</h3>
+                <p>4 full uses, no credit card, no watermark. macOS &amp; Windows.</p>
+                <a href="https://github.com/fnax94/pulseedit/releases/download/pulse-edit-v1.5/PulseEdit-v1.5.0-macOS.dmg" class="btn btn-green">Download macOS</a>
+                <a href="https://github.com/fnax94/pulseedit/releases/download/pulse-edit-v1.5/PulseEdit-Setup.exe" class="btn btn-green">Download Windows</a>
+            </div>
+
+            <h2>Auto beat detection vs manual marker placement</h2>
+            <p>If you've tried to cut a music video, wedding highlight reel or TikTok edit to the beat in DaVinci Resolve, you know the manual flow:</p>
+            <ul>
+                <li>Play the audio at normal speed</li>
+                <li>Hit <strong>M</strong> on every kick or snare</li>
+                <li>Catch the few you missed by scrubbing back</li>
+                <li>Realize the song speeds up at the chorus and your markers drift</li>
+                <li>Restart</li>
+            </ul>
+            <p>Auto detection skips all of that. Pulse Edit uses the same beat-tracking algorithm (librosa) trusted by music research and used in dozens of production audio tools. It handles tempo changes, weak first beats (intros without drums), and odd time signatures.</p>
+
+            <div class="tip-box">
+                <p><strong>Pro tip:</strong> For slow ambient or downtempo tracks, lower the Sensitivity to 0.3–0.4. For busy drum-and-bass or trap tracks, raise it to 0.6–0.7. Most pop/rock at 120 BPM works perfectly at the default 0.5.</p>
+            </div>
+
+            <h2>Free DaVinci Resolve beat detection — what's actually free?</h2>
+            <p>The honest breakdown:</p>
+            <ul>
+                <li><strong>Pulse Edit free trial:</strong> 4 complete uses. No time limit, no watermark, no feature lock. You can run a full project end-to-end (detect + auto-edit + export) on the trial alone.</li>
+                <li><strong>After 4 uses:</strong> you can either buy a license (€39.99 one-time, no subscription) or keep using the detect-only features. The auto-edit step is the part that requires the license after the trial.</li>
+                <li><strong>What's NOT free:</strong> DaVinci Resolve Studio itself (the paid version of Resolve, €295 one-time from Blackmagic). Pulse Edit does not work with the free DaVinci Resolve — Blackmagic blocks third-party scripting on the free tier.</li>
+            </ul>
+
+            <h2>Beat detection algorithms compared</h2>
+            <p>If you're shopping around, here's what's out there for DaVinci Resolve specifically:</p>
+            <ul>
+                <li><strong>Pulse Edit</strong> — librosa-based, auto-edits + zoom + transitions, €39.99 one-time, 4 free uses. <a href="/vs-beatedit.html">vs BeatEdit</a></li>
+                <li><strong>BeatEdit by mamoworld</strong> — markers only, no auto-edit, €99, free trial available. Primarily a Premiere Pro plugin with limited Resolve support.</li>
+                <li><strong>AutoCut for DaVinci</strong> — silence-based, not beat-based, different use case. <a href="/vs-autocut.html">comparison</a></li>
+                <li><strong>Manual tapping</strong> — free, ~30 min per song, error-prone. Don't.</li>
+                <li><strong>Python scripts (DaVinciResolveScript + librosa)</strong> — free if you can code, no GUI. Pulse Edit is basically this with a friendly interface.</li>
+            </ul>
+
+            <h2>FAQ — DaVinci Resolve beat detection</h2>
+
+            <div class="faq-item">
+                <h3>Does this work with the free version of DaVinci Resolve?</h3>
+                <p>No. Blackmagic restricts third-party scripting to DaVinci Resolve Studio (the paid version). The free version is a Resolve limitation, not a Pulse Edit one — every Resolve plugin has this restriction.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How accurate is the beat detection?</h3>
+                <p>Sub-frame accurate for any song with a steady tempo. We round to the nearest frame using floor() (never round()), so you stay perfectly aligned on 23.976, 24, 25, 29.97, 30, 50, 59.94, 60 fps projects. Tempo-changing tracks (live recordings, classical with rubato) are tracked dynamically — accuracy depends on how clear the beat is.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can I use it for wedding videos, TikToks, music videos, vlogs?</h3>
+                <p>Yes — the 11 cut patterns cover everything from slow wedding montages (Wedding / Slow pattern, cuts on bar lines only) to fast-cut TikTok edits (Every Beat + Random Energy Fast). See <a href="/blog/wedding-highlight-reel-davinci-resolve">wedding workflow</a> and <a href="/blog/tiktok-creator-davinci-resolve-plugin">TikTok workflow</a> for full guides.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Does it work with Spotify / Apple Music / streaming tracks?</h3>
+                <p>You need a local audio file (MP3, WAV, M4A, FLAC) on disk. Streaming files are DRM-protected so no third-party tool can read them directly. For your own projects, export the song from your DAW or buy it from Bandcamp / Beatport / iTunes as MP3.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How long does the analysis take?</h3>
+                <p>5–15 seconds for a typical 3–5 minute song on Apple Silicon. ~30–60 seconds on older Intel Macs. Windows performance is similar to Apple Silicon for the same CPU class.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can I undo or modify the markers afterwards?</h3>
+                <p>Yes. Markers are normal Resolve timeline markers — drag, delete or color-code them in Resolve as usual. The auto-edit cuts are normal cuts on your timeline, fully editable.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Is this an AI / generative tool?</h3>
+                <p>No. Beat detection is signal processing, not AI. The algorithm (librosa beat tracker) is deterministic — same song, same beats, every time. We do have AI mood analysis as a separate optional feature for the AI Edit mode, but the core beat detection is classical DSP.</p>
+            </div>
+
+            <div class="cta-box">
+                <h3>Stop tapping the M key. Let Pulse Edit handle it.</h3>
+                <p>Free trial: 4 full uses, no credit card, no watermark.</p>
+                <a href="https://github.com/fnax94/pulseedit/releases/download/pulse-edit-v1.5/PulseEdit-v1.5.0-macOS.dmg" class="btn btn-primary">Download for macOS</a>
+                <a href="https://github.com/fnax94/pulseedit/releases/download/pulse-edit-v1.5/PulseEdit-Setup.exe" class="btn btn-primary">Download for Windows</a>
+                <p style="margin-top:20px; font-size:13px;">€39.99 one-time license · macOS &amp; Windows · DaVinci Resolve Studio 18, 19, 20</p>
+            </div>
+
+            <p style="text-align:center; margin-top:32px;"><a href="/" class="btn btn-outline">← Back to Pulse Edit homepage</a> <a href="/tutorial.html" class="btn btn-outline">Read full tutorial →</a></p>
+
+            <div class="disclaimer">
+                DaVinci Resolve and DaVinci Resolve Studio are trademarks of Blackmagic Design Pty. Ltd. Pulse Edit is an independent third-party plugin and is not affiliated with, endorsed by, or sponsored by Blackmagic Design. All product names mentioned are the property of their respective owners.
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <p>&copy; 2026 AB Tools · <a href="/">Pulse Edit</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+    </footer>
+
+</body>
+</html>
