@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Guide to DaVinci Resolve Music Editing (2026) — Pulse Edit</title>
+<meta name="description" content="The complete 2026 guide to editing video to music in DaVinci Resolve. Beat detection, marker workflow, manual vs automatic editing, plugin comparison, step-by-step tutorials and pro techniques.">
+<meta name="keywords" content="davinci resolve music editing, edit video to music davinci resolve, beat sync editing, beat marker davinci resolve, auto edit to beat, music video editor davinci, davinci resolve beat detection, sync video to music, music video plugin, davinci resolve tutorial">
+<meta name="author" content="Abramo Benedetti">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://pulseedit.com/complete-guide-davinci-resolve-music-editing">
+<meta property="og:title" content="Complete Guide to DaVinci Resolve Music Editing (2026)">
+<meta property="og:description" content="Everything about beat-synced editing in DaVinci Resolve — from manual workflow to automatic plugins, beat detection theory, step-by-step tutorials and pro techniques.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pulseedit.com/complete-guide-davinci-resolve-music-editing">
+<meta property="og:image" content="https://pulseedit.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Complete Guide to DaVinci Resolve Music Editing (2026)">
+<meta name="twitter:description" content="Everything about beat-synced editing in DaVinci Resolve — manual + automatic workflows, step-by-step tutorials, pro techniques.">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.7;color:#1a1a1a;background:#fafafa}
+  header{background:#0a0a0a;color:#fff;padding:24px 0;border-bottom:1px solid #2a2a2a}
+  .container{max-width:880px;margin:0 auto;padding:0 24px}
+  header a{color:#fff;text-decoration:none;font-weight:700;font-size:20px}
+  header nav{display:flex;justify-content:space-between;align-items:center}
+  header nav .links a{margin-left:24px;font-weight:500;font-size:15px;color:#aaa}
+  header nav .links a:hover{color:#fff}
+  .hero{padding:64px 0 40px}
+  .breadcrumbs{font-size:13px;color:#666;margin-bottom:24px}
+  .breadcrumbs a{color:#666;text-decoration:none}
+  .breadcrumbs a:hover{color:#0a0a0a}
+  h1{font-size:42px;font-weight:800;letter-spacing:-0.02em;line-height:1.2;margin-bottom:16px}
+  .lede{font-size:20px;color:#555;line-height:1.5;margin-bottom:32px}
+  .meta{font-size:14px;color:#888;border-bottom:1px solid #e5e5e5;padding-bottom:24px;margin-bottom:48px}
+  .meta strong{color:#1a1a1a}
+  article{background:#fff;padding:48px 64px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+  article h2{font-size:30px;font-weight:700;margin-top:48px;margin-bottom:20px;letter-spacing:-0.01em}
+  article h3{font-size:22px;font-weight:700;margin-top:36px;margin-bottom:14px}
+  article h4{font-size:18px;font-weight:700;margin-top:28px;margin-bottom:10px}
+  article p{margin-bottom:18px;font-size:17px}
+  article ul, article ol{margin:18px 0 24px 28px}
+  article li{margin-bottom:10px;font-size:17px}
+  article strong{color:#0a0a0a}
+  article a{color:#0066cc;text-decoration:underline}
+  article a:hover{color:#004499}
+  .toc{background:#f5f5f5;border-left:4px solid #0a0a0a;padding:24px 28px;margin:32px 0;border-radius:4px}
+  .toc h3{margin-top:0;font-size:16px;text-transform:uppercase;letter-spacing:0.05em;color:#666}
+  .toc ol{margin:12px 0 0 20px}
+  .toc li{margin-bottom:6px;font-size:15px}
+  .toc a{color:#0a0a0a;text-decoration:none}
+  .toc a:hover{text-decoration:underline}
+  .callout{background:#fff8e1;border-left:4px solid #f59e0b;padding:18px 24px;margin:24px 0;border-radius:4px;font-size:16px}
+  .callout strong{display:block;margin-bottom:6px;color:#92400e}
+  .cta{background:linear-gradient(135deg,#0a0a0a 0%,#2a2a2a 100%);color:#fff;padding:40px;border-radius:8px;margin:48px 0;text-align:center}
+  .cta h3{color:#fff;font-size:24px;margin-bottom:12px}
+  .cta p{color:#ccc;margin-bottom:24px}
+  .cta .btn{display:inline-block;background:#fff;color:#0a0a0a;padding:14px 32px;border-radius:6px;font-weight:700;text-decoration:none}
+  .cta .btn:hover{background:#f0f0f0}
+  table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15px}
+  table th, table td{border:1px solid #e5e5e5;padding:12px 16px;text-align:left}
+  table th{background:#f5f5f5;font-weight:700}
+  footer{padding:48px 0 32px;font-size:14px;color:#888;text-align:center}
+  footer a{color:#666;text-decoration:none;margin:0 12px}
+  @media(max-width:680px){
+    article{padding:32px 24px}
+    h1{font-size:32px}
+    article h2{font-size:24px}
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Complete Guide to DaVinci Resolve Music Editing (2026)",
+  "description": "The complete 2026 guide to editing video to music in DaVinci Resolve. Beat detection, marker workflow, manual vs automatic editing, plugin comparison, step-by-step tutorials and pro techniques.",
+  "image": "https://pulseedit.com/og-image.png",
+  "author": {"@type": "Person", "name": "Abramo Benedetti", "url": "https://pulseedit.com/"},
+  "publisher": {
+    "@type": "Organization",
+    "name": "AB Tools",
+    "logo": {"@type": "ImageObject", "url": "https://pulseedit.com/og-image.png"}
+  },
+  "datePublished": "2026-05-11",
+  "dateModified": "2026-05-11",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://pulseedit.com/complete-guide-davinci-resolve-music-editing"},
+  "articleSection": "Tutorial",
+  "wordCount": 3500,
+  "keywords": "davinci resolve music editing, beat sync editing, music video plugin, beat marker davinci resolve, auto edit to beat"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://pulseedit.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Complete Guide to DaVinci Resolve Music Editing", "item": "https://pulseedit.com/complete-guide-davinci-resolve-music-editing"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Edit Video to Music in DaVinci Resolve",
+  "description": "Step-by-step process to create beat-synced video edits in DaVinci Resolve using the Pulse Edit plugin.",
+  "totalTime": "PT15M",
+  "supply": [{"@type": "HowToSupply", "name": "Music track (WAV or MP3)"}, {"@type": "HowToSupply", "name": "Video clips"}, {"@type": "HowToSupply", "name": "DaVinci Resolve 18 or 19"}],
+  "tool": [{"@type": "HowToTool", "name": "Pulse Edit plugin"}],
+  "step": [
+    {"@type": "HowToStep", "position": 1, "name": "Import music and video", "text": "Drop your music track into the timeline as audio. Add your video clips to the media pool."},
+    {"@type": "HowToStep", "position": 2, "name": "Detect beats", "text": "Open Pulse Edit, select your music file, click Detect Beats. Wait 5–10 seconds for analysis."},
+    {"@type": "HowToStep", "position": 3, "name": "Place markers", "text": "Pulse Edit automatically places markers at every beat on the audio track. You can adjust sensitivity if needed."},
+    {"@type": "HowToStep", "position": 4, "name": "Auto-cut clips to beats", "text": "Drag your video clips onto the timeline. Use the auto-cut function to align clip edges to beat markers."},
+    {"@type": "HowToStep", "position": 5, "name": "Refine and export", "text": "Adjust cuts manually where needed, add transitions, then export your beat-synced video."}
+  ]
+}
+</script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a href="/">Pulse Edit</a>
+      <div class="links">
+        <a href="/#features">Features</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="container hero">
+  <div class="breadcrumbs"><a href="/">Home</a> &rsaquo; Complete Guide to DaVinci Resolve Music Editing</div>
+  <h1>Complete Guide to DaVinci Resolve Music Editing (2026)</h1>
+  <p class="lede">Everything you need to know about editing video to music in DaVinci Resolve — from manual beat-tapping workflows to fully automatic beat-synced cuts. Updated for 2026 with current tools, pro techniques and common mistakes to avoid.</p>
+  <div class="meta">By <strong>Abramo Benedetti</strong> · Published May 11, 2026 · 18-minute read · <strong>3,500 words</strong></div>
+</div>
+
+<div class="container">
+<article>
+
+<div class="toc">
+  <h3>What's in this guide</h3>
+  <ol>
+    <li><a href="#why">Why beat-synced editing matters</a></li>
+    <li><a href="#fundamentals">Beat detection fundamentals</a></li>
+    <li><a href="#manual">The manual workflow (and why it's painful)</a></li>
+    <li><a href="#tools">Tool comparison — manual, scripts, plugins</a></li>
+    <li><a href="#howto">Step-by-step: edit to music with Pulse Edit</a></li>
+    <li><a href="#advanced">Advanced techniques pros use</a></li>
+    <li><a href="#mistakes">10 mistakes that ruin beat-synced edits</a></li>
+    <li><a href="#workflows">Workflow templates by video type</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ol>
+</div>
+
+<h2 id="why">1. Why beat-synced editing matters</h2>
+
+<p>The single biggest difference between an amateur music video and a professional one is whether the cuts land on the beat. It's not stylistic preference — it's how human perception of rhythm works. When your edit lands on a downbeat, the viewer's brain rewards them with a tiny dopamine hit. When you miss the beat by 100 milliseconds, the cut feels wrong even if the viewer can't articulate why.</p>
+
+<p>This effect compounds across an entire video. A 90-second piece with 30 cuts has 30 opportunities to feel "in the pocket" or "off." Get them right and the audience watches in trance. Get them wrong and they bounce.</p>
+
+<p>The challenge is that landing every cut on the beat by hand is excruciating work. A 3-minute song at 120 BPM has 360 beats. Tapping them out by ear and lining your clips up takes anywhere from 20 minutes to 2 hours depending on your speed and the music's complexity. For a YouTube creator publishing weekly, that's an unsustainable tax.</p>
+
+<p>That's why beat-synced editing has become one of the most-searched workflows for DaVinci Resolve users in 2026. People want the trance-effect without paying the time cost.</p>
+
+<h2 id="fundamentals">2. Beat detection fundamentals</h2>
+
+<p>Before you choose a tool, it helps to understand what "the beat" actually means in audio analysis terms. There are three concepts that get conflated:</p>
+
+<h3>BPM (Beats per Minute)</h3>
+<p>The global tempo of the song. A typical pop song sits between 90 and 130 BPM. House music tends toward 120–128. Trap and hip-hop often sit at 70–90 (but felt as 140–180 if you count the hi-hat). BPM is the easiest metric to compute — even a 1990s shareware audio tool could measure it accurately on simple tracks.</p>
+
+<h3>Onset detection</h3>
+<p>An "onset" is the start of any percussive event — a kick drum, a snare, a cymbal hit. Onsets happen at the beat (kicks and snares usually), between beats (hi-hats, claps), and off-beat (ghost notes, fills). Onset detection finds every percussive moment, not just the beats.</p>
+
+<h3>Beat tracking</h3>
+<p>This is the hard part: identifying which onsets are <em>the beat</em> versus which are decoration. Good beat tracking algorithms model the song's rhythmic structure (4/4, 3/4, swing) and lock onto the dominant pulse, ignoring fills and syncopation. Bad beat tracking algorithms latch onto every cymbal and produce a marker every quarter-note.</p>
+
+<p>When you read that a tool "detects beats automatically," that vague claim hides which of the three things it actually does. Cheap tools just detect onsets. Good tools do beat tracking. The difference shows up immediately on complex music: heavy metal with double-bass kicks, jazz with swing timing, electronic music with sidechain pumping.</p>
+
+<div class="callout">
+  <strong>Practical implication</strong>
+  Pulse Edit uses librosa's beat-tracking algorithm (the same library powering Spotify's tempo analysis), which means it locks onto the structural pulse rather than every hi-hat. This is why it works on complex genres where simpler tools fail.
+</div>
+
+<h2 id="manual">3. The manual workflow (and why it's painful)</h2>
+
+<p>Before tools existed, beat-synced editing in DaVinci Resolve looked like this:</p>
+
+<ol>
+  <li>Drop the music track on the timeline.</li>
+  <li>Play it back at full speed, tapping the <strong>M</strong> key on every beat to drop a marker. Get the rhythm wrong and start over.</li>
+  <li>Discover you're 80ms behind because human reaction time is 200–250ms. Manually nudge every marker by hand.</li>
+  <li>Open each clip, find a good cut point near a marker, blade it, ripple-delete to align.</li>
+  <li>Repeat 30–60 times.</li>
+</ol>
+
+<p>The technical term for this workflow is "demoralizing." It works for one-off projects when you have unlimited time, but it scales terribly. Anyone doing this professionally either gives up after a year or finds an automated solution.</p>
+
+<h3>The half-automation trick: scripted markers</h3>
+
+<p>The first attempt to fix this was DaVinci Resolve's scripting API. You can run a Python script that reads timestamps from an external source (a beat-detection tool like Aubio or librosa run on the command line) and places markers automatically. This works, but requires:</p>
+
+<ul>
+  <li>Running a separate Python tool on your audio file.</li>
+  <li>Exporting beat times to a CSV or JSON file.</li>
+  <li>Running a Resolve script that reads the file and places markers.</li>
+  <li>Knowing which Python version Resolve ships with on your OS (it changes between major versions).</li>
+  <li>Handling the floor/round issue when converting times to frames (use floor() with int(), never round() — see <a href="/blog/sync-video-music-davinci-resolve-tutorial">our tutorial</a> for why).</li>
+</ul>
+
+<p>It works once you've set it up. It's still 4 steps where it should be 1.</p>
+
+<h2 id="tools">4. Tool comparison — manual, scripts, plugins</h2>
+
+<table>
+  <thead>
+    <tr><th>Approach</th><th>Setup time</th><th>Per-project time</th><th>Quality</th><th>Cost</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Manual tapping</td><td>0 min</td><td>30–90 min</td><td>Variable (drifts)</td><td>Free</td></tr>
+    <tr><td>Python + librosa script</td><td>2 hours</td><td>5–10 min</td><td>Good</td><td>Free</td></tr>
+    <tr><td>BeatEdit</td><td>5 min</td><td>5 min</td><td>Good (basic algo)</td><td>$59 (Premiere only)</td></tr>
+    <tr><td>AutoCut</td><td>5 min</td><td>5 min</td><td>Variable</td><td>$49 + $10/mo</td></tr>
+    <tr><td><strong>Pulse Edit</strong></td><td>2 min</td><td>2 min</td><td>Excellent</td><td>$40 one-time</td></tr>
+    <tr><td>Auto editors (Descript, Runway)</td><td>10 min</td><td>10 min</td><td>Generic (not beat-focused)</td><td>$15–25/mo</td></tr>
+  </tbody>
+</table>
+
+<p>Each tool optimizes for something different. Manual tapping wins if you only edit one music video a year. Scripts win if you're a developer and don't mind tinkering. BeatEdit wins if you live in Premiere. Pulse Edit wins if you're in DaVinci Resolve and want to spend 2 minutes setting up a beat-synced timeline instead of 90 minutes tapping markers.</p>
+
+<p>We've written detailed comparisons for each:</p>
+<ul>
+  <li><a href="/vs-beatedit.html">Pulse Edit vs BeatEdit</a></li>
+  <li><a href="/vs-autocut.html">Pulse Edit vs AutoCut</a></li>
+  <li><a href="/vs-descript.html">Pulse Edit vs Descript</a></li>
+  <li><a href="/vs-runway.html">Pulse Edit vs Runway</a></li>
+  <li><a href="/vs-finalcut.html">Pulse Edit vs Final Cut Pro</a></li>
+</ul>
+
+<h2 id="howto">5. Step-by-step: edit to music with Pulse Edit</h2>
+
+<p>This section assumes you've installed <a href="/">Pulse Edit</a> (free trial works fine). The full workflow takes under 5 minutes for a typical 3-minute music video.</p>
+
+<h3>Step 1 — Import your music and video</h3>
+<p>Open DaVinci Resolve and create a new project. Import your music track (WAV preferred, MP3 works fine) by dragging it into the media pool. Then drop it on the timeline as audio. Add your video clips to the media pool but don't put them on the timeline yet.</p>
+
+<h3>Step 2 — Launch Pulse Edit</h3>
+<p>Open Pulse Edit from your Applications folder (macOS) or Start menu (Windows). Pulse Edit runs as a standalone application that talks to DaVinci Resolve through Blackmagic's official scripting bridge — no plugin installation in Resolve itself.</p>
+
+<h3>Step 3 — Select your audio and detect beats</h3>
+<p>In Pulse Edit, click "Select Audio" and pick the music file you just imported. Click "Detect Beats." Pulse Edit analyzes the audio using librosa's beat-tracking algorithm — typically 5–10 seconds for a 3-minute song on any modern Mac or PC. You'll see a waveform with detected beat positions overlaid.</p>
+
+<h3>Step 4 — Place markers in Resolve</h3>
+<p>Click "Send Markers to Resolve." Pulse Edit places a marker on your timeline at every detected beat, color-coded blue. You can verify accuracy by scrubbing through the audio in Resolve and watching markers line up with each kick or snare.</p>
+
+<h3>Step 5 — Auto-cut your clips to beats</h3>
+<p>Now drag your video clips onto the timeline above the audio. In Pulse Edit, click "Auto-cut to Markers." Pulse Edit asks how you want to align cuts — every beat, every other beat (downbeats only), every 4 beats (bars), or custom subdivisions. Pick one and click Apply.</p>
+
+<h3>Step 6 — Refine</h3>
+<p>Pulse Edit's automatic cuts are usually 90% perfect. The remaining 10% is taste: you might want to hold a shot longer for emphasis, or skip a beat for breathing room. Adjust manually in Resolve as normal. The beat markers stay locked to the audio, so re-cuts always snap to the rhythm.</p>
+
+<h3>Step 7 — Export</h3>
+<p>Export from Resolve as you normally would. The beat markers don't appear in the rendered video — they're just guides for the editing process.</p>
+
+<h2 id="advanced">6. Advanced techniques pros use</h2>
+
+<h3>Cut on downbeats, not every beat</h3>
+<p>Cutting on every beat creates a frenetic montage that works for action sequences and high-energy edits but feels exhausting on longer pieces. Most professional music videos cut on downbeats (beat 1 of each bar) with occasional emphasis cuts on beat 3. In Pulse Edit, choose "Every 4 beats" for clean downbeat editing.</p>
+
+<h3>Match motion direction to musical phrase</h3>
+<p>If a phrase rises (pitch ascending), use clips that pan upward or have upward motion. If it falls, use downward motion. This is "synchresis" — viewers don't notice it consciously but they feel the alignment.</p>
+
+<h3>Hold shots through the breakdown</h3>
+<p>Every song has quieter sections — bridges, breakdowns, verse 1. Cutting frantically through these sections kills momentum. Better technique: hold longer shots through breakdowns and unleash rapid-cut sequences when the track hits the chorus or drop. Pulse Edit's variable cut spacing lets you toggle this on a per-section basis.</p>
+
+<h3>Use J-cuts and L-cuts on transitions</h3>
+<p>A J-cut starts the audio of the next clip before the video changes. An L-cut keeps the previous audio playing under the new video. Both create smoother transitions than hard cuts. With beat markers in place, you can offset audio fades by 1–2 frames either side of the beat for a polished feel.</p>
+
+<h3>Speed ramps on builds</h3>
+<p>If the song has a build (rising tension before a drop), apply speed ramps to your clips that match the build's curve. Beat markers tell you exactly where the drop hits, so your ramp can resolve perfectly on the impact frame.</p>
+
+<h2 id="mistakes">7. Ten mistakes that ruin beat-synced edits</h2>
+
+<ol>
+  <li><strong>Cutting on every single beat.</strong> Tiring to watch. Save full-tempo cuts for choruses.</li>
+  <li><strong>Ignoring genre conventions.</strong> Hip-hop expects cuts on 1 and 3. House expects cuts on every 4 bars. Don't fight the genre.</li>
+  <li><strong>Using round() instead of floor() for frame conversion.</strong> Frame timing must use floor() / int() — round() introduces a 1-frame drift that compounds. <a href="/blog/sync-video-music-davinci-resolve-tutorial">Details here</a>.</li>
+  <li><strong>Detecting beats on the wrong audio version.</strong> If your final mix differs from your reference track (different mastering, EQ, etc), detect on the final mix to avoid drift.</li>
+  <li><strong>Forgetting to lock audio when shifting markers.</strong> Markers anchor to timeline position, not audio. If you nudge audio, markers don't follow. Lock audio first.</li>
+  <li><strong>Hard-cutting through quiet sections.</strong> Breakdowns deserve held shots. Save the rapid cuts for the drop.</li>
+  <li><strong>Cutting before the kick, not on it.</strong> The kick is the dopamine trigger. A cut that lands 2 frames before the kick feels rushed; on the kick feels powerful.</li>
+  <li><strong>Re-detecting after every edit.</strong> Detect once on the final master audio, then forget about it. Re-detecting wastes time and risks drift.</li>
+  <li><strong>Mismatched FPS conforming.</strong> If your timeline is 23.976 fps and your audio is 48kHz, frame math must conform correctly or markers drift by milliseconds over time.</li>
+  <li><strong>Not testing on a different speaker.</strong> Headphones flatten dynamics. Always check final cuts on phone speakers or a TV — that's how 80% of viewers will watch.</li>
+</ol>
+
+<h2 id="workflows">8. Workflow templates by video type</h2>
+
+<h3>Travel montage / vlog</h3>
+<p>Cut every 4 beats (one bar) for the standard montage feel. Hold landmark shots for 8 beats. Insert a quick 1-beat burst when transitioning between locations. Pulse Edit handles all three patterns via its variable cut-spacing.</p>
+<p>See: <a href="/blog/travel-montage-auto-edit-davinci-resolve">Travel montage tutorial</a></p>
+
+<h3>Wedding highlight reel</h3>
+<p>Slow first half (held shots, 4–8 beat cuts), faster second half (every beat through the celebration), held shot on the kiss or final dance pose.</p>
+<p>See: <a href="/blog/wedding-highlight-reel-davinci-resolve">Wedding highlight reel tutorial</a></p>
+
+<h3>TikTok / Reels music video (15–60s)</h3>
+<p>Cut on every beat for the duration. Front-load the hook in the first 3 seconds. End on the beat right before the final downbeat.</p>
+<p>See: <a href="/blog/tiktok-creator-davinci-resolve-plugin">TikTok creator workflow</a></p>
+
+<h3>Sports / action montage</h3>
+<p>Cut on impacts within shots, then align those impacts to beat markers. Speed-ramp clips so the impact lands on the kick. High-energy genres only (EDM, metal, trap).</p>
+
+<h3>Brand promo / commercial</h3>
+<p>Sparse cuts on downbeats only. Held shots emphasize product. Reserve high-energy beat-cutting for the closing 5 seconds + CTA.</p>
+
+<h2 id="faq">9. Frequently Asked Questions</h2>
+
+<h3>Can I detect beats in DaVinci Resolve natively?</h3>
+<p>No. Resolve doesn't have built-in beat detection. You need either a script (free but technical) or a plugin like Pulse Edit (paid, click-to-run). Resolve's Fairlight audio pages have transient detection but no beat-tracking algorithm.</p>
+
+<h3>Does Pulse Edit work with the free version of DaVinci Resolve?</h3>
+<p>Yes. Pulse Edit talks to Resolve through the public scripting API, which is available in both Resolve free and Studio. You don't need Studio for any feature.</p>
+
+<h3>What audio formats does Pulse Edit support?</h3>
+<p>WAV, MP3, AAC, FLAC, OGG. Internally it converts everything to 22050 Hz mono for analysis, which doesn't affect your final audio (Resolve uses your original file).</p>
+
+<h3>Does it work with music that has tempo changes?</h3>
+<p>Mostly yes. Pulse Edit's algorithm tracks tempo locally rather than assuming a constant BPM, so it handles tempo changes within reason. Extreme cases (rubato classical piano, drum solos with metric modulation) may require manual cleanup.</p>
+
+<h3>How accurate is beat detection?</h3>
+<p>For mainstream music (pop, rock, hip-hop, EDM, R&amp;B, country), accuracy is typically 95–99%. For complex genres (free jazz, prog, ambient without percussion), accuracy drops to 70–85% — but Pulse Edit lets you manually adjust or add markers post-detection.</p>
+
+<h3>Can I edit on the off-beat?</h3>
+<p>Yes. Pulse Edit can place markers on both beats and off-beats (or even subdivisions like 8th and 16th notes). Choose your subdivision in the marker placement dialog.</p>
+
+<h3>Will the markers stay in sync if I edit the audio?</h3>
+<p>Markers anchor to timeline timecode, not to audio events. If you slip the audio clip, you need to re-detect. Best practice: detect on the final master audio after all mixing decisions are made.</p>
+
+<h3>What's the difference between beat detection and onset detection?</h3>
+<p>Onset detection finds every percussive moment (every drum hit, including hi-hats and ghost notes). Beat detection identifies which onsets are <em>the beat</em>. Pulse Edit uses beat detection — it doesn't mark every hi-hat hit, just the structural pulse.</p>
+
+<h3>Can I use this for podcast editing?</h3>
+<p>Not directly — podcasts don't have a regular beat. For podcast editing, Descript or Resolve's own transcript-based editing are better tools. See our <a href="/vs-descript.html">Pulse Edit vs Descript comparison</a>.</p>
+
+<h3>Is there a money-back guarantee?</h3>
+<p>Yes. Pulse Edit ships with a 14-day refund policy. Email <a href="mailto:support@pulseedit.com">support@pulseedit.com</a> if it doesn't work for your workflow.</p>
+
+<h3>Does it integrate with other plugins?</h3>
+<p>Pulse Edit produces standard DaVinci Resolve markers, which any other plugin or workflow can consume. It coexists with Beat Markers, Reactor scripts, ResolveX and other Resolve extensions.</p>
+
+<div class="cta">
+  <h3>Try Pulse Edit free</h3>
+  <p>Download a 14-day free trial. No credit card required. Works on macOS 12+ and Windows 10+.</p>
+  <a href="/" class="btn">Download Pulse Edit →</a>
+</div>
+
+<h2>Related guides</h2>
+<ul>
+  <li><a href="/blog/auto-edit-video-to-music-davinci-resolve">How to auto-edit videos to music in DaVinci Resolve</a></li>
+  <li><a href="/blog/auto-place-beat-markers-davinci-resolve">How to auto-place beat markers in DaVinci Resolve</a></li>
+  <li><a href="/blog/best-davinci-resolve-plugins-music-videos">Best DaVinci Resolve plugins for music videos (2026)</a></li>
+  <li><a href="/blog/beatedit-alternative-davinci-resolve">Best BeatEdit alternative for DaVinci Resolve</a></li>
+  <li><a href="/blog/music-video-editing-automation-2026">Music video editing automation in 2026</a></li>
+  <li><a href="/davinci-resolve-beat-detection">DaVinci Resolve beat detection — free auto beat marker tool</a></li>
+</ul>
+
+</article>
+</div>
+
+<footer>
+  <div class="container">
+    <p>
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </p>
+    <p style="margin-top:16px">&copy; 2026 AB Tools — Pulse Edit by Abramo Benedetti</p>
+  </div>
+</footer>
+</body>
+</html>
