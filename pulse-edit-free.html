@@ -300,8 +300,8 @@
             </div>
 
             <div class="pe-cta-row">
-                <a href="https://buy.stripe.com/aFa28q7ae97u38kcvbawo0a" class="btn btn-primary" id="cta-buy-launch">Buy Pulse Edit — €35</a>
-                <a href="#how-it-works" class="btn btn-secondary">How it works</a>
+                <a href="https://github.com/fnax94/pulse-edit-free/releases/latest" class="btn btn-primary" id="cta-download-free" data-track="trial-download">⬇ Download Free Trial (3 generations)</a>
+                <a href="https://buy.stripe.com/aFa28q7ae97u38kcvbawo0a" class="btn btn-secondary" id="cta-buy-launch" data-track="free">Buy €35 to unlock</a>
             </div>
             <p class="pe-trust">macOS 12+ (Apple Silicon) &amp; Windows 10/11 · Works in DR Free and DR Studio 18.5+</p>
             <p class="pe-trust" style="margin-top:6px;font-size:11px;opacity:0.75;">✅ macOS: signed &amp; notarized by Apple — no Gatekeeper warnings. 🛡️ Windows: SmartScreen may show a warning — click "More info" → "Run anyway".</p>
@@ -537,6 +537,22 @@
     }
     </script>
 
+    <script>
+    // Click tracker — Telegram notification + KV counter
+    document.querySelectorAll('[data-track]').forEach(el => {
+      el.addEventListener('click', function() {
+        const edition = this.getAttribute('data-track');
+        try {
+          fetch('https://license-server.abtools.workers.dev/track-click', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ edition, ref: location.pathname }),
+            keepalive: true
+          });
+        } catch(_) {}
+      });
+    });
+    </script>
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"090ce13315b846090c53b871490246d2"}'></script>
 </body>
 </html>
