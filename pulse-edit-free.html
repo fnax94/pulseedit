@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Analytics 4 (consent-gated) -->
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadGA() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-JV9DJHLCY2');
+    }
+    if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
+    </script>
+
+    <title>Pulse Edit for DaVinci Resolve Free — Beat-Synced Auto Edit | €35 Launch</title>
+    <meta name="description" content="Pulse Edit brings beat-synced auto-cut and marker placement back to DaVinci Resolve Free. Since November 2024, BMD disabled the scripting API in DR Free — Pulse Edit uses OTIO export instead, so it works on both Free and Studio. €35 launch price (regular €65).">
+    <meta name="keywords" content="pulse edit free, davinci resolve free beat detection, davinci resolve free plugin, beatedit davinci resolve free, auto cut davinci resolve free, otio davinci resolve, davinci resolve free auto edit, beat sync davinci resolve free">
+    <meta property="og:title" content="Pulse Edit for DaVinci Resolve Free — Beat-synced editing comes back">
+    <meta property="og:description" content="Since November 2024, plugins like BeatEdit stopped working on DR Free. Pulse Edit brings auto-cut and marker placement back, via OTIO export. €35 launch.">
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://pulseedit.com/pulse-edit-free.html">
+    <meta property="og:image" content="https://pulseedit.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pulse Edit for DaVinci Resolve Free — €35 Launch">
+    <meta name="twitter:description" content="Beat-synced editing comes back to DaVinci Resolve Free. Auto-cut and markers via OTIO. €35 launch (regular €65).">
+    <meta name="twitter:image" content="https://pulseedit.com/og-image.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#7c6ff7">
+    <link rel="canonical" href="https://pulseedit.com/pulse-edit-free.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-v2.css">
+
+    <!-- Product schema: Pulse Edit (Free Edition, for DR Free) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Pulse Edit",
+        "alternateName": "Pulse Edit for DaVinci Resolve Free",
+        "description": "Beat-synced auto-cut and marker placement for DaVinci Resolve Free (and Studio). Uses OTIO export to bypass the scripting-API limitation that BMD introduced in DR Free 19.1 in November 2024.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": ["macOS 12+", "Windows 10", "Windows 11"],
+        "offers": {
+            "@type": "Offer",
+            "price": "35.00",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://buy.stripe.com/aFa28q7ae97u38kcvbawo0a",
+            "validThrough": "2026-12-31"
+        },
+        "softwareRequirements": "DaVinci Resolve Free or Studio 18.5+",
+        "author": {
+            "@type": "Organization",
+            "name": "AB Tools"
+        }
+    }
+    </script>
+
+    <!-- BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pulseedit.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Pulse Edit for DaVinci Resolve Free", "item": "https://pulseedit.com/pulse-edit-free.html" }
+        ]
+    }
+    </script>
+
+    <style>
+      .pe-hero {
+        padding: 88px 0 40px;
+        text-align: center;
+        position: relative;
+      }
+      .pe-hero .badge-pill {
+        display: inline-block;
+        background: rgba(34, 197, 94, 0.12);
+        color: #4ade80;
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        border: 1px solid rgba(34, 197, 94, 0.25);
+        margin-bottom: 18px;
+      }
+      .pe-hero h1 {
+        font-size: clamp(2rem, 4.4vw, 3.2rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        margin: 0 auto 18px;
+        max-width: 880px;
+      }
+      .pe-hero h1 span { color: #7c6ff7; }
+      .pe-hero .lede {
+        color: #cbd5e1;
+        font-size: 1.1rem;
+        max-width: 720px;
+        margin: 0 auto 28px;
+        line-height: 1.6;
+      }
+      .pe-price-banner {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        padding: 22px 36px;
+        background: linear-gradient(135deg, rgba(124,111,247,0.12), rgba(124,111,247,0.04));
+        border: 1px solid rgba(124,111,247,0.25);
+        border-radius: 16px;
+        margin: 16px auto 28px;
+      }
+      .pe-price-banner .label {
+        font-size: 12px;
+        color: #a8a4c4;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 600;
+      }
+      .pe-price-banner .price-line {
+        font-size: 2.6rem;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1;
+        letter-spacing: -0.02em;
+      }
+      .pe-price-banner .price-line .strike {
+        color: #6b7280;
+        text-decoration: line-through;
+        font-size: 1.4rem;
+        font-weight: 500;
+        margin-right: 12px;
+      }
+      .pe-price-banner .meta {
+        color: #94a3b8;
+        font-size: 0.9rem;
+      }
+      .pe-cta-row {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 4px;
+      }
+      .pe-cta-row .btn { padding: 14px 30px; font-size: 1.02rem; }
+      .pe-trust {
+        color: #94a3b8;
+        font-size: 13px;
+        margin-top: 14px;
+      }
+
+      .pe-problem {
+        max-width: 820px;
+        margin: 24px auto 0;
+        padding: 28px;
+        background: rgba(245, 158, 11, 0.04);
+        border: 1px solid rgba(245, 158, 11, 0.18);
+        border-radius: 14px;
+      }
+      .pe-problem h2 { font-size: 1.4rem; margin-bottom: 12px; color: #fff; }
+      .pe-problem p { color: #cbd5e1; line-height: 1.7; margin-bottom: 12px; }
+      .pe-problem p:last-child { margin-bottom: 0; }
+      .pe-problem strong { color: #fbbf24; }
+
+      .pe-features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      .pe-feature {
+        padding: 22px 22px 20px;
+        background: #111;
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 12px;
+      }
+      .pe-feature h3 {
+        color: #fff;
+        font-size: 1.05rem;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .pe-feature h3::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        background: #7c6ff7;
+        border-radius: 999px;
+        flex-shrink: 0;
+      }
+      .pe-feature p { color: #94a3b8; font-size: 0.93rem; line-height: 1.6; margin: 0; }
+
+      .pe-compare {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 28px;
+        background: #0f0f1a;
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 14px;
+      }
+      .pe-compare h2 { color: #fff; font-size: 1.5rem; margin-bottom: 18px; text-align: center; }
+      .pe-compare-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+      .pe-compare-col {
+        padding: 22px;
+        border-radius: 12px;
+      }
+      .pe-compare-col.free {
+        background: linear-gradient(135deg, rgba(34,197,94,0.06), rgba(34,197,94,0.02));
+        border: 1px solid rgba(34,197,94,0.18);
+      }
+      .pe-compare-col.studio {
+        background: linear-gradient(135deg, rgba(124,111,247,0.06), rgba(124,111,247,0.02));
+        border: 1px solid rgba(124,111,247,0.18);
+      }
+      .pe-compare-col h3 { color: #fff; font-size: 1.1rem; margin-bottom: 4px; }
+      .pe-compare-col .sub { color: #94a3b8; font-size: 0.85rem; margin-bottom: 14px; }
+      .pe-compare-col .col-price { font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 14px; }
+      .pe-compare-col .col-price s { color: #6b7280; font-weight: 500; font-size: 1rem; margin-right: 8px; }
+      .pe-compare-col ul { list-style: none; padding: 0; margin: 0 0 16px; }
+      .pe-compare-col ul li {
+        color: #cbd5e1;
+        font-size: 0.92rem;
+        line-height: 1.5;
+        padding: 6px 0 6px 22px;
+        position: relative;
+      }
+      .pe-compare-col ul li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: #4ade80;
+        font-weight: 700;
+      }
+      @media (max-width: 700px) {
+        .pe-compare-grid { grid-template-columns: 1fr; }
+      }
+
+      .pe-faq-item {
+        max-width: 820px;
+        margin: 0 auto 14px;
+        background: #111;
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 12px;
+        padding: 22px;
+      }
+      .pe-faq-item h3 { color: #fff; font-size: 1.05rem; margin-bottom: 8px; }
+      .pe-faq-item p { color: #cbd5e1; line-height: 1.65; margin: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <div class="container nav-inner">
+            <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
+            <div class="nav-links">
+                <a href="/blog/">Blog</a>
+                <a href="/tutorial.html">Tutorial</a>
+                <a href="/#pricing">Pricing</a>
+                <a href="/#faq">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pe-hero">
+        <div class="hero-orb"></div>
+        <div class="container">
+            <div class="badge-pill">For DaVinci Resolve Free — and Studio</div>
+            <h1>Beat-synced editing comes back to <span>DaVinci Resolve Free</span></h1>
+            <p class="lede">Since November 2024, plugins like BeatEdit stopped working on DR Free — Blackmagic disabled the scripting API in version 19.1. Pulse Edit brings auto-cut and marker placement back, by exporting an OTIO timeline you import in one click.</p>
+
+            <div class="pe-price-banner">
+                <span class="label">Launch price — limited time</span>
+                <div class="price-line"><span class="strike">€65</span>€35</div>
+                <span class="meta">One-time payment · No subscription · Lifetime updates</span>
+            </div>
+
+            <div class="pe-cta-row">
+                <a href="https://buy.stripe.com/aFa28q7ae97u38kcvbawo0a" class="btn btn-primary" id="cta-buy-launch">Buy Pulse Edit — €35</a>
+                <a href="#how-it-works" class="btn btn-secondary">How it works</a>
+            </div>
+            <p class="pe-trust">macOS 12+ (Apple Silicon) &amp; Windows 10/11 · Works in DR Free and DR Studio 18.5+</p>
+            <p class="pe-trust" style="margin-top:6px;font-size:11px;opacity:0.75;">✅ macOS: signed &amp; notarized by Apple — no Gatekeeper warnings. 🛡️ Windows: SmartScreen may show a warning — click "More info" → "Run anyway".</p>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section style="padding: 30px 0 50px;">
+        <div class="container">
+            <div class="pe-problem">
+                <h2>What changed in November 2024</h2>
+                <p>With DaVinci Resolve <strong>19.1</strong>, Blackmagic Design <strong>disabled the external scripting API in the free edition</strong>. Tools that auto-edit clips or place beat markers — BeatEdit, BeatBuddy, scripts built on the API — stopped working overnight for the ~7 million users on the free version.</p>
+                <p>Pulse Edit takes a different route: it analyses your music, builds a fully-cut timeline locally, and exports it as an <strong>OTIO file</strong>. You import that file into DaVinci Resolve in one click. Free edition or Studio — same result, same workflow.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-it-works" id="how-it-works" style="padding: 40px 0 60px;">
+        <div class="container">
+            <h2 class="section-title">Three steps. No scripting API required.</h2>
+            <p class="section-subtitle">Open Pulse Edit, drop in your music, import the timeline back into Resolve.</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Drop in your music + clips</h3>
+                        <p>Pulse Edit reads your audio and analyses beats with the same <strong>beat_this</strong> AI detector used by the Studio edition. Pick a folder of clips or specific files — sequential or random order.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Choose pattern + mood</h3>
+                        <p>12 cut patterns (Energy Map, Every Beat, Wedding, Build-up/Drop, Humanize…), 6 mood presets, an interactive waveform you can edit by hand. Preview the timing before exporting.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Import OTIO into Resolve</h3>
+                        <p>Pulse Edit exports a standard OTIO timeline. In DaVinci Resolve: <em>File → Import Timeline → OpenTimelineIO</em>. Works in <strong>DR Free</strong> and <strong>DR Studio 18.5+</strong>. No plugin install, no scripting permissions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature grid -->
+    <section style="padding: 30px 0 60px;">
+        <div class="container">
+            <h2 class="section-title">What's inside</h2>
+            <p class="section-subtitle" style="margin-bottom:36px;">The same editing brain that powers Pulse Edit Studio — packaged for the OTIO workflow.</p>
+            <div class="pe-features-grid">
+                <div class="pe-feature">
+                    <h3>12 cut patterns</h3>
+                    <p>Every Beat, Energy Map, Build-up &amp; Drop, Wedding, Humanize, Half-time, Double-time, Wedding Slow, Verse/Chorus and more.</p>
+                </div>
+                <div class="pe-feature">
+                    <h3>beat_this AI detection</h3>
+                    <p>State-of-the-art beat tracker — handles tempo changes, swung beats, complex time signatures (2/4 → 7/4) without manual tweaking.</p>
+                </div>
+                <div class="pe-feature">
+                    <h3>Energy map</h3>
+                    <p>Cut density adapts to the music. Quiet intro = long shots. Drop = rapid cuts. Outro = breathing room. All automatic.</p>
+                </div>
+                <div class="pe-feature">
+                    <h3>Mood presets</h3>
+                    <p>Calm, Happy, Melancholic, Energetic, Aggressive, Epic. Affects clip selection and cut rhythm — not just colour.</p>
+                </div>
+                <div class="pe-feature">
+                    <h3>Build-up &amp; drop</h3>
+                    <p>Detects drops in EDM/trailer tracks and times the visual hit. Same trick the pros do manually, applied in one pass.</p>
+                </div>
+                <div class="pe-feature">
+                    <h3>Humanize cuts</h3>
+                    <p>Optional micro-offset that breaks the robotic on-beat feeling. The cut feels intentional, not algorithmic.</p>
+                </div>
+                <div class="pe-feature">
+                    <h3>Interactive waveform</h3>
+                    <p>See every detected beat. Add, move, delete by hand. Lock the section you like, regenerate the rest.</p>
+                </div>
+                <div class="pe-feature">
+                    <h3>Markers visible in DR Free</h3>
+                    <p>OTIO carries beat markers as timeline markers — they show up in DaVinci Resolve Free with full timecodes. Studio versions used to be the only way; not anymore.</p>
+                </div>
+                <div class="pe-feature">
+                    <h3>One-time price</h3>
+                    <p>No subscription, ever. €35 launch, lifetime updates. New cut patterns, new detectors, new presets — included.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free vs Studio comparison -->
+    <section style="padding: 30px 0 60px;">
+        <div class="container">
+            <div class="pe-compare">
+                <h2>Pulse Edit vs Pulse Edit Studio</h2>
+                <p style="text-align:center;color:#94a3b8;margin-bottom:24px;">Same editing engine. Different way of getting the result into DaVinci Resolve.</p>
+                <div class="pe-compare-grid">
+                    <div class="pe-compare-col free">
+                        <h3>Pulse Edit</h3>
+                        <p class="sub">For DaVinci Resolve Free or Studio</p>
+                        <div class="col-price"><s>€65</s>€35</div>
+                        <ul>
+                            <li>OTIO timeline export</li>
+                            <li>One-click import in Resolve</li>
+                            <li>Works in DR Free (no scripting needed)</li>
+                            <li>All 12 cut patterns + beat_this + moods</li>
+                            <li>Markers visible in DR Free timeline</li>
+                            <li>macOS + Windows</li>
+                        </ul>
+                        <a href="https://buy.stripe.com/aFa28q7ae97u38kcvbawo0a" class="btn btn-green btn-small" style="display:block;text-align:center;">Buy €35 (launch)</a>
+                    </div>
+                    <div class="pe-compare-col studio">
+                        <h3>Pulse Edit Studio</h3>
+                        <p class="sub">For DaVinci Resolve Studio 18+</p>
+                        <div class="col-price"><s>€79.99</s>€39.99</div>
+                        <ul>
+                            <li>Direct integration via Resolve scripting API</li>
+                            <li>Auto-places clips on timeline live</li>
+                            <li>Real-time preview inside Resolve</li>
+                            <li>All 12 cut patterns + beat_this + moods</li>
+                            <li>Zoom effects + freeze frames</li>
+                            <li>Requires DR Studio (one-time $295 from BMD)</li>
+                        </ul>
+                        <a href="/#pricing" class="btn btn-outline btn-small" style="display:block;text-align:center;">See Studio →</a>
+                    </div>
+                </div>
+                <p style="text-align:center;color:#6b7280;font-size:0.85rem;margin-top:18px;">If you already own DR Studio, the Studio edition gives a tighter in-app workflow. If you're on DR Free — or you don't want to depend on the scripting API at all — Pulse Edit is the right fit.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Big CTA -->
+    <section style="padding: 50px 0 60px;background:linear-gradient(135deg,rgba(124,111,247,0.08),rgba(124,111,247,0.02));border-top:1px solid rgba(124,111,247,0.15);border-bottom:1px solid rgba(124,111,247,0.15)">
+        <div class="container" style="max-width:720px;text-align:center;">
+            <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:14px;color:#fff;">Get Pulse Edit at the launch price</h2>
+            <p style="color:#cbd5e1;margin-bottom:24px;">€35 one-time. No subscription. Lifetime updates. Works on macOS and Windows, on DaVinci Resolve Free or Studio.</p>
+            <div class="pe-cta-row">
+                <a href="https://buy.stripe.com/aFa28q7ae97u38kcvbawo0a" class="btn btn-primary">Buy now — €35</a>
+                <a href="https://buy.stripe.com/00w5kC0LQdnKgZaan3awo0b" class="btn btn-outline" style="font-size:0.9rem;">Regular price (€65)</a>
+            </div>
+            <p class="pe-trust" style="margin-top:14px;">Secure checkout via Stripe · License delivered by email immediately</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" style="padding: 50px 0 60px;">
+        <div class="container">
+            <h2 class="section-title" style="margin-bottom:30px;">Questions about Pulse Edit for DR Free</h2>
+
+            <div class="pe-faq-item">
+                <h3>Does this really work with the free version of DaVinci Resolve?</h3>
+                <p>Yes. Pulse Edit doesn't use the Resolve scripting API — that's exactly the thing Blackmagic disabled in the free edition in November 2024. It exports a standard OTIO timeline, and DaVinci Resolve Free fully supports importing OTIO files. The cuts and markers land on your timeline ready to use.</p>
+            </div>
+
+            <div class="pe-faq-item">
+                <h3>What's the difference between this and Pulse Edit Studio (€40)?</h3>
+                <p>Pulse Edit Studio talks to DaVinci Resolve directly through the scripting API — it places clips on the timeline live, in real time, while you watch. Pulse Edit (Free Edition) builds the same timeline in its own app and hands it to Resolve as an OTIO file you import. Same cut quality, same patterns, same beat_this AI. Just a different way of getting the result into Resolve. If you own DR Studio, the Studio edition is tighter. If you're on DR Free — or you simply don't want to depend on the scripting API — go with this one.</p>
+            </div>
+
+            <div class="pe-faq-item">
+                <h3>Is OTIO supported by DaVinci Resolve Free?</h3>
+                <p>Yes. OpenTimelineIO is an open timeline format developed by Pixar. DaVinci Resolve (Free and Studio) supports OTIO import natively under <em>File → Import Timeline → OpenTimelineIO</em>. The format carries cuts, clip references, and markers — everything Pulse Edit needs.</p>
+            </div>
+
+            <div class="pe-faq-item">
+                <h3>What happens to my clips? Are they re-encoded?</h3>
+                <p>No. Pulse Edit only writes the timeline — your media files stay where they are, untouched. The OTIO file points to your original clips. Resolve loads them at full quality with no re-encoding.</p>
+            </div>
+
+            <div class="pe-faq-item">
+                <h3>Is there a free trial?</h3>
+                <p>Not yet — the free trial system used by Pulse Edit Studio depends on the Resolve scripting API, which is the exact thing we're working around here. Refund within 14 days if it doesn't work for you. Email <a href="mailto:support@pulseedit.com" style="color:#7c6ff7;">support@pulseedit.com</a>.</p>
+            </div>
+
+            <div class="pe-faq-item">
+                <h3>Will updates be free?</h3>
+                <p>Yes. One-time purchase, lifetime updates. New cut patterns, detector improvements, presets, bug fixes — all included.</p>
+            </div>
+
+            <div class="pe-faq-item">
+                <h3>What about Windows?</h3>
+                <p>Pulse Edit ships for macOS 12+ (Apple Silicon) and Windows 10/11. Same feature set on both. macOS build is signed and notarized by Apple. Windows build is unsigned for now — SmartScreen will warn the first time; click "More info" → "Run anyway". Normal for new software, going away as we accumulate reputation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cross-link to main site -->
+    <section style="padding:50px 24px;background:linear-gradient(135deg,rgba(56,189,248,0.04) 0%,rgba(124,111,247,0.04) 100%);border-top:1px solid rgba(255,255,255,0.06);">
+        <div class="container" style="max-width:720px;text-align:center;">
+            <h2 style="font-size:1.4rem;color:#fff;margin-bottom:12px;">Already on DaVinci Resolve Studio?</h2>
+            <p style="color:#94a3b8;margin-bottom:18px;">Pulse Edit Studio integrates directly via the Resolve scripting API — live preview, real-time clip placement, zoom effects, freeze frames.</p>
+            <a href="/" class="btn btn-secondary">See Pulse Edit Studio (€40 launch) →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 8px;"><strong style="color: #fff;">Pulse Edit</strong> — Auto-edit videos to the beat in DaVinci Resolve</p>
+            <p>Made by <a href="https://www.instagram.com/aki.vhs/" target="_blank">Abramo Benedetti</a> — Professional Video Editor</p>
+            <p style="margin-top: 8px;">Questions? DM on <a href="https://www.instagram.com/aki.vhs/" target="_blank">Instagram</a> or email <a href="mailto:support@pulseedit.com" style="color:#7c6ff7;">support@pulseedit.com</a></p>
+            <p style="margin-top: 12px;"><a href="/privacy.html" style="color:#7c6ff7;text-decoration:none;margin-right:16px;">Privacy Policy</a> <a href="/terms.html" style="color:#7c6ff7;text-decoration:none;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;border-top:1px solid rgba(124,111,247,0.2);padding:16px 24px;z-index:9999;font-size:14px;color:#a0a0b8;">
+      <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <span>We use cookies to analyze site traffic. <a href="/privacy.html" style="color:#7c6ff7;">Privacy Policy</a></span>
+        <div style="display:flex;gap:8px;">
+          <button onclick="acceptCookies()" style="background:#7c6ff7;color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;">Accept</button>
+          <button onclick="declineCookies()" style="background:transparent;color:#a0a0b8;border:1px solid rgba(124,111,247,0.3);padding:8px 20px;border-radius:8px;cursor:pointer;font-size:13px;">Decline</button>
+        </div>
+      </div>
+    </div>
+    <script>
+    (function(){
+      if (!localStorage.getItem('cookie_consent')) {
+        document.getElementById('cookie-banner').style.display = 'block';
+      }
+    })();
+    function acceptCookies() {
+      localStorage.setItem('cookie_consent', 'accepted');
+      document.getElementById('cookie-banner').style.display = 'none';
+      loadGA();
+    }
+    function declineCookies() {
+      localStorage.setItem('cookie_consent', 'declined');
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+    </script>
+
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"090ce13315b846090c53b871490246d2"}'></script>
+</body>
+</html>
