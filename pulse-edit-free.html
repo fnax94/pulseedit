@@ -279,7 +279,7 @@
             <div class="nav-links">
                 <a href="/" title="Pick your DaVinci Resolve edition">Home</a>
                 <a href="/pulse-edit-studio.html" style="color:#a78bfa">DR Studio version</a>
-                <a href="/tutorial.html">Tutorial</a>
+                <a href="/tutorial-free.html">Tutorial</a>
                 <a href="/blog/">Blog</a>
                 <a href="#" onclick="document.getElementById('buy-modal').showModal();return false;">Pricing</a>
                 <a href="/pulse-edit-studio.html#faq">FAQ</a>
@@ -325,19 +325,6 @@
             </div>
             <div class="buy-tier__cta">Get 2 licenses →</div>
           </a>
-          <a class="buy-tier" href="https://buy.stripe.com/dRm14mcuyfvS38k52Jawo0c" data-track="buy-upgrade">
-            <div class="buy-tier__top">
-              <span class="buy-tier__badge">Upgrade</span>
-              <span class="buy-tier__qty">Existing customer</span>
-            </div>
-            <div class="buy-tier__price">€25</div>
-            <div class="buy-tier__perks">
-              <div>✓ Already own Pulse Edit?</div>
-              <div>✓ Add a 2nd machine slot</div>
-              <div>✓ Same license email</div>
-            </div>
-            <div class="buy-tier__cta">Add a machine →</div>
-          </a>
         </div>
         <div class="buy-modal__foot">
           Secure checkout via Stripe · License emailed instantly · 14-day refund if it doesn't fit
@@ -346,13 +333,18 @@
     </dialog>
     <style>
       .buy-modal {
-        max-width: 980px;
+        position: fixed;
+        inset: 0;
+        margin: auto;
+        max-width: 720px;
+        max-height: calc(100dvh - 40px);
         width: calc(100% - 32px);
         border: 1px solid rgba(124,111,247,0.30);
         border-radius: 20px;
         background: linear-gradient(180deg, #0f0f1c, #0a0a14);
         color: #fff;
         padding: 0;
+        overflow: auto;
         box-shadow: 0 30px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(124,111,247,0.20);
       }
       .buy-modal::backdrop {
@@ -478,7 +470,8 @@
             </p>
             <p class="pe-trust" style="margin-top:6px;font-size:11px;opacity:0.75;">✅ macOS: signed &amp; notarized by Apple — no Gatekeeper warnings. 🛡️ Windows: SmartScreen may show a warning — click "More info" → "Run anyway".</p>
             <script>
-            // Highlight the platform-specific button — both stay clickable.
+            // Subtle dim the non-platform button so the recommended one stands out
+            // visually, without changing its label.
             (function() {
               try {
                 var ua = (navigator.userAgent || '').toLowerCase();
@@ -487,14 +480,9 @@
                 var isMac = /mac/.test(ua) || /mac/.test(plat);
                 var mac = document.getElementById('cta-download-mac');
                 var win = document.getElementById('cta-download-win');
-                if (isWindows && win && mac) {
-                  win.textContent = '⬇ Download for Windows (recommended)';
-                  mac.style.opacity = '0.7';
-                } else if (isMac && win && mac) {
-                  mac.textContent = '⬇ Download for macOS (recommended)';
-                  win.style.opacity = '0.7';
-                }
-              } catch (e) { /* both buttons stay default */ }
+                if (isWindows && win && mac) { mac.style.opacity = '0.7'; }
+                else if (isMac && win && mac) { win.style.opacity = '0.7'; }
+              } catch (e) {}
             })();
             </script>
         </div>
