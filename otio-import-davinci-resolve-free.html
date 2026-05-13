@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadGA() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-JV9DJHLCY2');
+    }
+    if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
+    </script>
+    <title>OTIO Import in DaVinci Resolve Free — Full Workflow</title>
+    <meta name="description" content="OpenTimelineIO is the gateway for beat-synced editing on DaVinci Resolve Free. This is the complete OTIO import workflow with Pulse Edit — what the file contains, how Resolve reads it, and how to relink media.">
+    <meta name="keywords" content="otio davinci resolve free, opentimelineio davinci resolve, otio import resolve, davinci resolve otio workflow, otio export beat sync">
+    <meta property="og:title" content="OTIO Import in DaVinci Resolve Free — Full Workflow">
+    <meta property="og:description" content="Complete OTIO import workflow for DR Free with Pulse Edit. Beat-synced timelines without scripting.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://pulseedit.com/otio-import-davinci-resolve-free.html">
+    <meta property="og:image" content="https://pulseedit.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OTIO Import in DaVinci Resolve Free — Full Workflow">
+    <meta name="twitter:description" content="Complete OTIO import workflow for DR Free with Pulse Edit.">
+    <meta name="twitter:image" content="https://pulseedit.com/og-image.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#7c6ff7">
+    <link rel="canonical" href="https://pulseedit.com/otio-import-davinci-resolve-free.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles-v2.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Pulse Edit",
+        "alternateName": "OTIO timeline exporter for DaVinci Resolve",
+        "description": "Builds beat-synced OpenTimelineIO timelines that import natively into DaVinci Resolve Free and Studio.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": ["macOS 12+", "Windows 10", "Windows 11"],
+        "offers": {
+            "@type": "Offer", "price": "35.99", "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://buy.stripe.com/7sY4gyamq3Na9wI66Nawo0d"
+        },
+        "softwareRequirements": "DaVinci Resolve Free or Studio 18.5+",
+        "author": { "@type": "Organization", "name": "AB Tools" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pulseedit.com/" },
+            { "@type": "ListItem", "position": 2, "name": "OTIO Import in DR Free", "item": "https://pulseedit.com/otio-import-davinci-resolve-free.html" }
+        ]
+    }
+    </script>
+
+    <style>
+      .seo-hero { padding: 88px 0 40px; text-align: center; position: relative; }
+      .seo-hero .badge-pill { display: inline-block; background: rgba(56,189,248,0.10); color: #38bdf8; padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; border: 1px solid rgba(56,189,248,0.25); margin-bottom: 18px; }
+      .seo-hero h1 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.12; margin: 0 auto 18px; max-width: 880px; }
+      .seo-hero h1 span { color: #7c6ff7; }
+      .seo-hero .lede { color: #cbd5e1; font-size: 1.1rem; max-width: 720px; margin: 0 auto 28px; line-height: 1.6; }
+      .seo-breadcrumb { color: #94a3b8; font-size: 13px; margin-bottom: 18px; }
+      .seo-breadcrumb a { color: #7c6ff7; text-decoration: none; }
+      .seo-section { padding: 28px 0 50px; }
+      .seo-section .content { max-width: 820px; margin: 0 auto; }
+      .seo-section h2 { color: #fff; font-size: 1.7rem; margin: 0 0 14px; letter-spacing: -0.02em; }
+      .seo-section h3 { color: #fff; font-size: 1.15rem; margin: 22px 0 8px; }
+      .seo-section p { color: #cbd5e1; line-height: 1.75; margin-bottom: 14px; }
+      .seo-section ul, .seo-section ol { margin: 6px 0 18px 22px; color: #cbd5e1; line-height: 1.7; }
+      .seo-section li { margin-bottom: 6px; }
+      .seo-section strong { color: #fff; }
+      .seo-section a { color: #7c6ff7; text-decoration: none; }
+      .seo-section a:hover { text-decoration: underline; }
+      .seo-section code {
+        background: #1a1a2e; color: #a99bff; padding: 2px 6px;
+        border-radius: 5px; font-size: 0.88em;
+      }
+      .seo-step { background: #0f0f1a; border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 20px 22px; margin: 12px 0; display: flex; gap: 18px; align-items: flex-start; }
+      .seo-step .num { flex-shrink: 0; width: 32px; height: 32px; border-radius: 999px; background: #38bdf8; color: #0c1f2b; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+      .seo-step h3 { color: #fff; font-size: 1.05rem; margin: 0 0 6px; }
+      .seo-step p { color: #cbd5e1; margin: 0; font-size: 0.95rem; line-height: 1.6; }
+      .seo-cta-band { padding: 46px 0; background: linear-gradient(135deg, rgba(124,111,247,0.08), rgba(124,111,247,0.02)); border-top: 1px solid rgba(124,111,247,0.15); border-bottom: 1px solid rgba(124,111,247,0.15); text-align: center; }
+      .seo-cta-band h2 { color: #fff; font-size: clamp(1.4rem, 2.6vw, 2rem); margin-bottom: 10px; }
+      .seo-cta-band p { color: #cbd5e1; max-width: 600px; margin: 0 auto 20px; }
+      .seo-related { padding: 50px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+      .seo-related h2 { color: #fff; text-align: center; font-size: 1.4rem; margin-bottom: 24px; }
+      .seo-related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; max-width: 880px; margin: 0 auto; }
+      .seo-related-grid a { display: block; padding: 16px 18px; background: #111; border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; color: #cbd5e1; text-decoration: none; font-size: 0.92rem; line-height: 1.45; transition: border-color 0.15s ease, color 0.15s ease; }
+      .seo-related-grid a:hover { border-color: #7c6ff7; color: #fff; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-inner">
+            <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
+            <div class="nav-links">
+                <a href="/pulse-edit-studio.html">DR Studio</a>
+                <a href="/pulse-edit-free.html">DR Free</a>
+                <a href="/tutorial.html">Tutorial</a>
+                <a href="/blog/">Blog</a>
+                <a href="/#products" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="seo-hero">
+        <div class="hero-orb"></div>
+        <div class="container">
+            <div class="seo-breadcrumb"><a href="/">Home</a> &rsaquo; OTIO Import in DR Free</div>
+            <div class="badge-pill">OpenTimelineIO · DR Free workflow</div>
+            <h1>OTIO import in <span>DaVinci Resolve Free</span> — the full workflow</h1>
+            <p class="lede">OpenTimelineIO is the interchange format that VFX studios use to move sequences between Hiero, RV, Resolve, Flame and Nuke. For DR Free users, it's also the way back to beat-synced editing — the import is native, no scripting required.</p>
+            <div class="pe-cta-row" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                <a href="/pulse-edit-free.html" class="btn btn-primary">Get Pulse Edit Free →</a>
+                <a href="/tutorial.html#free" class="btn btn-secondary">See it in the tutorial</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="seo-section">
+        <div class="container">
+            <div class="content">
+                <h2>What an OTIO file actually is</h2>
+                <p>OpenTimelineIO is a JSON-based timeline format. Pixar open-sourced the reference implementation in 2018, and over the next few years it became a quiet standard in the VFX pipeline world. An .otio file describes a sequence: a list of tracks, each track a list of clips, each clip a reference to a media file with in/out points. Markers, transitions, and metadata travel alongside.</p>
+                <p>It's text, not binary. You can open one in a code editor and read it. That makes it transparent and easy to debug — and crucially, it's a normal file your operating system handles.</p>
+
+                <h2>Why DR Free accepts it</h2>
+                <p>DaVinci Resolve has had OTIO import support since version 17. The path is <em>File → Import Timeline → OpenTimelineIO</em> in both Free and Studio. Importing OTIO is not a scripting operation — it's a regular file dialog, the same kind of import as XML or AAF. That's why the November 2024 scripting rollback didn't touch it.</p>
+
+                <h2>What Pulse Edit puts in the OTIO file</h2>
+                <ul>
+                    <li><strong>Timeline structure.</strong> One video track, one audio track. Cuts placed at the beat positions selected by your cut pattern.</li>
+                    <li><strong>Clip references.</strong> Each cut points at an existing media file on your disk. Pulse Edit never copies or re-encodes — only references.</li>
+                    <li><strong>In/out points.</strong> Each clip carries source-frame in and out values, so Resolve knows which portion of the original media to use.</li>
+                    <li><strong>Markers.</strong> Every detected beat gets a timeline marker, useful even if you decide to re-cut later.</li>
+                    <li><strong>Frame rate.</strong> Set to match your project. Pulse Edit uses floor() (never round) so 23.976 and 29.97 projects stay frame-accurate.</li>
+                </ul>
+
+                <h2>Importing the file — five real steps</h2>
+                <div class="seo-step"><div class="num">1</div><div><h3>Export from Pulse Edit</h3><p>Click the Export button. Pulse Edit writes a .otio file next to your project — typically a few kilobytes. The file appears almost instantly even for long sequences.</p></div></div>
+                <div class="seo-step"><div class="num">2</div><div><h3>Open DaVinci Resolve Free</h3><p>Free edition is fine. The OTIO import dialog is the same on both editions; there's no Studio gate here.</p></div></div>
+                <div class="seo-step"><div class="num">3</div><div><h3>File → Import Timeline → OpenTimelineIO</h3><p>Resolve presents a standard file picker. Point it at the .otio file. The import is a few seconds — Resolve parses the timeline, looks up your media files, and creates a new timeline in your current project.</p></div></div>
+                <div class="seo-step"><div class="num">4</div><div><h3>Review the cuts</h3><p>The timeline opens automatically. Markers at every detected beat are already there. Scrub through — the clips are placed at the cut positions Pulse Edit computed.</p></div></div>
+                <div class="seo-step"><div class="num">5</div><div><h3>Edit as usual</h3><p>Everything is normal Resolve geometry from this point. Move clips, change durations, add transitions, colour-grade. Nothing about the timeline is special once it's imported — it's yours.</p></div></div>
+
+                <h2>If media doesn't link</h2>
+                <p>The most common hiccup is media relink. OTIO references files by path. If your clips have moved between exporting and importing, Resolve will mark them as offline.</p>
+                <ul>
+                    <li><strong>Keep paths stable.</strong> Easiest fix — don't move source files between the Pulse Edit export and the Resolve import.</li>
+                    <li><strong>Relink manually.</strong> In the Media Pool, right-click an offline clip → Relink Selected Clips, point at the new folder. Resolve will re-link siblings automatically.</li>
+                    <li><strong>Re-export from Pulse Edit.</strong> If you've reorganised the project, re-run Pulse Edit with the new paths. The OTIO file is tiny — there's no real cost to regenerating it.</li>
+                </ul>
+
+                <h2>Pro tips</h2>
+                <ul>
+                    <li><strong>Project frame rate must match.</strong> Set your Resolve project FPS before importing. Mismatched FPS can show as offset markers.</li>
+                    <li><strong>Audio is bundled.</strong> Pulse Edit places the music on the audio track of the OTIO file. You won't need to drag it in separately.</li>
+                    <li><strong>One project, many imports.</strong> If you want to A/B two cut patterns, run Pulse Edit twice with different settings. Each gives you a separate .otio. Import both — Resolve creates two parallel timelines you can compare.</li>
+                </ul>
+
+                <h2>When you might still want Studio</h2>
+                <p>OTIO import is great. It's also one-shot per export. If you want to live-tweak a cut while it's playing back in Resolve — different shot order, different pattern, recompute on the fly — that requires the scripting bridge, which means DR Studio and <a href="/pulse-edit-studio.html">Pulse Edit Studio</a>. For the vast majority of music-driven cuts, the OTIO route is more than enough.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="seo-cta-band">
+        <div class="container">
+            <h2>One-click OTIO into DaVinci Resolve Free</h2>
+            <p>Pulse Edit writes the timeline, Resolve imports it. €35.99 launch, lifetime updates.</p>
+            <a href="/pulse-edit-free.html" class="btn btn-primary">Get Pulse Edit Free →</a>
+            <p style="color:#94a3b8;font-size:0.92rem;margin-top:12px;">Bonus: 6 free months of Lumiqa Starter included</p>
+        </div>
+    </section>
+
+    <section class="seo-related">
+        <div class="container">
+            <h2>Related guides</h2>
+            <div class="seo-related-grid">
+                <a href="/davinci-resolve-free-beat-detection.html">Beat detection in DR Free</a>
+                <a href="/davinci-resolve-free-auto-cut.html">Auto-cut to the beat in DR Free</a>
+                <a href="/davinci-resolve-19-scripting-api-fix.html">Why DR 19.1 broke the old plugins</a>
+                <a href="/beatedit-davinci-resolve-free-alternative.html">BeatEdit alternative for DR Free</a>
+                <a href="/free-davinci-resolve-music-video-editor.html">Free music video editor for DR Free</a>
+                <a href="/tutorial.html#free">DR Free tutorial</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 8px;"><strong style="color: #fff;">Pulse Edit</strong> — Auto-edit videos to the beat in DaVinci Resolve</p>
+            <p>Made by <a href="https://www.instagram.com/aki.vhs/" target="_blank">Abramo Benedetti</a> — Professional Video Editor</p>
+            <p style="margin-top: 8px;">Questions? DM on <a href="https://www.instagram.com/aki.vhs/" target="_blank">Instagram</a> or email <a href="mailto:support@pulseedit.com" style="color:#7c6ff7;">support@pulseedit.com</a></p>
+            <p style="margin-top: 12px;"><a href="/privacy.html" style="color:#7c6ff7;text-decoration:none;margin-right:16px;">Privacy Policy</a> <a href="/terms.html" style="color:#7c6ff7;text-decoration:none;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;border-top:1px solid rgba(124,111,247,0.2);padding:16px 24px;z-index:9999;font-size:14px;color:#a0a0b8;">
+      <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <span>We use cookies to analyze site traffic. <a href="/privacy.html" style="color:#7c6ff7;">Privacy Policy</a></span>
+        <div style="display:flex;gap:8px;">
+          <button onclick="acceptCookies()" style="background:#7c6ff7;color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;">Accept</button>
+          <button onclick="declineCookies()" style="background:transparent;color:#a0a0b8;border:1px solid rgba(124,111,247,0.3);padding:8px 20px;border-radius:8px;cursor:pointer;font-size:13px;">Decline</button>
+        </div>
+      </div>
+    </div>
+    <script>
+    (function(){ if (!localStorage.getItem('cookie_consent')) { document.getElementById('cookie-banner').style.display = 'block'; } })();
+    function acceptCookies() { localStorage.setItem('cookie_consent', 'accepted'); document.getElementById('cookie-banner').style.display = 'none'; loadGA(); }
+    function declineCookies() { localStorage.setItem('cookie_consent', 'declined'); document.getElementById('cookie-banner').style.display = 'none'; }
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"090ce13315b846090c53b871490246d2"}'></script>
+</body>
+</html>

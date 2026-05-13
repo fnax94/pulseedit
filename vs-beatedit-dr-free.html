@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadGA() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-JV9DJHLCY2');
+    }
+    if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
+    </script>
+    <title>Pulse Edit vs BeatEdit on DaVinci Resolve Free — 2026</title>
+    <meta name="description" content="On DaVinci Resolve Free, BeatEdit no longer works since BMD disabled scripting in DR 19.1. Full feature comparison vs Pulse Edit — what each plugin can and can't do on the free edition.">
+    <meta name="keywords" content="pulse edit vs beatedit dr free, beatedit davinci resolve free, beatedit alternative comparison, beat detection plugin comparison dr free">
+    <meta property="og:title" content="Pulse Edit vs BeatEdit on DaVinci Resolve Free — 2026">
+    <meta property="og:description" content="BeatEdit no longer works on DR Free. Full feature comparison vs Pulse Edit.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://pulseedit.com/vs-beatedit-dr-free.html">
+    <meta property="og:image" content="https://pulseedit.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pulse Edit vs BeatEdit on DaVinci Resolve Free — 2026">
+    <meta name="twitter:description" content="BeatEdit no longer works on DR Free. Full feature comparison vs Pulse Edit.">
+    <meta name="twitter:image" content="https://pulseedit.com/og-image.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#7c6ff7">
+    <link rel="canonical" href="https://pulseedit.com/vs-beatedit-dr-free.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles-v2.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Pulse Edit",
+        "alternateName": "Pulse Edit vs BeatEdit on DaVinci Resolve Free",
+        "description": "Side-by-side comparison of Pulse Edit (DR Free build) and BeatEdit on DaVinci Resolve Free.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": ["macOS 12+", "Windows 10", "Windows 11"],
+        "offers": {
+            "@type": "Offer", "price": "35.99", "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://buy.stripe.com/7sY4gyamq3Na9wI66Nawo0d"
+        },
+        "softwareRequirements": "DaVinci Resolve Free or Studio 18.5+",
+        "author": { "@type": "Organization", "name": "AB Tools" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pulseedit.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Comparisons", "item": "https://pulseedit.com/#comparisons" },
+            { "@type": "ListItem", "position": 3, "name": "Pulse Edit vs BeatEdit (DR Free)", "item": "https://pulseedit.com/vs-beatedit-dr-free.html" }
+        ]
+    }
+    </script>
+
+    <style>
+      .seo-hero { padding: 88px 0 40px; text-align: center; position: relative; }
+      .seo-hero .badge-pill { display: inline-block; background: rgba(124,111,247,0.12); color: #a99bff; padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; border: 1px solid rgba(124,111,247,0.25); margin-bottom: 18px; }
+      .seo-hero h1 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.12; margin: 0 auto 18px; max-width: 880px; }
+      .seo-hero h1 span { color: #7c6ff7; }
+      .seo-hero .lede { color: #cbd5e1; font-size: 1.1rem; max-width: 720px; margin: 0 auto 28px; line-height: 1.6; }
+      .seo-breadcrumb { color: #94a3b8; font-size: 13px; margin-bottom: 18px; }
+      .seo-breadcrumb a { color: #7c6ff7; text-decoration: none; }
+      .seo-section { padding: 28px 0 50px; }
+      .seo-section .content { max-width: 880px; margin: 0 auto; }
+      .seo-section h2 { color: #fff; font-size: 1.7rem; margin: 0 0 14px; letter-spacing: -0.02em; }
+      .seo-section h3 { color: #fff; font-size: 1.15rem; margin: 22px 0 8px; }
+      .seo-section p { color: #cbd5e1; line-height: 1.75; margin-bottom: 14px; }
+      .seo-section ul { margin: 6px 0 18px 22px; color: #cbd5e1; line-height: 1.7; }
+      .seo-section li { margin-bottom: 6px; }
+      .seo-section strong { color: #fff; }
+      .seo-section a { color: #7c6ff7; text-decoration: none; }
+      .seo-section a:hover { text-decoration: underline; }
+      .compare-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 22px 0; background: #0f0f1a; border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; overflow: hidden; font-size: 0.92rem; }
+      .compare-table th, .compare-table td { padding: 14px 16px; text-align: left; vertical-align: top; }
+      .compare-table thead th { background: rgba(124,111,247,0.10); color: #fff; font-weight: 600; }
+      .compare-table tbody tr + tr td { border-top: 1px solid rgba(255,255,255,0.04); }
+      .compare-table td.feature-label { color: #fff; font-weight: 500; width: 32%; }
+      .compare-table td.col-pe { color: #d2cffc; background: rgba(124,111,247,0.04); }
+      .compare-table td.col-be { color: #fcd2d2; background: rgba(248,113,113,0.04); }
+      .yes { color: #4ade80; font-weight: 600; }
+      .no { color: #f87171; font-weight: 600; }
+      .partial { color: #fbbf24; font-weight: 600; }
+      .verdict-box { background: rgba(34,197,94,0.05); border: 1px solid rgba(34,197,94,0.18); border-left: 3px solid #4ade80; padding: 20px 24px; border-radius: 12px; margin: 24px 0; }
+      .verdict-box h3 { color: #4ade80; margin-bottom: 10px; font-size: 1.1rem; }
+      .verdict-box p { color: #cbd5e1; margin-bottom: 0; }
+      .seo-cta-band { padding: 46px 0; background: linear-gradient(135deg, rgba(124,111,247,0.08), rgba(124,111,247,0.02)); border-top: 1px solid rgba(124,111,247,0.15); border-bottom: 1px solid rgba(124,111,247,0.15); text-align: center; }
+      .seo-cta-band h2 { color: #fff; font-size: clamp(1.4rem, 2.6vw, 2rem); margin-bottom: 10px; }
+      .seo-cta-band p { color: #cbd5e1; max-width: 600px; margin: 0 auto 20px; }
+      .seo-related { padding: 50px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+      .seo-related h2 { color: #fff; text-align: center; font-size: 1.4rem; margin-bottom: 24px; }
+      .seo-related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; max-width: 880px; margin: 0 auto; }
+      .seo-related-grid a { display: block; padding: 16px 18px; background: #111; border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; color: #cbd5e1; text-decoration: none; font-size: 0.92rem; line-height: 1.45; transition: border-color 0.15s ease, color 0.15s ease; }
+      .seo-related-grid a:hover { border-color: #7c6ff7; color: #fff; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-inner">
+            <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
+            <div class="nav-links">
+                <a href="/pulse-edit-studio.html">DR Studio</a>
+                <a href="/pulse-edit-free.html">DR Free</a>
+                <a href="/tutorial.html">Tutorial</a>
+                <a href="/blog/">Blog</a>
+                <a href="/#products" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="seo-hero">
+        <div class="hero-orb"></div>
+        <div class="container">
+            <div class="seo-breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#comparisons">Comparisons</a> &rsaquo; Pulse Edit vs BeatEdit (DR Free)</div>
+            <div class="badge-pill">Side-by-side · 2026</div>
+            <h1>Pulse Edit vs BeatEdit on <span>DaVinci Resolve Free</span></h1>
+            <p class="lede">Honest comparison: what each plugin can and cannot do on the free edition of Resolve. BeatEdit's Resolve port relied on the scripting API — and that API isn't there anymore on Free. Here's the real-world picture.</p>
+            <div class="pe-cta-row" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                <a href="/pulse-edit-free.html" class="btn btn-primary">Get Pulse Edit Free →</a>
+                <a href="/beatedit-davinci-resolve-free-alternative.html" class="btn btn-secondary">Read the migration guide</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="seo-section">
+        <div class="container">
+            <div class="content">
+                <h2>The short version</h2>
+                <p>BeatEdit is a strong product — but its DaVinci Resolve port was built on the scripting API. In November 2024, Blackmagic disabled that API on the free edition. On DR Free, BeatEdit's Resolve flow effectively went dark. Pulse Edit takes a different architectural route (OTIO export) that doesn't touch the scripting layer. It works on Free and Studio.</p>
+
+                <h2>Feature table</h2>
+                <table class="compare-table">
+                    <thead>
+                        <tr><th>Feature</th><th>Pulse Edit (DR Free build)</th><th>BeatEdit (DR Resolve flow)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="feature-label">Works on DR Free 19.1+</td><td class="col-pe"><span class="yes">Yes</span> — OTIO import path</td><td class="col-be"><span class="no">No</span> — needs scripting API</td></tr>
+                        <tr><td class="feature-label">Works on DR Studio</td><td class="col-pe"><span class="yes">Yes</span> — same OTIO path</td><td class="col-be"><span class="partial">Partial</span> — Premiere is the primary target</td></tr>
+                        <tr><td class="feature-label">Primary host application</td><td class="col-pe">DaVinci Resolve (Free + Studio)</td><td class="col-be">Premiere Pro (Resolve was secondary)</td></tr>
+                        <tr><td class="feature-label">Beat detector</td><td class="col-pe">beat_this (transformer)</td><td class="col-be">Onset-based</td></tr>
+                        <tr><td class="feature-label">Timeline markers in DR Free</td><td class="col-pe"><span class="yes">Yes</span> — via OTIO</td><td class="col-be"><span class="no">No</span> — scripting blocked</td></tr>
+                        <tr><td class="feature-label">Auto-cut clips to the beat</td><td class="col-pe"><span class="yes">Yes</span> — 12 patterns</td><td class="col-be"><span class="no">No</span> — markers only on Resolve</td></tr>
+                        <tr><td class="feature-label">Mood presets</td><td class="col-pe"><span class="yes">Yes</span> — 6 presets</td><td class="col-be"><span class="no">No</span></td></tr>
+                        <tr><td class="feature-label">Interactive waveform editing</td><td class="col-pe"><span class="yes">Yes</span></td><td class="col-be"><span class="partial">Partial</span></td></tr>
+                        <tr><td class="feature-label">FPS conform (23.976 / 29.97 safe)</td><td class="col-pe"><span class="yes">Yes</span> — floor() rounding</td><td class="col-be"><span class="partial">Partial</span> — host-dependent</td></tr>
+                        <tr><td class="feature-label">macOS support</td><td class="col-pe"><span class="yes">Yes</span> — signed + notarized</td><td class="col-be"><span class="yes">Yes</span></td></tr>
+                        <tr><td class="feature-label">Windows support</td><td class="col-pe"><span class="yes">Yes</span></td><td class="col-be"><span class="yes">Yes</span></td></tr>
+                        <tr><td class="feature-label">License model</td><td class="col-pe">One-time €35.99 launch</td><td class="col-be">Per-host tier</td></tr>
+                        <tr><td class="feature-label">Lifetime updates</td><td class="col-pe"><span class="yes">Yes</span> — included</td><td class="col-be"><span class="partial">Partial</span> — version-tied</td></tr>
+                        <tr><td class="feature-label">Bundled bonus</td><td class="col-pe">6 months Lumiqa Starter (€174 value)</td><td class="col-be">—</td></tr>
+                    </tbody>
+                </table>
+
+                <h2>The architectural difference</h2>
+                <p>BeatEdit was designed as a plugin: it sits beside the host editor and pushes data into the active timeline through a scripting bridge. That model is excellent on Premiere Pro (where the bridge is stable) and used to work on DR Studio (same story). On DR Free, the bridge was always lower priority, and in DR 19.1 BMD removed it entirely.</p>
+                <p>Pulse Edit was designed knowing the bridge wasn't trustworthy on Free. Instead of pushing data into Resolve at runtime, it produces a finished timeline as a standalone file (OpenTimelineIO) and asks you to import it. One extra click — and a workflow that works on both editions.</p>
+
+                <h2>What BeatEdit still wins on</h2>
+                <ul>
+                    <li><strong>Premiere Pro users.</strong> If your main NLE is Adobe, BeatEdit's native Premiere integration is more tightly coupled than any cross-app approach.</li>
+                    <li><strong>Historical brand familiarity.</strong> BeatEdit has been around longer; some tutorials and forums still reference it by default.</li>
+                </ul>
+                <p>If you're cutting in DaVinci Resolve — Free or Studio — those advantages don't apply.</p>
+
+                <div class="verdict-box">
+                    <h3>Verdict (DR Free)</h3>
+                    <p>For DaVinci Resolve Free users in 2026, Pulse Edit is the only one of the two that actually does the job. BeatEdit's Resolve path is broken by BMD's scripting-API rollback in DR 19.1. Pulse Edit's OTIO route sidesteps that change entirely. €35.99 launch price, lifetime updates, both macOS and Windows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seo-cta-band">
+        <div class="container">
+            <h2>Pulse Edit on DR Free, today</h2>
+            <p>The DR Free build of Pulse Edit exports a complete OTIO timeline. Import it. Edit. €35.99 launch.</p>
+            <a href="/pulse-edit-free.html" class="btn btn-primary">Get Pulse Edit Free →</a>
+            <p style="color:#94a3b8;font-size:0.92rem;margin-top:12px;">macOS &amp; Windows · 14-day refund · lifetime updates</p>
+        </div>
+    </section>
+
+    <section class="seo-related">
+        <div class="container">
+            <h2>Related guides</h2>
+            <div class="seo-related-grid">
+                <a href="/beatedit-davinci-resolve-free-alternative.html">BeatEdit alternative for DR Free</a>
+                <a href="/davinci-resolve-19-scripting-api-fix.html">Why DR 19.1 broke the old plugins</a>
+                <a href="/davinci-resolve-free-beat-detection.html">Beat detection in DR Free</a>
+                <a href="/otio-import-davinci-resolve-free.html">OTIO import walkthrough</a>
+                <a href="/davinci-resolve-free-auto-cut.html">Auto-cut to the beat in DR Free</a>
+                <a href="/vs-beatedit.html">Pulse Edit vs BeatEdit (general)</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 8px;"><strong style="color: #fff;">Pulse Edit</strong> — Auto-edit videos to the beat in DaVinci Resolve</p>
+            <p>Made by <a href="https://www.instagram.com/aki.vhs/" target="_blank">Abramo Benedetti</a> — Professional Video Editor</p>
+            <p style="margin-top: 8px;">Questions? DM on <a href="https://www.instagram.com/aki.vhs/" target="_blank">Instagram</a> or email <a href="mailto:support@pulseedit.com" style="color:#7c6ff7;">support@pulseedit.com</a></p>
+            <p style="margin-top: 12px;"><a href="/privacy.html" style="color:#7c6ff7;text-decoration:none;margin-right:16px;">Privacy Policy</a> <a href="/terms.html" style="color:#7c6ff7;text-decoration:none;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;border-top:1px solid rgba(124,111,247,0.2);padding:16px 24px;z-index:9999;font-size:14px;color:#a0a0b8;">
+      <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <span>We use cookies to analyze site traffic. <a href="/privacy.html" style="color:#7c6ff7;">Privacy Policy</a></span>
+        <div style="display:flex;gap:8px;">
+          <button onclick="acceptCookies()" style="background:#7c6ff7;color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;">Accept</button>
+          <button onclick="declineCookies()" style="background:transparent;color:#a0a0b8;border:1px solid rgba(124,111,247,0.3);padding:8px 20px;border-radius:8px;cursor:pointer;font-size:13px;">Decline</button>
+        </div>
+      </div>
+    </div>
+    <script>
+    (function(){ if (!localStorage.getItem('cookie_consent')) { document.getElementById('cookie-banner').style.display = 'block'; } })();
+    function acceptCookies() { localStorage.setItem('cookie_consent', 'accepted'); document.getElementById('cookie-banner').style.display = 'none'; loadGA(); }
+    function declineCookies() { localStorage.setItem('cookie_consent', 'declined'); document.getElementById('cookie-banner').style.display = 'none'; }
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"090ce13315b846090c53b871490246d2"}'></script>
+</body>
+</html>

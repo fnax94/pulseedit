@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadGA() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-JV9DJHLCY2');
+    }
+    if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
+    </script>
+    <title>DR Free Scripting API Removed (Nov 2024) — Workaround</title>
+    <meta name="description" content="In DaVinci Resolve 19.1, Blackmagic disabled the external scripting API on the free edition. Plugins like BeatEdit broke overnight. Here's what changed and how Pulse Edit works around it via OTIO export.">
+    <meta name="keywords" content="davinci resolve free scripting api removed, davinci resolve 19.1 scripting, davinci resolve free api disabled, davinciresolvescript free, davinci resolve free plugin broken">
+    <meta property="og:title" content="DR Free Scripting API Removed (Nov 2024) — Workaround">
+    <meta property="og:description" content="What broke in DR 19.1 for free-edition users and how OTIO export brings beat-synced editing back.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://pulseedit.com/davinci-resolve-19-scripting-api-fix.html">
+    <meta property="og:image" content="https://pulseedit.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DR Free Scripting API Removed (Nov 2024) — Workaround">
+    <meta name="twitter:description" content="What broke in DR 19.1 for free-edition users and how OTIO export fixes it.">
+    <meta name="twitter:image" content="https://pulseedit.com/og-image.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#7c6ff7">
+    <link rel="canonical" href="https://pulseedit.com/davinci-resolve-19-scripting-api-fix.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles-v2.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Pulse Edit",
+        "alternateName": "Workaround for DR Free scripting API rollback",
+        "description": "Standalone beat-synced editor that bypasses the DaVinci Resolve scripting API. Works on DR Free 19.1+ where third-party scripting plugins no longer function.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": ["macOS 12+", "Windows 10", "Windows 11"],
+        "offers": {
+            "@type": "Offer", "price": "35.99", "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://buy.stripe.com/7sY4gyamq3Na9wI66Nawo0d"
+        },
+        "softwareRequirements": "DaVinci Resolve Free or Studio 18.5+",
+        "author": { "@type": "Organization", "name": "AB Tools" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pulseedit.com/" },
+            { "@type": "ListItem", "position": 2, "name": "DR Free Scripting API Removed (Workaround)", "item": "https://pulseedit.com/davinci-resolve-19-scripting-api-fix.html" }
+        ]
+    }
+    </script>
+
+    <style>
+      .seo-hero { padding: 88px 0 40px; text-align: center; position: relative; }
+      .seo-hero .badge-pill { display: inline-block; background: rgba(248,113,113,0.10); color: #f87171; padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; border: 1px solid rgba(248,113,113,0.25); margin-bottom: 18px; }
+      .seo-hero h1 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.12; margin: 0 auto 18px; max-width: 880px; }
+      .seo-hero h1 span { color: #7c6ff7; }
+      .seo-hero .lede { color: #cbd5e1; font-size: 1.1rem; max-width: 720px; margin: 0 auto 28px; line-height: 1.6; }
+      .seo-breadcrumb { color: #94a3b8; font-size: 13px; margin-bottom: 18px; }
+      .seo-breadcrumb a { color: #7c6ff7; text-decoration: none; }
+      .seo-section { padding: 28px 0 50px; }
+      .seo-section .content { max-width: 820px; margin: 0 auto; }
+      .seo-section h2 { color: #fff; font-size: 1.7rem; margin: 0 0 14px; letter-spacing: -0.02em; }
+      .seo-section h3 { color: #fff; font-size: 1.15rem; margin: 22px 0 8px; }
+      .seo-section p { color: #cbd5e1; line-height: 1.75; margin-bottom: 14px; }
+      .seo-section ul, .seo-section ol { margin: 6px 0 18px 22px; color: #cbd5e1; line-height: 1.7; }
+      .seo-section li { margin-bottom: 6px; }
+      .seo-section strong { color: #fff; }
+      .seo-section a { color: #7c6ff7; text-decoration: none; }
+      .seo-section a:hover { text-decoration: underline; }
+      .seo-warn { background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.20); border-left: 3px solid #fbbf24; padding: 18px 22px; border-radius: 12px; margin: 22px 0; }
+      .seo-warn p { margin-bottom: 0; }
+      .seo-warn strong { color: #fbbf24; }
+      .seo-cta-band { padding: 46px 0; background: linear-gradient(135deg, rgba(124,111,247,0.08), rgba(124,111,247,0.02)); border-top: 1px solid rgba(124,111,247,0.15); border-bottom: 1px solid rgba(124,111,247,0.15); text-align: center; }
+      .seo-cta-band h2 { color: #fff; font-size: clamp(1.4rem, 2.6vw, 2rem); margin-bottom: 10px; }
+      .seo-cta-band p { color: #cbd5e1; max-width: 600px; margin: 0 auto 20px; }
+      .seo-related { padding: 50px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+      .seo-related h2 { color: #fff; text-align: center; font-size: 1.4rem; margin-bottom: 24px; }
+      .seo-related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; max-width: 880px; margin: 0 auto; }
+      .seo-related-grid a { display: block; padding: 16px 18px; background: #111; border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; color: #cbd5e1; text-decoration: none; font-size: 0.92rem; line-height: 1.45; transition: border-color 0.15s ease, color 0.15s ease; }
+      .seo-related-grid a:hover { border-color: #7c6ff7; color: #fff; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-inner">
+            <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
+            <div class="nav-links">
+                <a href="/pulse-edit-studio.html">DR Studio</a>
+                <a href="/pulse-edit-free.html">DR Free</a>
+                <a href="/tutorial.html">Tutorial</a>
+                <a href="/blog/">Blog</a>
+                <a href="/#products" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="seo-hero">
+        <div class="hero-orb"></div>
+        <div class="container">
+            <div class="seo-breadcrumb"><a href="/">Home</a> &rsaquo; DR Free Scripting API Removed (Workaround)</div>
+            <div class="badge-pill">Resolve 19.1 — November 2024</div>
+            <h1>DR Free scripting API removed — what changed and the <span>workaround</span></h1>
+            <p class="lede">DaVinci Resolve 19.1 quietly rolled back third-party scripting on the free edition. If you saw your favourite beat-sync or auto-edit plugin stop working in late 2024, this is why — and OTIO export is the route forward.</p>
+            <div class="pe-cta-row" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                <a href="/pulse-edit-free.html" class="btn btn-primary">Get Pulse Edit Free →</a>
+                <a href="/otio-import-davinci-resolve-free.html" class="btn btn-secondary">OTIO import guide</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="seo-section">
+        <div class="container">
+            <div class="content">
+                <h2>The change, in one paragraph</h2>
+                <p>Blackmagic Design ships two versions of DaVinci Resolve: a free edition and Studio (one-time paid licence). Both share the same code, but Studio unlocks features like noise reduction, optical flow, neural engine, and — until late 2024 — the external scripting interface. With Resolve <strong>19.1</strong>, the external scripting interface became Studio-only. Free-edition users no longer have a working <code>DaVinciResolveScript</code> bridge.</p>
+
+                <div class="seo-warn">
+                    <p><strong>Concrete effect:</strong> any tool that connects to Resolve from a separate process — to read your timeline, push markers, place clips, modify projects — silently stops working on the free edition. The Resolve binary still launches, but the scripting endpoint refuses the connection.</p>
+                </div>
+
+                <h2>Why the old plugins broke</h2>
+                <p>Most Resolve beat-detection plugins followed the same pattern:</p>
+                <ul>
+                    <li>The plugin runs as an external app or Python script.</li>
+                    <li>It imports <code>DaVinciResolveScript</code> from Blackmagic's API path.</li>
+                    <li>It calls into the running Resolve instance: get the current project, get the timeline, add markers, optionally place clips.</li>
+                </ul>
+                <p>That model is convenient — you don't write a real plugin inside Resolve, you just sit beside it. It's also fragile, because every step depends on Blackmagic keeping the bridge alive. When the bridge went Studio-only, the entire pattern collapsed for free-edition users.</p>
+
+                <h2>What people tried first</h2>
+                <p>Threads on Reddit, the Blackmagic forum, and various Discord servers proposed a string of workarounds:</p>
+                <ul>
+                    <li><strong>Symlink the Studio API folder.</strong> Doesn't help — the binary refuses connections, the missing path isn't the gate.</li>
+                    <li><strong>Set environment variables.</strong> No effect; the check is on Resolve's side.</li>
+                    <li><strong>Downgrade to 19.0 or 18.x.</strong> Works, but you lose every fix and improvement BMD has shipped since.</li>
+                    <li><strong>Buy Studio.</strong> The real fix BMD offers — €295 one-time. Not bad value, but not what every hobbyist or starter editor wants to spend.</li>
+                </ul>
+
+                <h2>The OTIO route — actual workaround</h2>
+                <p>OpenTimelineIO (OTIO) is an open timeline-interchange format developed by Pixar. DaVinci Resolve — Free <em>and</em> Studio — supports importing OTIO timelines natively. Critically, OTIO import does not go through the scripting bridge. It's a normal file import, available under <em>File → Import Timeline → OpenTimelineIO</em>.</p>
+                <p>Pulse Edit was designed around that observation. Instead of trying to push data into Resolve at runtime, it builds a complete timeline outside Resolve and writes a .otio file. You import the file. Resolve now has a fully cut sequence with beat markers — no scripting involved.</p>
+
+                <h2>How Pulse Edit's pipeline compares</h2>
+                <ul>
+                    <li><strong>Old pattern (broken on DR Free):</strong> external process → DaVinciResolveScript → live timeline mutation.</li>
+                    <li><strong>Pulse Edit pattern (works on DR Free):</strong> external process → analyse audio → build OTIO file → user imports OTIO into Resolve.</li>
+                </ul>
+                <p>The trade-off is a single import click. You don't get live preview inside Resolve, and you don't get continuous re-syncing if you change the timeline later. In exchange, you get a workflow that's resilient to whatever BMD does next to the scripting API.</p>
+
+                <h2>If you're on Studio</h2>
+                <p>You have the choice. <a href="/pulse-edit-studio.html">Pulse Edit Studio</a> uses the live scripting API for an in-Resolve experience — clips appear on the timeline as you adjust the cut pattern, with real-time preview. <a href="/pulse-edit-free.html">Pulse Edit for DR Free</a> uses the OTIO route. Same engine, same patterns, same beat detector underneath. Many Studio users actually prefer the OTIO build because it survives Resolve restarts and works without an active session.</p>
+
+                <h2>Will the scripting API come back to Free?</h2>
+                <p>Nothing in BMD's recent communication suggests it will. The trend is the other way — Studio is positioned as the path for any non-trivial integration. The pragmatic stance: stop building on the assumption that DR Free will get scripting back, and pick tools that take a different route.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="seo-cta-band">
+        <div class="container">
+            <h2>A workflow that's not coupled to the scripting API</h2>
+            <p>Pulse Edit exports OTIO timelines DR Free imports natively. €35.99 launch, lifetime updates.</p>
+            <a href="/pulse-edit-free.html" class="btn btn-primary">Get Pulse Edit Free →</a>
+            <p style="color:#94a3b8;font-size:0.92rem;margin-top:12px;">Works on Free <em>and</em> Studio — same OTIO route</p>
+        </div>
+    </section>
+
+    <section class="seo-related">
+        <div class="container">
+            <h2>Related guides</h2>
+            <div class="seo-related-grid">
+                <a href="/davinci-resolve-free-beat-detection.html">Beat detection in DR Free</a>
+                <a href="/beatedit-davinci-resolve-free-alternative.html">BeatEdit alternative for DR Free</a>
+                <a href="/otio-import-davinci-resolve-free.html">OTIO import — full workflow</a>
+                <a href="/davinci-resolve-free-auto-cut.html">Auto-cut to the beat in DR Free</a>
+                <a href="/free-davinci-resolve-music-video-editor.html">Music video editor for DR Free</a>
+                <a href="/vs-beatedit-dr-free.html">Pulse Edit vs BeatEdit (DR Free)</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 8px;"><strong style="color: #fff;">Pulse Edit</strong> — Auto-edit videos to the beat in DaVinci Resolve</p>
+            <p>Made by <a href="https://www.instagram.com/aki.vhs/" target="_blank">Abramo Benedetti</a> — Professional Video Editor</p>
+            <p style="margin-top: 8px;">Questions? DM on <a href="https://www.instagram.com/aki.vhs/" target="_blank">Instagram</a> or email <a href="mailto:support@pulseedit.com" style="color:#7c6ff7;">support@pulseedit.com</a></p>
+            <p style="margin-top: 12px;"><a href="/privacy.html" style="color:#7c6ff7;text-decoration:none;margin-right:16px;">Privacy Policy</a> <a href="/terms.html" style="color:#7c6ff7;text-decoration:none;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;border-top:1px solid rgba(124,111,247,0.2);padding:16px 24px;z-index:9999;font-size:14px;color:#a0a0b8;">
+      <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <span>We use cookies to analyze site traffic. <a href="/privacy.html" style="color:#7c6ff7;">Privacy Policy</a></span>
+        <div style="display:flex;gap:8px;">
+          <button onclick="acceptCookies()" style="background:#7c6ff7;color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;">Accept</button>
+          <button onclick="declineCookies()" style="background:transparent;color:#a0a0b8;border:1px solid rgba(124,111,247,0.3);padding:8px 20px;border-radius:8px;cursor:pointer;font-size:13px;">Decline</button>
+        </div>
+      </div>
+    </div>
+    <script>
+    (function(){ if (!localStorage.getItem('cookie_consent')) { document.getElementById('cookie-banner').style.display = 'block'; } })();
+    function acceptCookies() { localStorage.setItem('cookie_consent', 'accepted'); document.getElementById('cookie-banner').style.display = 'none'; loadGA(); }
+    function declineCookies() { localStorage.setItem('cookie_consent', 'declined'); document.getElementById('cookie-banner').style.display = 'none'; }
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"090ce13315b846090c53b871490246d2"}'></script>
+</body>
+</html>

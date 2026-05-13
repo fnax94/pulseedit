@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadGA() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-JV9DJHLCY2');
+    }
+    if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
+    </script>
+    <title>DaVinci Resolve Free Beat Detection — Pulse Edit</title>
+    <meta name="description" content="Beat detection for DaVinci Resolve Free is finally possible again. Pulse Edit analyses your music locally and exports an OTIO timeline you import in one click — no scripting API required. €35.99 launch.">
+    <meta name="keywords" content="davinci resolve free beat detection, beat detection davinci resolve free, davinci resolve free plugin, beat sync davinci resolve free, free davinci resolve beat plugin">
+    <meta property="og:title" content="DaVinci Resolve Free Beat Detection — Pulse Edit">
+    <meta property="og:description" content="Beat detection in DaVinci Resolve Free via OTIO export. Works since Blackmagic disabled scripting in DR Free 19.1.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://pulseedit.com/davinci-resolve-free-beat-detection.html">
+    <meta property="og:image" content="https://pulseedit.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DaVinci Resolve Free Beat Detection — Pulse Edit">
+    <meta name="twitter:description" content="Beat detection in DaVinci Resolve Free via OTIO export. €35.99 launch.">
+    <meta name="twitter:image" content="https://pulseedit.com/og-image.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#7c6ff7">
+    <link rel="canonical" href="https://pulseedit.com/davinci-resolve-free-beat-detection.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles-v2.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Pulse Edit",
+        "alternateName": "Pulse Edit for DaVinci Resolve Free",
+        "description": "Beat detection and beat-synced auto-cut for DaVinci Resolve Free. Bypasses the scripting-API limitation introduced in DR Free 19.1 by exporting a standard OTIO timeline.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": ["macOS 12+", "Windows 10", "Windows 11"],
+        "offers": {
+            "@type": "Offer",
+            "price": "35.99",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://buy.stripe.com/7sY4gyamq3Na9wI66Nawo0d"
+        },
+        "softwareRequirements": "DaVinci Resolve Free or Studio 18.5+",
+        "author": { "@type": "Organization", "name": "AB Tools" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pulseedit.com/" },
+            { "@type": "ListItem", "position": 2, "name": "DaVinci Resolve Free Beat Detection", "item": "https://pulseedit.com/davinci-resolve-free-beat-detection.html" }
+        ]
+    }
+    </script>
+
+    <style>
+      .seo-hero { padding: 88px 0 40px; text-align: center; position: relative; }
+      .seo-hero .badge-pill {
+        display: inline-block;
+        background: rgba(34,197,94,0.12);
+        color: #4ade80;
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        border: 1px solid rgba(34,197,94,0.25);
+        margin-bottom: 18px;
+      }
+      .seo-hero h1 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.12; margin: 0 auto 18px; max-width: 880px; }
+      .seo-hero h1 span { color: #7c6ff7; }
+      .seo-hero .lede { color: #cbd5e1; font-size: 1.1rem; max-width: 720px; margin: 0 auto 28px; line-height: 1.6; }
+      .seo-breadcrumb { color: #94a3b8; font-size: 13px; margin-bottom: 18px; }
+      .seo-breadcrumb a { color: #7c6ff7; text-decoration: none; }
+      .seo-section { padding: 28px 0 50px; }
+      .seo-section .content { max-width: 820px; margin: 0 auto; }
+      .seo-section h2 { color: #fff; font-size: 1.7rem; margin: 0 0 14px; letter-spacing: -0.02em; }
+      .seo-section h3 { color: #fff; font-size: 1.15rem; margin: 22px 0 8px; }
+      .seo-section p { color: #cbd5e1; line-height: 1.75; margin-bottom: 14px; }
+      .seo-section ul { margin: 6px 0 18px 22px; color: #cbd5e1; line-height: 1.7; }
+      .seo-section ul li { margin-bottom: 6px; }
+      .seo-section strong { color: #fff; }
+      .seo-section a { color: #7c6ff7; text-decoration: none; }
+      .seo-section a:hover { text-decoration: underline; }
+      .seo-callout {
+        background: rgba(124,111,247,0.06);
+        border: 1px solid rgba(124,111,247,0.22);
+        border-left: 3px solid #7c6ff7;
+        padding: 18px 22px; border-radius: 12px; margin: 22px 0;
+      }
+      .seo-callout p { margin-bottom: 0; }
+      .seo-cta-band {
+        padding: 46px 0;
+        background: linear-gradient(135deg, rgba(124,111,247,0.08), rgba(124,111,247,0.02));
+        border-top: 1px solid rgba(124,111,247,0.15);
+        border-bottom: 1px solid rgba(124,111,247,0.15);
+        text-align: center;
+      }
+      .seo-cta-band h2 { color: #fff; font-size: clamp(1.4rem, 2.6vw, 2rem); margin-bottom: 10px; }
+      .seo-cta-band p { color: #cbd5e1; max-width: 600px; margin: 0 auto 20px; }
+      .seo-cta-band .price-strip { color: #94a3b8; font-size: 0.92rem; margin-top: 12px; }
+      .seo-related { padding: 50px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+      .seo-related h2 { color: #fff; text-align: center; font-size: 1.4rem; margin-bottom: 24px; }
+      .seo-related-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px; max-width: 880px; margin: 0 auto;
+      }
+      .seo-related-grid a {
+        display: block; padding: 16px 18px; background: #111;
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 10px; color: #cbd5e1; text-decoration: none;
+        font-size: 0.92rem; line-height: 1.45; transition: border-color 0.15s ease, color 0.15s ease;
+      }
+      .seo-related-grid a:hover { border-color: #7c6ff7; color: #fff; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-inner">
+            <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
+            <div class="nav-links">
+                <a href="/pulse-edit-studio.html">DR Studio</a>
+                <a href="/pulse-edit-free.html">DR Free</a>
+                <a href="/tutorial.html">Tutorial</a>
+                <a href="/blog/">Blog</a>
+                <a href="/#products" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="seo-hero">
+        <div class="hero-orb"></div>
+        <div class="container">
+            <div class="seo-breadcrumb"><a href="/">Home</a> &rsaquo; DaVinci Resolve Free Beat Detection</div>
+            <div class="badge-pill">For DaVinci Resolve Free 19.1+</div>
+            <h1>Beat detection in <span>DaVinci Resolve Free</span> — without the scripting API</h1>
+            <p class="lede">For years, beat-detection plugins relied on Resolve's external scripting interface. In November 2024 Blackmagic switched that interface off for the free edition. Pulse Edit takes a different route: it runs as a standalone app, analyses the music, and writes an OTIO timeline you import into DR Free in one click.</p>
+            <div class="pe-cta-row" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                <a href="/pulse-edit-free.html" class="btn btn-primary">Get Pulse Edit Free →</a>
+                <a href="/tutorial.html#free" class="btn btn-secondary">See the DR Free tutorial</a>
+            </div>
+            <p style="color:#94a3b8;font-size:13px;margin-top:14px;">€35.99 launch · one-time payment · macOS &amp; Windows</p>
+        </div>
+    </section>
+
+    <section class="seo-section">
+        <div class="container">
+            <div class="content">
+                <h2>The problem the old plugins ran into</h2>
+                <p>If you searched "DaVinci Resolve Free beat detection" any time in the last twelve months, you probably found dead threads. Tools that used to work — BeatEdit's Resolve script, Reactor-distributed beat detectors, custom Python scripts using <strong>DaVinciResolveScript</strong> — were built on the same foundation: the external scripting bridge that lets a third-party process talk to Resolve.</p>
+                <p>Starting with DaVinci Resolve <strong>19.1</strong>, that bridge is reserved for Studio. Free-edition users open the same Resolve binary, but the scripting endpoint refuses connections. A plugin that worked yesterday silently fails today.</p>
+                <p>There's no plugin update that fixes this. The change is on Blackmagic's side, and Blackmagic has been explicit: scripting is a Studio feature now.</p>
+
+                <h2>The OTIO route</h2>
+                <p>Pulse Edit does not connect to Resolve at all. It runs as its own application, loads your audio, and walks through the song using a state-of-the-art beat tracker. The output is not a Resolve project — it's a standard <strong>OpenTimelineIO</strong> file: a small text-based timeline format that Pixar open-sourced and that Resolve (Free and Studio) imports natively.</p>
+                <p>That single design choice changes everything for DR Free users. There's no script handshake, no permission prompt, no Studio check. Just a file on disk that Resolve already knows how to read.</p>
+
+                <div class="seo-callout">
+                    <p><strong>What "beat detection" means here:</strong> the algorithm finds every kick, snare and downbeat in your song, then aligns clip cuts and markers to those moments. It is not "AI suggestion" — it's signal processing. The same song always gives you the same beats.</p>
+                </div>
+
+                <h2>How the detection works under the hood</h2>
+                <p>The detector is <strong>beat_this</strong>, a transformer-based beat tracker published by ISMIR researchers in 2024. It handles tempo changes, swung patterns, and tracks that drift over time — the cases where simpler onset detectors break down.</p>
+                <ul>
+                    <li><strong>Bar grid:</strong> beats group themselves into bars. Pulse Edit knows the difference between a downbeat and an offbeat, so cut patterns like "Every Bar" or "Build-up &amp; Drop" know where to land.</li>
+                    <li><strong>Energy map:</strong> the analyser also reads the spectral envelope. Quiet intros get long shots, drops get rapid cuts, outros breathe.</li>
+                    <li><strong>Subdivisions:</strong> sixteenth and eighth-note grids are computed alongside the main beat, so the "Half-time" and "Double-time" patterns line up cleanly.</li>
+                </ul>
+
+                <h2>The DR Free workflow</h2>
+                <p>The whole loop is three real steps:</p>
+                <ul>
+                    <li><strong>1. Drag music + clips into Pulse Edit.</strong> Folder or individual files, any FPS, any codec Resolve already accepts.</li>
+                    <li><strong>2. Pick a cut pattern.</strong> 12 patterns plus 6 mood presets. The waveform preview shows you the placement before you commit.</li>
+                    <li><strong>3. Export OTIO, import in Resolve.</strong> <em>File → Import Timeline → OpenTimelineIO</em>. The clips land cut to the beat, with timeline markers at every detected hit.</li>
+                </ul>
+                <p>Step-by-step screenshots are in the <a href="/tutorial.html#free">DR Free tutorial</a>.</p>
+
+                <h2>Why this isn't a workaround</h2>
+                <p>"OTIO import" sometimes gets dismissed as a hack. It isn't — it's the workflow Pixar and the major VFX shops use to move timelines between RV, Hiero, Flame, Resolve and Nuke. The format carries cuts, clip references, markers, and metadata. For beat-driven editing, that's exactly what you need.</p>
+                <p>The trade-off versus the Studio edition of Pulse Edit is small. <a href="/pulse-edit-studio.html">Pulse Edit Studio</a> places clips on the live timeline while you watch, with real-time preview inside Resolve. Pulse Edit for DR Free builds the timeline in its own window first, then hands it over. Same cut quality, same patterns, slightly different ergonomics.</p>
+
+                <h2>What you get with the launch price</h2>
+                <ul>
+                    <li><strong>€35.99 one-time</strong> (regular €64.99). Lifetime updates included.</li>
+                    <li>macOS 12+ (Apple Silicon) and Windows 10/11 builds.</li>
+                    <li>12 cut patterns, 6 mood presets, manual waveform editing.</li>
+                    <li>Bonus: <strong>6 free months of Lumiqa Starter</strong> (€174 value) — our creative-production workspace, claim link emailed after purchase.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="seo-cta-band">
+        <div class="container">
+            <h2>Beat detection back in DaVinci Resolve Free</h2>
+            <p>One-time €35.99 launch price. OTIO export means it works in Free and Studio. No scripting required.</p>
+            <a href="/pulse-edit-free.html" class="btn btn-primary">Get Pulse Edit Free →</a>
+            <p class="price-strip">License delivered by email · 14-day refund window</p>
+        </div>
+    </section>
+
+    <section class="seo-related">
+        <div class="container">
+            <h2>Related reading</h2>
+            <div class="seo-related-grid">
+                <a href="/davinci-resolve-19-scripting-api-fix.html">What changed in DR 19.1 — the scripting API rollback</a>
+                <a href="/beatedit-davinci-resolve-free-alternative.html">BeatEdit alternative for the Free edition</a>
+                <a href="/otio-import-davinci-resolve-free.html">OTIO import in DR Free — full workflow</a>
+                <a href="/davinci-resolve-free-auto-cut.html">Auto cut video to the beat in DR Free</a>
+                <a href="/davinci-resolve-beat-detection.html">Beat detection in DR Studio (live API workflow)</a>
+                <a href="/blog/">More guides on the blog</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 8px;"><strong style="color: #fff;">Pulse Edit</strong> — Auto-edit videos to the beat in DaVinci Resolve</p>
+            <p>Made by <a href="https://www.instagram.com/aki.vhs/" target="_blank">Abramo Benedetti</a> — Professional Video Editor</p>
+            <p style="margin-top: 8px;">Questions? DM on <a href="https://www.instagram.com/aki.vhs/" target="_blank">Instagram</a> or email <a href="mailto:support@pulseedit.com" style="color:#7c6ff7;">support@pulseedit.com</a></p>
+            <p style="margin-top: 12px;"><a href="/privacy.html" style="color:#7c6ff7;text-decoration:none;margin-right:16px;">Privacy Policy</a> <a href="/terms.html" style="color:#7c6ff7;text-decoration:none;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;border-top:1px solid rgba(124,111,247,0.2);padding:16px 24px;z-index:9999;font-size:14px;color:#a0a0b8;">
+      <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <span>We use cookies to analyze site traffic. <a href="/privacy.html" style="color:#7c6ff7;">Privacy Policy</a></span>
+        <div style="display:flex;gap:8px;">
+          <button onclick="acceptCookies()" style="background:#7c6ff7;color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;">Accept</button>
+          <button onclick="declineCookies()" style="background:transparent;color:#a0a0b8;border:1px solid rgba(124,111,247,0.3);padding:8px 20px;border-radius:8px;cursor:pointer;font-size:13px;">Decline</button>
+        </div>
+      </div>
+    </div>
+    <script>
+    (function(){ if (!localStorage.getItem('cookie_consent')) { document.getElementById('cookie-banner').style.display = 'block'; } })();
+    function acceptCookies() { localStorage.setItem('cookie_consent', 'accepted'); document.getElementById('cookie-banner').style.display = 'none'; loadGA(); }
+    function declineCookies() { localStorage.setItem('cookie_consent', 'declined'); document.getElementById('cookie-banner').style.display = 'none'; }
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"090ce13315b846090c53b871490246d2"}'></script>
+</body>
+</html>
