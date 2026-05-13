@@ -277,13 +277,182 @@
         <div class="container nav-inner">
             <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
             <div class="nav-links">
-                <a href="/blog/">Blog</a>
+                <a href="/" title="Pick your DaVinci Resolve edition">Home</a>
+                <a href="/pulse-edit-studio.html" style="color:#a78bfa">DR Studio version</a>
                 <a href="/tutorial.html">Tutorial</a>
-                <a href="/pulse-edit-studio.html#pricing">Pricing</a>
+                <a href="/blog/">Blog</a>
+                <a href="#" onclick="document.getElementById('buy-modal').showModal();return false;">Pricing</a>
                 <a href="/pulse-edit-studio.html#faq">FAQ</a>
+                <a href="#" onclick="document.getElementById('buy-modal').showModal();return false;" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
             </div>
         </div>
     </nav>
+
+    <!-- Buy modal -->
+    <dialog id="buy-modal" class="buy-modal" aria-label="Choose your Pulse Edit license">
+      <button type="button" class="buy-modal__close" aria-label="Close" onclick="document.getElementById('buy-modal').close()">&times;</button>
+      <div class="buy-modal__content">
+        <div class="buy-modal__head">
+          <div class="buy-modal__eyebrow">Launch price · limited time</div>
+          <h3>Pick your license</h3>
+          <p>One-time payment. Lifetime updates. macOS &amp; Windows. Works on DaVinci Resolve Free <em>and</em> Studio.</p>
+        </div>
+        <div class="buy-modal__grid">
+          <a class="buy-tier" href="https://buy.stripe.com/7sY4gyamq3Na9wI66Nawo0d" data-track="buy-1">
+            <div class="buy-tier__top">
+              <span class="buy-tier__badge">Single</span>
+              <span class="buy-tier__qty">1 license</span>
+            </div>
+            <div class="buy-tier__price"><span class="strike">€64.99</span>€35.99</div>
+            <div class="buy-tier__perks">
+              <div>✓ Activate on 1 machine</div>
+              <div>✓ All cut patterns + flow</div>
+              <div>✓ Lifetime updates</div>
+            </div>
+            <div class="buy-tier__cta">Get 1 license →</div>
+          </a>
+          <a class="buy-tier buy-tier--featured" href="https://buy.stripe.com/dRm9AS2TYcjG6kw0Mtawo0e" data-track="buy-2">
+            <div class="buy-tier__ribbon">Best value · save €22</div>
+            <div class="buy-tier__top">
+              <span class="buy-tier__badge">Duo</span>
+              <span class="buy-tier__qty">2 licenses</span>
+            </div>
+            <div class="buy-tier__price"><span class="strike">€129.98</span>€49.99</div>
+            <div class="buy-tier__perks">
+              <div>✓ Activate on 2 machines</div>
+              <div>✓ e.g. desktop + laptop</div>
+              <div>✓ Lifetime updates on both</div>
+            </div>
+            <div class="buy-tier__cta">Get 2 licenses →</div>
+          </a>
+          <a class="buy-tier" href="https://buy.stripe.com/dRm14mcuyfvS38k52Jawo0c" data-track="buy-upgrade">
+            <div class="buy-tier__top">
+              <span class="buy-tier__badge">Upgrade</span>
+              <span class="buy-tier__qty">Existing customer</span>
+            </div>
+            <div class="buy-tier__price">€25</div>
+            <div class="buy-tier__perks">
+              <div>✓ Already own Pulse Edit?</div>
+              <div>✓ Add a 2nd machine slot</div>
+              <div>✓ Same license email</div>
+            </div>
+            <div class="buy-tier__cta">Add a machine →</div>
+          </a>
+        </div>
+        <div class="buy-modal__foot">
+          Secure checkout via Stripe · License emailed instantly · 14-day refund if it doesn't fit
+        </div>
+      </div>
+    </dialog>
+    <style>
+      .buy-modal {
+        max-width: 980px;
+        width: calc(100% - 32px);
+        border: 1px solid rgba(124,111,247,0.30);
+        border-radius: 20px;
+        background: linear-gradient(180deg, #0f0f1c, #0a0a14);
+        color: #fff;
+        padding: 0;
+        box-shadow: 0 30px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(124,111,247,0.20);
+      }
+      .buy-modal::backdrop {
+        background: radial-gradient(ellipse at center, rgba(124,111,247,0.18), rgba(0,0,0,0.85));
+        backdrop-filter: blur(6px);
+      }
+      .buy-modal[open] { animation: pe-modal-in 0.25s cubic-bezier(0.2,0.8,0.2,1); }
+      @keyframes pe-modal-in {
+        from { opacity: 0; transform: translateY(12px) scale(0.98); }
+        to   { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      .buy-modal__close {
+        position: absolute; top: 14px; right: 16px;
+        background: rgba(255,255,255,0.05);
+        color: #cbd5e1;
+        border: 1px solid rgba(255,255,255,0.10);
+        font-size: 22px;
+        width: 36px; height: 36px; border-radius: 50%;
+        cursor: pointer; line-height: 1;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+      .buy-modal__close:hover { background: rgba(255,255,255,0.10); color: #fff; }
+      .buy-modal__content { padding: 40px 36px 32px; }
+      .buy-modal__head { text-align: center; margin-bottom: 32px; }
+      .buy-modal__eyebrow {
+        display: inline-block;
+        font-size: 11px; font-weight: 700;
+        letter-spacing: 0.14em; text-transform: uppercase;
+        color: #4ade80;
+        background: rgba(74,222,128,0.10);
+        border: 1px solid rgba(74,222,128,0.30);
+        padding: 5px 12px; border-radius: 999px;
+        margin-bottom: 14px;
+      }
+      .buy-modal__head h3 {
+        font-size: clamp(24px, 3vw, 32px);
+        font-weight: 800; letter-spacing: -0.02em;
+        margin-bottom: 10px;
+      }
+      .buy-modal__head p { color: #94a3b8; max-width: 560px; margin: 0 auto; line-height: 1.55; }
+      .buy-modal__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 14px;
+        margin-bottom: 22px;
+      }
+      .buy-tier {
+        --accent: #7c6ff7;
+        text-decoration: none;
+        color: #fff;
+        background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+        border: 1px solid rgba(255,255,255,0.10);
+        border-radius: 16px;
+        padding: 22px 20px;
+        display: flex; flex-direction: column; justify-content: space-between;
+        position: relative;
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        min-height: 280px;
+      }
+      .buy-tier:hover {
+        transform: translateY(-3px);
+        border-color: var(--accent);
+        box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 0 1px var(--accent);
+      }
+      .buy-tier--featured {
+        --accent: #4ade80;
+        border-color: rgba(74,222,128,0.40);
+        background: linear-gradient(180deg, rgba(74,222,128,0.06), rgba(255,255,255,0.01));
+      }
+      .buy-tier__ribbon {
+        position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+        background: #4ade80; color: #0c1f12;
+        font-size: 11px; font-weight: 800;
+        padding: 4px 12px; border-radius: 999px;
+        white-space: nowrap;
+        letter-spacing: 0.05em;
+      }
+      .buy-tier__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+      .buy-tier__badge {
+        font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--accent); border: 1px solid currentColor;
+        padding: 3px 8px; border-radius: 999px;
+      }
+      .buy-tier__qty { color: #94a3b8; font-size: 13px; font-weight: 600; }
+      .buy-tier__price { font-size: 36px; font-weight: 800; letter-spacing: -0.02em; line-height: 1; margin-bottom: 18px; }
+      .buy-tier__price .strike { color: #4b5563; text-decoration: line-through; font-size: 18px; font-weight: 500; margin-right: 8px; }
+      .buy-tier__perks { color: #cbd5e1; font-size: 13.5px; line-height: 1.7; margin-bottom: 18px; }
+      .buy-tier__cta {
+        background: var(--accent); color: #0c1f12;
+        padding: 10px 16px; border-radius: 10px;
+        text-align: center; font-weight: 700; font-size: 14px;
+        transition: filter 0.15s ease;
+      }
+      .buy-tier:hover .buy-tier__cta { filter: brightness(1.08); }
+      .buy-modal__foot { text-align: center; color: #6b7280; font-size: 12px; }
+      @media (max-width: 720px) {
+        .buy-modal__content { padding: 28px 18px; }
+        .buy-tier { min-height: 0; }
+      }
+    </style>
 
     <!-- Hero -->
     <section class="pe-hero">
@@ -302,8 +471,7 @@
             <div class="pe-cta-row" style="flex-wrap:wrap;gap:10px;">
                 <a href="https://pulse-edit-mirror.abtools.workers.dev/PulseEdit-macOS.dmg" class="btn btn-primary" id="cta-download-mac" data-track="trial-download-mac">⬇ Download for macOS</a>
                 <a href="https://pulse-edit-mirror.abtools.workers.dev/PulseEdit-Setup.exe" class="btn btn-primary" id="cta-download-win" data-track="trial-download-win" style="background:#4ade80;color:#0c1f12;">⬇ Download for Windows</a>
-                <a href="https://buy.stripe.com/7sY4gyamq3Na9wI66Nawo0d" class="btn btn-secondary" id="cta-buy-launch" data-track="free">Buy 1 license · €35.99</a>
-                <a href="https://buy.stripe.com/dRm9AS2TYcjG6kw0Mtawo0e" class="btn btn-secondary" id="cta-buy-bundle" data-track="free-bundle">Buy 2 licenses · €49.99</a>
+                <a href="#" onclick="document.getElementById('buy-modal').showModal();return false;" class="btn btn-secondary" id="cta-buy-launch" data-track="free">🔑 Buy a license</a>
             </div>
             <p class="pe-trust" id="pe-platform-row" style="margin-top:10px;">
                 Free Trial · 3 generations · No license required · Works in DR Free and DR Studio 18.5+
@@ -439,7 +607,7 @@
                             <li>Markers visible in DR Free timeline</li>
                             <li>macOS + Windows</li>
                         </ul>
-                        <a href="https://buy.stripe.com/7sY4gyamq3Na9wI66Nawo0d" class="btn btn-green btn-small" style="display:block;text-align:center;">Buy €35.99 (launch)</a>
+                        <a href="#" onclick="document.getElementById('buy-modal').showModal();return false;" class="btn btn-green btn-small" style="display:block;text-align:center;">Choose a license →</a>
                     </div>
                     <div class="pe-compare-col studio">
                         <h3>Pulse Edit Studio</h3>
@@ -467,9 +635,7 @@
             <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:14px;color:#fff;">Get Pulse Edit at the launch price</h2>
             <p style="color:#cbd5e1;margin-bottom:24px;">€35.99 one-time. No subscription. Lifetime updates. Works on macOS and Windows, on DaVinci Resolve Free or Studio.</p>
             <div class="pe-cta-row">
-                <a href="https://buy.stripe.com/7sY4gyamq3Na9wI66Nawo0d" class="btn btn-primary">Buy 1 license — €35.99</a>
-                <a href="https://buy.stripe.com/dRm9AS2TYcjG6kw0Mtawo0e" class="btn btn-primary">Buy 2 licenses — €49.99</a>
-                <a href="https://buy.stripe.com/dRm14mcuyfvS38k52Jawo0c" class="btn btn-outline" style="font-size:0.9rem;">Add a 2nd machine — €25</a>
+                <a href="#" onclick="document.getElementById('buy-modal').showModal();return false;" class="btn btn-primary">🔑 Buy a license</a>
             </div>
             <p class="pe-trust" style="margin-top:14px;">Secure checkout via Stripe · License delivered by email immediately</p>
         </div>
