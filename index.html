@@ -3,171 +3,330 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pulse Edit — Beat-Synced Auto Edit for DaVinci Resolve Free or Studio</title>
-<meta name="description" content="Pulse Edit auto-cuts your video to the beat in DaVinci Resolve. Pick the right edition: DR Studio (€40, plugin) or DR Free (€35.99 launch, OTIO export). 3 free generations to try.">
+<title>Pulse Edit — Beat-Synced Auto Edit for DaVinci Resolve</title>
+<meta name="description" content="Pulse Edit auto-cuts your video to the beat in DaVinci Resolve. Pick your edition: Pulse Edit Studio (native plugin) or Pulse Edit for DR Free (standalone, OTIO import).">
 <link rel="canonical" href="https://pulseedit.com/">
 <meta property="og:title" content="Pulse Edit — Beat-Synced Auto Edit for DaVinci Resolve">
-<meta property="og:description" content="DR Studio (€40 plugin) or DR Free (€35.99 launch, OTIO export). Pick your edition. 3 free generations to try.">
+<meta property="og:description" content="Auto-cut footage to the beat in DaVinci Resolve. Studio plugin or DR Free standalone — pick the one that fits your setup.">
 <meta property="og:url" content="https://pulseedit.com/">
 <meta property="og:image" content="https://pulseedit.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#7c6ff7">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles-v2.css">
+
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body {
-  background: #0a0a14;
-  color: #fff;
-  font-family: -apple-system, "Inter", "Helvetica Neue", Arial, sans-serif;
-  min-height: 100vh;
-  display: flex; align-items: center; justify-content: center;
-  padding: 20px;
-}
-.container { max-width: 1100px; width: 100%; text-align: center; }
-.brand { font-size: 32px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
-.brand span { color: #7c6ff7; }
-.tagline { color: #888; font-size: 15px; margin-bottom: 50px; }
-h1 {
-  font-size: clamp(28px, 5vw, 44px);
-  font-weight: 800; margin-bottom: 12px; letter-spacing: -1px;
-}
-.sub { color: #aaa; font-size: 17px; margin-bottom: 50px; line-height: 1.6; }
-.choices {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 24px;
-  margin-top: 30px;
-}
-.card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 36px 28px;
-  text-align: left;
-  transition: all 0.25s ease;
-  position: relative;
-  overflow: hidden;
-}
-.card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(255,255,255,0.18);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-}
-.card.studio { --accent: #7c6ff7; }
-.card.free   { --accent: #4ade80; }
-.card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 4px;
-  background: var(--accent);
-}
-.badge {
-  display: inline-block;
-  background: var(--accent); color: #fff;
-  font-size: 11px; font-weight: 700;
-  padding: 4px 10px; border-radius: 4px;
-  letter-spacing: 0.6px;
-  margin-bottom: 18px;
-  text-transform: uppercase;
-}
-.card h2 {
-  font-size: 26px; font-weight: 700; margin-bottom: 6px;
-}
-.card .sub2 { color: #888; font-size: 13px; margin-bottom: 22px; }
-.card .price {
-  font-size: 36px; font-weight: 800; margin-bottom: 4px;
-}
-.card .price .old { color: #555; text-decoration: line-through; font-size: 22px; font-weight: 500; margin-right: 10px; }
-.card .price-note { color: #aaa; font-size: 13px; margin-bottom: 24px; }
-.card ul {
-  list-style: none; padding: 0; margin: 0 0 28px 0;
-}
-.card ul li {
-  padding: 8px 0; padding-left: 26px; position: relative;
-  font-size: 14px; color: #ddd;
-}
-.card ul li::before {
-  content: '✓';
-  position: absolute; left: 0; color: var(--accent);
-  font-weight: 700;
-}
-.btn {
-  display: block;
-  background: var(--accent);
-  color: #0a0a14;
-  text-decoration: none;
-  text-align: center;
-  padding: 14px 24px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 15px;
-  transition: all 0.2s ease;
-}
-.btn:hover {
-  filter: brightness(1.1);
-  transform: scale(1.02);
-}
-.help {
-  color: #555; font-size: 13px; margin-top: 50px;
-}
-.help a { color: #7c6ff7; text-decoration: none; }
-.help a:hover { text-decoration: underline; }
+  /* Hero — same warm orb as Studio landing, but neutral copy */
+  .hero {
+    padding: 110px 0 70px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-orb {
+    position: absolute;
+    width: 720px;
+    height: 720px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,111,247,0.26) 0%, rgba(74,222,128,0.10) 38%, transparent 70%);
+    filter: blur(90px);
+    top: -240px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero > .container { position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(124,111,247,0.12);
+    color: #a78bfa;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 1px solid rgba(124,111,247,0.30);
+    margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-size: clamp(34px, 5.5vw, 60px);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    max-width: 900px;
+    margin: 0 auto 22px;
+    background: linear-gradient(180deg, #ffffff 0%, #c8c8e8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero h1 .accent {
+    background: linear-gradient(135deg, #7c6ff7, #4ade80);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero p.lede {
+    color: #cbd5e1;
+    font-size: clamp(15px, 1.6vw, 18px);
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  /* Products section */
+  .products {
+    padding: 30px 0 80px;
+    position: relative;
+    z-index: 1;
+  }
+  .products .section-label {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 40px;
+  }
+  .product-card {
+    max-width: 880px;
+    margin: 0 auto 32px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 20px;
+    padding: 40px 44px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+                border-color 0.25s ease,
+                box-shadow 0.3s ease;
+  }
+  .product-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.85;
+  }
+  .product-card::after {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, var(--accent-soft) 0%, transparent 65%);
+    pointer-events: none;
+    opacity: 0.7;
+  }
+  .product-card.studio { --accent: #7c6ff7; --accent-soft: rgba(124,111,247,0.18); }
+  .product-card.free   { --accent: #4ade80; --accent-soft: rgba(74,222,128,0.18); }
+  .product-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,0.20);
+    box-shadow: 0 24px 70px rgba(0,0,0,0.45), 0 0 0 1px var(--accent-soft);
+  }
+  .product-card .product-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .product-card .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    border: 1px solid currentColor;
+  }
+  .product-card h2 {
+    font-size: clamp(26px, 3.4vw, 36px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 6px 0 12px;
+    color: #fff;
+  }
+  .product-card .desc {
+    color: #cbd5e1;
+    font-size: 16px;
+    line-height: 1.65;
+    margin-bottom: 22px;
+    max-width: 640px;
+  }
+  .product-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 8px 24px;
+  }
+  .product-card ul li {
+    position: relative;
+    padding: 6px 0 6px 26px;
+    font-size: 14.5px;
+    color: #cbd5e1;
+    line-height: 1.5;
+  }
+  .product-card ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 14px;
+    height: 14px;
+    background: var(--accent);
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'><polyline points='20 6 9 17 4 12'/></svg>") no-repeat center / contain;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'><polyline points='20 6 9 17 4 12'/></svg>") no-repeat center / contain;
+  }
+  .product-card .product-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #0a0a14;
+    text-decoration: none;
+    padding: 13px 22px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 14.5px;
+    transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.25s ease;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  }
+  .product-card .product-cta:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow: 0 10px 30px var(--accent-soft);
+  }
+  .product-card .product-cta .arrow { transition: transform 0.2s ease; }
+  .product-card .product-cta:hover .arrow { transform: translateX(3px); }
+  .product-card .meta-line {
+    margin-top: 14px;
+    font-size: 13px;
+    color: #94a3b8;
+  }
+
+  .help {
+    text-align: center;
+    color: #6b7280;
+    font-size: 14px;
+    padding: 20px 16px 80px;
+  }
+  .help a { color: #a78bfa; text-decoration: none; }
+  .help a:hover { text-decoration: underline; }
+
+  @media (max-width: 720px) {
+    .hero { padding: 70px 0 50px; }
+    .product-card { padding: 28px 24px; }
+    .product-card ul { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
-<div class="container">
-  <div class="brand">Pulse <span>Edit</span></div>
-  <div class="tagline">Beat-synced auto-edit for DaVinci Resolve</div>
 
-  <h1>Which version of DaVinci Resolve do you use?</h1>
-  <p class="sub">Pick the right edition. Same beat detection AI, different integration.</p>
+<!-- Nav -->
+<nav>
+  <div class="container nav-inner">
+    <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
+    <div class="nav-links">
+      <a href="/pulse-edit-studio.html">DR Studio</a>
+      <a href="/pulse-edit-free.html">DR Free</a>
+      <a href="/blog/">Blog</a>
+      <a href="/tutorial.html">Tutorial</a>
+    </div>
+  </div>
+</nav>
 
-  <div class="choices">
-    <!-- DR Studio card -->
-    <div class="card studio">
-      <span class="badge">DaVinci Resolve Studio</span>
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-orb"></div>
+  <div class="container">
+    <div class="hero-badge">For DaVinci Resolve Free &amp; Studio</div>
+    <h1>Auto-edit your video <span class="accent">to the beat.</span></h1>
+    <p class="lede">Pulse Edit detects the beat with a deep-learning model, places markers and cuts at every musical hit, and hands you a DaVinci Resolve timeline ready to fine-tune. Two builds — one for Resolve Studio, one for Resolve Free.</p>
+  </div>
+</section>
+
+<!-- Products -->
+<section class="products">
+  <div class="container">
+    <div class="section-label">Pick the build that fits your Resolve</div>
+
+    <!-- Pulse Edit Studio -->
+    <div class="product-card studio">
+      <div class="product-head">
+        <span class="badge">For DaVinci Resolve Studio</span>
+      </div>
       <h2>Pulse Edit Studio</h2>
-      <div class="sub2">Direct plugin integration</div>
-      <div class="price">€40</div>
-      <div class="price-note">one-time · lifetime updates</div>
+      <p class="desc">
+        The original Pulse Edit. Runs as a <strong>native Resolve plugin</strong>: it talks directly to the Resolve scripting API, drops clips and markers right into your open project, and applies keyframe effects on the timeline. The most integrated experience — Resolve never leaves the foreground. Requires <strong>DaVinci Resolve Studio 18+</strong> (the paid version with scripting unlocked).
+      </p>
       <ul>
-        <li>Direct DR Scripting API integration</li>
-        <li>FCPXML keyframe effects (zoom, speed ramp, freeze)</li>
-        <li>One-click import into open project</li>
+        <li>Native DR scripting integration</li>
+        <li>Keyframe FX: zoom, speed ramps, freeze</li>
+        <li>One-click import into the open project</li>
         <li>12 cut patterns + AI mood detection</li>
-        <li>For users running DaVinci Resolve Studio 18+</li>
+        <li>FCPXML &amp; XML compatible exports</li>
+        <li>One-time purchase · lifetime updates</li>
       </ul>
-      <a href="/pulse-edit-studio.html" class="btn" data-track="studio">Get Pulse Edit Studio →</a>
+      <a href="/pulse-edit-studio.html" class="product-cta" data-track="studio">
+        See Pulse Edit Studio <span class="arrow">→</span>
+      </a>
+      <div class="meta-line">⚠ Requires DaVinci Resolve Studio 18+ — does not run on the free edition.</div>
     </div>
 
-    <!-- DR Free card -->
-    <div class="card free">
-      <span class="badge">DaVinci Resolve Free</span>
+    <!-- Pulse Edit (DR Free) -->
+    <div class="product-card free">
+      <div class="product-head">
+        <span class="badge">For DaVinci Resolve Free</span>
+      </div>
       <h2>Pulse Edit</h2>
-      <div class="sub2">Universal OTIO export — works on DR Free</div>
-      <div class="price"><span class="old">€64.99</span>€35.99</div>
-      <div class="price-note">launch price · one-time · lifetime updates</div>
+      <p class="desc">
+        Built for everyone who uses the <strong>free version of DaVinci Resolve</strong>. Since November 2024, Blackmagic disabled the scripting API on DR Free, so plugins can't talk to Resolve directly anymore. Pulse Edit works around it: a standalone app analyzes your audio, builds the edit, and exports an <strong>OTIO timeline</strong> you import in Resolve with a double-click — beats, markers, cuts and clip order baked in. Works on DR Free <em>and</em> Studio.
+      </p>
       <ul>
         <li>Works on DR Free + Studio (OTIO universal import)</li>
         <li>beat_this DNN beat detection (no drift)</li>
         <li>12 cut patterns + 6-mood + per-bar dynamic</li>
-        <li>Flow analysis: build-up/drop bursts</li>
+        <li>Flow analysis: build-up &amp; drop bursts</li>
         <li>Bypasses BMD's Nov 2024 scripting restriction</li>
+        <li>3 free generations to try — then pick a license</li>
       </ul>
-      <a href="/pulse-edit-free.html" class="btn" data-track="free">Get Pulse Edit (Free DR) →</a>
+      <a href="/pulse-edit-free.html" class="product-cta" data-track="free">
+        See Pulse Edit (DR Free) <span class="arrow">→</span>
+      </a>
+      <div class="meta-line">Free trial: 3 generations, no license required. macOS &amp; Windows.</div>
     </div>
   </div>
+</section>
 
-  <div class="help">
-    Not sure? <a href="/pulse-edit-free.html#faq">Read the comparison</a>
-    or <a href="mailto:support@pulseedit.com">ask us</a>.
-  </div>
+<div class="help">
+  Still not sure? <a href="/pulse-edit-free.html#faq">Read the full comparison</a>
+  or <a href="mailto:support@pulseedit.com">email us</a>.
 </div>
+
 <script>
-// Click tracker — POST to license-server, Telegram notification + KV counter.
 document.querySelectorAll('[data-track]').forEach(el => {
-  el.addEventListener('click', function(e) {
+  el.addEventListener('click', function() {
     const edition = this.getAttribute('data-track');
-    // fire-and-forget POST, keepalive so navigation doesn't cancel
     try {
       fetch('https://license-server.abtools.workers.dev/track-click', {
         method: 'POST',
