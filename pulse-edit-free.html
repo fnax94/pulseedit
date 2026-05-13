@@ -300,11 +300,39 @@
             </div>
 
             <div class="pe-cta-row">
-                <a href="https://github.com/fnax94/pulse-edit-free/releases/latest" class="btn btn-primary" id="cta-download-free" data-track="trial-download">⬇ Download Free Trial (3 generations)</a>
+                <a href="https://download.pulseedit.com/PulseEdit-macOS.dmg" class="btn btn-primary" id="cta-download-free" data-track="trial-download">⬇ Download Free Trial (3 generations)</a>
                 <a href="https://buy.stripe.com/aFa28q7ae97u38kcvbawo0a" class="btn btn-secondary" id="cta-buy-launch" data-track="free">Buy €35 to unlock</a>
             </div>
-            <p class="pe-trust">macOS 12+ (Apple Silicon) &amp; Windows 10/11 · Works in DR Free and DR Studio 18.5+</p>
+            <p class="pe-trust" id="pe-platform-row">
+                <span id="pe-platform-detected">macOS 12+ (Apple Silicon) &amp; Windows 10/11</span>
+                · Works in DR Free and DR Studio 18.5+
+                · <a href="https://download.pulseedit.com/PulseEdit-macOS.dmg" id="dl-mac-link" style="color:#7c6ff7;text-decoration:underline;">macOS DMG</a>
+                · <a href="https://download.pulseedit.com/PulseEdit-Setup.exe" id="dl-win-link" style="color:#7c6ff7;text-decoration:underline;">Windows .exe</a>
+            </p>
             <p class="pe-trust" style="margin-top:6px;font-size:11px;opacity:0.75;">✅ macOS: signed &amp; notarized by Apple — no Gatekeeper warnings. 🛡️ Windows: SmartScreen may show a warning — click "More info" → "Run anyway".</p>
+            <script>
+            // Auto-detect OS and point the primary CTA at the right installer.
+            (function() {
+              try {
+                var ua = (navigator.userAgent || '').toLowerCase();
+                var plat = (navigator.platform || '').toLowerCase();
+                var btn = document.getElementById('cta-download-free');
+                var label = document.getElementById('pe-platform-detected');
+                if (!btn) return;
+                var isWindows = /windows|win32|win64/.test(ua) || /win/.test(plat);
+                var isMac = /mac/.test(ua) || /mac/.test(plat);
+                if (isWindows) {
+                  btn.href = 'https://download.pulseedit.com/PulseEdit-Setup.exe';
+                  btn.textContent = '⬇ Download Free Trial for Windows (3 generations)';
+                  if (label) label.textContent = 'Windows 10/11 detected';
+                } else if (isMac) {
+                  btn.href = 'https://download.pulseedit.com/PulseEdit-macOS.dmg';
+                  btn.textContent = '⬇ Download Free Trial for macOS (3 generations)';
+                  if (label) label.textContent = 'macOS detected (Apple Silicon)';
+                }
+              } catch (e) { /* keep default link */ }
+            })();
+            </script>
         </div>
     </section>
 
