@@ -215,11 +215,11 @@
     <div id="cookie-modal" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(8,8,16,0.88);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px;">
   <div style="max-width:440px;width:100%;background:#15151f;border:1px solid rgba(124,111,247,0.3);border-radius:16px;padding:32px;text-align:center;box-shadow:0 24px 70px rgba(0,0,0,0.6);">
     <div style="font-size:32px;margin-bottom:12px;">&#127850;</div>
-    <h3 style="color:#fff;font-size:1.25rem;margin:0 0 12px;">We use cookies</h3>
-    <p style="color:#a0a0b8;font-size:14px;line-height:1.6;margin:0 0 24px;">We use cookies to analyze site traffic and improve your experience. Please choose how you'd like to continue. <a href="/privacy.html" style="color:#7c6ff7;">Privacy Policy</a></p>
+    <h3 style="color:#fff;font-size:1.25rem;margin:0 0 12px;">Cookies &amp; analytics</h3>
+    <p style="color:#a0a0b8;font-size:14px;line-height:1.6;margin:0 0 24px;">We use Google Analytics, Cloudflare Insights and download-click tracking to understand how the site is used. None of these run unless you accept. You can change your choice anytime via "Manage cookies" in the footer. <a href="/privacy.html" style="color:#7c6ff7;">Privacy Policy</a></p>
     <div style="display:flex;gap:10px;">
-      <button onclick="declineCookies()" style="flex:1;background:transparent;color:#cbd5e1;border:1px solid rgba(255,255,255,0.2);padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:600;">Decline</button>
-      <button onclick="acceptCookies()" style="flex:1;background:#7c6ff7;color:#fff;border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:700;">Accept</button>
+      <button onclick="declineCookies()" style="flex:1;background:#2a2a3e;color:#fff;border:1px solid rgba(255,255,255,0.3);padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:700;">Decline</button>
+      <button onclick="acceptCookies()" style="flex:1;background:#7c6ff7;color:#fff;border:1px solid #7c6ff7;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:700;">Accept</button>
     </div>
   </div>
 </div>
@@ -228,17 +228,33 @@
   if (!localStorage.getItem('cookie_consent')) {
     document.getElementById('cookie-modal').style.display = 'flex';
   }
+  if (localStorage.getItem('cookie_consent') === 'accepted') {
+    loadCFInsights();
+  }
 })();
+function loadCFInsights() {
+  if (window._cfInsightsLoaded) return;
+  window._cfInsightsLoaded = true;
+  var s = document.createElement('script');
+  s.defer = true;
+  s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+  s.setAttribute('data-cf-beacon', '{"token":"090ce13315b846090c53b871490246d2"}');
+  document.head.appendChild(s);
+}
 function acceptCookies() {
   localStorage.setItem('cookie_consent', 'accepted');
   document.getElementById('cookie-modal').style.display = 'none';
+  loadCFInsights();
   if (typeof loadGA === 'function') loadGA();
 }
 function declineCookies() {
   localStorage.setItem('cookie_consent', 'declined');
   document.getElementById('cookie-modal').style.display = 'none';
 }
+function manageCookies() {
+  document.getElementById('cookie-modal').style.display = 'flex';
+}
 </script>
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"090ce13315b846090c53b871490246d2"}'></script>
+<a href="#" onclick="manageCookies();return false;" style="position:fixed;bottom:14px;left:14px;background:rgba(15,15,26,0.92);color:#94a3b8;border:1px solid rgba(255,255,255,0.12);padding:6px 12px;border-radius:999px;font-size:11px;font-family:inherit;text-decoration:none;z-index:99998;backdrop-filter:blur(8px);">&#127850; Manage cookies</a>
 </body>
 </html>
