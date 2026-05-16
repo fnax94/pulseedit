@@ -1156,12 +1156,31 @@ footer a:hover {
         grid-template-columns: 1fr;
     }
 
+    /* Compact navbar on mobile: drop "Pulse Edit " prefix on Studio/Free links,
+       tighten gaps + font, single-row layout that fits 360px viewports. */
+    .nav-inner {
+        gap: 8px;
+    }
+
+    .nav-brand {
+        font-size: 17px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
     .nav-links {
-        gap: 16px;
+        gap: 14px;
+        flex-wrap: nowrap;
     }
 
     .nav-links a {
         font-size: 13px;
+        white-space: nowrap;
+    }
+
+    /* Hide "Pulse Edit " word on mobile — only "Studio" / "Free" remains */
+    .nav-prefix {
+        display: none;
     }
 
     /* Hide underline on mobile nav */
@@ -1184,6 +1203,22 @@ footer a:hover {
     .hero::before {
         width: 400px;
         height: 300px;
+    }
+}
+
+/* Extra-small phones (≤ 380px): hide secondary links to keep Buy button in view */
+@media (max-width: 380px) {
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .nav-links a[href="/tutorial.html"],
+    .nav-links a[href="/blog/"] {
+        display: none;
     }
 }
 
