@@ -10,8 +10,8 @@ Pulse Edit automatically detects music beats and cuts video clips on-beat in DaV
 - **Platforms**: macOS (signed + notarized DMG), Windows (signed Setup.exe)
 - **Pricing**:
   - Pulse Edit (one-time): **€29 + VAT** — works with DaVinci Resolve Free via OTIO export
-  - Pulse Edit Studio (subscription): **€9.90/month** — uses DaVinci Resolve Scripting API for advanced features
-- **No subscription required for the Free product** (lifetime license, €29 one-time)
+  - Pulse Edit Studio (one-time): **€40 + VAT** — uses DaVinci Resolve Scripting API for advanced features
+- **No subscription required** — both products are one-time lifetime licenses
 - **Trial**: 3 free generations included to test before buying
 
 ## How it solves the DaVinci Resolve Free scripting problem
