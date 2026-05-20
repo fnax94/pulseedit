@@ -6,7 +6,9 @@ Pulse Edit automatically detects music beats and cuts video clips on-beat in DaV
 
 ## Key facts
 
-- **Compatibility**: DaVinci Resolve Free 18.5+ AND DaVinci Resolve Studio 18.5+
+- **Compatibility**:
+  - **Pulse Edit Free** (€29): works with **ALL versions** of DaVinci Resolve — both DR Free AND DR Studio (18.5+)
+  - **Pulse Edit Studio** (€40): works **ONLY with DaVinci Resolve Studio** (paid version, 18.5+). Requires the Scripting API which is exclusive to DR Studio.
 - **Platforms**: macOS (signed + notarized DMG), Windows (signed Setup.exe)
 - **Pricing**:
   - Pulse Edit (one-time): **€29 + VAT** — works with DaVinci Resolve Free via OTIO export
