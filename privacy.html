@@ -142,7 +142,7 @@
     <header class="page-header">
         <div class="container">
             <h1>Privacy Policy</h1>
-            <p>Last updated: April 24, 2026</p>
+            <p>Last updated: May 20, 2026</p>
         </div>
     </header>
 
@@ -173,8 +173,20 @@
                 <li>License key and activation status</li>
             </ul>
 
-            <h3>Software Usage</h3>
-            <p>Our desktop applications (Pulse Edit, Beat Markers) do not collect telemetry, usage data, or analytics. The software communicates only with our license validation server to verify your license key.</p>
+            <h3>Software Usage &mdash; Anonymous Diagnostic Data</h3>
+            <p>Our desktop applications (Pulse Edit Studio, Pulse Edit Free, Beat Markers) collect a minimal amount of <strong>anonymous diagnostic data</strong> to help us detect crashes and improve product reliability. Specifically:</p>
+            <ul>
+                <li><strong>Crash reports</strong>: when the app crashes, we receive the exception type, error message, and stack trace (with user file paths removed). No file contents, audio, video, or project data are sent.</li>
+                <li><strong>Application boot events</strong>: a record that the app was started, with version and operating system.</li>
+                <li><strong>Workflow failures</strong>: when an internal operation fails (e.g.&nbsp;beat detection, render), we log the failure type to help diagnose recurring issues.</li>
+            </ul>
+            <p>Each device generates an anonymous identifier (SHA-256 hash of the machine&rsquo;s hostname, truncated to 24 characters) used to deduplicate reports. This identifier is <strong>not linked</strong> to your name, email, payment information, or any other personal data. We cannot use it to identify you. For Pulse Edit Studio (licensed), crash data is also not linked to your license key or email.</p>
+            <p><strong>How to opt out</strong>: open the application&rsquo;s settings file and set <code>"enabled": false</code> (Settings UI toggle is rolling out in v1.5.5). File locations:</p>
+            <ul>
+                <li>macOS: <code>~/Library/Application Support/PulseEdit/telemetry.json</code></li>
+                <li>Windows: <code>%APPDATA%\PulseEdit\telemetry.json</code></li>
+            </ul>
+            <p>Crash reports are retained for 30 days, then deleted automatically.</p>
 
             <h2>2. How We Use Your Data</h2>
             <ul>
@@ -189,7 +201,7 @@
                 <li><strong>Consent</strong> (Art. 6(1)(a)) &mdash; for non-essential cookies (Google Analytics, Cloudflare Insights, download-click tracking). You may withdraw consent at any time via the &ldquo;Manage cookies&rdquo; link in the footer.</li>
                 <li><strong>Performance of a contract</strong> (Art. 6(1)(b)) &mdash; for processing your purchase, issuing license keys, and providing software updates after you buy.</li>
                 <li><strong>Legal obligation</strong> (Art. 6(1)(c)) &mdash; for tax, invoicing, and accounting records required by Italian and EU law.</li>
-                <li><strong>Legitimate interest</strong> (Art. 6(1)(f)) &mdash; for essential site security (e.g.&nbsp;DMARC monitoring, error logs, fraud prevention) and for replying to support emails you initiate.</li>
+                <li><strong>Legitimate interest</strong> (Art. 6(1)(f)) &mdash; for essential site security (e.g.&nbsp;DMARC monitoring, error logs, fraud prevention), for replying to support emails you initiate, and for collecting anonymous diagnostic data to keep the desktop software reliable. You can opt out at any time (see Software Usage above).</li>
             </ul>
 
             <h2>4. Cookie Consent</h2>
