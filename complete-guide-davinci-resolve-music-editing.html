@@ -125,8 +125,7 @@
         <div class="container nav-inner">
             <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
             <div class="nav-links">
-                <a href="/"><span class="nav-prefix">Pulse Edit </span>Studio</a>
-                <a href="/pulse-edit-free.html"><span class="nav-prefix">Pulse Edit </span>Free</a>
+                <a href="/">Pulse Edit Free</a>
                 <a href="/tutorial.html">Tutorial</a>
                 <a href="/blog/">Blog</a>
                 <a href="/#pricing" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
@@ -230,7 +229,7 @@
     <tr><td>Python + librosa script</td><td>2 hours</td><td>5–10 min</td><td>Good</td><td>Free</td></tr>
     <tr><td>BeatEdit</td><td>5 min</td><td>5 min</td><td>Good (basic algo)</td><td>$59 (Premiere only)</td></tr>
     <tr><td>AutoCut</td><td>5 min</td><td>5 min</td><td>Variable</td><td>$49 + $10/mo</td></tr>
-    <tr><td><strong>Pulse Edit</strong></td><td>2 min</td><td>2 min</td><td>Excellent</td><td>$40 one-time</td></tr>
+    <tr><td><strong>Pulse Edit Free</strong></td><td>2 min</td><td>2 min</td><td>Excellent</td><td>€29 one-time</td></tr>
     <tr><td>Auto editors (Descript, Runway)</td><td>10 min</td><td>10 min</td><td>Generic (not beat-focused)</td><td>$15–25/mo</td></tr>
   </tbody>
 </table>
@@ -285,9 +284,6 @@
 <h3>Use J-cuts and L-cuts on transitions</h3>
 <p>A J-cut starts the audio of the next clip before the video changes. An L-cut keeps the previous audio playing under the new video. Both create smoother transitions than hard cuts. With beat markers in place, you can offset audio fades by 1–2 frames either side of the beat for a polished feel.</p>
 
-<h3>Speed ramps on builds</h3>
-<p>If the song has a build (rising tension before a drop), apply speed ramps to your clips that match the build's curve. Beat markers tell you exactly where the drop hits, so your ramp can resolve perfectly on the impact frame.</p>
-
 <h2 id="mistakes">7. Ten mistakes that ruin beat-synced edits</h2>
 
 <ol>
@@ -318,7 +314,7 @@
 <p>See: <a href="/blog/tiktok-creator-davinci-resolve-plugin">TikTok creator workflow</a></p>
 
 <h3>Sports / action montage</h3>
-<p>Cut on impacts within shots, then align those impacts to beat markers. Speed-ramp clips so the impact lands on the kick. High-energy genres only (EDM, metal, trap).</p>
+<p>Cut on impacts within shots, then align those impacts to beat markers so each hit lands on the kick. High-energy genres only (EDM, metal, trap).</p>
 
 <h3>Brand promo / commercial</h3>
 <p>Sparse cuts on downbeats only. Held shots emphasize product. Reserve high-energy beat-cutting for the closing 5 seconds + CTA.</p>
@@ -329,12 +325,7 @@
 <p>No. Resolve doesn't have built-in beat detection. You need either a script (free but technical) or a plugin like Pulse Edit (paid, click-to-run). Resolve's Fairlight audio pages have transient detection but no beat-tracking algorithm.</p>
 
 <h3>Does Pulse Edit work with the free version of DaVinci Resolve?</h3>
-<p><strong>Yes — with the right version of Pulse Edit.</strong> There are two products:
-<ul>
-  <li><strong>Pulse Edit Free</strong> (€29 one-time): works with <strong>all versions</strong> of DaVinci Resolve, including the free DR. Uses OTIO timeline export — no scripting API needed. Drag the OTIO file into your DR project and you're done.</li>
-  <li><strong>Pulse Edit Studio</strong> (€40 one-time): works <strong>only with DaVinci Resolve Studio</strong> (the paid version) because it uses the Scripting API, which Blackmagic restricts to DR Studio only. PE Studio offers advanced features (Fusion zoom, freeze frames, AI mood matching) that aren't possible via OTIO.</li>
-</ul>
-If you have the free DaVinci Resolve, get <strong>Pulse Edit Free</strong>. If you have DR Studio and want the advanced features, get <strong>Pulse Edit Studio</strong>.</p>
+<p><strong>Yes.</strong> Pulse Edit Free (€29 one-time) works with <strong>all versions</strong> of DaVinci Resolve, including the free DR and Studio, 18.5+. It uses OTIO timeline export — no scripting API needed. Drag the OTIO file into your DR project and the clips land cut to the beat. An AI mood analyzer reads the music's mood and adapts the editing pattern.</p>
 
 <h3>What audio formats does Pulse Edit support?</h3>
 <p>WAV, MP3, AAC, FLAC, OGG. Internally it converts everything to 22050 Hz mono for analysis, which doesn't affect your final audio (Resolve uses your original file).</p>

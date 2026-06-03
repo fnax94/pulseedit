@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pulse Edit — Beat-Synced Auto Edit for DaVinci Resolve</title>
-<meta name="description" content="Auto-cuts video to the beat in DaVinci Resolve. Choose your edition: Pulse Edit Studio (plugin) or Pulse Edit Free (OTIO import).">
+<title>Pulse Edit Free — Beat-Synced Auto Edit for DaVinci Resolve</title>
+<meta name="description" content="Pulse Edit Free auto-cuts your video to the beat in DaVinci Resolve. Works with all DR versions (Free and Studio) via OTIO import. €29 one-time, lifetime license.">
 <link rel="canonical" href="https://pulseedit.com/start.html">
-<meta property="og:title" content="Pulse Edit — Beat-Synced Auto Edit for DaVinci Resolve">
-<meta property="og:description" content="Auto-cut footage to the beat in DaVinci Resolve. Studio plugin or DR Free standalone — pick the one that fits your setup.">
+<meta property="og:title" content="Pulse Edit Free — Beat-Synced Auto Edit for DaVinci Resolve">
+<meta property="og:description" content="Auto-cut footage to the beat in DaVinci Resolve. Works with all DR versions — Free and Studio — via OTIO import. €29 one-time.">
 <meta property="og:url" content="https://pulseedit.com/start.html">
 <meta property="og:image" content="https://pulseedit.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="styles-v2.css">
 
 <style>
-  /* Hero — same warm orb as Studio landing, but neutral copy */
+  /* Hero — warm orb, neutral copy */
   .hero {
     padding: 110px 0 70px;
     text-align: center;
@@ -129,7 +129,6 @@
     pointer-events: none;
     opacity: 0.7;
   }
-  .product-card.studio { --accent: #7c6ff7; --accent-soft: rgba(124,111,247,0.18); }
   .product-card.free   { --accent: #4ade80; --accent-soft: rgba(74,222,128,0.18); }
   .product-card:hover {
     transform: translateY(-4px);
@@ -247,11 +246,10 @@
         <div class="container nav-inner">
             <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
             <div class="nav-links">
-                <a href="/"><span class="nav-prefix">Pulse Edit </span>Studio</a>
-                <a href="/pulse-edit-free.html"><span class="nav-prefix">Pulse Edit </span>Free</a>
+                <a href="/pulse-edit-free.html">Pulse Edit</a>
                 <a href="/tutorial.html">Tutorial</a>
                 <a href="/blog/">Blog</a>
-                <a href="/#pricing" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
+                <a href="https://buy.stripe.com/6oU9ASgKOdnK5gsan3awo0i" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
             </div>
         </div>
     </nav>
@@ -262,65 +260,42 @@
   <div class="container">
     <div class="hero-badge">For DaVinci Resolve Free &amp; Studio</div>
     <h1>Auto-edit your video <span class="accent">to the beat.</span></h1>
-    <p class="lede">Pulse Edit detects the beat with a deep-learning model, places markers and cuts at every musical hit, and hands you a DaVinci Resolve timeline ready to fine-tune. Two builds — one for Resolve Studio, one for Resolve Free.</p>
+    <p class="lede">Pulse Edit Free detects the beat with a deep-learning model, auto-cuts and places your clips at every musical hit, and hands you a DaVinci Resolve timeline ready to fine-tune. Works with all DR versions — Free and Studio — via OTIO import.</p>
   </div>
 </section>
 
 <!-- Products -->
 <section class="products" id="products">
   <div class="container">
-    <div class="section-label">Pick the build that fits your Resolve</div>
+    <div class="section-label">One app · works with every DaVinci Resolve</div>
 
-    <!-- Pulse Edit Studio -->
-    <div class="product-card studio">
-      <div class="product-head">
-        <span class="badge">For DaVinci Resolve Studio</span>
-      </div>
-      <h2>Pulse Edit Studio</h2>
-      <p class="desc">
-        The original Pulse Edit. Runs as a <strong>native Resolve plugin</strong>: it talks directly to the Resolve scripting API, drops clips and markers right into your open project, and applies keyframe effects on the timeline. The most integrated experience — Resolve never leaves the foreground. Requires <strong>DaVinci Resolve Studio 18+</strong> (the paid version with scripting unlocked).
-      </p>
-      <ul>
-        <li>Native DR scripting integration</li>
-        <li>Keyframe FX: zoom, speed ramps, freeze</li>
-        <li>One-click import into the open project</li>
-        <li>12 cut patterns + AI mood detection</li>
-        <li>FCPXML &amp; XML compatible exports</li>
-        <li>One-time purchase · lifetime updates</li>
-      </ul>
-      <a href="/" class="product-cta" data-track="studio">
-        See Pulse Edit Studio <span class="arrow">→</span>
-      </a>
-      <div class="meta-line">For DaVinci Resolve Studio 18+ only. If you have the free DR, choose <strong>Pulse Edit Free</strong> instead (right card) — it works with all DR versions.</div>
-    </div>
-
-    <!-- Pulse Edit (DR Free) -->
+    <!-- Pulse Edit Free -->
     <div class="product-card free">
       <div class="product-head">
-        <span class="badge">For DaVinci Resolve Free</span>
+        <span class="badge">For DaVinci Resolve Free &amp; Studio</span>
       </div>
-      <h2>Pulse Edit</h2>
+      <h2>Pulse Edit Free</h2>
       <p class="desc">
-        Built for everyone who uses the <strong>free version of DaVinci Resolve</strong>. Since November 2024, Blackmagic disabled the scripting API on DR Free, so plugins can't talk to Resolve directly anymore. Pulse Edit works around it: a standalone app analyzes your audio, builds the edit, and exports an <strong>OTIO timeline</strong> you import in Resolve with a double-click — beats, markers, cuts and clip order baked in. Works on DR Free <em>and</em> Studio.
+        Pulse Edit Free analyzes your music, detects the beat with a deep-learning model, and <strong>automatically cuts and places your clips on the beat</strong>. It exports an <strong>OTIO timeline</strong> you import into DaVinci Resolve with a double-click — beats, markers, cuts and clip order baked in. Because it uses OTIO import, it works with <strong>every version of DaVinci Resolve</strong> (Free and Studio), no scripting API required.
       </p>
       <ul>
-        <li>Works on DR Free + Studio (OTIO universal import)</li>
+        <li>Automatic beat-synced editing (auto-cut + place clips)</li>
         <li>beat_this DNN beat detection (no drift)</li>
-        <li>12 cut patterns + 6-mood + per-bar dynamic</li>
-        <li>Flow analysis: build-up &amp; drop bursts</li>
-        <li>Bypasses BMD's Nov 2024 scripting restriction</li>
-        <li>3 free generations to try — then pick a license</li>
+        <li>Cut patterns incl. Energy Map (11 patterns)</li>
+        <li>AI mood analyzer — adapts the edit to the music</li>
+        <li>Works with all DR versions via OTIO import</li>
+        <li>3 free generations to try — then a lifetime license</li>
       </ul>
-      <a href="/pulse-edit-free.html" class="product-cta" data-track="free">
-        See Pulse Edit (DR Free) <span class="arrow">→</span>
+      <a href="https://buy.stripe.com/6oU9ASgKOdnK5gsan3awo0i" class="product-cta" data-track="free">
+        Get Pulse Edit Free — €29 <span class="arrow">→</span>
       </a>
-      <div class="meta-line">Free trial: 3 generations, no license required. macOS &amp; Windows.</div>
+      <div class="meta-line">€29 one-time · regular <s>€64.99</s> · lifetime license · no subscription · 14-day money-back. macOS &amp; Windows. Free trial: 3 generations, no license required. <a href="/pulse-edit-free.html" style="color:#4ade80;">See full details →</a></div>
     </div>
   </div>
 </section>
 
 <div class="help">
-  Still not sure? <a href="/pulse-edit-free.html#faq">Read the full comparison</a>
+  Questions? <a href="/pulse-edit-free.html#faq">Read the FAQ</a>
   or <a href="mailto:support@pulseedit.com">email us</a>.
 </div>
 

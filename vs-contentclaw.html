@@ -40,9 +40,9 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "Is Pulse Edit a real alternative to ContentClaw?", "acceptedAnswer": {"@type": "Answer", "text": "Pulse Edit and ContentClaw solve different problems but operate in the same niche (AI plugins for DaVinci Resolve). ContentClaw focuses on silence removal and B-roll generation for talking-head/podcast/UGC content, mostly priced as a SaaS subscription ($28-98/month). Pulse Edit focuses on beat-synced auto-cut for music videos, reels, montages and travel content, priced as a one-time purchase (€29 for DR Free or €40 for DR Studio, lifetime license). If your editing is music-driven, Pulse Edit is the right fit. If your editing is dialogue/speech-driven, ContentClaw is the right fit. Some editors use both."}},
-    {"@type": "Question", "name": "Does Pulse Edit work with DaVinci Resolve Free, like ContentClaw?", "acceptedAnswer": {"@type": "Answer", "text": "Pulse Edit Free (€29 one-time) works with ALL versions of DaVinci Resolve, including DR Free. ContentClaw requires DaVinci Resolve Studio (the paid version, €295 from Blackmagic), because it uses the Scripting API that is only available in DR Studio. This is a significant compatibility advantage for Pulse Edit users on DR Free."}},
-    {"@type": "Question", "name": "ContentClaw is subscription. Does Pulse Edit have a subscription option?", "acceptedAnswer": {"@type": "Answer", "text": "No. Pulse Edit is one-time payment, lifetime license for both products. PE Free is €29 one-time (DR Free + Studio compatible). PE Studio is €40 one-time (DR Studio only, advanced features). No monthly fees, no renewal. Compared to ContentClaw Pro at $98/month = $1.176/year, PE Studio at €40 once is roughly 3% of the annual ContentClaw cost — and Pulse Edit keeps working forever."}},
+    {"@type": "Question", "name": "Is Pulse Edit a real alternative to ContentClaw?", "acceptedAnswer": {"@type": "Answer", "text": "Pulse Edit and ContentClaw solve different problems but operate in the same niche (AI plugins for DaVinci Resolve). ContentClaw focuses on silence removal and B-roll generation for talking-head/podcast/UGC content, mostly priced as a SaaS subscription ($28-98/month). Pulse Edit focuses on beat-synced auto-cut for music videos, reels, montages and travel content, priced as a one-time purchase (€29, lifetime license). If your editing is music-driven, Pulse Edit is the right fit. If your editing is dialogue/speech-driven, ContentClaw is the right fit. Some editors use both."}},
+    {"@type": "Question", "name": "Does Pulse Edit work with DaVinci Resolve Free, like ContentClaw?", "acceptedAnswer": {"@type": "Answer", "text": "Pulse Edit (€29 one-time) works with ALL versions of DaVinci Resolve, including DR Free, via OTIO export. ContentClaw requires DaVinci Resolve Studio (the paid version, €295 from Blackmagic), because it uses the Scripting API that is only available in DR Studio. This is a significant compatibility advantage for Pulse Edit users on DR Free."}},
+    {"@type": "Question", "name": "ContentClaw is subscription. Does Pulse Edit have a subscription option?", "acceptedAnswer": {"@type": "Answer", "text": "No. Pulse Edit is a one-time payment, lifetime license: €29 once, works with DR Free and Studio. No monthly fees, no renewal. Compared to ContentClaw Pro at $98/month = $1,176/year, Pulse Edit at €29 once is roughly 2% of the annual ContentClaw cost — and Pulse Edit keeps working forever."}},
     {"@type": "Question", "name": "Can I use ContentClaw and Pulse Edit together?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. They solve different problems. Use ContentClaw to remove silence and generate B-roll for your podcast/talking head content. Use Pulse Edit to auto-cut your music videos, reels, travel montages to the beat of music. The workflows don't overlap — Pulse Edit places clips on beats; ContentClaw removes silent sections."}},
     {"@type": "Question", "name": "Why is Pulse Edit cheaper than ContentClaw?", "acceptedAnswer": {"@type": "Answer", "text": "Different business models, not different quality. Pulse Edit is built by Quack Production, an independent Italian agency, with low overhead and a one-time pricing philosophy. ContentClaw is a venture-funded US company with subscription pricing standard in their market. Neither is right or wrong — but if you prefer to pay once and own your software forever, Pulse Edit's pricing is friendlier."}}
   ]
@@ -54,8 +54,7 @@
   <div class="nav-inner">
     <a href="/" class="logo">Pulse Edit</a>
     <div class="nav-links">
-      <a href="/pulse-edit-free.html">PE Free</a>
-      <a href="/">PE Studio</a>
+      <a href="/pulse-edit-free.html">Pulse Edit</a>
       <a href="/blog/">Blog</a>
     </div>
   </div>
@@ -69,13 +68,13 @@
   <p style="color:#9ca3af;font-size:1.15rem;line-height:1.6;margin-bottom:36px;">Both are AI plugins for DaVinci Resolve. Both promise to automate parts of your editing. But they solve <em>different</em> problems and use <em>different</em> pricing models. Here's the honest comparison.</p>
 
   <div style="background:rgba(34,197,94,0.06);border-left:3px solid #4ade80;padding:18px 20px;margin:30px 0;border-radius:4px;">
-    <p style="margin:0;font-size:0.95rem;color:#cbd5e1;"><strong style="color:#4ade80;">TL;DR</strong> — Pulse Edit is for <strong>music-driven editing</strong> (reels, music videos, montages, travel) and works with DR Free + DR Studio at <strong>€29-40 one-time</strong>. ContentClaw is for <strong>dialogue-driven editing</strong> (podcasts, talking heads, UGC) and works only on DR Studio at <strong>$28-98/month subscription</strong>. They are not direct competitors — they're complementary tools. Pick the right one for your content type.</p>
+    <p style="margin:0;font-size:0.95rem;color:#cbd5e1;"><strong style="color:#4ade80;">TL;DR</strong> — Pulse Edit is for <strong>music-driven editing</strong> (reels, music videos, montages, travel) and works with DR Free + DR Studio at <strong>€29 one-time</strong>. ContentClaw is for <strong>dialogue-driven editing</strong> (podcasts, talking heads, UGC) and works only on DR Studio at <strong>$28-98/month subscription</strong>. They are not direct competitors — they're complementary tools. Pick the right one for your content type.</p>
   </div>
 
   <h2 style="font-size:1.7rem;margin:40px 0 20px;">What each plugin does</h2>
 
   <h3 style="font-size:1.25rem;color:#a99bff;margin:24px 0 10px;">Pulse Edit — beat-synced auto-cut</h3>
-  <p>Pulse Edit listens to your music track, detects the beats (using librosa or the newer beat_this DNN), then automatically places video clips from your Media Pool onto the timeline synced to those beats. You choose from 11 cut patterns (every beat, every 2 beats, downbeats, snare rolls, Energy Map adaptive, etc.). Pulse Edit Studio adds Fusion-based zoom effects, freeze frames, AI mood matching, and 14 easing curves.</p>
+  <p>Pulse Edit listens to your music track, detects the beats (using librosa or the newer beat_this DNN), then automatically places video clips from your Media Pool onto the timeline synced to those beats. You choose from 11 cut patterns (every beat, every 2 beats, downbeats, snare rolls, Energy Map adaptive, etc.). An AI mood analyzer reads the track and adapts the editing pattern to match it.</p>
   <p><strong>Best for</strong>: music videos, Instagram/TikTok reels, travel montages, wedding highlight reels, sports highlights, brand commercials driven by a soundtrack.</p>
 
   <h3 style="font-size:1.25rem;color:#a99bff;margin:24px 0 10px;">ContentClaw — silence removal + B-roll AI</h3>
@@ -96,14 +95,13 @@
     <tbody>
       <tr><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);"><strong>Core feature</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">Beat-synced auto-cut</td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">Silence removal + B-roll AI</td></tr>
       <tr><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);"><strong>Content target</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">Music videos, reels, montages</td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">Podcasts, talking-head, UGC</td></tr>
-      <tr><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);"><strong>DaVinci Resolve Free</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);color:#4ade80;">✓ PE Free works with DR Free</td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);color:#ef4444;">✗ Studio only</td></tr>
-      <tr><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);"><strong>DaVinci Resolve Studio</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);color:#4ade80;">✓ Both PE versions work</td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);color:#4ade80;">✓ Required</td></tr>
+      <tr><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);"><strong>DaVinci Resolve Free</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);color:#4ade80;">✓ Works with DR Free</td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);color:#ef4444;">✗ Studio only</td></tr>
+      <tr><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);"><strong>DaVinci Resolve Studio</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);color:#4ade80;">✓ Works with DR Studio</td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);color:#4ade80;">✓ Required</td></tr>
       <tr><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);"><strong>Pricing model</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);color:#4ade80;"><strong>One-time, lifetime</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">Subscription monthly/annual</td></tr>
-      <tr><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);"><strong>Entry price</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">€29 (Free) — once</td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">$28/mo (Starter)</td></tr>
-      <tr><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);"><strong>Premium tier</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">€40 (Studio) — once</td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">$98/mo (Pro)</td></tr>
-      <tr><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);"><strong>1-year cost (premium)</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);color:#4ade80;"><strong>€40</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">$1,176 (~€1,080)</td></tr>
-      <tr><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);"><strong>5-year cost (premium)</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);color:#4ade80;"><strong>€40</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">$5,880 (~€5,400)</td></tr>
-      <tr><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);"><strong>Trial</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">4 free uses (PE Free), 3 (PE Studio)</td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">Free trial available</td></tr>
+      <tr><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);"><strong>Price</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);color:#4ade80;"><strong>€29 — once</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">$28-98/mo</td></tr>
+      <tr><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);"><strong>1-year cost</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);color:#4ade80;"><strong>€29</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">$1,176 (~€1,080) at Pro</td></tr>
+      <tr><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);"><strong>5-year cost</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);color:#4ade80;"><strong>€29</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">$5,880 (~€5,400) at Pro</td></tr>
+      <tr><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);"><strong>Trial</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">4 free uses</td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">Free trial available</td></tr>
       <tr><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);"><strong>AI Agent / MCP</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">Roadmap (PE MCP server in dev)</td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">Yes (Pro tier)</td></tr>
       <tr><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);"><strong>Transcription</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">No (not our use case)</td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);color:#4ade80;">Yes (WhisperX)</td></tr>
       <tr><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);"><strong>B-roll generation</strong></td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);">No</td><td style="padding:10px;border:1px solid rgba(255,255,255,0.1);color:#4ade80;">Yes (AI)</td></tr>
@@ -117,7 +115,7 @@
   <p>Pick <strong>Pulse Edit</strong> if any of these apply:</p>
   <ul style="line-height:1.8;">
     <li>You edit <strong>music videos, reels, montages, travel content, wedding highlight reels</strong> — anywhere the music drives the cut</li>
-    <li>You use the <strong>free DaVinci Resolve</strong> (not Studio) — Pulse Edit Free works, ContentClaw doesn't</li>
+    <li>You use the <strong>free DaVinci Resolve</strong> (not Studio) — Pulse Edit works, ContentClaw doesn't</li>
     <li>You <strong>hate subscriptions</strong> and want to pay once for software you own forever</li>
     <li>You have a <strong>tight budget</strong> — €29 vs $336+/year first year</li>
     <li>You want a tool <strong>made by editors for editors</strong>, not by VCs chasing exit</li>
@@ -128,7 +126,7 @@
   <p>Pick <strong>ContentClaw</strong> if any of these apply:</p>
   <ul style="line-height:1.8;">
     <li>You edit primarily <strong>dialogue/speech content</strong>: podcasts (video), YouTube talking heads, courses, UGC ads, interviews</li>
-    <li>You already have <strong>DaVinci Resolve Studio</strong> (Pulse Edit Studio also works, but the comparison is fair)</li>
+    <li>You already have <strong>DaVinci Resolve Studio</strong> (Pulse Edit also works there, but the comparison is fair)</li>
     <li>You need <strong>transcription with timecodes</strong> built into your workflow</li>
     <li>You want <strong>AI-generated B-roll</strong> to fill gaps in your talking content</li>
     <li>You're comfortable with <strong>recurring monthly billing</strong></li>
@@ -139,32 +137,31 @@
   <p>Subscriptions are convenient short-term but expensive long-term. If you keep editing music-driven content for the next 5 years (which most creators do), the cost gap is dramatic:</p>
 
   <ul style="line-height:1.9;">
-    <li><strong>Pulse Edit Studio</strong>: pay €40 once. Use it forever. <strong>Total 5 years: €40</strong>.</li>
+    <li><strong>Pulse Edit</strong>: pay €29 once. Use it forever. <strong>Total 5 years: €29</strong>.</li>
     <li><strong>ContentClaw Pro</strong>: pay $98/mo × 60 months = $5,880 (~€5,400). <strong>Total 5 years: €5,400</strong>.</li>
-    <li><strong>Difference</strong>: <span style="color:#4ade80;font-weight:700;">€5,360 saved with Pulse Edit</span> (for the comparable functionality you actually use).</li>
+    <li><strong>Difference</strong>: <span style="color:#4ade80;font-weight:700;">€5,371 saved with Pulse Edit</span> (for the comparable functionality you actually use).</li>
   </ul>
 
-  <p>If you do music + speech editing, the smart move is using <em>both</em>: PE for music projects, ContentClaw for talk-heavy projects. The combo still costs less than ContentClaw Pro alone over 5 years (€40 PE + 5 years ContentClaw Creator $53/mo = ~€3,200 vs ContentClaw Pro alone = €5,400). Pricing matters.</p>
+  <p>If you do music + speech editing, the smart move is using <em>both</em>: PE for music projects, ContentClaw for talk-heavy projects. The combo still costs less than ContentClaw Pro alone over 5 years (€29 PE + 5 years ContentClaw Creator $53/mo = ~€3,200 vs ContentClaw Pro alone = €5,400). Pricing matters.</p>
 
   <h2 style="font-size:1.7rem;margin:40px 0 20px;">Honest disclosure</h2>
 
   <p>This article is published by Pulse Edit, so of course we're biased toward our product. But we tried to be honest about ContentClaw's strengths: their <strong>silence removal</strong> is genuinely smart, their <strong>WhisperX transcription</strong> is solid, their <strong>AI Agent for Resolve</strong> is innovative (we're working on something similar in our PE MCP server roadmap).</p>
 
-  <p>What we don't apologize for: <strong>charging €29-40 once instead of $28-98/month</strong>. That's a philosophical choice. We think creators should own their tools.</p>
+  <p>What we don't apologize for: <strong>charging €29 once instead of $28-98/month</strong>. That's a philosophical choice. We think creators should own their tools.</p>
 
   <h2 style="font-size:1.7rem;margin:40px 0 20px;">Try Pulse Edit free</h2>
 
-  <p>Both versions of Pulse Edit have a free trial (no credit card):</p>
+  <p>Pulse Edit has a free trial (no credit card):</p>
   <ul style="line-height:1.8;">
-    <li><strong>Pulse Edit Free</strong>: 4 complete generations free. Works with DR Free + DR Studio. <a href="/pulse-edit-free.html" style="color:#a99bff;">Download free trial →</a></li>
-    <li><strong>Pulse Edit Studio</strong>: 3 complete uses free. Requires DR Studio. <a href="/" style="color:#a99bff;">See PE Studio →</a></li>
+    <li><strong>Pulse Edit</strong>: 4 complete generations free. Works with DR Free + DR Studio. <a href="/pulse-edit-free.html" style="color:#a99bff;">Download free trial →</a></li>
   </ul>
 
   <div style="background:rgba(124,111,247,0.08);border:1px solid rgba(124,111,247,0.25);padding:24px;border-radius:10px;margin:40px 0;text-align:center;">
     <p style="font-size:0.85rem;color:#9ca3af;margin:0 0 8px;letter-spacing:0.08em;text-transform:uppercase;">Ready to try?</p>
     <h3 style="font-size:1.5rem;margin:0 0 14px;">Pay once. Edit forever.</h3>
-    <p style="color:#9ca3af;margin:0 0 18px;">Pulse Edit Free €29 · Pulse Edit Studio €40 · Trial included, no credit card</p>
-    <a href="/" style="display:inline-block;background:#7c6ff7;color:#fff;padding:12px 28px;border-radius:8px;font-weight:600;text-decoration:none;">Try Pulse Edit free →</a>
+    <p style="color:#9ca3af;margin:0 0 18px;">Pulse Edit €29 one-time · Lifetime license · Trial included, no credit card</p>
+    <a href="/pulse-edit-free.html" style="display:inline-block;background:#7c6ff7;color:#fff;padding:12px 28px;border-radius:8px;font-weight:600;text-decoration:none;">Try Pulse Edit free →</a>
   </div>
 
   <hr style="border:0;border-top:1px solid rgba(255,255,255,0.1);margin:50px 0 30px;">

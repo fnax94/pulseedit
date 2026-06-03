@@ -44,8 +44,8 @@
         "description": "Automatically sync and edit video clips to music beats in DaVinci Resolve using Pulse Edit's beat detection and smart cut patterns.",
         "totalTime": "PT5M",
         "tool": [
-            {"@type": "HowToTool", "name": "DaVinci Resolve Studio 18+"},
-            {"@type": "HowToTool", "name": "Pulse Edit"}
+            {"@type": "HowToTool", "name": "DaVinci Resolve 18.5+"},
+            {"@type": "HowToTool", "name": "Pulse Edit Free"}
         ],
         "step": [
             {
@@ -57,7 +57,7 @@
             {
                 "@type": "HowToStep",
                 "name": "Step 2: Load your timeline in DaVinci Resolve",
-                "text": "Open DaVinci Resolve Studio 18+ with your project. Place your music on an audio track and your video clips in the Media Pool. Pulse Edit connects to Resolve automatically.",
+                "text": "Open DaVinci Resolve 18.5+ (Free or Studio) with your project. Place your music on an audio track and your video clips in the Media Pool. Pulse Edit connects to Resolve automatically.",
                 "url": "https://pulseedit.com/blog/auto-edit-video-to-music-davinci-resolve#step-2"
             },
             {
@@ -81,7 +81,7 @@
             {
                 "@type": "HowToStep",
                 "name": "Step 6: Auto-edit",
-                "text": "Click Auto-Edit. Pulse Edit pulls clips from your Media Pool and places them on the timeline, cut precisely to every beat. Speed ramps, zoom effects, and transitions are applied automatically based on your chosen pattern.",
+                "text": "Click Auto-Edit. Pulse Edit pulls clips from your Media Pool and places them on the timeline, cut precisely to every beat based on your chosen pattern.",
                 "url": "https://pulseedit.com/blog/auto-edit-video-to-music-davinci-resolve#step-6"
             }
         ]
@@ -338,7 +338,7 @@
                 event_category: 'conversion',
                 event_label: 'Pulse Edit',
                 link_url: href,
-                value: 79.99,
+                value: 29,
                 currency: 'EUR',
                 source: 'blog'
             });
@@ -352,8 +352,7 @@
         <div class="container nav-inner">
             <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
             <div class="nav-links">
-                <a href="/"><span class="nav-prefix">Pulse Edit </span>Studio</a>
-                <a href="/pulse-edit-free.html"><span class="nav-prefix">Pulse Edit </span>Free</a>
+                <a href="/"><span class="nav-prefix">Pulse Edit</span></a>
                 <a href="/tutorial.html">Tutorial</a>
                 <a href="/blog/">Blog</a>
                 <a href="/#pricing" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
@@ -387,7 +386,7 @@
                     <li><strong>Blade tool (B)</strong> &mdash; cut your video track at each marker position</li>
                     <li><strong>Replace clips</strong> manually by dragging from the Media Pool into each gap</li>
                     <li><strong>Trim and adjust</strong> each clip so the best part shows during its segment</li>
-                    <li><strong>Add transitions</strong> and speed ramps by hand if you want dynamic pacing</li>
+                    <li><strong>Refine each cut</strong> by hand if you want more dynamic pacing</li>
                 </ol>
 
                 <p>This works. But it's slow, repetitive, and your cuts will never be frame-perfect because human tapping has inherent timing drift. A 10ms error at 30fps means your beat hits land 1-2 frames off &mdash; visible in fast-paced edits.</p>
@@ -424,7 +423,7 @@
                     <div class="step-num">2</div>
                     <div>
                         <h3>Load your timeline in DaVinci Resolve</h3>
-                        <p>Open DaVinci Resolve Studio 18 or later. Create a timeline with your music on an audio track and your video clips in the Media Pool. Pulse Edit connects to Resolve automatically &mdash; no configuration.</p>
+                        <p>Open DaVinci Resolve 18.5 or later (Free or Studio). Create a timeline with your music on an audio track and your video clips in the Media Pool. Pulse Edit connects to Resolve automatically &mdash; no configuration.</p>
                     </div>
                 </div>
 
@@ -456,7 +455,7 @@
                     <div class="step-num">6</div>
                     <div>
                         <h3>Click Auto-Edit</h3>
-                        <p>Pulse Edit pulls clips from your Media Pool and places them on the timeline, each one cut precisely at the beat position. Speed ramps, zoom effects, and transitions are applied automatically based on your pattern. Your beat-synced edit is done.</p>
+                        <p>Pulse Edit pulls clips from your Media Pool and places them on the timeline, each one cut precisely at the beat position based on your pattern. Your beat-synced edit is done.</p>
                     </div>
                 </div>
 
@@ -518,7 +517,7 @@
                 <h2>Requirements</h2>
 
                 <ul>
-                    <li><strong>For Pulse Edit Studio</strong>: DaVinci Resolve Studio 18+ (uses scripting API exclusive to DR Studio). <em>For Pulse Edit Free</em>: any DR version works — OTIO export bypasses the scripting API entirely.</li>
+                    <li><strong>DaVinci Resolve 18.5+</strong> &mdash; works with all DaVinci Resolve versions, including Free, via OTIO export.</li>
                     <li><strong>macOS</strong> (Apple Silicon or Intel) or <strong>Windows 10/11</strong></li>
                     <li><strong>Pulse Edit</strong> (<a href="https://github.com/fnax94/pulse-edit/releases/latest/download/PulseEdit-macOS.zip">download free trial</a>)</li>
                 </ul>

@@ -114,8 +114,7 @@
         <div class="container nav-inner">
             <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
             <div class="nav-links">
-                <a href="/"><span class="nav-prefix">Pulse Edit </span>Studio</a>
-                <a href="/pulse-edit-free.html"><span class="nav-prefix">Pulse Edit </span>Free</a>
+                <a href="/">Pulse Edit Free</a>
                 <a href="/tutorial.html">Tutorial</a>
                 <a href="/blog/">Blog</a>
                 <a href="/#pricing" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
@@ -148,7 +147,7 @@
                 <h2>How Pulse Edit handles the cuts</h2>
                 <p>Behind the scenes, Pulse Edit runs three passes:</p>
                 <ul>
-                    <li><strong>Beat tracking.</strong> The audio goes through the <strong>beat_this</strong> transformer model — same detector used by Pulse Edit Studio. It returns a list of beat times and the inferred bar structure.</li>
+                    <li><strong>Beat tracking.</strong> The audio goes through the <strong>beat_this</strong> transformer model. It returns a list of beat times and the inferred bar structure.</li>
                     <li><strong>Cut pattern application.</strong> The pattern (Every Beat, Every Bar, Energy Map, Wedding…) decides which subset of those beats actually becomes a cut. Wedding cuts only on downbeats; Every Beat takes them all; Energy Map adapts to the loudness of each section.</li>
                     <li><strong>Clip layout.</strong> Your media pool is walked through the cut grid. Sequential, random, or mood-weighted ordering — your call.</li>
                 </ul>

@@ -48,7 +48,7 @@
         "name": "How to Auto-Edit a Travel Montage in DaVinci Resolve",
         "description": "Auto-cut travel footage to music in DaVinci Resolve using Pulse Edit's Wedding/Slow and Energy Map cut patterns.",
         "step": [
-            {"@type": "HowToStep", "name": "Cull and organize travel footage", "text": "Sort clips by location and shot type. Drone wides, ground-level walks, food, people, transitions. Trim out dull motion and out-of-focus takes before importing."},
+            {"@type": "HowToStep", "name": "Cull and organize travel footage", "text": "Sort clips by location and shot type. Drone wides, ground-level walks, food, people, establishing shots. Trim out dull motion and out-of-focus takes before importing."},
             {"@type": "HowToStep", "name": "Pick a track with a clear arc", "text": "Travel montages need emotional progression. Choose music with a soft start, building middle, and peak finish. 95-115 BPM gives cinematic pacing without rushing."},
             {"@type": "HowToStep", "name": "Set up the Resolve timeline", "text": "Create a 4K UHD timeline at 25fps for cinematic feel (or 30fps for social). Drop the music on Audio 1, import all clips into the Media Pool ordered by location."},
             {"@type": "HowToStep", "name": "Detect beats with Pulse Edit", "text": "Open Pulse Edit, select audio, click Detect Beats. Use sensitivity 50-60% &mdash; you want strong beats only, not every percussion hit. Travel needs space to breathe."},
@@ -156,8 +156,7 @@
         <div class="container nav-inner">
             <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
             <div class="nav-links">
-                <a href="/"><span class="nav-prefix">Pulse Edit </span>Studio</a>
-                <a href="/pulse-edit-free.html"><span class="nav-prefix">Pulse Edit </span>Free</a>
+                <a href="/">Pulse Edit</a>
                 <a href="/tutorial.html">Tutorial</a>
                 <a href="/blog/">Blog</a>
                 <a href="/#pricing" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
@@ -226,7 +225,7 @@
 
                 <h2>Step 7: Color Grade and Finish</h2>
                 <p>Travel montages benefit from a unified color treatment. In Resolve's Color page, apply a Rec.709 LUT base, then add a film emulation (FilmConvert, Dehancer, or a custom node). Common travel grade: lifted shadows, slightly warmed highlights, desaturated greens, +5 to magenta in midtones for that golden-hour feel.</p>
-                <p>Add a final 12-frame cross dissolve to black. Export <strong>ProRes 422 HQ</strong> for archive, <strong>H.264 at 25 Mbps</strong> for YouTube upload. Render a vertical 9:16 version for Instagram Reels by reframing in Resolve's Smart Reframe.</p>
+                <p>Add a final 12-frame fade to black. Export <strong>ProRes 422 HQ</strong> for archive, <strong>H.264 at 25 Mbps</strong> for YouTube upload. Render a vertical 9:16 version for Instagram Reels by reframing in Resolve's Smart Reframe.</p>
 
                 <div class="tip-box">
                     <p><strong>Pro tip:</strong> Add 2-3 location title cards (lower-left, white sans-serif, fade in for 12 frames) at major scene changes. Helps viewers contextualize the geography without breaking the visual flow.</p>
@@ -242,7 +241,7 @@
 
                 <h2>Requirements</h2>
                 <ul>
-                    <li><strong>DaVinci Resolve Studio 18+</strong></li>
+                    <li><strong>DaVinci Resolve 18.5+</strong> &mdash; works with both Free and Studio via OTIO export</li>
                     <li><strong>macOS</strong> or <strong>Windows 10/11</strong></li>
                     <li><strong>Pulse Edit</strong> &mdash; <a href="/#pricing">try free with 4 free uses</a></li>
                 </ul>

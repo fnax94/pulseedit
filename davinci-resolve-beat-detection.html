@@ -50,12 +50,12 @@
         "image": "https://pulseedit.com/og-image.png",
         "totalTime": "PT5M",
         "supply": [
-            { "@type": "HowToSupply", "name": "DaVinci Resolve Studio (paid version, version 18 or later)" },
+            { "@type": "HowToSupply", "name": "DaVinci Resolve (any version, Free or Studio, 18.5 or later)" },
             { "@type": "HowToSupply", "name": "An audio track (MP3, WAV, M4A — any tempo)" },
             { "@type": "HowToSupply", "name": "Video clips for the edit (any FPS, any codec)" }
         ],
         "tool": [
-            { "@type": "HowToTool", "name": "Pulse Edit plugin (free trial, 4 uses)" }
+            { "@type": "HowToTool", "name": "Pulse Edit Free" }
         ],
         "step": [
             { "@type": "HowToStep", "position": 1, "name": "Open DaVinci Resolve and place audio on the timeline", "text": "Drop the song into the Resolve timeline on an audio track. No prep required — Pulse Edit reads the raw file directly." },
@@ -71,15 +71,16 @@
     {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "Pulse Edit",
+        "name": "Pulse Edit Free",
         "applicationCategory": "MultimediaApplication",
         "operatingSystem": "macOS, Windows",
-        "description": "Free beat detection plugin for DaVinci Resolve Studio: auto-detect beats from any song and auto-edit video clips to the music.",
-        "offers": [
-            { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Free trial — 4 full uses" },
-            { "@type": "Offer", "price": "39.99", "priceCurrency": "EUR", "description": "1 license (lifetime)" },
-            { "@type": "Offer", "price": "65.00", "priceCurrency": "EUR", "description": "2 licenses (lifetime)" }
-        ],
+        "description": "Beat detection plugin for DaVinci Resolve (Free and Studio): auto-detect beats from any song and auto-edit video clips to the music via OTIO timeline export.",
+        "softwareRequirements": "DaVinci Resolve Free or Studio 18.5+",
+        "offers": {
+            "@type": "Offer", "price": "29.00", "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://buy.stripe.com/6oU9ASgKOdnK5gsan3awo0i"
+        },
         "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "12" },
         "downloadUrl": "https://pulseedit.com/"
     }
@@ -176,8 +177,7 @@
         <div class="container nav-inner">
             <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
             <div class="nav-links">
-                <a href="/"><span class="nav-prefix">Pulse Edit </span>Studio</a>
-                <a href="/pulse-edit-free.html"><span class="nav-prefix">Pulse Edit </span>Free</a>
+                <a href="/">Pulse Edit Free</a>
                 <a href="/tutorial.html">Tutorial</a>
                 <a href="/blog/">Blog</a>
                 <a href="/#pricing" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
@@ -193,21 +193,20 @@
             <h1>DaVinci Resolve Beat Detection — Free Auto Beat Marker &amp; Edit</h1>
             <p class="subtitle">Auto-place beat markers on the timeline and cut your video to the music in 5 steps. No manual tapping, no &quot;K&quot; on every snare hit.</p>
             <div class="hero-cta">
-                <a href="https://github.com/fnax94/pulse-edit/releases/latest/download/PulseEdit-macOS.dmg" class="btn btn-primary">Download Free Trial — macOS</a>
-                <a href="https://github.com/fnax94/pulse-edit/releases/latest/download/PulseEdit-Setup.exe" class="btn btn-primary">Download Free Trial — Windows</a>
+                <a href="https://buy.stripe.com/6oU9ASgKOdnK5gsan3awo0i" class="btn btn-primary">Get Pulse Edit Free — €29</a>
                 <a href="#how-to" class="btn btn-outline">See how it works</a>
             </div>
-            <p class="article-meta">4 free uses · macOS &amp; Windows · DaVinci Resolve Studio 18+</p>
+            <p class="article-meta">€29 one-time · macOS &amp; Windows · works with all DaVinci Resolve versions (Free &amp; Studio) 18.5+</p>
         </header>
 
         <div class="article-body">
 
             <h2>What is beat detection in DaVinci Resolve?</h2>
-            <p><strong>Beat detection</strong> is the process of analyzing an audio track to find every beat — the regular pulses you tap your foot to — and marking those positions on the timeline. In DaVinci Resolve, beat markers let you snap clip cuts, transitions, zooms and effects to the rhythm of the music.</p>
+            <p><strong>Beat detection</strong> is the process of analyzing an audio track to find every beat — the regular pulses you tap your foot to — and marking those positions on the timeline. In DaVinci Resolve, beat markers let you snap clip cuts to the rhythm of the music.</p>
             <p>DaVinci Resolve has no built-in beat detection. You can place markers manually by pressing M on every beat, but for a 3-minute song at 120 BPM that's 360 keystrokes — and one missed beat ruins the whole edit. Pulse Edit reads the song, finds every beat with sub-frame accuracy, and places the markers for you.</p>
 
             <div class="callout">
-                <p><strong>Why "free":</strong> Pulse Edit gives you 4 full free uses (no time limit, no watermark) so you can finish a real project before deciding. The full license is <strong>€39.99 one-time</strong> (no subscription).</p>
+                <p><strong>One-time, no subscription:</strong> Pulse Edit Free is a <strong>€29 one-time</strong> license (regular €64.99), lifetime updates, 14-day money-back. It works with <strong>all</strong> versions of DaVinci Resolve — Free and Studio — via OTIO timeline export.</p>
             </div>
 
             <h2 id="how-to">How to detect beats in DaVinci Resolve (5 steps)</h2>
@@ -216,7 +215,7 @@
             <ol class="step-list">
                 <li>
                     <strong>Drop your song on the DaVinci Resolve timeline.</strong>
-                    <p>Any format — MP3, WAV, M4A, FLAC — works. No need to extract from video or convert sample rate. Resolve Studio 18, 19, 20, all supported. FPS doesn't matter (we floor-convert, never round, so you don't lose sync on 23.976 or 29.97 projects).</p>
+                    <p>Any format — MP3, WAV, M4A, FLAC — works. No need to extract from video or convert sample rate. All DaVinci Resolve versions 18.5+ supported, Free and Studio. FPS doesn't matter (we floor-convert, never round, so you don't lose sync on 23.976 or 29.97 projects).</p>
                 </li>
                 <li>
                     <strong>Launch Pulse Edit and point it at the audio file.</strong>
@@ -228,7 +227,7 @@
                 </li>
                 <li>
                     <strong>Choose a cut pattern and auto-edit your clips.</strong>
-                    <p>11 cut patterns to choose from: Every Beat, Every Bar (4/4), Beat + Upbeat, Half Time, Buildup, Wedding / Slow, Random Energy Fast, and more. Pulse Edit places your clip pool against the detected beat grid following the pattern. Zoom-on-beat and transitions are optional.</p>
+                    <p>11 cut patterns to choose from: Every Beat, Every Bar (4/4), Beat + Upbeat, Half Time, Buildup, Wedding / Slow, Random Energy Fast, and more. Pulse Edit places your clip pool against the detected beat grid following the pattern. An AI mood analyzer can read the music's mood and adapt the editing pattern automatically.</p>
                 </li>
                 <li>
                     <strong>Fine-tune and export from Resolve.</strong>
@@ -237,10 +236,9 @@
             </ol>
 
             <div class="cta-box">
-                <h3>Try Pulse Edit free</h3>
-                <p>4 full uses, no credit card, no watermark. macOS &amp; Windows.</p>
-                <a href="https://github.com/fnax94/pulse-edit/releases/latest/download/PulseEdit-macOS.dmg" class="btn btn-green">Download macOS</a>
-                <a href="https://github.com/fnax94/pulse-edit/releases/latest/download/PulseEdit-Setup.exe" class="btn btn-green">Download Windows</a>
+                <h3>Get Pulse Edit Free</h3>
+                <p>€29 one-time, lifetime license, 14-day money-back. macOS &amp; Windows.</p>
+                <a href="https://buy.stripe.com/6oU9ASgKOdnK5gsan3awo0i" class="btn btn-green">Get Pulse Edit Free — €29</a>
             </div>
 
             <h2>Auto beat detection vs manual marker placement</h2>
@@ -258,23 +256,19 @@
                 <p><strong>Pro tip:</strong> For slow ambient or downtempo tracks, lower the Sensitivity to 0.3–0.4. For busy drum-and-bass or trap tracks, raise it to 0.6–0.7. Most pop/rock at 120 BPM works perfectly at the default 0.5.</p>
             </div>
 
-            <h2>Free DaVinci Resolve beat detection — what's actually free?</h2>
+            <h2>Pulse Edit Free — works with every DaVinci Resolve</h2>
             <p>The honest breakdown:</p>
             <ul>
-                <li><strong>Pulse Edit free trial:</strong> 4 complete uses. No time limit, no watermark, no feature lock. You can run a full project end-to-end (detect + auto-edit + export) on the trial alone.</li>
-                <li><strong>After 4 uses:</strong> you can either buy a license (€39.99 one-time, no subscription) or keep using the detect-only features. The auto-edit step is the part that requires the license after the trial.</li>
-                <li><strong>Two Pulse Edit versions, two compatibility tracks:</strong>
-                  <ul>
-                    <li><strong>Pulse Edit Free</strong> (€29 one-time): works with <strong>ALL</strong> versions of DaVinci Resolve, including the free DR. Uses OTIO timeline export — no scripting API needed. This is the right choice if you don't have DR Studio.</li>
-                    <li><strong>Pulse Edit Studio</strong> (€40 one-time): works <strong>only with DaVinci Resolve Studio</strong> (the paid version, €295 from Blackmagic). Uses the Scripting API for advanced features (Fusion zoom, freeze frames, AI mood, 14 easing curves).</li>
-                  </ul>
-                </li>
+                <li><strong>One product, one price:</strong> <strong>€29 one-time</strong> (regular €64.99), lifetime license, no subscription. 14-day money-back if it doesn't fit your workflow.</li>
+                <li><strong>Works with ALL versions of DaVinci Resolve</strong> — Free and Studio, 18.5+. It uses OTIO timeline export, so no scripting API is required and you don't need the paid DR Studio.</li>
+                <li><strong>What it does:</strong> automatic beat-synced editing — detect the beats of your song and auto-cut/place clips from the Media Pool on the beat, with cut patterns like Energy Map. An AI mood analyzer reads the music's mood and adapts the editing pattern.</li>
+                <li><strong>Bonus:</strong> every license includes 6 months of Lumiqa Starter (€174 value).</li>
             </ul>
 
             <h2>Beat detection algorithms compared</h2>
             <p>If you're shopping around, here's what's out there for DaVinci Resolve specifically:</p>
             <ul>
-                <li><strong>Pulse Edit</strong> — librosa-based, auto-edits + zoom + transitions, €39.99 one-time, 4 free uses. <a href="/vs-beatedit.html">vs BeatEdit</a></li>
+                <li><strong>Pulse Edit Free</strong> — auto beat-synced editing with cut patterns + AI mood analyzer, €29 one-time, works with all DaVinci Resolve versions. <a href="/vs-beatedit.html">vs BeatEdit</a></li>
                 <li><strong>BeatEdit by mamoworld</strong> — markers only, no auto-edit, €99, free trial available. Primarily a Premiere Pro plugin with limited Resolve support.</li>
                 <li><strong>AutoCut for DaVinci</strong> — silence-based, not beat-based, different use case. <a href="/vs-autocut.html">comparison</a></li>
                 <li><strong>Manual tapping</strong> — free, ~30 min per song, error-prone. Don't.</li>
@@ -285,7 +279,7 @@
 
             <div class="faq-item">
                 <h3>Does this work with the free version of DaVinci Resolve?</h3>
-                <p>No. Blackmagic restricts third-party scripting to DaVinci Resolve Studio (the paid version). The free version is a Resolve limitation, not a Pulse Edit one — every Resolve plugin has this restriction.</p>
+                <p>Yes. Pulse Edit Free works with <strong>all</strong> versions of DaVinci Resolve — both the free edition and Studio, 18.5+. It builds a complete timeline and hands it to Resolve via OTIO import, so it doesn't rely on the scripting API that Blackmagic restricts to Studio.</p>
             </div>
 
             <div class="faq-item">
@@ -320,10 +314,9 @@
 
             <div class="cta-box">
                 <h3>Stop tapping the M key. Let Pulse Edit handle it.</h3>
-                <p>Free trial: 4 full uses, no credit card, no watermark.</p>
-                <a href="https://github.com/fnax94/pulse-edit/releases/latest/download/PulseEdit-macOS.dmg" class="btn btn-primary">Download for macOS</a>
-                <a href="https://github.com/fnax94/pulse-edit/releases/latest/download/PulseEdit-Setup.exe" class="btn btn-primary">Download for Windows</a>
-                <p style="margin-top:20px; font-size:13px;">€39.99 one-time license · macOS &amp; Windows · DaVinci Resolve Studio 18, 19, 20</p>
+                <p>€29 one-time, lifetime license, 14-day money-back.</p>
+                <a href="https://buy.stripe.com/6oU9ASgKOdnK5gsan3awo0i" class="btn btn-primary">Get Pulse Edit Free — €29</a>
+                <p style="margin-top:20px; font-size:13px;">€29 one-time (regular €64.99) · macOS &amp; Windows · works with all DaVinci Resolve versions 18.5+</p>
             </div>
 
             <p style="text-align:center; margin-top:32px;"><a href="/" class="btn btn-outline">← Back to Pulse Edit homepage</a> <a href="/tutorial.html" class="btn btn-outline">Read full tutorial →</a></p>
