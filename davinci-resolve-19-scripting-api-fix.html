@@ -68,6 +68,62 @@
         ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is the DaVinci Resolve scripting API available in the free version?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. As of DaVinci Resolve 19.1 (released November 2024), the external scripting API is Studio-only. On the Free edition the DaVinciResolveScript bridge refuses external connections, so third-party tools that script Resolve from a separate process no longer work. This is a deliberate edition gate, not a bug, and updating Resolve does not restore it."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why did my DaVinci Resolve beat-sync plugin stop working?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most beat-detection plugins ran as an external app or Python script that imported DaVinciResolveScript and called into the live Resolve instance to read the timeline and place clips or markers. When Resolve 19.1 made the scripting interface Studio-only, that entire pattern collapsed on the Free edition because the bridge those plugins depended on no longer accepts connections."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I fix beat-synced editing in DaVinci Resolve Free without buying Studio?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Use the OTIO (OpenTimelineIO) import route instead of the scripting bridge. Pulse Edit Free detects the beats in your music and builds a fully cut, beat-synced timeline outside Resolve, then exports a .otio file. You import that file via File → Import Timeline → OpenTimelineIO, which is a normal file dialog available in DaVinci Resolve Free. No scripting API is involved, so it works today and cannot be broken by future Resolve updates."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do the symlink or environment-variable workarounds restore the scripting API on DR Free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Symlinking the Studio API folder and setting environment variables both fail, because the edition check runs inside Resolve itself — the missing path is not the gate. Downgrading to Resolve 19.0 or 18.x works temporarily but forfeits later fixes and re-breaks on the next update. The two reliable options are buying DaVinci Resolve Studio (€295 one-time) or switching to the OTIO import workflow, which is a permanent fix that keeps you on current Resolve Free."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Will Blackmagic bring the scripting API back to the free version of DaVinci Resolve?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Nothing in Blackmagic's recent communication suggests it will. The trend points the other way, with Studio positioned as the path for any non-trivial integration. The pragmatic approach is to stop relying on DR Free regaining scripting and to pick tools that take a different route, such as OTIO file import."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is Pulse Edit Free and what does it do?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pulse Edit Free is a standalone beat-synced editor (€29 one-time, lifetime, no subscription) that works with every version of DaVinci Resolve — Free and Studio, 18.5+ — through OTIO export. It does two things: automatic beat-synced editing that detects the beats and auto-cuts and places clips from your Media Pool on the beat using 11 cut patterns including Energy Map, and an AI mood analyzer that reads the mood of the music and adapts the editing pattern. It runs on macOS (Apple Silicon) and Windows 10/11, with a free trial of a few generations."
+                }
+            }
+        ]
+    }
+    </script>
 
     <style>
       .seo-hero { padding: 88px 0 40px; text-align: center; position: relative; }
@@ -105,8 +161,7 @@
         <div class="container nav-inner">
             <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
             <div class="nav-links">
-                <a href="/"><span class="nav-prefix">Pulse Edit </span>Studio</a>
-                <a href="/pulse-edit-free.html"><span class="nav-prefix">Pulse Edit </span>Free</a>
+                <a href="/pulse-edit-free.html">Pulse Edit</a>
                 <a href="/tutorial.html">Tutorial</a>
                 <a href="/blog/">Blog</a>
                 <a href="/#pricing" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
@@ -118,7 +173,7 @@
         <div class="hero-orb"></div>
         <div class="container">
             <div class="seo-breadcrumb"><a href="/">Home</a> &rsaquo; DR Free Scripting API Removed (Workaround)</div>
-            <div class="badge-pill">Resolve 19.1 — November 2024</div>
+            <div class="badge-pill">Resolve 19.1 — Updated June 2026</div>
             <h1>DR Free scripting API removed — what changed and the <span>workaround</span></h1>
             <p class="lede">DaVinci Resolve 19.1 quietly rolled back third-party scripting on the free edition. If you saw your favourite beat-sync or auto-edit plugin stop working in late 2024, this is why — and OTIO export is the route forward.</p>
             <div class="pe-cta-row" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
@@ -138,14 +193,19 @@
                     <p><strong>Concrete effect:</strong> any tool that connects to Resolve from a separate process — to read your timeline, push markers, place clips, modify projects — silently stops working on the free edition. The Resolve binary still launches, but the scripting endpoint refuses the connection.</p>
                 </div>
 
-                <h2>Why the old plugins broke</h2>
-                <p>Most Resolve beat-detection plugins followed the same pattern:</p>
-                <ul>
-                    <li>The plugin runs as an external app or Python script.</li>
-                    <li>It imports <code>DaVinciResolveScript</code> from Blackmagic's API path.</li>
-                    <li>It calls into the running Resolve instance: get the current project, get the timeline, add markers, optionally place clips.</li>
-                </ul>
-                <p>That model is convenient — you don't write a real plugin inside Resolve, you just sit beside it. It's also fragile, because every step depends on Blackmagic keeping the bridge alive. When the bridge went Studio-only, the entire pattern collapsed for free-edition users.</p>
+                <h2>Why the old plugins broke — quick answers</h2>
+
+                <h3>What exactly changed in DaVinci Resolve 19.1?</h3>
+                <p>The external scripting interface (<code>DaVinciResolveScript</code>) became Studio-only as of Resolve 19.1, released November 2024. On the Free edition the bridge no longer accepts connections, so any tool that scripted Resolve from a separate process stopped working.</p>
+
+                <h3>Why did beat-detection plugins stop working?</h3>
+                <p>Most Resolve beat-detection plugins ran as an external app or Python script that imported <code>DaVinciResolveScript</code>, then called into the live Resolve instance to read the timeline and add markers or place clips. Every step depended on Blackmagic keeping the bridge alive. When the bridge went Studio-only, that whole pattern collapsed on the Free edition.</p>
+
+                <h3>Is this a bug I can wait out?</h3>
+                <p>No. It is a deliberate edition gate, not a defect. Updating Resolve will not restore scripting on Free, and Blackmagic has given no indication it plans to bring the scripting API back to the Free edition.</p>
+
+                <h3>Does the Resolve app itself still open?</h3>
+                <p>Yes. The Resolve binary launches normally — only the scripting endpoint refuses external connections. Everything you do inside the Resolve UI on Free still works, including timeline import.</p>
 
                 <h2>What people tried first</h2>
                 <p>Threads on Reddit, the Blackmagic forum, and various Discord servers proposed a string of workarounds:</p>
@@ -155,6 +215,50 @@
                     <li><strong>Downgrade to 19.0 or 18.x.</strong> Works, but you lose every fix and improvement BMD has shipped since.</li>
                     <li><strong>Buy Studio.</strong> The real fix BMD offers — €295 one-time. Not bad value, but not what every hobbyist or starter editor wants to spend.</li>
                 </ul>
+
+                <h2>Concrete solutions — what actually works</h2>
+                <p>Here is every fix that circulated after the rollback, ranked by whether it actually restores beat-synced auto-editing on the Free edition. Only one is a permanent fix that keeps you on current Resolve without paying for Studio.</p>
+
+                <div style="overflow-x:auto;margin:18px 0 22px;">
+                <table style="width:100%;border-collapse:collapse;font-size:0.95rem;color:#cbd5e1;">
+                    <thead>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.14);">
+                            <th style="text-align:left;padding:10px 12px;color:#fff;font-weight:600;">Approach</th>
+                            <th style="text-align:left;padding:10px 12px;color:#fff;font-weight:600;">Restores auto-editing on DR Free?</th>
+                            <th style="text-align:left;padding:10px 12px;color:#fff;font-weight:600;">Catch</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+                            <td style="padding:10px 12px;"><strong>Symlink the Studio API folder</strong></td>
+                            <td style="padding:10px 12px;color:#f87171;">No</td>
+                            <td style="padding:10px 12px;">Resolve refuses the connection on its side; the missing path is not the gate.</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+                            <td style="padding:10px 12px;"><strong>Set environment variables</strong></td>
+                            <td style="padding:10px 12px;color:#f87171;">No</td>
+                            <td style="padding:10px 12px;">The edition check runs inside Resolve; no env var bypasses it.</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+                            <td style="padding:10px 12px;"><strong>Downgrade to 19.0 / 18.x</strong></td>
+                            <td style="padding:10px 12px;color:#fbbf24;">Temporarily</td>
+                            <td style="padding:10px 12px;">You forfeit every fix and feature BMD has shipped since, and a future update re-breaks it.</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+                            <td style="padding:10px 12px;"><strong>Buy DaVinci Resolve Studio</strong></td>
+                            <td style="padding:10px 12px;color:#4ade80;">Yes</td>
+                            <td style="padding:10px 12px;">€295 one-time to Blackmagic — restores scripting, but it is a paid upgrade.</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px 12px;"><strong>OTIO import (Pulse Edit Free)</strong></td>
+                            <td style="padding:10px 12px;color:#4ade80;">Yes — permanent</td>
+                            <td style="padding:10px 12px;">One import click per render. No scripting bridge, so it cannot be broken by a future Resolve update.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <p>The permanent fix is the bottom row: skip the scripting bridge entirely and hand Resolve a finished timeline as a file. That is the <a href="/otio-import-davinci-resolve-free.html">OTIO import route — see the full step-by-step workflow</a>. Because OTIO import is a normal file dialog, not a scripted call, it works on DR Free today and survives whatever Blackmagic changes next.</p>
 
                 <h2>The OTIO route — actual workaround</h2>
                 <p>OpenTimelineIO (OTIO) is an open timeline-interchange format developed by Pixar. DaVinci Resolve — Free <em>and</em> Studio — supports importing OTIO timelines natively. Critically, OTIO import does not go through the scripting bridge. It's a normal file import, available under <em>File → Import Timeline → OpenTimelineIO</em>.</p>
@@ -166,9 +270,6 @@
                     <li><strong>Pulse Edit pattern (works on DR Free):</strong> external process → analyse audio → build OTIO file → user imports OTIO into Resolve.</li>
                 </ul>
                 <p>The trade-off is a single import click. You don't get live preview inside Resolve, and you don't get continuous re-syncing if you change the timeline later. In exchange, you get a workflow that's resilient to whatever BMD does next to the scripting API.</p>
-
-                <h2>If you're on Studio</h2>
-                <p>You have the choice. <a href="/"><span class="nav-prefix">Pulse Edit </span>Studio</a> uses the live scripting API for an in-Resolve experience — clips appear on the timeline as you adjust the cut pattern, with real-time preview. <a href="/pulse-edit-free.html">Pulse Edit for DR Free</a> uses the OTIO route. Same engine, same patterns, same beat detector underneath. Many Studio users actually prefer the OTIO build because it survives Resolve restarts and works without an active session.</p>
 
                 <h2>Will the scripting API come back to Free?</h2>
                 <p>Nothing in BMD's recent communication suggests it will. The trend is the other way — Studio is positioned as the path for any non-trivial integration. The pragmatic stance: stop building on the assumption that DR Free will get scripting back, and pick tools that take a different route.</p>

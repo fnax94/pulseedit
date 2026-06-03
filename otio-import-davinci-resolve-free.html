@@ -68,6 +68,54 @@
         ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do I import an OTIO file into DaVinci Resolve Free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Open DaVinci Resolve Free, then go to File → Import Timeline → OpenTimelineIO and select your .otio file. Resolve parses the timeline, links your media, and creates a new timeline in the current project. The import takes a few seconds and works identically in the Free and Studio editions — no scripting API required."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does OTIO import work in the free version of DaVinci Resolve?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. DaVinci Resolve has supported OpenTimelineIO import since version 17, in both the Free and Studio editions. Importing OTIO is a normal file-dialog operation — the same kind of import as XML or AAF — so it was not affected by the November 2024 scripting-API rollback that disabled third-party plugins in DR Free."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is an OTIO file?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "OTIO (OpenTimelineIO) is a JSON-based, text-readable timeline interchange format that Pixar open-sourced in 2018. It describes a sequence — tracks, clips, in/out points, markers and metadata — and has become a standard for moving timelines between Resolve, Hiero, RV, Flame and Nuke. Pulse Edit exports a beat-synced timeline as an .otio file that Resolve imports natively."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "My imported clips show as offline in Resolve. How do I fix it?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "OTIO references your media by file path, so clips appear offline only if the source files moved between exporting from Pulse Edit and importing into Resolve. Keep the source files in place, or right-click an offline clip in the Media Pool → Relink Selected Clips and point Resolve at the new folder. Resolve relinks the sibling clips automatically. Alternatively, re-export from Pulse Edit with the updated paths — the .otio file is only a few kilobytes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need DaVinci Resolve Studio to import an OTIO timeline?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. OTIO import is available in DaVinci Resolve Free — there is no Studio gate on the OpenTimelineIO import dialog. Pulse Edit builds the beat-synced timeline in its own window and hands it to Resolve as a standard .otio file, so you get identical results on Free and Studio."
+                }
+            }
+        ]
+    }
+    </script>
 
     <style>
       .seo-hero { padding: 88px 0 40px; text-align: center; position: relative; }
@@ -103,6 +151,18 @@
       .seo-related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; max-width: 880px; margin: 0 auto; }
       .seo-related-grid a { display: block; padding: 16px 18px; background: #111; border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; color: #cbd5e1; text-decoration: none; font-size: 0.92rem; line-height: 1.45; transition: border-color 0.15s ease, color 0.15s ease; }
       .seo-related-grid a:hover { border-color: #7c6ff7; color: #fff; }
+      .seo-faq { padding: 10px 0 50px; }
+      .seo-faq .content { max-width: 820px; margin: 0 auto; }
+      .seo-faq h2 { color: #fff; font-size: 1.7rem; margin: 0 0 20px; letter-spacing: -0.02em; }
+      .seo-faq details { background: #0f0f1a; border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 0 22px; margin: 10px 0; transition: border-color 0.15s ease; }
+      .seo-faq details[open] { border-color: rgba(124,111,247,0.35); }
+      .seo-faq summary { color: #fff; font-weight: 600; font-size: 1.02rem; cursor: pointer; padding: 18px 0; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+      .seo-faq summary::-webkit-details-marker { display: none; }
+      .seo-faq summary::after { content: '+'; color: #7c6ff7; font-size: 1.4rem; font-weight: 400; flex-shrink: 0; transition: transform 0.15s ease; }
+      .seo-faq details[open] summary::after { transform: rotate(45deg); }
+      .seo-faq details p { color: #cbd5e1; line-height: 1.75; margin: 0 0 18px; }
+      .seo-faq details p a { color: #7c6ff7; text-decoration: none; }
+      .seo-faq details p a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -175,6 +235,34 @@
 
                 <h2>Re-cutting is just another export</h2>
                 <p>OTIO import is one-shot per export. Want to try a different shot order or a different cut pattern? Re-run Pulse Edit with the new settings and import the fresh .otio — the file is tiny and Resolve creates a parallel timeline you can compare. For the vast majority of music-driven cuts, the OTIO route is all you need.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="seo-faq">
+        <div class="container">
+            <div class="content">
+                <h2>OTIO import — frequently asked questions</h2>
+                <details open>
+                    <summary>How do I import an OTIO file into DaVinci Resolve Free?</summary>
+                    <p>Open DaVinci Resolve Free, then go to <strong>File → Import Timeline → OpenTimelineIO</strong> and select your <code>.otio</code> file. Resolve parses the timeline, links your media, and creates a new timeline in the current project. The import takes a few seconds and works identically in the Free and Studio editions — no scripting API required. See the full step-by-step in the <a href="/tutorial.html#free">DR Free tutorial</a>.</p>
+                </details>
+                <details>
+                    <summary>Does OTIO import work in the free version of DaVinci Resolve?</summary>
+                    <p>Yes. DaVinci Resolve has supported OpenTimelineIO import since version 17, in both the Free and Studio editions. Importing OTIO is a normal file-dialog operation — the same kind of import as XML or AAF — so it was <strong>not affected by the <a href="/davinci-resolve-19-scripting-api-fix.html">November 2024 scripting-API rollback</a></strong> that disabled third-party plugins in DR Free.</p>
+                </details>
+                <details>
+                    <summary>What is an OTIO file?</summary>
+                    <p>OTIO (OpenTimelineIO) is a JSON-based, text-readable timeline interchange format that Pixar open-sourced in 2018. It describes a sequence — tracks, clips, in/out points, markers and metadata — and has become a standard for moving timelines between Resolve, Hiero, RV, Flame and Nuke. Pulse Edit exports a beat-synced timeline as an <code>.otio</code> file that Resolve imports natively.</p>
+                </details>
+                <details>
+                    <summary>My imported clips show as offline in Resolve. How do I fix it?</summary>
+                    <p>OTIO references your media by file path, so clips appear offline only if the source files moved between exporting from Pulse Edit and importing into Resolve. Keep the source files in place, or right-click an offline clip in the Media Pool → <strong>Relink Selected Clips</strong> and point Resolve at the new folder — sibling clips relink automatically. Alternatively, re-export from Pulse Edit with the updated paths; the <code>.otio</code> file is only a few kilobytes.</p>
+                </details>
+                <details>
+                    <summary>Do I need DaVinci Resolve Studio to import an OTIO timeline?</summary>
+                    <p>No. OTIO import is available in DaVinci Resolve Free — there is no Studio gate on the OpenTimelineIO import dialog. Pulse Edit builds the <a href="/davinci-resolve-free-beat-detection.html">beat-synced timeline</a> in its own window and hands it to Resolve as a standard <code>.otio</code> file, so you get identical results on Free and Studio.</p>
+                </details>
             </div>
         </div>
     </section>

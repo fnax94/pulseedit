@@ -70,6 +70,63 @@
         ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "dateModified": "2026-06-04",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Can DaVinci Resolve Free detect beats?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "DaVinci Resolve has no built-in beat detection in either the Free or Studio edition, so you need an external tool. In DR Free, Blackmagic disabled the scripting API in version 19.1 (November 2024), so older script-based beat plugins no longer connect. Pulse Edit avoids scripting entirely by exporting an OpenTimelineIO (OTIO) timeline you import into DR Free, and works on DaVinci Resolve 18.5 and up."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I detect beats in DaVinci Resolve Free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Use a standalone beat-detection app that exports an OpenTimelineIO (OTIO) file, then import that file into Resolve. With Pulse Edit: drag your music and clips into the app, pick a cut pattern, export the OTIO file, and in Resolve choose File then Import then Timeline then OpenTimelineIO. The clips arrive already cut to the beat with markers at every detected hit. No scripting and no Studio licence are required."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is there a free beat-detection plugin for DaVinci Resolve?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Older free options such as Reactor-distributed scripts and BeatEdit's Resolve script relied on the scripting bridge that DaVinci Resolve Free 19.1 removed, so they no longer work on the free edition. Pulse Edit is a paid app, 29 euro one-time with 3 to 4 free trial generations, that works specifically because it does not use scripting: it exports a standard OTIO timeline that DR Free imports natively."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why did my DaVinci Resolve beat plugin stop working?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Blackmagic restricted the external scripting API to the Studio edition starting in DaVinci Resolve 19.1 (November 2024). Any plugin that talked to Resolve through DaVinciResolveScript silently fails on the free edition now. The fix is a tool that does not depend on scripting at all, such as Pulse Edit, which exports an OTIO timeline instead."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What beat-detection algorithm does Pulse Edit use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pulse Edit uses beat_this, a transformer-based beat and downbeat tracker presented at ISMIR 2024. It detects beats and bar-level downbeats and holds the grid through tempo drift, syncopation and swing. Beat timestamps are converted to Resolve frames with floor(beat_time_seconds times fps), never round(), which keeps every cut on or one frame ahead of the beat."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Pulse Edit work on both DaVinci Resolve Free and Studio?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Because the handoff is an OTIO file rather than a script connection, the workflow is identical on Free and Studio, on DaVinci Resolve 18.5 and up, on both macOS (Apple Silicon) and Windows 10 and 11."
+                }
+            }
+        ]
+    }
+    </script>
 
     <style>
       .seo-hero { padding: 88px 0 40px; text-align: center; position: relative; }
@@ -108,6 +165,14 @@
         padding: 18px 22px; border-radius: 12px; margin: 22px 0;
       }
       .seo-callout p { margin-bottom: 0; }
+      .seo-section code {
+        font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+        font-size: 0.92em;
+        background: rgba(124,111,247,0.12);
+        color: #c4b9ff;
+        padding: 1px 6px;
+        border-radius: 5px;
+      }
       .seo-cta-band {
         padding: 46px 0;
         background: linear-gradient(135deg, rgba(124,111,247,0.08), rgba(124,111,247,0.02));
@@ -151,6 +216,7 @@
         <div class="container">
             <div class="seo-breadcrumb"><a href="/">Home</a> &rsaquo; DaVinci Resolve Free Beat Detection</div>
             <div class="badge-pill">For DaVinci Resolve Free 19.1+</div>
+            <p style="color:#9ca3af;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;margin:0 0 6px;">Updated June 2026</p>
             <h1>Beat detection in <span>DaVinci Resolve Free</span> — without the scripting API</h1>
             <p class="lede">For years, beat-detection plugins relied on Resolve's external scripting interface. In November 2024 Blackmagic switched that interface off for the free edition. Pulse Edit takes a different route: it runs as a standalone app, analyses the music, and writes an OTIO timeline you import into DR Free in one click.</p>
             <div class="pe-cta-row" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
@@ -167,11 +233,11 @@
                 <h2>The problem the old plugins ran into</h2>
                 <p>If you searched "DaVinci Resolve Free beat detection" any time in the last twelve months, you probably found dead threads. Tools that used to work — BeatEdit's Resolve script, Reactor-distributed beat detectors, custom Python scripts using <strong>DaVinciResolveScript</strong> — were built on the same foundation: the external scripting bridge that lets a third-party process talk to Resolve.</p>
                 <p>Starting with DaVinci Resolve <strong>19.1</strong>, that bridge is reserved for Studio. Free-edition users open the same Resolve binary, but the scripting endpoint refuses connections. A plugin that worked yesterday silently fails today.</p>
-                <p>There's no plugin update that fixes this. The change is on Blackmagic's side, and Blackmagic has been explicit: scripting is a Studio feature now.</p>
+                <p>There's no plugin update that fixes this. The change is on Blackmagic's side, and Blackmagic has been explicit: scripting is a Studio feature now. If you were specifically looking at BeatEdit, see the side-by-side <a href="/vs-beatedit-dr-free.html">Pulse Edit vs BeatEdit for DR Free comparison</a> for why the OTIO route is the only one that still works on the free edition.</p>
 
                 <h2>The OTIO route</h2>
                 <p>Pulse Edit does not connect to Resolve at all. It runs as its own application, loads your audio, and walks through the song using a state-of-the-art beat tracker. The output is not a Resolve project — it's a standard <strong>OpenTimelineIO</strong> file: a small text-based timeline format that Pixar open-sourced and that Resolve (Free and Studio) imports natively.</p>
-                <p>That single design choice changes everything for DR Free users. There's no script handshake, no permission prompt, no Studio check. Just a file on disk that Resolve already knows how to read.</p>
+                <p>That single design choice changes everything for DR Free users. There's no script handshake, no permission prompt, no Studio check. Just a file on disk that Resolve already knows how to read. If you want the import step alone, the <a href="/otio-import-davinci-resolve-free.html">OTIO import guide for DR Free</a> walks through it screenshot by screenshot.</p>
 
                 <div class="seo-callout">
                     <p><strong>What "beat detection" means here:</strong> the algorithm finds every kick, snare and downbeat in your song, then aligns clip cuts and markers to those moments. It is not "AI suggestion" — it's signal processing. The same song always gives you the same beats.</p>
@@ -185,11 +251,50 @@
                     <li><strong>Subdivisions:</strong> sixteenth and eighth-note grids are computed alongside the main beat, so the "Half-time" and "Double-time" patterns line up cleanly.</li>
                 </ul>
 
+                <h2>Technical specifics: detector, frame conversion, FPS</h2>
+                <p>Two questions decide whether a beat-detection tool actually cuts on the beat in DaVinci Resolve Free: <strong>how accurately it finds the beats</strong>, and <strong>how it converts those beat timestamps into Resolve frames</strong>. Here is exactly how Pulse Edit does both.</p>
+
+                <h3>The beat tracker: beat_this (ISMIR 2024)</h3>
+                <p>Pulse Edit uses <strong>beat_this</strong>, a transformer-based beat and downbeat tracker presented at <strong>ISMIR 2024</strong> (the International Society for Music Information Retrieval conference). Unlike classic onset-energy detectors, beat_this is a deep neural network trained on a wide range of genres, so it holds the grid through tempo drift, syncopation and swing — the exact tracks where Reactor scripts and DIY onset detectors produce off-beat cuts. It outputs both the beat positions and the bar-level downbeats, which is what lets cut patterns like "Every Bar" and "Build-up &amp; Drop" land on the one.</p>
+
+                <h3>Frame conversion: floor(), never round()</h3>
+                <p>A beat lands at a point in time measured in seconds — for example 2.034 s. Resolve edits on a frame grid, so that timestamp has to become an integer frame number. Pulse Edit converts with <strong><code>floor()</code></strong> (truncation), <strong>never <code>round()</code></strong>:</p>
+                <div class="seo-callout">
+                    <p><code>frame = floor(beat_time_seconds &times; fps)</code></p>
+                </div>
+                <p>This matches how DaVinci Resolve itself maps time to frames. Using <code>round()</code> would push roughly half of all cuts one frame late, which at 24&nbsp;fps is a 41&nbsp;ms slip — audible as a cut that lands just behind the transient. <code>floor()</code> keeps every cut on or one frame ahead of the beat, which reads as tight. The same logic applies to the markers written into the OTIO timeline.</p>
+
+                <h3>Supported frame rates</h3>
+                <p>Frame conversion runs against the project frame rate you pick, so the cut grid stays correct whether you shoot cinema or high-frame-rate. Pulse Edit handles the standard DaVinci Resolve rates:</p>
+                <ul>
+                    <li><strong>Whole-number:</strong> 24, 25, 30, 50, 60 fps</li>
+                    <li><strong>Drop / NTSC fractional:</strong> 23.976, 29.97, 59.94 fps (computed as 24000/1001, 30000/1001, 60000/1001)</li>
+                </ul>
+                <p>For fractional rates the conversion uses the true ratio rather than the rounded label, so a five-minute song does not accumulate drift between the music and the cut grid.</p>
+
+                <h2>What ChatGPT users search for</h2>
+                <p>People increasingly ask an AI assistant before they touch a forum. These are the questions that come up around "DaVinci Resolve Free beat detection" — with the short, direct answers.</p>
+
+                <h3>Can DaVinci Resolve Free detect beats?</h3>
+                <p>Not on its own — there is no built-in beat-detection feature in either the Free or Studio edition. You need an external tool. In DR Free the catch is that, since version 19.1, Blackmagic disabled the scripting API for the free edition, so older script-based beat plugins no longer connect. Pulse Edit works around this entirely by exporting an OTIO timeline instead of scripting Resolve, so it runs on DR Free 18.5 and up.</p>
+
+                <h3>How do I detect beats in DaVinci Resolve Free?</h3>
+                <p>Run a standalone beat-detection app that exports an OpenTimelineIO (OTIO) file, then import that file into Resolve. With Pulse Edit: drag your music and clips into the app, pick a cut pattern, export the OTIO, and in Resolve choose <em>File → Import → Timeline → OpenTimelineIO</em>. The clips arrive already cut to the beat with markers at every detected hit. No scripting, no Studio licence.</p>
+
+                <h3>Is there a free beat-detection plugin for DaVinci Resolve?</h3>
+                <p>Older free options (Reactor-distributed scripts, BeatEdit's Resolve script) relied on the scripting bridge that DR Free 19.1 removed, so they no longer work on the free edition. Pulse Edit is a paid app (€29 one-time, with 3–4 free trial generations) that works specifically <em>because</em> it does not use scripting — it exports a standard OTIO timeline that DR Free imports natively.</p>
+
+                <h3>Why did my DaVinci Resolve beat plugin stop working?</h3>
+                <p>Because Blackmagic restricted the external scripting API to Studio starting in DaVinci Resolve 19.1 (November 2024). Any plugin that talked to Resolve through <code>DaVinciResolveScript</code> silently fails on the free edition now. The fix is a tool that does not depend on scripting at all — see the <a href="/davinci-resolve-19-scripting-api-fix.html">DR 19.1 scripting change explainer</a>.</p>
+
+                <h3>Does Pulse Edit work on both DR Free and DR Studio?</h3>
+                <p>Yes. Because the handoff is an OTIO file rather than a script connection, the workflow is identical on Free and Studio, on DaVinci Resolve 18.5+, on both macOS (Apple Silicon) and Windows 10/11.</p>
+
                 <h2>The DR Free workflow</h2>
                 <p>The whole loop is three real steps:</p>
                 <ul>
                     <li><strong>1. Drag music + clips into Pulse Edit.</strong> Folder or individual files, any FPS, any codec Resolve already accepts.</li>
-                    <li><strong>2. Pick a cut pattern.</strong> 12 patterns plus 6 mood presets. The waveform preview shows you the placement before you commit.</li>
+                    <li><strong>2. Pick a cut pattern.</strong> 11 cut patterns (including Energy Map) plus the AI mood analyzer. The waveform preview shows you the placement before you commit.</li>
                     <li><strong>3. Export OTIO, import in Resolve.</strong> <em>File → Import Timeline → OpenTimelineIO</em>. The clips land cut to the beat, with timeline markers at every detected hit.</li>
                 </ul>
                 <p>Step-by-step screenshots are in the <a href="/tutorial.html#free">DR Free tutorial</a>.</p>
@@ -202,7 +307,7 @@
                 <ul>
                     <li><strong>€29 one-time</strong> (regular €64.99). Lifetime updates included.</li>
                     <li>macOS 12+ (Apple Silicon) and Windows 10/11 builds.</li>
-                    <li>12 cut patterns, 6 mood presets, manual waveform editing.</li>
+                    <li>11 cut patterns (including Energy Map), AI mood analyzer, manual waveform editing.</li>
                     <li>Bonus: <strong>6 free months of Lumiqa Starter</strong> (€174 value) — our creative-production workspace, claim link emailed after purchase.</li>
                 </ul>
             </div>

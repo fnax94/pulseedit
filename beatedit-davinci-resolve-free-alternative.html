@@ -70,6 +70,46 @@
         ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Does BeatEdit work on DaVinci Resolve Free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. BeatEdit's DaVinci Resolve port relied on the Resolve scripting API, which Blackmagic restricted to Studio in DR 19.1 (Nov 2024). BeatEdit is now effectively a Premiere Pro tool. For beat-synced editing on DaVinci Resolve Free, Pulse Edit is the working alternative — it exports an OpenTimelineIO (.otio) file you import into Resolve, so it needs no scripting API."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the best free-edition BeatEdit alternative for DaVinci Resolve?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pulse Edit. It costs €29 (regular €64.99), runs on DaVinci Resolve Free and Studio 18.5+ via OTIO import, and goes beyond markers: 11 cut patterns including Energy Map auto-cut and place clips from your Media Pool on the beat, plus an AI mood analyzer that adapts the editing pattern to your music. BeatEdit costs $99 and is Premiere-only in practice."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much does Pulse Edit cost compared to BeatEdit?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pulse Edit is €29 one-time (regular €64.99) with lifetime updates and a 14-day money-back guarantee, on macOS and Windows. BeatEdit sits at the $99 tier with a Premiere Pro focus."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I switch from BeatEdit to Pulse Edit on DaVinci Resolve Free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Drop your song and clips into Pulse Edit, click Export OTIO once, then drag the file into DaVinci Resolve via File → Import → Timeline → OpenTimelineIO. There is no plugin to install inside Resolve and no scripting API call. A beat-cut sequence that would take about 2 hours to build by hand is ready in about 5 minutes."
+                }
+            }
+        ]
+    }
+    </script>
 
     <style>
       .seo-hero { padding: 88px 0 40px; text-align: center; position: relative; }
@@ -148,26 +188,27 @@
                 <p>Pulse Edit is a standalone macOS / Windows application. It analyses your music, builds a beat-driven cut against your media pool, and writes an <strong>OpenTimelineIO (.otio)</strong> file. You import that file into DaVinci Resolve under <em>File → Import Timeline → OpenTimelineIO</em>. The whole pipeline avoids the Resolve API.</p>
                 <p>Because of that design choice, Pulse Edit runs identically on DR Free, DR Studio, and even on machines where Resolve isn't installed yet (you can prep the OTIO ahead of time).</p>
 
-                <h2>Feature-by-feature comparison</h2>
-                <table class="seo-table">
-                    <thead>
-                        <tr><th>Capability</th><th>BeatEdit (DR Resolve port)</th><th>Pulse Edit (DR Free build)</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Works on DR Free (19.1+)</td><td>No — needs scripting API</td><td>Yes — OTIO import</td></tr>
-                        <tr><td>Works on DR Studio</td><td>Partial — limited testing</td><td>Yes — same OTIO path</td></tr>
-                        <tr><td>Beat detector</td><td>Onset-based</td><td>beat_this (transformer)</td></tr>
-                        <tr><td>Markers on timeline</td><td>Yes (when scripting works)</td><td>Yes — carried via OTIO</td></tr>
-                        <tr><td>Auto-cut clips to beats</td><td>Markers only on Resolve</td><td>Cut patterns + clip placement</td></tr>
-                        <tr><td>Cut patterns</td><td>Limited</td><td>12 patterns + 6 mood presets</td></tr>
-                        <tr><td>One-time price</td><td>Higher tier (Premiere focus)</td><td>€29 launch (€64.99 full)</td></tr>
-                        <tr><td>Updates</td><td>Subscription / per-version</td><td>Lifetime included</td></tr>
-                    </tbody>
-                </table>
+                <h2>BeatEdit vs Pulse Edit for DaVinci Resolve Free, in plain terms</h2>
+                <p><strong>Pulse Edit costs €29 and runs on DaVinci Resolve Free 19.1+ via OTIO import; BeatEdit costs $99 and is Premiere-only in practice once DR Free lost its scripting bridge.</strong> That single line is the whole decision for most people, but here is the detail behind it.</p>
+                <p>On <strong>compatibility</strong>, Pulse Edit works on DaVinci Resolve Free and Studio (18.5 and later) because it writes an OpenTimelineIO file you drag into Resolve — no scripting API involved. BeatEdit's Resolve port needed that scripting bridge, so it no longer functions on DR Free after BMD's 19.1 rollback and is realistically a Premiere Pro tool today.</p>
+                <p>On <strong>what each tool actually produces</strong>, BeatEdit's strength on Resolve was placing beat markers on the timeline (when the bridge worked). Pulse Edit carries those same markers through the OTIO file at exact frame positions, and goes further: it auto-cuts and places clips from your Media Pool against the detected beat grid using <strong>11 cut patterns</strong> — Every Beat, Every Bar, Build-up &amp; Drop, Wedding, Wedding Slow, Humanize, Half-time, Double-time and more, including <strong>Energy Map</strong>, which adapts cut density to the loudness of each section. An <strong>AI mood analyzer</strong> reads the music's mood and adapts the editing pattern automatically. BeatEdit on Resolve stopped at markers; it did not lay out a finished beat-cut sequence.</p>
+                <p>On <strong>price and updates</strong>, Pulse Edit is a single €29 one-time payment (regular €64.99) with lifetime updates and a 14-day money-back guarantee, on both macOS and Windows. BeatEdit sits at the $99 tier with a Premiere-first focus. For a DaVinci Resolve Free user in 2026, Pulse Edit is the cheaper tool, the only one of the two that runs at all, and the one that does more once it runs.</p>
 
                 <h2>The "BeatEdit feel" on DR Free</h2>
                 <p>If what you liked about BeatEdit was the rhythm of dropping a song into Resolve and seeing the beat markers appear, Pulse Edit preserves that — just with one extra import step. The markers carried by the OTIO file land on your timeline at exact frame positions; you scrub through and they're already there.</p>
-                <p>If you also want clips snapped to those markers (which BeatEdit didn't fully do anyway), the cut patterns inside Pulse Edit handle it. Every Beat, Every Bar, Build-up &amp; Drop, Wedding, Humanize — each lays out clips against the detected beat grid in a different way. There's nothing equivalent in BeatEdit on the Resolve side.</p>
+                <p>If you also want clips snapped to those markers (which BeatEdit didn't fully do anyway), the 11 cut patterns inside Pulse Edit handle it. Every Beat, Every Bar, Build-up &amp; Drop, Wedding, Humanize, Energy Map — each lays out clips against the detected beat grid in a different way. There's nothing equivalent in BeatEdit on the Resolve side.</p>
+
+                <h2>Switching from BeatEdit to Pulse Edit</h2>
+                <p>If you already own BeatEdit and just need beat editing back on DaVinci Resolve Free, here is exactly what changes when you switch.</p>
+                <h3>Cost — €29 vs $99</h3>
+                <p>BeatEdit sits at the <strong>$99</strong> tier and targets Premiere Pro. Pulse Edit is a one-time <strong>€29</strong> (regular €64.99) with lifetime updates and a 14-day money-back guarantee. You are paying roughly a third of the price for the tool that actually runs on DR Free.</p>
+                <h3>Workflow — one click instead of a broken bridge</h3>
+                <p>With BeatEdit on Resolve you waited on a scripting bridge that no longer exists on the free edition. With Pulse Edit you drop your song and clips in, click <strong>Export OTIO</strong> once, and drag the file into Resolve via <em>File → Import → Timeline → OpenTimelineIO</em>. One click to generate, one drag to import — no plugin install inside Resolve, no API call that can silently fail.</p>
+                <h3>Features — markers, plus a finished cut</h3>
+                <p>BeatEdit on Resolve placed beat markers. Pulse Edit carries those markers <em>and</em> builds the cut: 11 cut patterns (including Energy Map) auto-place clips from your Media Pool on the beat, and an AI mood analyzer adapts the pattern to the music. You move from "markers I still have to cut against" to "a sequence already cut to the beat."</p>
+                <h3>Time — about 5 minutes vs 2 hours</h3>
+                <p>Manually rebuilding a beat-cut montage by hand in Resolve is a <strong>2-hour</strong> job. With Pulse Edit, analysing the track, choosing a pattern, exporting the OTIO and importing it takes about <strong>5 minutes</strong> before you start fine-tuning. The mechanical beat-matching is done for you; your time goes to the creative pass.</p>
+                <p>New to the import step? The <a href="/otio-import-davinci-resolve-free.html">OTIO import walkthrough for DaVinci Resolve Free</a> shows the exact menu path with screenshots.</p>
 
                 <h2>Switching over — what to expect</h2>
                 <ul>
@@ -193,6 +234,26 @@
             <p>Pulse Edit fills the BeatEdit-shaped gap on DaVinci Resolve Free. €29 launch, lifetime updates.</p>
             <a href="/pulse-edit-free.html" class="btn btn-primary">Get Pulse Edit Free →</a>
             <p style="color:#9ca3af;font-size:0.92rem;margin-top:12px;">macOS &amp; Windows · OTIO export · 14-day refund</p>
+        </div>
+    </section>
+
+    <section class="seo-section">
+        <div class="container">
+            <div class="content">
+                <h2>Frequently asked questions</h2>
+
+                <h3>Does BeatEdit work on DaVinci Resolve Free?</h3>
+                <p>No. BeatEdit's DaVinci Resolve port relied on the Resolve scripting API, which Blackmagic restricted to Studio in DR 19.1 (November 2024). BeatEdit is now effectively a Premiere Pro tool. For beat-synced editing on DaVinci Resolve Free, <a href="/pulse-edit-free.html">Pulse Edit</a> is the working alternative — it exports an OTIO file you import into Resolve, so it needs no scripting API.</p>
+
+                <h3>What is the best free-edition BeatEdit alternative for DaVinci Resolve?</h3>
+                <p>Pulse Edit. It costs €29 (regular €64.99), runs on DaVinci Resolve Free and Studio 18.5+ via OTIO import, and goes beyond markers: 11 cut patterns including Energy Map auto-cut and place clips from your Media Pool on the beat, plus an AI mood analyzer that adapts the editing pattern to your music. BeatEdit costs $99 and is Premiere-only in practice.</p>
+
+                <h3>How much does Pulse Edit cost compared to BeatEdit?</h3>
+                <p>Pulse Edit is <strong>€29 one-time</strong> (regular €64.99) with lifetime updates and a 14-day money-back guarantee, on macOS and Windows. BeatEdit sits at the <strong>$99</strong> tier with a Premiere Pro focus.</p>
+
+                <h3>How do I switch from BeatEdit to Pulse Edit on DaVinci Resolve Free?</h3>
+                <p>Drop your song and clips into Pulse Edit, click Export OTIO once, then drag the file into DaVinci Resolve via <em>File → Import → Timeline → OpenTimelineIO</em>. There is no plugin to install inside Resolve and no scripting API call. A beat-cut sequence that would take about 2 hours to build by hand is ready in about 5 minutes. See the <a href="/otio-import-davinci-resolve-free.html">OTIO import walkthrough</a> for the exact steps.</p>
+            </div>
         </div>
     </section>
 
