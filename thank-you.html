@@ -19,8 +19,8 @@
       document.head.appendChild(s);
       gtag('js', new Date());
       gtag('config', 'G-JV9DJHLCY2');
-      var sid = new URLSearchParams(location.search).get('session_id') || ('pe-' + Date.now());
-      gtag('event', 'purchase', {
+      var sid = new URLSearchParams(location.search).get('session_id');
+      if (sid) gtag('event', 'purchase', {
         transaction_id: sid,
         value: 29.00,
         currency: 'EUR',
