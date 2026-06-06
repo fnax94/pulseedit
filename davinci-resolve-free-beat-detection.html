@@ -97,7 +97,7 @@
                 "name": "Is there a free beat-detection plugin for DaVinci Resolve?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Older free options such as Reactor-distributed scripts and BeatEdit's Resolve script relied on the scripting bridge that DaVinci Resolve Free 19.1 removed, so they no longer work on the free edition. Pulse Edit is a paid app, 29 euro one-time with 3 to 4 free trial generations, that works specifically because it does not use scripting: it exports a standard OTIO timeline that DR Free imports natively."
+                    "text": "Older free options such as Reactor-distributed scripts and BeatEdit's Resolve script relied on the scripting bridge that DaVinci Resolve Free 19.1 removed, so they no longer work on the free edition. Pulse Edit is a paid app, 29 euro one-time with 3 to 3 free trial generations, that works specifically because it does not use scripting: it exports a standard OTIO timeline that DR Free imports natively."
                 }
             },
             {
@@ -282,7 +282,7 @@
                 <p>Run a standalone beat-detection app that exports an OpenTimelineIO (OTIO) file, then import that file into Resolve. With Pulse Edit: drag your music and clips into the app, pick a cut pattern, export the OTIO, and in Resolve choose <em>File → Import → Timeline → OpenTimelineIO</em>. The clips arrive already cut to the beat with markers at every detected hit. No scripting, no Studio licence.</p>
 
                 <h3>Is there a free beat-detection plugin for DaVinci Resolve?</h3>
-                <p>Older free options (Reactor-distributed scripts, BeatEdit's Resolve script) relied on the scripting bridge that DR Free 19.1 removed, so they no longer work on the free edition. Pulse Edit is a paid app (€29 one-time, with 3–4 free trial generations) that works specifically <em>because</em> it does not use scripting — it exports a standard OTIO timeline that DR Free imports natively.</p>
+                <p>Older free options (Reactor-distributed scripts, BeatEdit's Resolve script) relied on the scripting bridge that DR Free 19.1 removed, so they no longer work on the free edition. Pulse Edit is a paid app (€29 one-time, with 3–3 free trial generations) that works specifically <em>because</em> it does not use scripting — it exports a standard OTIO timeline that DR Free imports natively.</p>
 
                 <h3>Why did my DaVinci Resolve beat plugin stop working?</h3>
                 <p>Because Blackmagic restricted the external scripting API to Studio starting in DaVinci Resolve 19.1 (November 2024). Any plugin that talked to Resolve through <code>DaVinciResolveScript</code> silently fails on the free edition now. The fix is a tool that does not depend on scripting at all — see the <a href="/davinci-resolve-19-scripting-api-fix.html">DR 19.1 scripting change explainer</a>.</p>

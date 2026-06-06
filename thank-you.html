@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Thank you — Pulse Edit Free</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- GA4 + purchase conversion -->
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    (function(){
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-JV9DJHLCY2');
+      var sid = new URLSearchParams(location.search).get('session_id') || ('pe-' + Date.now());
+      gtag('event', 'purchase', {
+        transaction_id: sid,
+        value: 29.00,
+        currency: 'EUR',
+        items: [{ item_id: 'pulse-edit-free', item_name: 'Pulse Edit Free', price: 29.00, quantity: 1 }]
+      });
+    })();
+    </script>
+    <style>
+      :root { --bg:#0a0a0f; --card:rgba(255,255,255,0.04); --line:rgba(255,255,255,0.08); --muted:#9ca3af; --green:#22c55e; --purple:#7c6ff7; }
+      * { box-sizing:border-box; }
+      body { margin:0; background:var(--bg); color:#f4f4f6; font-family:Inter,system-ui,sans-serif; line-height:1.6; display:flex; min-height:100vh; align-items:center; justify-content:center; padding:24px; }
+      .card { max-width:560px; width:100%; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:40px 32px; text-align:center; }
+      .badge { width:64px; height:64px; border-radius:50%; background:rgba(34,197,94,0.15); border:1px solid rgba(34,197,94,0.4); color:var(--green); font-size:32px; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; }
+      h1 { font-size:1.7rem; margin:0 0 10px; }
+      p { color:#cbd5e1; margin:0 0 16px; }
+      .muted { color:var(--muted); font-size:0.9rem; }
+      .steps { text-align:left; background:rgba(124,111,247,0.06); border:1px solid rgba(124,111,247,0.2); border-radius:12px; padding:18px 22px; margin:22px 0; }
+      .steps li { margin:6px 0; color:#e2e8f0; }
+      .cta { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:8px; }
+      .btn { display:inline-block; padding:12px 20px; border-radius:10px; font-weight:600; text-decoration:none; font-size:0.95rem; }
+      .btn-green { background:var(--green); color:#06210f; }
+      .btn-outline { border:1px solid var(--line); color:#f4f4f6; }
+      a.link { color:var(--green); }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="badge">&#10003;</div>
+        <h1>Payment received — thank you!</h1>
+        <p>Your <strong>Pulse Edit Free</strong> license and download links are on their way to your email right now &mdash; together with your <strong>6 free months of Lumiqa Starter</strong>.</p>
+        <ul class="steps">
+            <li>1. Check your inbox (and spam) for the email from <strong>support@pulseedit.com</strong></li>
+            <li>2. Download the app and open DaVinci Resolve 18.5+ (Free or Studio)</li>
+            <li>3. Paste your license key &mdash; you're unlimited from now on</li>
+        </ul>
+        <p class="muted">Need the app right away? Grab it here while the email lands:</p>
+        <div class="cta">
+            <a class="btn btn-green" href="https://pulse-edit-mirror.abtools.workers.dev/PulseEdit-macOS.dmg">Download — macOS</a>
+            <a class="btn btn-outline" href="https://pulse-edit-mirror.abtools.workers.dev/PulseEdit-Setup.exe">Download — Windows</a>
+        </div>
+        <p class="muted" style="margin-top:24px;">Didn't get the email within a few minutes? Write to <a class="link" href="mailto:support@pulseedit.com">support@pulseedit.com</a> and we'll sort it immediately.</p>
+        <p class="muted"><a class="link" href="/">&larr; Back to pulseedit.com</a></p>
+    </div>
+</body>
+</html>
