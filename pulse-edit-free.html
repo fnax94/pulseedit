@@ -441,30 +441,12 @@
             </div>
 
             <div class="pe-cta-row" style="flex-wrap:wrap;gap:10px;">
-                <a href="https://pulse-edit-mirror.abtools.workers.dev/PulseEdit-macOS.dmg" class="btn btn-primary" id="cta-download-mac" data-track="trial-download-mac">⬇ Download for macOS</a>
-                <a href="https://pulse-edit-mirror.abtools.workers.dev/PulseEdit-Setup.exe" class="btn btn-primary" id="cta-download-win" data-track="trial-download-win" style="background:#4ade80;color:#0c1f12;">⬇ Download for Windows</a>
-                <a href="#" onclick="document.getElementById('buy-modal').showModal();return false;" class="btn btn-secondary" id="cta-buy-launch" data-track="free">🔑 Buy a license</a>
+                <a href="#" onclick="document.getElementById('buy-modal').showModal();return false;" class="btn btn-primary" id="cta-buy-launch" data-track="buy-1" style="background:#4ade80;color:#0c1f12;font-size:1.08rem;padding:14px 30px;">Get Pulse Edit — €29</a>
             </div>
             <p class="pe-trust" id="pe-platform-row" style="margin-top:10px;">
-                Free Trial · 3 generations · No license required · Works in DR Free and DR Studio 18.5+
+                One-time payment · macOS &amp; Windows · Works in DR Free and DR Studio 18.5+ · <strong style="color:#4ade80;">14-day money-back guarantee</strong>
             </p>
             <p class="pe-trust" style="margin-top:6px;font-size:11px;opacity:0.75;">✅ macOS: signed &amp; notarized by Apple — no Gatekeeper warnings. 🛡️ Windows: SmartScreen may show a warning — click "More info" → "Run anyway". <a href="https://www.virustotal.com/gui/file/7c23cc562841a484b327bedfe14f2f95c94501d13865e425891740f93f1492f2" target="_blank" rel="noopener" style="color:#4ade80;text-decoration:underline;">Verified clean — 0/75 on VirusTotal ↗</a></p>
-            <script>
-            // Subtle dim the non-platform button so the recommended one stands out
-            // visually, without changing its label.
-            (function() {
-              try {
-                var ua = (navigator.userAgent || '').toLowerCase();
-                var plat = (navigator.platform || '').toLowerCase();
-                var isWindows = /windows|win32|win64/.test(ua) || /win/.test(plat);
-                var isMac = /mac/.test(ua) || /mac/.test(plat);
-                var mac = document.getElementById('cta-download-mac');
-                var win = document.getElementById('cta-download-win');
-                if (isWindows && win && mac) { mac.style.opacity = '0.7'; }
-                else if (isMac && win && mac) { win.style.opacity = '0.7'; }
-              } catch (e) {}
-            })();
-            </script>
         </div>
     </section>
 
@@ -626,8 +608,8 @@
             </div>
 
             <div class="pe-faq-item">
-                <h3>Is there a free trial?</h3>
-                <p>Yes — you get 3 free generations to test the full workflow on your own footage, no license required. After that, a one-time license unlocks unlimited use. Not happy? Refund within 14 days. Email <a href="mailto:support@pulseedit.com" style="color:#7c6ff7;">support@pulseedit.com</a>.</p>
+                <h3>What if it doesn't work on my setup?</h3>
+                <p>Pulse Edit comes with a 14-day money-back guarantee. If it doesn't work on your DaVinci Resolve setup, email <a href="mailto:support@pulseedit.com" style="color:#7c6ff7;">support@pulseedit.com</a> — we'll fix it or refund you, no questions asked.</p>
             </div>
 
             <div class="pe-faq-item">
