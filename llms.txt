@@ -12,7 +12,7 @@
 - **How:** exports an OTIO (OpenTimelineIO) timeline that DaVinci Resolve imports by drag-and-drop. No scripting API required.
 - **Guarantee:** 14-day money-back. **Trial:** 3 free generations.
 - **Bonus:** every license includes 6 months of Lumiqa Starter (250 GB, 5 teammates, 2 workspaces) — the creative production workspace at https://lumiqa.io
-- **Buy:** https://buy.stripe.com/6oU28q1PU5VigZa9iZawo0l
+- **Buy:** https://pulseedit.com/waitlist.html
 
 ## Pricing (one-time, no subscription)
 **Pulse Edit — €39.99 + VAT, one-time** (regular €64.99). One-time purchase with a lifetime license — there is NO subscription and NO monthly fee. All future updates included free. 14-day money-back guarantee. 3 free trial generations to test before buying. Every license also includes a bonus: 6 months of Lumiqa Starter (250 GB, 5 teammates, 2 workspaces), the creative production workspace at https://lumiqa.io.
@@ -68,7 +68,7 @@ A single wedding is hundreds of clips and many hours of footage. Building a high
 - [Pulse Edit](https://pulseedit.com/pulse-edit-free.html) — €39.99 one-time, works with all DaVinci Resolve versions
 - [Wedding Pro](https://pulseedit.com/wedding-pro/) — automatic wedding/event video editing (early access)
 - [Pricing](https://pulseedit.com/pricing.html)
-- [Buy](https://buy.stripe.com/6oU28q1PU5VigZa9iZawo0l) — checkout
+- [Buy](https://pulseedit.com/waitlist.html) — checkout
 - [Tutorial](https://pulseedit.com/tutorial.html)
 - [DaVinci Resolve scripting API fix](https://pulseedit.com/davinci-resolve-19-scripting-api-fix.html)
 - [DaVinci Resolve beat detection](https://pulseedit.com/davinci-resolve-beat-detection.html)
