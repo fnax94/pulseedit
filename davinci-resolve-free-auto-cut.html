@@ -17,7 +17,7 @@
     if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
     </script>
     <title>Auto Cut Video to Beat in DaVinci Resolve Free</title>
-    <meta name="description" content="Auto-cut clips to music in DR Free, no manual tapping, no scripting. Pulse Edit builds a beat-aligned OTIO timeline. €39.99 launch.">
+    <meta name="description" content="Auto-cut clips to music in DR Free, no manual tapping, no scripting. Pulse Edit builds a beat-aligned OTIO timeline. €13/month, VAT included, cancel any time.">
     <meta name="keywords" content="davinci resolve free auto cut, auto cut to beat davinci resolve free, davinci resolve free auto edit, music video auto cut davinci free, beat sync auto cut">
     <meta property="og:title" content="Auto Cut Video to Beat in DaVinci Resolve Free — Pulse Edit">
     <meta property="og:description" content="Auto-cut clips to music in DR Free. OTIO timeline import, no scripting needed.">
@@ -26,7 +26,7 @@
     <meta property="og:image" content="https://pulseedit.com/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Auto Cut Video to Beat in DaVinci Resolve Free — Pulse Edit">
-    <meta name="twitter:description" content="Auto-cut clips to music in DR Free via OTIO. €39.99 launch.">
+    <meta name="twitter:description" content="Auto-cut clips to music in DR Free via OTIO. €13/month, cancel any time.">
     <meta name="twitter:image" content="https://pulseedit.com/og-image.png">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -50,9 +50,18 @@
         "applicationCategory": "MultimediaApplication",
         "operatingSystem": ["macOS 12+", "Windows 10", "Windows 11"],
         "offers": {
-            "@type": "Offer", "price": "39.99", "priceCurrency": "EUR",
+            "@type": "Offer", "price": "13.00", "priceCurrency": "EUR",
             "availability": "https://schema.org/InStock",
-            "url": "https://pulseedit.com/waitlist.html"
+            "url": "https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m",
+            "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "13.00",
+                "priceCurrency": "EUR",
+                "billingDuration": 1,
+                "billingIncrement": 1,
+                "unitCode": "MON",
+                "valueAddedTaxIncluded": true
+            }
         },
         "softwareRequirements": "DaVinci Resolve Free or Studio 18.5+",
         "author": { "@type": "Organization", "name": "AB Tools" }
@@ -117,7 +126,7 @@
                 <a href="/">Pulse Edit Free</a>
                 <a href="/tutorial.html">Tutorial</a>
                 <a href="/blog/">Blog</a>
-                <a href="https://pulseedit.com/waitlist.html" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
+                <a href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
             </div>
         </div>
     </nav>
@@ -133,7 +142,7 @@
                 <a href="/pulse-edit-free.html" class="btn btn-primary">Get Pulse Edit Free →</a>
                 <a href="/tutorial.html#free" class="btn btn-secondary">DR Free tutorial</a>
             </div>
-            <p style="color:#9ca3af;font-size:13px;margin-top:14px;">€39.99 launch · one-time payment · macOS &amp; Windows</p>
+            <p style="color:#9ca3af;font-size:13px;margin-top:14px;">€13/month, VAT included · cancel any time · macOS &amp; Windows</p>
         </div>
     </section>
 
@@ -156,16 +165,16 @@
                 <h2>Step-by-step on DR Free</h2>
                 <div class="seo-step"><div class="num">1</div><div><h3>Open Pulse Edit and load your music</h3><p>Any standard audio file — MP3, WAV, M4A, FLAC. Pulse Edit reads it directly. No need to bounce, transcode or pre-render.</p></div></div>
                 <div class="seo-step"><div class="num">2</div><div><h3>Point it at your clips</h3><p>Drag a folder, or hand-pick the shots. Set the order: sequential (clip 01 first), random (every regenerate shuffles), or guided by the mood preset you pick later.</p></div></div>
-                <div class="seo-step"><div class="num">3</div><div><h3>Pick a cut pattern</h3><p>12 patterns are available. Wedding and Wedding Slow are common for highlight reels; Every Beat / Double-time fit trap and EDM; Build-up &amp; Drop times the visual hit on a drop. The waveform preview shows you the cut positions before you commit.</p></div></div>
+                <div class="seo-step"><div class="num">3</div><div><h3>Pick a cut pattern</h3><p>Five patterns to choose from: Energy Map, Every Beat, Every Bar (4/4), Beat + Upbeat, and Half Time. Every Beat fits trap and EDM; Energy Map adapts cut density to the song's dynamics; Half Time breathes for slower, emotional edits. Prefer to let the song decide? Pick "Auto pattern from mood" and Pulse Edit chooses the shape for you. The waveform preview shows the cut positions before you commit.</p></div></div>
                 <div class="seo-step"><div class="num">4</div><div><h3>Export OTIO</h3><p>Click Export. Pulse Edit writes a .otio file in seconds. The file is tiny — it just describes the timeline.</p></div></div>
                 <div class="seo-step"><div class="num">5</div><div><h3>Import in DaVinci Resolve Free</h3><p><em>File → Import Timeline → OpenTimelineIO</em>. Resolve creates a new timeline with the clips already cut and placed. Markers appear at every detected beat.</p></div></div>
 
                 <h2>Where it shines</h2>
                 <ul>
-                    <li><strong>Wedding highlight reels</strong> — Wedding pattern cuts on the downbeats only, breathing for emotional shots.</li>
+                    <li><strong>Wedding highlight reels</strong> — Half Time and "Auto pattern from mood" cut on the downbeats, breathing for emotional shots. Chronological ordering can lay clips in the order they were filmed — it reads each clip's recording time, and two cameras interleave correctly as long as their clocks were synced.</li>
                     <li><strong>Travel montages</strong> — Energy Map adapts cut density to song dynamics: slow intros breathe, choruses cut tight.</li>
                     <li><strong>TikTok / Reels edits</strong> — Every Beat + Humanize gives the snappy feel without the robotic on-grid stiffness.</li>
-                    <li><strong>Music videos</strong> — Build-up &amp; Drop catches the moment that actually matters in EDM and trailer tracks.</li>
+                    <li><strong>Music videos</strong> — "Auto pattern from mood" catches the build-up and drop that actually matter in EDM and trailer tracks.</li>
                 </ul>
 
                 <h2>Things to know before you start</h2>
@@ -181,7 +190,7 @@
     <section class="seo-cta-band">
         <div class="container">
             <h2>Skip the manual razor-blade work</h2>
-            <p>Pulse Edit auto-cuts to the beat and hands you a finished DR Free timeline. €39.99 launch, lifetime updates.</p>
+            <p>Pulse Edit auto-cuts to the beat and hands you a finished DR Free timeline. €13/month, VAT included, cancel any time — 14-day money-back guarantee.</p>
             <a href="/pulse-edit-free.html" class="btn btn-primary">Get Pulse Edit Free →</a>
         </div>
     </section>

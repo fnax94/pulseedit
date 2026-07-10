@@ -92,9 +92,18 @@
   "softwareVersion": "1.5.6",
   "offers": {
     "@type": "Offer",
-    "price": "39.99",
+    "price": "13.00",
     "priceCurrency": "EUR",
-    "availability": "https://schema.org/InStock"
+    "availability": "https://schema.org/InStock",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "13.00",
+      "priceCurrency": "EUR",
+      "billingDuration": 1,
+      "billingIncrement": 1,
+      "unitCode": "MON",
+      "valueAddedTaxIncluded": true
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -176,7 +185,7 @@
                 <a href="/pulse-edit-free.html">Pulse Edit</a>
                 <a href="/tutorial.html">Tutorial</a>
                 <a href="/blog/">Blog</a>
-                <a href="https://pulseedit.com/waitlist.html" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
+                <a href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
             </div>
         </div>
     </nav>
@@ -192,12 +201,12 @@
             <p>If you're trying to cut a video to the beat of music in 2026, two ecosystems realistically cover most of the work: <strong>DaVinci Resolve with Pulse Edit</strong> on macOS &amp; Windows, or <strong>Final Cut Pro</strong> on macOS only. Both can do beat-aligned cuts, but the path is very different. Here's the honest verdict.</p>
 
             <div class="callout">
-                <p><strong>TL;DR:</strong> Pulse Edit gives you explicit beat markers + 11 customizable cut patterns on any project (Resolve runs on Mac &amp; PC, free version exists, color &amp; Fusion are pro-grade). Final Cut Pro's auto sync is faster for casual social-video cuts on Apple hardware, but it's Mac-only, less transparent, and locks you in to Apple's ecosystem.</p>
+                <p><strong>TL;DR:</strong> Pulse Edit gives you explicit beat markers + 5 selectable cut patterns on any project (Resolve runs on Mac &amp; PC, free version exists, color &amp; Fusion are pro-grade). Final Cut Pro's auto sync is faster for casual social-video cuts on Apple hardware, but it's Mac-only, less transparent, and locks you in to Apple's ecosystem.</p>
             </div>
 
             <h2>The headline difference</h2>
             <p>Final Cut Pro 11+ added a "Sync to Music" feature that automatically aligns clips to a song. It's slick: drop in a song, drop in clips, Apple Intelligence picks cuts. But it's a black box — you don't see the beat grid, you can't customize the pattern, and you can't move it to another editor.</p>
-            <p>Pulse Edit takes the opposite approach. You see every detected beat as a marker on the timeline. You pick from 11 explicit patterns (every beat, every bar, energy map, wedding/slow, buildup, etc.). You can tweak sensitivity, time signature, subdivisions. The cuts land on the real Resolve timeline so you can move/refine each one.</p>
+            <p>Pulse Edit takes the opposite approach. You see every detected beat as a marker on the timeline. You pick from 5 explicit patterns (Energy Map, Every Beat, Every Bar 4/4, Beat + Upbeat, Half Time), or let "Auto pattern from mood" choose for you. You can tweak sensitivity, time signature, subdivisions. The cuts land on the real Resolve timeline so you can move/refine each one.</p>
 
             <h2>Feature comparison</h2>
 
@@ -213,12 +222,12 @@
                     <tr><td><strong>Host editor</strong></td><td class="highlight-col">DaVinci Resolve (Free + Studio)</td><td>Final Cut Pro</td></tr>
                     <tr><td><strong>OS support</strong></td><td class="highlight-col"><span class="check">✓</span> macOS &amp; Windows</td><td><span class="cross">✗</span> macOS only</td></tr>
                     <tr><td><strong>Beat markers visible on timeline</strong></td><td class="highlight-col"><span class="check">✓</span> Yes (green markers)</td><td><span class="cross">✗</span> Hidden, black box</td></tr>
-                    <tr><td><strong>Cut patterns to choose</strong></td><td class="highlight-col"><span class="check">✓</span> 11 patterns</td><td>1 (Apple's algorithm)</td></tr>
+                    <tr><td><strong>Cut patterns to choose</strong></td><td class="highlight-col"><span class="check">✓</span> 5 patterns + auto-from-mood</td><td>1 (Apple's algorithm)</td></tr>
                     <tr><td><strong>Sensitivity adjustment</strong></td><td class="highlight-col"><span class="check">✓</span> Yes</td><td><span class="cross">✗</span> No</td></tr>
                     <tr><td><strong>Time signature support</strong></td><td class="highlight-col"><span class="check">✓</span> 4/4, 3/4, 6/8, custom</td><td>Auto only</td></tr>
                     <tr><td><strong>AI mood analyzer</strong></td><td class="highlight-col"><span class="check">✓</span> Yes — adapts the edit pattern to the music</td><td>Different feature (Magnetic Mask)</td></tr>
                     <tr><td><strong>Works with streaming audio?</strong></td><td>Local files only</td><td>Local files only</td></tr>
-                    <tr><td><strong>Pricing model</strong></td><td class="highlight-col">€39.99 one-time</td><td>$299 one-time</td></tr>
+                    <tr><td><strong>Pricing model</strong></td><td class="highlight-col">€13/month, cancel any time</td><td>$299 one-time</td></tr>
                     <tr><td><strong>Color grading workflow</strong></td><td class="highlight-col">Resolve (industry standard)</td><td>FCP color (decent, not Resolve)</td></tr>
                     <tr><td><strong>Money-back guarantee</strong></td><td class="highlight-col"><span class="check">✓</span> 14 days</td><td>Free 90-day trial</td></tr>
                 </tbody>
@@ -238,7 +247,7 @@
                 <li>You want explicit control: choose exactly which beats to cut on, see the grid, adjust sensitivity.</li>
                 <li>You do music videos, wedding films, travel montages where every frame matters.</li>
                 <li>You need Resolve's color grading or Fusion compositing on the same timeline.</li>
-                <li>You want to spend less: Pulse Edit €39.99 one-time vs Final Cut €299.</li>
+                <li>You want a low entry cost with no lock-in: Pulse Edit is €13/month (VAT included), cancel any time in one click.</li>
             </ul>
 
             <div class="tip-box">
@@ -246,26 +255,26 @@
             </div>
 
             <h2>The cost difference over 3 years</h2>
-            <p>Both products are one-time purchase (no subscription), which is rare and good. But the math:</p>
+            <p>Final Cut Pro is a one-time purchase; Pulse Edit is a €13/month subscription (VAT included) you can cancel in one click. Here's the math laid out honestly:</p>
             <ul>
-                <li><strong>Pulse Edit + DaVinci Resolve Studio:</strong> €39.99 + €295 (Resolve Studio one-time) = <strong>€324 total, lifetime.</strong> (Or €39.99 alone if you stay on the free DaVinci Resolve — Pulse Edit works on both.)</li>
-                <li><strong>Final Cut Pro:</strong> $299 = <strong>~€275 total, lifetime.</strong></li>
+                <li><strong>Pulse Edit + free DaVinci Resolve:</strong> €13/mo × 36 = <strong>€468 over 3 years.</strong> No upfront cost, cancel any time — you only pay for the months you actually edit.</li>
+                <li><strong>Final Cut Pro:</strong> $299 = <strong>~€275 total, lifetime.</strong> (Add €295 for DaVinci Resolve Studio only if you want the paid Resolve tier.)</li>
                 <li><strong>Adobe Premiere + BeatEdit subscription:</strong> €23.99/mo × 36 = <strong>€863+</strong> over 3 years (most expensive long-term).</li>
             </ul>
-            <p>If you stay on the free DaVinci Resolve, Pulse Edit at €39.99 is by far the cheapest way to get beat-sync editing — well under Final Cut's $299. If you add Resolve Studio you're at €324, slightly above FCP, but you get cross-platform support and Resolve's color and Fusion tools. Final Cut only wins on raw price if you already own a Mac and skip Resolve Studio.</p>
+            <p>Over a full three years of continuous use, Final Cut's one-time price works out cheaper than Pulse Edit's subscription — that's the honest trade-off. Pulse Edit wins on flexibility: no €275+ upfront, cross-platform (Mac &amp; Windows), a 14-day money-back guarantee, and you can pause or cancel whenever a project wraps. If you edit to music year-round on a Mac and never touch Windows, Final Cut is the lower-cost pick.</p>
 
             <h2>Bottom line</h2>
             <p>Pick based on <em>workflow control</em>, not features:</p>
             <ul>
-                <li><strong>Want explicit beat markers, 11 cut patterns, cross-platform, pro color?</strong> Pulse Edit + DaVinci Resolve.</li>
+                <li><strong>Want explicit beat markers, 5 cut patterns, cross-platform, pro color?</strong> Pulse Edit + DaVinci Resolve.</li>
                 <li><strong>Want one-button "sync to music", Apple ecosystem, fast social cuts?</strong> Final Cut Pro.</li>
             </ul>
             <p>Both produce broadcast-quality results. The right one is the one that matches the way you already work.</p>
 
             <div class="cta-box">
                 <h3>Get Pulse Edit</h3>
-                <p>One-time €39.99, lifetime updates. 14-day money-back guarantee. macOS &amp; Windows.</p>
-                <a href="/buy.html" class="btn btn-green" data-track="buy-1">Get Pulse Edit — €39.99</a>
+                <p>€13/month, VAT included. Cancel any time in one click. 14-day money-back guarantee. macOS &amp; Windows.</p>
+                <a href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" class="btn btn-green" data-track="buy-1">Get Pulse Edit — €13/month</a>
             </div>
 
             <p>Other comparisons: <a href="/vs-beatedit.html">vs BeatEdit</a> · <a href="/vs-premiere-auto-cut.html">vs Premiere Auto Cut</a> · <a href="/vs-runway.html">vs Runway</a> · <a href="/vs-descript.html">vs Descript</a></p>

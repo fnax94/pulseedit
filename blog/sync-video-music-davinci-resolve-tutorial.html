@@ -53,7 +53,7 @@
             {"@type": "HowToStep", "name": "Cut clips at marker positions", "text": "Move the playhead to each marker and use Blade tool (B) to slice your video track. Or let Pulse Edit handle it during Auto-Edit."},
             {"@type": "HowToStep", "name": "Replace clips between cuts", "text": "Drag clips from the Media Pool into each cut segment. Trim to fit the segment length. Pulse Edit does this automatically based on the chosen cut pattern."},
             {"@type": "HowToStep", "name": "Refine timing with sub-frame nudges", "text": "Beat sync needs frame-accurate alignment. Nudge clips by 1 frame using comma/period keys until cuts land exactly on the beat."},
-            {"@type": "HowToStep", "name": "Pick the cut pattern and let mood analysis tune it", "text": "Choose a cut pattern (Energy Map, Every Beat, Buildup). Pulse Edit's AI mood analyzer reads the energy of the track and adapts the editing pattern automatically."},
+            {"@type": "HowToStep", "name": "Pick the cut pattern and let mood analysis tune it", "text": "Choose one of the five selectable cut patterns (Energy Map, Every Beat, Every Bar 4/4, Beat + Upbeat, Half Time), or pick Auto pattern from mood and let Pulse Edit's AI mood analyzer read the energy of the track and select the pattern automatically."},
             {"@type": "HowToStep", "name": "Export and verify", "text": "Render at native frame rate (mixed FPS introduces beat drift). Watch on a fresh playthrough — if any cut feels off, the timing is off."}
         ],
         "tool": {"@type": "HowToTool", "name": "Pulse Edit for DaVinci Resolve"},
@@ -159,7 +159,7 @@
                 <a href="/">Pulse Edit</a>
                 <a href="/tutorial.html">Tutorial</a>
                 <a href="/blog/">Blog</a>
-                <a href="https://pulseedit.com/waitlist.html" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
+                <a href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
             </div>
         </div>
     </nav>
@@ -178,7 +178,7 @@
 
                 <p>Syncing video to music in DaVinci Resolve sounds simple: cut the clip on the beat, repeat. In practice, the manual workflow eats hours and your cuts are never frame-accurate because human tapping drifts. This tutorial covers both methods &mdash; the traditional marker workflow and the automatic approach with <a href="/">Pulse Edit</a> &mdash; so you can pick what fits your project.</p>
 
-                <div style="background:var(--bg-2);padding:32px;border-radius:8px;text-align:center;color:var(--muted);margin:20px 0;">Video walkthrough coming soon. <a href="https://pulseedit.com/waitlist.html" style="color:var(--accent);">Try Pulse Edit free →</a></div>
+                <div style="background:var(--bg-2);padding:32px;border-radius:8px;text-align:center;color:var(--muted);margin:20px 0;">Video walkthrough coming soon. <a href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" style="color:var(--accent);">Get Pulse Edit — €13/month →</a></div>
 
                 <h2>Step 1: Import Music and Video into Resolve</h2>
                 <p>Open DaVinci Resolve 18.5+ (Free or Studio) and create a new timeline matching your delivery format. Drop the music track on Audio 1. Import all video clips into the Media Pool. Set the timeline frame rate to match your source clips &mdash; mixing 24fps and 30fps clips on the same timeline causes beat drift you can't fix later.</p>
@@ -196,7 +196,7 @@
 
                 <h2>Step 4: Replace Clips Between Cuts</h2>
                 <p>For each segment between two cuts, drag a clip from the Media Pool to fill it. Use the in/out handles to pick the best portion of each source clip. If a segment is 0.5 seconds, you can't show a 3-second action &mdash; pick the most visually interesting half-second.</p>
-                <p>Pulse Edit handles this with cut patterns. <strong>Energy Map</strong> matches clip pacing to music intensity automatically. <strong>Every Beat</strong> places one clip per beat. <strong>Buildup</strong> starts slow and accelerates. See <a href="/blog/auto-edit-video-to-music-davinci-resolve.html">our full Auto-Edit guide</a> for the complete pattern list.</p>
+                <p>Pulse Edit handles this with cut patterns. <strong>Energy Map</strong> matches clip pacing to music intensity automatically. <strong>Every Beat</strong> places one clip per beat. <strong>Half Time</strong> cuts on every other beat for a more relaxed pace. See <a href="/blog/auto-edit-video-to-music-davinci-resolve.html">our full Auto-Edit guide</a> for the complete pattern list.</p>
 
                 <h2>Step 5: Refine Timing with Sub-Frame Nudges</h2>
                 <p>Even with markers in place, your cuts might land 1-2 frames off the beat. Use the comma (<strong>,</strong>) and period (<strong>.</strong>) keys to nudge clips one frame at a time. At 30fps, a 1-frame error is 33ms &mdash; visible on hard-hitting kicks.</p>
@@ -207,8 +207,8 @@
                 </div>
 
                 <h2>Step 6: Pick the Cut Pattern and Let Mood Analysis Tune It</h2>
-                <p>The pacing of the edit is driven by the cut pattern, not by hand-placing effects. Pick a pattern that matches the song: <strong>Energy Map</strong> follows the audio energy curve, <strong>Every Beat</strong> places one clip per beat for relentless pacing, <strong>Buildup</strong> starts slow and accelerates into drops.</p>
-                <p>Pulse Edit's AI mood analyzer reads the energy of the track &mdash; Calm, Energetic, Epic &mdash; and adapts the editing pattern automatically, so the cut density and clip selection match the feel of the music without any manual tweaking.</p>
+                <p>The pacing of the edit is driven by the cut pattern, not by hand-placing effects. Pick one of the five selectable patterns that matches the song: <strong>Energy Map</strong> follows the audio energy curve, <strong>Every Beat</strong> places one clip per beat for relentless pacing, <strong>Every Bar 4/4</strong> cuts once per bar, <strong>Beat + Upbeat</strong> doubles up on the off-beats, and <strong>Half Time</strong> holds every other beat for a calmer feel.</p>
+                <p>Or choose <strong>Auto pattern from mood</strong> and let Pulse Edit's AI mood analyzer read the energy of the track &mdash; Calm, Energetic, Epic &mdash; and select the editing pattern automatically (including buildup-style patterns that start slow and accelerate into drops), so the cut density and clip selection match the feel of the music without any manual tweaking.</p>
 
                 <h2>Step 7: Export and Verify</h2>
                 <p>Render at the native timeline frame rate. Watch the export on a fresh playthrough &mdash; if any cut feels late, it is. The brain detects 30-50ms beat misalignment as "off" without being able to articulate why. Trust your instinct; if it feels wrong, fix it.</p>
@@ -227,13 +227,13 @@
                 <ul>
                     <li><strong>DaVinci Resolve 18.5+</strong> &mdash; works with both the Free and Studio versions via OTIO timeline export</li>
                     <li><strong>macOS</strong> or <strong>Windows 10/11</strong></li>
-                    <li><strong>Pulse Edit</strong> for the automatic workflow &mdash; <a href="https://pulseedit.com/waitlist.html">try free with 3 free uses</a></li>
+                    <li><strong>Pulse Edit</strong> for the automatic workflow &mdash; <a href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m">€13/month, cancel any time</a></li>
                 </ul>
 
                 <div class="cta-box">
-                    <h3>Try Pulse Edit Free &rarr; 3 Free Uses</h3>
-                    <p>Skip the marker tapping and blade clicking. Auto-sync your next edit in 30 seconds.</p>
-                    <a href="https://pulseedit.com/waitlist.html" class="btn btn-green">Get Pulse Edit</a>
+                    <h3>Get Pulse Edit &rarr; &euro;13/month</h3>
+                    <p>Skip the marker tapping and blade clicking. Auto-sync your next edit in 30 seconds. Cancel any time, 14-day money-back guarantee.</p>
+                    <a href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" class="btn btn-green">Get Pulse Edit</a>
                     <a href="/blog/auto-edit-video-to-music-davinci-resolve.html" class="btn btn-outline">Read Auto-Edit Guide</a>
                 </div>
 

@@ -22,9 +22,9 @@
       var sid = new URLSearchParams(location.search).get('session_id');
       if (sid) gtag('event', 'purchase', {
         transaction_id: sid,
-        value: 39.99,
+        value: 13.00,
         currency: 'EUR',
-        items: [{ item_id: 'pulse-edit-free', item_name: 'Pulse Edit Free', price: 39.99, quantity: 1 }]
+        items: [{ item_id: 'pulse-edit-subscription', item_name: 'Pulse Edit (monthly)', price: 13.00, quantity: 1 }]
       });
     })();
     </script>

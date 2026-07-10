@@ -18,16 +18,16 @@
     if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
     </script>
     <title>Pulse Edit vs Premiere Auto Edit — DR Alternative</title>
-    <meta name="description" content="Pulse Edit vs Premiere Pro Auto Edit. Beat-sync editing in DaVinci Resolve vs Adobe built-in. One-time €39.99 vs $22.99/month.">
+    <meta name="description" content="Pulse Edit vs Premiere Pro Auto Edit. Beat-sync editing in DaVinci Resolve vs Adobe built-in. €13/month, cancel any time vs $22.99/month.">
     <meta name="keywords" content="pulse edit vs premiere, premiere auto edit alternative, davinci resolve alternative to premiere, premiere auto reframe vs pulse edit, premiere pro auto cut">
     <meta property="og:title" content="Pulse Edit vs Premiere Pro Auto Edit — DaVinci Resolve Alternative">
-    <meta property="og:description" content="One-time €39.99 in DaVinci Resolve vs $22.99/month Adobe subscription. Honest comparison.">
+    <meta property="og:description" content="€13/month in DaVinci Resolve, cancel any time, vs $22.99/month Adobe subscription. Honest comparison.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://pulseedit.com/vs-premiere-auto-cut.html">
     <meta property="og:image" content="https://pulseedit.com/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Pulse Edit vs Premiere Pro Auto Edit — DaVinci Resolve Alternative">
-    <meta name="twitter:description" content="One-time €39.99 in DaVinci Resolve vs $22.99/month Adobe subscription. Honest comparison.">
+    <meta name="twitter:description" content="€13/month in DaVinci Resolve, cancel any time, vs $22.99/month Adobe subscription. Honest comparison.">
     <meta name="twitter:image" content="https://pulseedit.com/og-image.png">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -105,9 +105,18 @@
   "softwareVersion": "1.5.6",
   "offers": {
     "@type": "Offer",
-    "price": "39.99",
+    "price": "13.00",
     "priceCurrency": "EUR",
-    "availability": "https://schema.org/InStock"
+    "availability": "https://schema.org/InStock",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "13.00",
+      "priceCurrency": "EUR",
+      "billingDuration": 1,
+      "billingIncrement": 1,
+      "unitCode": "MON",
+      "valueAddedTaxIncluded": true
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -192,7 +201,7 @@
                 <a href="/pulse-edit-free.html">Pulse Edit</a>
                 <a href="/tutorial.html">Tutorial</a>
                 <a href="/blog/">Blog</a>
-                <a href="https://pulseedit.com/waitlist.html" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
+                <a href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
             </div>
         </div>
     </nav>
@@ -211,7 +220,7 @@
 
                 <p>Adobe <a href="https://www.adobe.com/products/premiere.html" target="_blank" rel="nofollow noopener">Premiere Pro</a> ships with a handful of "auto" features &mdash; Sequence from Selection, Auto Reframe, Speech to Text, scene edit detection, and the newer AI Edit features that Adobe keeps rolling into the Sensei toolkit. They're useful. But none of them solve the specific problem of <strong>cutting clips to the beat of music</strong>, and they all require a $22.99/month Premiere Pro subscription.</p>
 
-                <p>Pulse Edit is a one-time &euro;39.99 plugin for DaVinci Resolve &mdash; it works with every version, Free and Studio (18.5+), via OTIO export. It does one thing extremely well: it analyzes a music track, detects every beat, then takes clips from your Media Pool and cuts them to those beats, with an AI mood analyzer that adapts the edit pattern to the track.</p>
+                <p>Pulse Edit is a &euro;13/month plugin for DaVinci Resolve (VAT included, cancel any time) &mdash; it works with every version, Free and Studio (18.5+), via OTIO export. It does one thing extremely well: it analyzes a music track, detects every beat, then takes clips from your Media Pool and cuts them to those beats, with an AI mood analyzer that adapts the edit pattern to the track.</p>
 
                 <p>If you're an Adobe subscriber considering whether to switch your music-driven editing to Resolve, this comparison covers the real tradeoffs &mdash; cost, capability, ecosystem, and where each tool earns its keep.</p>
 
@@ -235,12 +244,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td><strong>Pricing</strong></td><td class="highlight-col"><strong>&euro;39.99 one-time</strong> (launch, normally &euro;64.99)</td><td>$22.99/month (Premiere Pro subscription)</td></tr>
+                        <tr><td><strong>Pricing</strong></td><td class="highlight-col"><strong>&euro;13/month</strong> (VAT included, cancel any time)</td><td>$22.99/month (Premiere Pro subscription)</td></tr>
                         <tr><td><strong>Cuts to beat</strong></td><td class="highlight-col check">Yes &mdash; AI beat detection</td><td class="cross">No native beat detection</td></tr>
-                        <tr><td><strong>Auto-edit clips</strong></td><td class="highlight-col check">Yes &mdash; 11 cut patterns</td><td class="check">Limited (Sequence from Selection)</td></tr>
+                        <tr><td><strong>Auto-edit clips</strong></td><td class="highlight-col check">Yes &mdash; 5 cut patterns + Auto pattern from mood</td><td class="check">Limited (Sequence from Selection)</td></tr>
                         <tr><td><strong>AI mood analyzer</strong></td><td class="highlight-col check">Yes &mdash; adapts the edit pattern to the music</td><td class="cross">No</td></tr>
-                        <tr><td><strong>Subscription model</strong></td><td class="highlight-col cross">No</td><td class="check">Yes &mdash; required</td></tr>
-                        <tr><td><strong>One-time purchase</strong></td><td class="highlight-col check">Yes</td><td class="cross">No</td></tr>
+                        <tr><td><strong>Chronological multicam order</strong></td><td class="highlight-col check">Yes &mdash; reads each clip's recorded time (needs synced clocks)</td><td class="cross">No</td></tr>
+                        <tr><td><strong>Billing</strong></td><td class="highlight-col check">&euro;13/month, cancel any time &mdash; no lock-in</td><td class="check">Yes &mdash; monthly subscription required</td></tr>
                         <tr><td><strong>DaVinci Resolve native</strong></td><td class="highlight-col check">Yes &mdash; Free + Studio, 18.5+</td><td class="cross">No</td></tr>
                         <tr><td><strong>Cross-platform</strong></td><td class="highlight-col check">macOS + Windows</td><td class="check">macOS + Windows</td></tr>
                     </tbody>
@@ -252,19 +261,19 @@
 
                 <h2>The Real Cost Comparison</h2>
 
-                <p>Pulse Edit is &euro;39.99 once, and it runs on the free version of DaVinci Resolve &mdash; so your total cost to a working setup can be just &euro;39.99 one-time, no recurring cost. (If you prefer DaVinci Resolve Studio, that's a separate $295 one-time license from Blackmagic, but Pulse Edit doesn't require it.)</p>
+                <p>Pulse Edit is &euro;13/month (VAT included), and it runs on the free version of DaVinci Resolve &mdash; so your total software cost to a working setup can be just &euro;13/month, and you can cancel yourself in one click any time. (If you prefer DaVinci Resolve Studio, that's a separate $295 one-time license from Blackmagic, but Pulse Edit doesn't require it.)</p>
 
-                <p>Premiere Pro Single App is $22.99/month or $263.88/year. Over three years that's $791.64. Over five years, $1,319.40. The cost gap widens forever, and you never own anything &mdash; cancel and you lose access to the project files in their native form.</p>
+                <p>Premiere Pro Single App is $22.99/month or $263.88/year &mdash; and that's just the price of the NLE, before you add any beat-sync capability, which Premiere doesn't have natively. Pulse Edit at &euro;13/month sits on top of a free DaVinci Resolve, so you're paying less per month and getting the one feature Premiere can't give you at all.</p>
 
-                <p>That doesn't make Premiere a bad deal. Adobe ships continuous updates and you get After Effects round-tripping that Resolve can't match. But the math matters: <strong>Pulse Edit on free DaVinci Resolve pays for itself against a Premiere subscription in under two months</strong>, and the gap only widens after that.</p>
+                <p>That doesn't make Premiere a bad deal. Adobe ships continuous updates and you get After Effects round-tripping that Resolve can't match. But the math matters: <strong>Pulse Edit on free DaVinci Resolve costs less per month than a Premiere subscription and adds beat-sync editing Premiere lacks</strong> &mdash; and there's no lock-in, cancel any time.</p>
 
                 <h2>When to Choose Pulse Edit</h2>
 
                 <ul>
                     <li>You make music videos, reels, TikToks, sports highlights, travel cuts &mdash; anything where music drives the edit</li>
-                    <li>You're already in DaVinci Resolve, or willing to switch for one-time licensing</li>
+                    <li>You're already in DaVinci Resolve, or willing to switch to run beat-sync on the free version</li>
                     <li>You want the music's beats detected and your Media Pool clips auto-cut onto them, with the AI mood analyzer adapting the pattern</li>
-                    <li>You hate paying monthly for tools you only use sometimes</li>
+                    <li>You want a beat-sync tool you can cancel yourself in one click, with a 14-day money-back guarantee and no lock-in</li>
                 </ul>
 
                 <h2>When Premiere Pro Auto Edit Wins</h2>
@@ -281,14 +290,14 @@
 
                 <h2>The Honest Bottom Line</h2>
 
-                <p>Premiere Pro is a comprehensive professional NLE with a deep AI feature set. Pulse Edit is a focused tool that does one specific thing better than Premiere does &mdash; cutting clips to music beats &mdash; in a different NLE that doesn't charge you every month.</p>
+                <p>Premiere Pro is a comprehensive professional NLE with a deep AI feature set. Pulse Edit is a focused tool that does one specific thing better than Premiere does &mdash; cutting clips to music beats &mdash; on top of a free NLE, for less per month and with no lock-in (cancel any time).</p>
 
                 <p>If music-driven editing is more than 30% of your work, the math and the workflow both favor switching. If your work is mostly dialogue, narrative, or compositing-heavy, stay on Premiere.</p>
 
                 <div class="cta-box">
-                    <h3>Get Pulse Edit &mdash; One-Time &euro;39.99</h3>
-                    <p>Cut clips to the beat in DaVinci Resolve. macOS + Windows. One-time &euro;39.99, no subscription &mdash; 14-day money-back guarantee.</p>
-                    <a href="https://pulseedit.com/waitlist.html" class="btn btn-green" data-track="buy-1">Get Pulse Edit &mdash; &euro;39.99</a>
+                    <h3>Get Pulse Edit &mdash; &euro;13/month</h3>
+                    <p>Cut clips to the beat in DaVinci Resolve. macOS + Windows. &euro;13/month, VAT included, cancel any time &mdash; 14-day money-back guarantee.</p>
+                    <a href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" class="btn btn-green" data-track="buy-1">Get Pulse Edit &mdash; &euro;13/month</a>
                 </div>
 
                 <div class="disclaimer">

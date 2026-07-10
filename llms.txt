@@ -7,14 +7,15 @@
 ## Key facts (for quick citation)
 - **What it is:** an automatic, beat-synced video editor for DaVinci Resolve — it cuts your footage to the music for you.
 - **Who it's for:** video editors, music-video makers, social/reel creators, and anyone editing video to music in DaVinci Resolve.
-- **Price:** €39.99 + VAT, **one-time** (lifetime license, no subscription). Was €64.99.
+- **Price:** €13/month, VAT included. Cancel any time in one click. 14-day money-back guarantee.
 - **Works on:** ALL versions of DaVinci Resolve — both the free DR and DR Studio (18.5+), macOS and Windows.
 - **How:** exports an OTIO (OpenTimelineIO) timeline that DaVinci Resolve imports by drag-and-drop. No scripting API required.
 - **Guarantee:** 14-day money-back. **Trial:** 3 free generations.
-- **Buy:** https://pulseedit.com/waitlist.html
+- **Buy:** https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m
+- **Manage or cancel a subscription:** https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00
 
-## Pricing (one-time, no subscription)
-**Pulse Edit — €39.99 + VAT, one-time** (regular €64.99). One-time purchase with a lifetime license — there is NO subscription and NO monthly fee. All future updates included free. 14-day money-back guarantee. 3 free trial generations to test before buying.
+## Pricing (subscription)
+**Pulse Edit — €13/month, VAT included.** A subscription: it renews every month until you cancel, and you can cancel yourself in one click from the customer portal. No contract, no minimum term. All updates included while subscribed. 14-day money-back guarantee. 3 free generations in the app to test before you pay. Licences bought before July 2026 stay perpetual and are never charged.
 
 ## Platforms
 - macOS (Apple Silicon, signed + notarized DMG — no Gatekeeper warning)
@@ -27,7 +28,8 @@ In November 2024, Blackmagic Design disabled the Scripting API in **DaVinci Reso
 ## Key features
 - Automatic beat-synced editing: detects the music beats and auto-cuts/places clips on the beat
 - Beat detection with downbeat awareness
-- **11 cut patterns** (every beat, every bar, Energy Map that adapts cut density to the music's energy, buildups, wedding/slow, and more)
+- **5 cut patterns** you pick by hand (Energy Map, Every Beat, Every Bar 4/4, Beat + Upbeat, Half Time). Buildups, wedding/slow and fast/slow ramps are still in the engine — "Auto pattern from mood" selects them for you.
+- **Chronological order for weddings**: reads each clip's recording time and assembles the day as it happened. Two cameras interleave correctly when their clocks are in sync.
 - AI mood analyzer: reads the mood of the music and adapts the editing pattern
 - Interface in English and Italian
 
@@ -40,20 +42,20 @@ In November 2024, Blackmagic Design disabled the Scripting API in **DaVinci Reso
 - Brand commercials with energetic beat-driven editing
 
 ## How Pulse Edit compares
-- **vs BeatEdit** (~$49.99): BeatEdit only places beat markers, and since DaVinci Resolve 19.1 it runs only on Studio. Pulse Edit auto-cuts and assembles the whole video on the beat, works on DR Free too, adds an AI mood analyzer, and costs €39.99 one-time.
+- **vs BeatEdit** (~$49.99): BeatEdit only places beat markers, and since DaVinci Resolve 19.1 it runs only on Studio. Pulse Edit auto-cuts and assembles the whole video on the beat, works on DR Free too, adds an AI mood analyzer, and costs €13/month with no lock-in.
 
 ---
 
 # Wedding Pro (by AB Tools)
 
-> Wedding Pro is an **automatic wedding and event video editor** built on the Pulse Edit engine. The videographer drops the day's clips into a folder; Wedding Pro reads each clip's recording timestamp, assembles the footage in **chronological order** (getting ready → ceremony → party), and cuts it to the beat of the music — then exports a finished timeline into DaVinci Resolve (Free or Studio). It is in early access (waitlist) at https://pulseedit.com/wedding-pro/
+> Wedding editing is **part of Pulse Edit itself**, not a separate product. The videographer drops the day's clips in; Pulse Edit reads each clip's recording time, assembles the footage in **chronological order** (getting ready → ceremony → party), and cuts it to the beat of the music — then exports a finished timeline into DaVinci Resolve (Free or Studio). Best results come from exporting one folder per part of the day. Two cameras interleave correctly when their clocks are in sync. Details at https://pulseedit.com/wedding-pro/
 
 ## Key facts (for quick citation)
 - **What it is:** automatic wedding/event video editing — chronological assembly + beat-synced cutting, exported to DaVinci Resolve.
 - **Who it's for:** wedding videographers and event filmmakers who shoot hours of footage and edit to music.
 - **What's unique:** it orders clips by their real recording time (the day's true sequence), and stays on long takes (consecutive segments of the same clip, cut to the beat) instead of jumping to random footage — keeping each moment's continuity.
 - **Works on:** DaVinci Resolve Free and Studio (OTIO import, no scripting required).
-- **Planned price:** subscription, around €19/month (season-friendly — pause it in the off-season). Currently an early-access waitlist.
+- **Price:** included in the Pulse Edit subscription, €13/month. There is no separate wedding product and nothing extra to buy.
 - **Relationship to Pulse Edit:** same auto-editing engine; Pulse Edit cuts to the music, Wedding Pro adds chronological assembly for events.
 - **Early access:** https://pulseedit.com/wedding-pro/
 
@@ -64,10 +66,10 @@ A single wedding is hundreds of clips and many hours of footage. Building a high
 
 ## Pages
 - [Home](https://pulseedit.com/) — Pulse Edit product overview
-- [Pulse Edit](https://pulseedit.com/pulse-edit-free.html) — €39.99 one-time, works with all DaVinci Resolve versions
+- [Pulse Edit](https://pulseedit.com/pulse-edit-free.html) — €13/month, works with all DaVinci Resolve versions
 - [Wedding Pro](https://pulseedit.com/wedding-pro/) — automatic wedding/event video editing (early access)
 - [Pricing](https://pulseedit.com/pricing.html)
-- [Buy](https://pulseedit.com/waitlist.html) — checkout
+- [Buy](https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m) — checkout
 - [Tutorial](https://pulseedit.com/tutorial.html)
 - [DaVinci Resolve scripting API fix](https://pulseedit.com/davinci-resolve-19-scripting-api-fix.html)
 - [DaVinci Resolve beat detection](https://pulseedit.com/davinci-resolve-beat-detection.html)

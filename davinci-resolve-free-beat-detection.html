@@ -17,7 +17,7 @@
     if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
     </script>
     <title>DaVinci Resolve Free Beat Detection — Pulse Edit</title>
-    <meta name="description" content="Beat detection in DR Free via OTIO export — no scripting API needed. Pulse Edit analyses music locally and exports a timeline. €39.99 launch.">
+    <meta name="description" content="Beat detection in DR Free via OTIO export — no scripting API needed. Pulse Edit analyses music locally and exports a timeline. €13/month, cancel any time.">
     <meta name="keywords" content="davinci resolve free beat detection, beat detection davinci resolve free, davinci resolve free plugin, beat sync davinci resolve free, free davinci resolve beat plugin">
     <meta property="og:title" content="DaVinci Resolve Free Beat Detection — Pulse Edit">
     <meta property="og:description" content="Beat detection in DaVinci Resolve Free via OTIO export. Works since Blackmagic disabled scripting in DR Free 19.1.">
@@ -26,7 +26,7 @@
     <meta property="og:image" content="https://pulseedit.com/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="DaVinci Resolve Free Beat Detection — Pulse Edit">
-    <meta name="twitter:description" content="Beat detection in DaVinci Resolve Free via OTIO export. €39.99 launch.">
+    <meta name="twitter:description" content="Beat detection in DaVinci Resolve Free via OTIO export. €13/month, cancel any time.">
     <meta name="twitter:image" content="https://pulseedit.com/og-image.png">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -51,10 +51,19 @@
         "operatingSystem": ["macOS 12+", "Windows 10", "Windows 11"],
         "offers": {
             "@type": "Offer",
-            "price": "39.99",
+            "price": "13.00",
             "priceCurrency": "EUR",
             "availability": "https://schema.org/InStock",
-            "url": "https://pulseedit.com/waitlist.html"
+            "url": "https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m",
+            "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "13.00",
+                "priceCurrency": "EUR",
+                "billingDuration": 1,
+                "billingIncrement": 1,
+                "unitCode": "MON",
+                "valueAddedTaxIncluded": true
+            }
         },
         "softwareRequirements": "DaVinci Resolve Free or Studio 18.5+",
         "author": { "@type": "Organization", "name": "AB Tools" }
@@ -97,7 +106,7 @@
                 "name": "Is there a free beat-detection plugin for DaVinci Resolve?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Older free options such as Reactor-distributed scripts and BeatEdit's Resolve script relied on the scripting bridge that DaVinci Resolve Free 19.1 removed, so they no longer work on the free edition. Pulse Edit is a paid app, 29 euro one-time with a 14-day money-back guarantee, that works specifically because it does not use scripting: it exports a standard OTIO timeline that DR Free imports natively."
+                    "text": "Older free options such as Reactor-distributed scripts and BeatEdit's Resolve script relied on the scripting bridge that DaVinci Resolve Free 19.1 removed, so they no longer work on the free edition. Pulse Edit is a paid app, 13 euro per month (VAT included) with a 14-day money-back guarantee and cancel-any-time in one click, that works specifically because it does not use scripting: it exports a standard OTIO timeline that DR Free imports natively."
                 }
             },
             {
@@ -206,7 +215,7 @@
                 <a href="/">Pulse Edit Free</a>
                 <a href="/tutorial.html">Tutorial</a>
                 <a href="/blog/">Blog</a>
-                <a href="https://pulseedit.com/waitlist.html" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
+                <a href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
             </div>
         </div>
     </nav>
@@ -223,7 +232,7 @@
                 <a href="/pulse-edit-free.html" class="btn btn-primary">Get Pulse Edit Free →</a>
                 <a href="/tutorial.html#free" class="btn btn-secondary">See the DR Free tutorial</a>
             </div>
-            <p style="color:#9ca3af;font-size:13px;margin-top:14px;">€39.99 launch · one-time payment · macOS &amp; Windows</p>
+            <p style="color:#9ca3af;font-size:13px;margin-top:14px;">€13/month, VAT included · cancel any time · macOS &amp; Windows</p>
         </div>
     </section>
 
@@ -282,7 +291,7 @@
                 <p>Run a standalone beat-detection app that exports an OpenTimelineIO (OTIO) file, then import that file into Resolve. With Pulse Edit: drag your music and clips into the app, pick a cut pattern, export the OTIO, and in Resolve choose <em>File → Import → Timeline → OpenTimelineIO</em>. The clips arrive already cut to the beat with markers at every detected hit. No scripting, no Studio licence.</p>
 
                 <h3>Is there a free beat-detection plugin for DaVinci Resolve?</h3>
-                <p>Older free options (Reactor-distributed scripts, BeatEdit's Resolve script) relied on the scripting bridge that DR Free 19.1 removed, so they no longer work on the free edition. Pulse Edit is a paid app (€39.99 one-time, with a 14-day money-back guarantee) that works specifically <em>because</em> it does not use scripting — it exports a standard OTIO timeline that DR Free imports natively.</p>
+                <p>Older free options (Reactor-distributed scripts, BeatEdit's Resolve script) relied on the scripting bridge that DR Free 19.1 removed, so they no longer work on the free edition. Pulse Edit is a paid app (€13/month, VAT included, with a 14-day money-back guarantee and cancel-any-time in one click) that works specifically <em>because</em> it does not use scripting — it exports a standard OTIO timeline that DR Free imports natively.</p>
 
                 <h3>Why did my DaVinci Resolve beat plugin stop working?</h3>
                 <p>Because Blackmagic restricted the external scripting API to Studio starting in DaVinci Resolve 19.1 (November 2024). Any plugin that talked to Resolve through <code>DaVinciResolveScript</code> silently fails on the free edition now. The fix is a tool that does not depend on scripting at all — see the <a href="/davinci-resolve-19-scripting-api-fix.html">DR 19.1 scripting change explainer</a>.</p>
@@ -294,7 +303,7 @@
                 <p>The whole loop is three real steps:</p>
                 <ul>
                     <li><strong>1. Drag music + clips into Pulse Edit.</strong> Folder or individual files, any FPS, any codec Resolve already accepts.</li>
-                    <li><strong>2. Pick a cut pattern.</strong> 11 cut patterns (including Energy Map) plus the AI mood analyzer. The waveform preview shows you the placement before you commit.</li>
+                    <li><strong>2. Pick a cut pattern.</strong> 5 cut patterns (Energy Map, Every Beat, Every Bar 4/4, Beat + Upbeat, Half Time) plus "Auto pattern from mood", which picks the pattern for you from the song's mood. The waveform preview shows you the placement before you commit.</li>
                     <li><strong>3. Export OTIO, import in Resolve.</strong> <em>File → Import Timeline → OpenTimelineIO</em>. The clips land cut to the beat, with timeline markers at every detected hit.</li>
                 </ul>
                 <p>Step-by-step screenshots are in the <a href="/tutorial.html#free">DR Free tutorial</a>.</p>
@@ -305,9 +314,9 @@
 
                 <h2>What you get with the launch price</h2>
                 <ul>
-                    <li><strong>€39.99 one-time</strong> (regular €64.99). Lifetime updates included.</li>
+                    <li><strong>€13/month, VAT included.</strong> Cancel any time in one click — no lock-in — with a 14-day money-back guarantee. All updates included while subscribed.</li>
                     <li>macOS 12+ (Apple Silicon) and Windows 10/11 builds.</li>
-                    <li>11 cut patterns (including Energy Map), AI mood analyzer, manual waveform editing.</li>
+                    <li>5 cut patterns (Energy Map, Every Beat, Every Bar 4/4, Beat + Upbeat, Half Time), "Auto pattern from mood", manual waveform editing, and chronological ordering for weddings (reads each clip's recording time; two cameras interleave if their clocks are synced).</li>
                 </ul>
             </div>
         </div>
@@ -316,7 +325,7 @@
     <section class="seo-cta-band">
         <div class="container">
             <h2>Beat detection back in DaVinci Resolve Free</h2>
-            <p>One-time €39.99 launch price. OTIO export means it works in Free and Studio. No scripting required.</p>
+            <p>€13/month, VAT included — cancel any time in one click. OTIO export means it works in Free and Studio. No scripting required.</p>
             <a href="/pulse-edit-free.html" class="btn btn-primary">Get Pulse Edit Free →</a>
             <p class="price-strip">License delivered by email · 14-day refund window</p>
         </div>
