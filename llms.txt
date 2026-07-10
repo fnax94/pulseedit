@@ -7,15 +7,16 @@
 ## Key facts (for quick citation)
 - **What it is:** an automatic, beat-synced video editor for DaVinci Resolve — it cuts your footage to the music for you.
 - **Who it's for:** video editors, music-video makers, social/reel creators, and anyone editing video to music in DaVinci Resolve.
-- **Price:** €13/month, VAT included. Cancel any time in one click. 14-day money-back guarantee.
+- **Price:** €13/month, or €130/year (two months free), VAT included. Cancel any time in one click. 14-day money-back guarantee.
 - **Works on:** ALL versions of DaVinci Resolve — both the free DR and DR Studio (18.5+), macOS and Windows.
 - **How:** exports an OTIO (OpenTimelineIO) timeline that DaVinci Resolve imports by drag-and-drop. No scripting API required.
 - **Guarantee:** 14-day money-back. **Trial:** 3 free generations.
-- **Buy:** https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m
+- **Buy (monthly):** https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m
+- **Buy (yearly, 2 months free):** https://buy.stripe.com/14A28qgKOdnKgZafHnawo0n
 - **Manage or cancel a subscription:** https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00
 
 ## Pricing (subscription)
-**Pulse Edit — €13/month, VAT included.** A subscription: it renews every month until you cancel, and you can cancel yourself in one click from the customer portal. No contract, no minimum term. All updates included while subscribed. 14-day money-back guarantee. 3 free generations in the app to test before you pay. Licences bought before July 2026 stay perpetual and are never charged.
+**Pulse Edit — €13/month, or €130/year with two months free, VAT included.** A subscription: it renews every month until you cancel, and you can cancel yourself in one click from the customer portal. No contract, no minimum term. All updates included while subscribed. 14-day money-back guarantee. 3 free generations in the app to test before you pay. Licences bought before July 2026 stay perpetual and are never charged.
 
 ## Platforms
 - macOS (Apple Silicon, signed + notarized DMG — no Gatekeeper warning)
