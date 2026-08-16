@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help shape Pulse Edit — 2-minute survey</title>
+    <meta name="description" content="Tell us what would make Pulse Edit more useful for you. Five quick questions, two minutes.">
+    <link rel="canonical" href="https://pulseedit.com/feedback.html">
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#f3efe6">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+      :root{
+        --paper:#f3efe6; --paper-2:#ece7da; --ink:#17150f; --ink-soft:#2c2820;
+        --muted:#6c6557; --faint:#9a9384; --accent:#b8843f; --accent-ink:#9c6b2c;
+        --line:rgba(23,21,15,0.16); --line-strong:rgba(23,21,15,0.42);
+        --font-display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;
+        --font-text:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
+        --font-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+        --maxw:760px; --pad:clamp(20px,5vw,64px);
+      }
+      *{box-sizing:border-box;}
+      html{-webkit-text-size-adjust:100%;}
+      body{
+        margin:0; background-color:var(--paper);
+        background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+        color:var(--ink); font-family:var(--font-text); font-size:17px; line-height:1.6;
+        -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden;
+      }
+      a{color:inherit; text-decoration:none;}
+      ::selection{background:var(--accent); color:var(--paper);}
+      .wrap{max-width:var(--maxw); margin:0 auto; padding-inline:var(--pad);}
+
+      .nav{position:sticky; top:0; z-index:50; background:color-mix(in srgb,var(--paper) 86%,transparent); backdrop-filter:saturate(1.1) blur(8px); border-bottom:1px solid var(--line);}
+      .nav__in{display:flex; align-items:center; justify-content:space-between; height:64px; max-width:var(--maxw); margin:0 auto; padding-inline:var(--pad);}
+      .brand{display:inline-flex; align-items:baseline; gap:9px; font-family:var(--font-display); font-weight:800; font-size:19px; letter-spacing:-0.03em;}
+      .brand .dot{width:8px; height:8px; border-radius:50%; background:var(--accent); display:inline-block; transform:translateY(-1px);}
+      .nav__back{font-family:var(--font-mono); font-size:12px; letter-spacing:0.04em; text-transform:uppercase; color:var(--muted);}
+      .nav__back:hover{color:var(--ink);}
+
+      .kicker{font-family:var(--font-mono); font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent-ink); display:inline-flex; align-items:center; gap:10px;}
+      .kicker::before{content:""; width:26px; height:1px; background:var(--accent); display:inline-block;}
+      h1{font-family:var(--font-display); font-weight:800; margin:18px 0 0; font-size:clamp(34px,6vw,54px); line-height:1.02; letter-spacing:-0.03em;}
+      .lede{font-size:clamp(16px,1.6vw,19px); line-height:1.55; color:var(--ink-soft); max-width:56ch; margin-top:18px;}
+
+      .hero{padding-top:clamp(44px,7vw,84px); padding-bottom:clamp(20px,3vw,36px);}
+
+      form{padding-bottom:clamp(60px,8vw,100px);}
+      .q{border-top:1px solid var(--line); padding:26px 0 30px;}
+      .q__n{font-family:var(--font-mono); font-size:12px; color:var(--accent-ink); letter-spacing:0.08em;}
+      .q__t{font-family:var(--font-display); font-weight:700; font-size:clamp(18px,2vw,22px); letter-spacing:-0.015em; margin-top:6px;}
+      .q__hint{color:var(--muted); font-size:14px; margin-top:4px;}
+      .opts{margin-top:16px; display:flex; flex-direction:column; gap:10px;}
+      .opt{display:flex; align-items:flex-start; gap:12px; background:var(--paper-2); border:1px solid var(--line); border-radius:6px; padding:13px 15px; cursor:pointer; transition:border-color .12s ease;}
+      .opt:hover{border-color:var(--line-strong);}
+      .opt input{margin-top:4px; accent-color:var(--accent-ink); width:16px; height:16px; flex:none; cursor:pointer;}
+      .opt span{font-size:16px; line-height:1.45;}
+      textarea, input[type=email], input[type=text].other{width:100%; background:var(--paper-2); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink); font:inherit; font-size:16px; padding:13px 15px; margin-top:16px;}
+      textarea{min-height:110px; resize:vertical;}
+      textarea:focus, input:focus{outline:none; border-color:var(--accent);}
+      input[type=text].other{margin-top:10px; display:none; font-size:15px; padding:10px 13px;}
+      .hp{position:absolute; left:-9999px; width:1px; height:1px; opacity:0;}
+
+      .btn{display:inline-flex; align-items:center; justify-content:center; gap:9px; font-family:var(--font-text); font-weight:600; font-size:16px; padding:15px 30px; border-radius:6px; cursor:pointer; border:1px solid var(--ink); background:var(--ink); color:var(--paper); transition:transform .14s ease, background .14s ease; margin-top:8px;}
+      .btn:hover{background:var(--accent); border-color:var(--accent);}
+      .btn:active{transform:translateY(1px);}
+      .btn[disabled]{opacity:0.5; cursor:default;}
+      .msg{margin-top:16px; font-size:15px; font-weight:600; min-height:1.2em;}
+      .msg.err{color:#b4442f;}
+
+      .done{display:none; padding:clamp(50px,8vw,90px) 0 clamp(80px,10vw,120px);}
+      .done h2{font-family:var(--font-display); font-weight:800; font-size:clamp(28px,4vw,40px); letter-spacing:-0.025em; margin:14px 0 0;}
+      .done p{color:var(--ink-soft); max-width:52ch;}
+
+      .footer{border-top:1px solid var(--ink); background:var(--paper-2);}
+      .footer .wrap{padding-block:34px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; align-items:center;}
+      .footer a{color:var(--muted); font-size:14px;} .footer a:hover{color:var(--ink);}
+    </style>
+</head>
+<body>
+
+    <header class="nav">
+      <div class="nav__in">
+        <a class="brand" href="/">Pulse Edit<span class="dot"></span></a>
+        <a class="nav__back" href="/">← Home</a>
+      </div>
+    </header>
+
+    <section class="hero wrap" id="hero">
+      <span class="kicker">2 minutes · 5 questions</span>
+      <h1>Help shape Pulse Edit</h1>
+      <p class="lede">You've actually used Pulse Edit — that makes your opinion worth more than any analytics dashboard. Nothing to sign, no wrong answers: just tell us what would make it better for you.</p>
+    </section>
+
+    <form class="wrap" id="surveyForm" novalidate>
+      <input type="text" class="hp" name="website" tabindex="-1" autocomplete="off">
+
+      <div class="q">
+        <div class="q__n">01</div>
+        <div class="q__t">What do you mostly edit?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="usage" value="Music videos / reels"><span>Music videos, reels &amp; shorts</span></label>
+          <label class="opt"><input type="radio" name="usage" value="YouTube / vlogs"><span>YouTube videos &amp; vlogs</span></label>
+          <label class="opt"><input type="radio" name="usage" value="Client work (weddings, events)"><span>Client work — weddings, events, commercial</span></label>
+          <label class="opt"><input type="radio" name="usage" value="Mostly exploring"><span>I was mostly exploring what it can do</span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q__n">02</div>
+        <div class="q__t">How often did Pulse Edit end up in your workflow?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="frequency" value="Most of my edits"><span>Most of my edits</span></label>
+          <label class="opt"><input type="radio" name="frequency" value="A few times a month"><span>A few times a month</span></label>
+          <label class="opt"><input type="radio" name="frequency" value="A few times total"><span>A few times in total</span></label>
+          <label class="opt"><input type="radio" name="frequency" value="Almost never"><span>Almost never — it didn't quite fit</span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q__n">03</div>
+        <div class="q__t">What would make it more useful for you?</div>
+        <div class="q__hint">Pick as many as you like.</div>
+        <div class="opts">
+          <label class="opt"><input type="checkbox" name="improve" value="Smarter clip selection"><span>Smarter clip selection — the right shot on the right beat</span></label>
+          <label class="opt"><input type="checkbox" name="improve" value="More editing styles / cut patterns"><span>More editing styles &amp; cut patterns</span></label>
+          <label class="opt"><input type="checkbox" name="improve" value="Better beat detection"><span>Better beat detection</span></label>
+          <label class="opt"><input type="checkbox" name="improve" value="Support for other editors"><span>Support for other editors (Premiere, Final Cut, CapCut…)</span></label>
+          <label class="opt"><input type="checkbox" name="improve" value="Simpler workflow / UI"><span>A simpler workflow or interface</span></label>
+          <label class="opt"><input type="checkbox" name="improve" value="Pricing / plan options"><span>Different pricing or plan options</span></label>
+          <label class="opt"><input type="checkbox" name="improve" value="Other" id="improveOther"><span>Something else</span></label>
+        </div>
+        <input type="text" class="other" id="improveOtherText" placeholder="Tell us what…">
+      </div>
+
+      <div class="q">
+        <div class="q__n">04</div>
+        <div class="q__t">If you could change or add one thing, what would it be?</div>
+        <textarea name="one_thing" placeholder="Anything goes — a feature, a fix, a wish…"></textarea>
+      </div>
+
+      <div class="q">
+        <div class="q__n">05</div>
+        <div class="q__t">Did anything feel confusing or slow you down?</div>
+        <div class="q__hint">Optional — honest is best.</div>
+        <textarea name="friction" placeholder="Setup, results, docs, anything…"></textarea>
+      </div>
+
+      <div class="q">
+        <div class="q__n">·</div>
+        <div class="q__t" style="font-size:17px;">Want us to follow up on your idea?</div>
+        <div class="q__hint">Optional — leave your email only if you'd like a reply.</div>
+        <input type="email" name="email" placeholder="you@example.com" autocomplete="email">
+      </div>
+
+      <button class="btn" type="submit" id="sendBtn">Send feedback →</button>
+      <div class="msg" id="formMsg"></div>
+    </form>
+
+    <section class="done wrap" id="doneBox">
+      <span class="kicker">Received</span>
+      <h2>Thank you — this genuinely helps.</h2>
+      <p class="lede">Every answer gets read by a human (the same one who builds Pulse Edit). If you left your email, you'll hear back soon.</p>
+      <p style="margin-top:26px;"><a class="btn" href="/">Back to pulseedit.com</a></p>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap">
+        <a class="brand" href="/">Pulse Edit<span class="dot"></span></a>
+        <a href="mailto:support@pulseedit.com">support@pulseedit.com</a>
+      </div>
+    </footer>
+
+    <script>
+      (function(){
+        var form = document.getElementById('surveyForm');
+        var msg = document.getElementById('formMsg');
+        var btn = document.getElementById('sendBtn');
+        var otherCb = document.getElementById('improveOther');
+        var otherTx = document.getElementById('improveOtherText');
+        otherCb.addEventListener('change', function(){ otherTx.style.display = otherCb.checked ? 'block' : 'none'; if(otherCb.checked) otherTx.focus(); });
+
+        form.addEventListener('submit', function(ev){
+          ev.preventDefault();
+          if (form.website.value) return; // honeypot
+          var data = new FormData(form);
+          var improve = data.getAll('improve');
+          if (otherCb.checked && otherTx.value.trim()) {
+            improve = improve.filter(function(v){ return v !== 'Other'; });
+            improve.push('Other: ' + otherTx.value.trim());
+          }
+          var payload = {
+            usage: data.get('usage') || '',
+            frequency: data.get('frequency') || '',
+            improve: improve,
+            one_thing: (data.get('one_thing') || '').trim(),
+            friction: (data.get('friction') || '').trim(),
+            email: (data.get('email') || '').trim(),
+            page: 'feedback.html',
+            ts: new Date().toISOString()
+          };
+          var hasContent = payload.usage || payload.frequency || improve.length || payload.one_thing || payload.friction;
+          if (!hasContent) { msg.textContent = 'Pick at least one answer before sending.'; msg.className = 'msg err'; return; }
+          btn.disabled = true; msg.textContent = ''; msg.className = 'msg';
+          fetch('https://license-server.abtools.workers.dev/product-feedback', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          }).then(function(r){
+            if (!r.ok) throw new Error('bad status');
+            form.style.display = 'none';
+            document.getElementById('hero').style.display = 'none';
+            document.getElementById('doneBox').style.display = 'block';
+            window.scrollTo(0, 0);
+          }).catch(function(){
+            btn.disabled = false;
+            msg.textContent = 'Something went wrong — please try again, or email support@pulseedit.com.';
+            msg.className = 'msg err';
+          });
+        });
+      })();
+    </script>
+</body>
+</html>
