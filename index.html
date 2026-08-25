@@ -97,6 +97,22 @@
       }, true);
       document.getElementById('dl-close').addEventListener('click', chiudi);
       document.addEventListener('keydown', function(e){ if (e.key === 'Escape') chiudi(); });
+      // link PRODOTTI nella nav (post-hydration: React non ritocca questi parent)
+      function aggiungiProdotti(){
+        var punti = [document.querySelector('.nav__links'), document.querySelector('.mobile')];
+        punti.forEach(function(p){
+          if (!p || p.querySelector('.px-prod')) return;
+          var pc = document.createElement('a');
+          pc.href = '/pulse-color.html'; pc.textContent = 'Pulse Color';
+          pc.className = 'px-prod'; pc.style.color = '#c2371d'; pc.style.fontWeight = '600';
+          p.insertBefore(pc, p.firstChild);
+          var pe = document.createElement('a');
+          pe.href = '/'; pe.textContent = 'Pulse Edit'; pe.className = 'px-prod';
+          p.insertBefore(pe, pc);
+        });
+      }
+      if (document.readyState === 'complete') setTimeout(aggiungiProdotti, 400);
+      else window.addEventListener('load', function(){ setTimeout(aggiungiProdotti, 400); });
     })();
     </script>
 
