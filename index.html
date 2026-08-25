@@ -1,120 +1,159 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script>document.documentElement.classList.add("js");</script>
-
-    <title>Pulse Edit — Auto-Edit Videos to the Beat in DaVinci Resolve</title>
-    <meta
-      name="description"
-      content="Pulse Edit auto-edits videos to the beat of music in DaVinci Resolve, and assembles weddings in chronological order. Works with ALL DaVinci Resolve versions (Free and Studio, 18.5+) via OTIO export. €13/month, cancel any time, 14-day money-back."
-    />
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadGA() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-JV9DJHLCY2');
+    }
+    if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
+    </script>
+    <title>Pulse Edit &amp; Pulse Color — Auto-Editing &amp; Film Color for DaVinci Resolve</title>
+    <meta name="description" content="The Pulse suite for DaVinci Resolve, Free and Studio: Pulse Edit cuts your footage to the beat of the music, Pulse Color grades log footage to a film look with Pro-Mist and halation filters. One license, €13/month." />
     <link rel="canonical" href="https://pulseedit.com/" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#f3efe6" />
-
-    <!-- Open Graph / Twitter -->
-    <meta property="og:title" content="Pulse Edit — Auto-Edit Videos to the Beat in DaVinci Resolve" />
-    <meta property="og:description" content="Detects every beat in your music and cuts your footage to it, inside DaVinci Resolve — or lays a wedding out in chronological order. Works on DR Free and Studio. €13/month." />
+    <meta property="og:title" content="Pulse Edit &amp; Pulse Color — the DaVinci Resolve Suite" />
+    <meta property="og:description" content="Edit to the beat. Grade to a look. Two tools, one license, €13/month — works on DaVinci Resolve Free and Studio." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://pulseedit.com/" />
     <meta property="og:image" content="https://pulseedit.com/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Pulse Edit — Auto-Edit Videos to the Beat in DaVinci Resolve" />
-    <meta name="twitter:description" content="Detects every beat and cuts your footage to it, inside DaVinci Resolve. Chronological order for weddings. DR Free and Studio. €13/month." />
-    <meta name="twitter:image" content="https://pulseedit.com/og-image.png" />
-
-    <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
-
-    <!-- Fonts: editorial pairing — Bricolage Grotesque (display) · Hanken Grotesk (text) · IBM Plex Mono (technical) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Structured data (ported, kept accurate) -->
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" crossorigin href="/assets/index-dsPNw69o.css" />
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebSite","name":"Pulse Edit","url":"https://pulseedit.com","description":"Auto-edit videos to the beat of music in DaVinci Resolve. Beat detection, auto-cut, AI mood analyzer.","publisher":{"@type":"Organization","name":"AB Tools"}}
+    {"@context":"https://schema.org","@type":"WebSite","name":"Pulse — Pulse Edit & Pulse Color","url":"https://pulseedit.com","description":"The Pulse suite for DaVinci Resolve: beat-synced auto-editing and film-look color grading. One license.","publisher":{"@type":"Organization","name":"AB Tools"}}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Pulse Edit","alternateName":"Pulse Edit for DaVinci Resolve","description":"Beat-synced automatic editing for DaVinci Resolve. Detects the beats in your music and auto-cuts and places your clips on the beat, with 5 cut patterns and AI mood. Also assembles weddings in chronological order. Works with all DaVinci Resolve versions (Free and Studio, 18.5+) via OTIO export.","applicationCategory":"MultimediaApplication","operatingSystem":["macOS 12+ (Apple Silicon, M1 or later)","Windows 10","Windows 11"],"offers":[{"@type":"Offer","name":"Monthly","price":"13.00","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://pulseedit.com/","priceSpecification":{"@type":"UnitPriceSpecification","price":"13.00","priceCurrency":"EUR","billingDuration":1,"billingIncrement":1,"unitCode":"MON","valueAddedTaxIncluded":true}},{"@type":"Offer","name":"Yearly","price":"130.00","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://pulseedit.com/","priceSpecification":{"@type":"UnitPriceSpecification","price":"130.00","priceCurrency":"EUR","billingDuration":1,"billingIncrement":1,"unitCode":"ANN","valueAddedTaxIncluded":true}}],"softwareRequirements":"DaVinci Resolve Free or Studio 18.5+","author":{"@type":"Organization","name":"AB Tools"}}
+    {"@context":"https://schema.org","@type":"Organization","name":"AB Tools","url":"https://pulseedit.com","logo":"https://pulseedit.com/og-image.png","description":"Software studio building tools for creative professionals — the Pulse suite for DaVinci Resolve (Pulse Edit, Pulse Color).","founder":{"@type":"Person","name":"Abramo Benedetti"}}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I auto-edit videos to the beat in DaVinci Resolve?","acceptedAnswer":{"@type":"Answer","text":"Pulse Edit detects beats in your music, then automatically cuts and places your clips on the timeline synced to every beat. Choose from 5 cut patterns including Energy Map, which adapts cut density to the music's energy. €13 per month, works with ALL DaVinci Resolve versions (Free and Studio, 18.5 or later) via OTIO export. You do NOT need DaVinci Resolve Studio."}},{"@type":"Question","name":"What is the best BeatEdit alternative for DaVinci Resolve?","acceptedAnswer":{"@type":"Answer","text":"BeatEdit for DaVinci Resolve ($49.99) detects beats and places markers — and since DaVinci Resolve 19.1 it runs only on the Studio version. Pulse Edit auto-cuts and assembles your clips on the beat with 5 cut patterns and AI mood, works on DaVinci Resolve Free too via OTIO, and costs €13 per month with no lock-in."}},{"@type":"Question","name":"Do I need DaVinci Resolve Studio?","acceptedAnswer":{"@type":"Answer","text":"No. Pulse Edit (€13/month) works with ALL versions of DaVinci Resolve, both the free DR and DR Studio, 18.5 or later. It uses OTIO timeline export, so no scripting API is required."}},{"@type":"Question","name":"Is this a subscription?","acceptedAnswer":{"@type":"Answer","text":"Yes. €13 per month, or €130 per year with two months free. Cancel any time in one click from the customer portal. No contract and no minimum term. Licences bought before July 2026 remain perpetual and are unaffected."}},{"@type":"Question","name":"What if it doesn't work on my setup?","acceptedAnswer":{"@type":"Answer","text":"Pulse Edit comes with a 14-day money-back guarantee. If it doesn't work on your DaVinci Resolve setup, email support@pulseedit.com — we'll fix it or refund you, no questions asked."}},{"@type":"Question","name":"What platforms are supported?","acceptedAnswer":{"@type":"Answer","text":"macOS: Apple Silicon only (M1 or later) — Intel Macs are NOT supported. macOS 12+, signed and notarized by Apple. Windows 10/11 (64-bit). Pulse Edit works with all DaVinci Resolve versions (Free and Studio), 18.5 or later."}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is included in the Pulse license?","acceptedAnswer":{"@type":"Answer","text":"One Pulse license (€13/month or €130/year) includes both tools: Pulse Edit, which detects the beats in your music and auto-cuts your clips to them, and Pulse Color, an OFX node that grades camera log footage to a film look with stackable optical filter FX. One key activates everything, on macOS and Windows."}},
+    {"@type":"Question","name":"Do Pulse Edit and Pulse Color work on DaVinci Resolve Free?","acceptedAnswer":{"@type":"Answer","text":"Yes, both. Pulse Edit exports an OTIO timeline that DaVinci Resolve Free imports natively — no scripting API needed. Pulse Color is a standard OpenFX plugin, which Resolve Free supports. Both also work on Studio, 18.5 or later."}},
+    {"@type":"Question","name":"Is this a subscription?","acceptedAnswer":{"@type":"Answer","text":"Yes — €13 per month, or €130 for a year (two months free), VAT included, covering both tools. Cancel any time in one click from the customer portal. 14-day money-back guarantee. Licences bought before July 2026 remain perpetual."}}
+    ]}
     </script>
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Organization","name":"AB Tools","url":"https://pulseedit.com","logo":"https://pulseedit.com/og-image.png","description":"Software studio building tools for creative professionals — Pulse Edit (DaVinci Resolve auto-edit plugin) and Lumiqa (creative production workspace).","founder":{"@type":"Person","name":"Abramo Benedetti"},"sameAs":["https://lumiqa.io"]}
-    </script>
-    <script type="module" crossorigin src="/assets/index-D2XHPTXL.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-dsPNw69o.css">
-  </head>
-  <body>
-    <!-- Annuncio lancio Pulse Color (fuori da #root: l'hydration React non lo tocca) -->
-    <a href="/pulse-color.html" style="display:block;background:#e8472b;color:#f3efe6;text-align:center;padding:9px 16px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.02em;text-decoration:none;">
-      <strong>New · Pulse Color is here</strong> — Pro-Mist, halation &amp; film looks in one node, included with your license&nbsp;→
-    </a>
-    <div id="root"><header class="nav"><div class="wrap nav__in"><a class="brand" href="/" aria-label="Pulse Edit home">Pulse Edit<span class="dot"></span></a><nav class="nav__links"><a href="#how">How it works</a><a href="#patterns">Patterns</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="/wedding-pro/">Weddings</a></nav><div class="nav__cta"><a class="nav__price" href="https://pulse-edit-mirror.abtools.workers.dev/PulseEdit-macOS.dmg" data-track="download-nav">↓ <!-- -->Download</a><a class="nav__price" href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Manage subscription</a><a class="btn" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" data-track="buy-nav">Get Pulse Edit — <!-- -->€13<!-- -->/mo</a><button class="nav__burger" aria-label="Menu" aria-expanded="false"><span></span></button></div></div><div class="mobile"><a href="#how">How it works</a><a href="#patterns">Patterns</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="/wedding-pro/">Weddings</a><a class="btn btn--lg" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" style="margin-top:18px" data-track="buy-mobile">Get Pulse Edit — <!-- -->€13<!-- -->/mo</a><a class="btn btn--ghost btn--lg" href="https://pulse-edit-mirror.abtools.workers.dev/PulseEdit-macOS.dmg" data-track="download-mobile" style="margin-top:10px">↓ <!-- -->Download</a><a href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Manage subscription</a></div></header><main><section class="hero wrap"><div class="hero__grid"><div><span class="kicker">DaVinci Resolve plugin</span><h1 class="h-xl">Cut to the beat.<br/><span class="ln2">Automatically.</span></h1><p class="lede hero__lede">Pulse Edit detects every beat in your music and edits your footage to it — inside DaVinci Resolve. Or lays a wedding out in the order it happened. One click, either way.</p><div class="hero__cta"><a class="btn btn--lg" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" data-track="buy-hero">Get Pulse Edit — <!-- -->€13<!-- -->/mo <span class="arr">→</span></a><a class="btn btn--ghost btn--lg" href="https://pulse-edit-mirror.abtools.workers.dev/PulseEdit-macOS.dmg" data-track="download-hero">↓ <!-- -->Download</a></div><div class="hero__trust"><span>Works on DR Free &amp; Studio</span><span>macOS &amp; Windows</span><span>Cancel any time</span></div></div><div class="hero__shot"><div class="frame frame--shot frame--accent"><img src="/images/free/free-01-drop.png" alt="Pulse Edit Free — drop your music and video clips, pick a pattern, then generate" loading="lazy" width="760"/></div><div class="hero__tickstrip" aria-hidden="true"><i style="height:4px"></i><i style="height:11px"></i><i style="height:18px"></i><i style="height:7px"></i><i style="height:14px"></i><i style="height:21px"></i><i style="height:10px"></i><i style="height:17px"></i><i style="height:6px"></i><i style="height:13px"></i><i style="height:20px"></i><i style="height:9px"></i><i style="height:16px"></i><i style="height:5px"></i><i style="height:12px"></i><i style="height:19px"></i><i style="height:8px"></i><i style="height:15px"></i><i style="height:4px"></i><i style="height:11px"></i><i style="height:18px"></i><i style="height:7px"></i><i style="height:14px"></i><i style="height:21px"></i><i style="height:10px"></i><i style="height:17px"></i><i style="height:6px"></i><i style="height:13px"></i><i style="height:20px"></i><i style="height:9px"></i><i style="height:16px"></i><i style="height:5px"></i><i style="height:12px"></i><i style="height:19px"></i><i style="height:8px"></i><i style="height:15px"></i><i style="height:4px"></i><i style="height:11px"></i><i style="height:18px"></i><i style="height:7px"></i><i style="height:14px"></i><i style="height:21px"></i><i style="height:10px"></i><i style="height:17px"></i><i style="height:6px"></i><i style="height:13px"></i><i style="height:20px"></i><i style="height:9px"></i></div></div></div></section><div class="ticker" aria-hidden="true"><div class="ticker__track"><span>Beat detection<span class="dot">/</span></span><span>Auto-cut<span class="dot">/</span></span><span>5 patterns<span class="dot">/</span></span><span>AI mood<span class="dot">/</span></span><span>Chronological order<span class="dot">/</span></span><span>OTIO export<span class="dot">/</span></span><span>DR Free &amp; Studio<span class="dot">/</span></span><span>Beat detection<span class="dot">/</span></span><span>Auto-cut<span class="dot">/</span></span><span>5 patterns<span class="dot">/</span></span><span>AI mood<span class="dot">/</span></span><span>Chronological order<span class="dot">/</span></span><span>OTIO export<span class="dot">/</span></span><span>DR Free &amp; Studio<span class="dot">/</span></span></div></div><section class="section wrap" id="how"><div class="reveal" style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap"><div><span class="kicker">How it works</span><h2 class="h-lg" style="margin-top:18px;max-width:14ch">Finished edit in three steps</h2></div><p class="muted" style="max-width:32ch">No timeline scrubbing, no manual tapping. You bring the clips and the song — Pulse Edit does the cutting.</p></div><div class="steps"><div class="step reveal"><div class="step__txt"><div class="step__no">01<!-- --> —</div><h3 class="h-md">Pick how it cuts</h3><p>Five cut patterns, from Every Beat to Energy Map to Half Time. Pick one and the same footage becomes a hard-cut music video or an elegant montage — no re-editing. Let &quot;Auto pattern from mood&quot; choose, and it changes the pattern section by section.</p><div class="step__meta"><span class="chip">5 cut patterns</span><span class="chip">Energy Map (auto)</span><span class="chip">Buildups &amp; drops</span></div></div><div class="frame frame--shot"><img src="/images/free/free-02-patterns.png" alt="Pulse Edit Free cut-pattern list showing the five editing patterns" loading="lazy" width="760"/></div></div><div class="step reveal"><div class="step__txt"><div class="step__no">02<!-- --> —</div><h3 class="h-md">Shape every beat</h3><p>Set the time signature, drop bar, subdivision and section markers, then humanize the cuts with ornaments, skips and doubles. Auto-pattern-from-mood adapts the edit section by section.</p><div class="step__meta"><span class="chip">Beat markers</span><span class="chip">Humanize</span><span class="chip">Mood-aware</span></div></div><div class="frame frame--shot"><img src="/images/free/free-03-structure.png" alt="Pulse Edit Free beat-structure options — markers, humanize and clip order" loading="lazy" width="760"/></div></div><div class="step reveal"><div class="step__txt"><div class="step__no">03<!-- --> —</div><h3 class="h-md">Generate &amp; send to Resolve</h3><p>Tune beat sensitivity and trims, then hit one button. Pulse Edit builds the OTIO timeline and drops it straight into DaVinci Resolve — Free or Studio, no scripting needed.</p><div class="step__meta"><span class="chip">One click</span><span class="chip">OTIO timeline</span><span class="chip">Auto-opens in Resolve</span></div></div><div class="frame frame--shot"><img src="/images/free/free-04-generate.png" alt="Pulse Edit Free advanced settings and the Generate and Send to DaVinci Resolve button" loading="lazy" width="760"/></div></div></div></section><hr class="rule wrap" style="max-width:var(--maxw)"/><section class="section wrap" id="patterns"><div class="patterns__head reveal"><div><span class="kicker">The cut patterns</span><h2 class="h-lg" style="margin-top:18px;max-width:12ch">One song. Any edit.</h2></div><p class="muted" style="align-self:end">Each pattern reshapes the rhythm of the cut — the same footage and track become a different video. Energy Map reads the song and decides for you.</p></div><div class="pat-list reveal"><div class="pat"><div class="pat__no">01</div><div class="pat__name">Energy Map</div><div class="pat__tag">Auto — adapts cut density to the music</div></div><div class="pat"><div class="pat__no">02</div><div class="pat__name">Every Beat</div><div class="pat__tag">A cut on every beat — maximum pace</div></div><div class="pat"><div class="pat__no">03</div><div class="pat__name">Every Bar (4/4)</div><div class="pat__tag">One cut per bar — clean and steady</div></div><div class="pat"><div class="pat__no">04</div><div class="pat__name">Beat + Upbeat</div><div class="pat__tag">Syncopated, off-beat accents</div></div><div class="pat"><div class="pat__no">05</div><div class="pat__name">Half Time</div><div class="pat__tag">Relaxed — every other beat</div></div></div></section><section class="section wrap"><div class="reveal"><span class="kicker">What you get</span><h2 class="h-lg" style="margin-top:18px;max-width:16ch">A real editor, not a marker tool</h2></div><div class="feat-grid reveal"><div class="feat"><div class="feat__ic">A.</div><h3>Beat detection</h3><p>Accurate onset detection finds every beat in any track — adjustable sensitivity, time signatures and subdivisions.</p></div><div class="feat"><div class="feat__ic">B.</div><h3>Auto-cut, not markers</h3><p>It doesn&#x27;t just mark the beats — it cuts and places your clips on them, building the timeline for you.</p></div><div class="feat"><div class="feat__ic">C.</div><h3>Mood-aware &amp; humanized</h3><p>Auto-pattern-from-mood reshapes the edit per section, humanize adds ornaments and skips, and randomize-energy keeps every render fresh.</p></div><div class="feat"><div class="feat__ic">D.</div><h3>Works on DR Free</h3><p>Uses OTIO export, so it runs on the free DaVinci Resolve and Studio alike, 18.5+. No scripting API needed.</p></div><div class="feat"><div class="feat__ic">E.</div><h3>macOS &amp; Windows</h3><p>Native builds for both. macOS is signed and notarized by Apple. Install and edit in minutes.</p></div><div class="feat"><div class="feat__ic">F.</div><h3>Weddings, in order</h3><p>Chronological mode reads each clip&#x27;s recording time and lays the day out as it happened. Two cameras interleave correctly when their clocks are in sync.</p></div></div></section><section class="compare"><div class="wrap"><div class="reveal"><span class="kicker">Pulse Edit vs BeatEdit</span><h2 class="h-lg">Auto-editing, not just beat markers.</h2></div><div class="compare__rows reveal"><div class="crow crow--head"><div></div><div class="us">Pulse Edit</div><div>BeatEdit for Resolve</div></div><div class="crow"><div class="crow__label">What it does</div><div class="crow__us">Auto-cuts &amp; assembles your clips on the beat</div><div class="crow__them">Detects beats, places markers — you cut by hand</div></div><div class="crow"><div class="crow__label">Works on DaVinci Resolve Free</div><div class="crow__us"><span class="yes">Yes — via OTIO</span></div><div class="crow__them">Studio only (since DR 19.1)</div></div><div class="crow"><div class="crow__label">Cut patterns + AI</div><div class="crow__us"><span class="yes">5 patterns · mood + humanize</span></div><div class="crow__them">—</div></div><div class="crow"><div class="crow__label">Wedding, in chronological order</div><div class="crow__us"><span class="yes">Yes</span></div><div class="crow__them">—</div></div><div class="crow"><div class="crow__label">Price</div><div class="crow__us">€13 / month · cancel any time</div><div class="crow__them">$49.99 one-time</div></div></div><p class="compare__note">Looking for a BeatEdit alternative on DaVinci Resolve? →<!-- --> <a href="/blog/beatedit-alternative-davinci-resolve.html">Read the full comparison</a></p></div></section><section class="section wrap" style="text-align:center"><span class="kicker kicker--plain" style="justify-content:center">New · for filmmakers</span><h2 class="h-lg" style="margin-top:18px;max-width:22ch;margin-inline:auto">Shooting weddings or events?</h2><p class="lede muted" style="margin:18px auto 26px;text-align:center">Pulse Edit assembles your whole day in chronological order, cut to the music — automatic video editing built for wedding and event videographers. It&#x27;s the same app, no add-on to buy.</p><a class="btn btn--lg" href="/wedding-pro/">See how it edits a wedding →</a></section><section class="section wrap" id="pricing"><div class="price-wrap"><div class="price-pts reveal"><span class="kicker">Pricing</span><h2 class="h-lg" style="margin-top:18px">One plan. Cancel any time.</h2><p>No tiers, no upsell maze. Everything Pulse Edit does — beat editing and chronological wedding assembly — for <!-- -->€13<!-- --> a month, or <!-- -->€130<!-- --> a year.</p><p class="guarantee">14-day money-back guarantee. If it doesn&#x27;t work on your DaVinci Resolve setup, we fix it or refund you — no questions asked.</p><p class="guarantee">Bought Pulse Edit before July 2026? Your licence stays yours forever. You don&#x27;t need a subscription and nothing will be charged to you.</p></div><div class="price-card reveal"><span class="kicker kicker--plain">Pulse Edit</span><div class="amt">€13<small> / month</small></div><ul><li>Beat detection + auto-cut to the beat</li><li>5 cut patterns &amp; AI mood</li><li>Chronological order for weddings</li><li>Works on DR Free &amp; Studio (18.5+)</li><li>macOS &amp; Windows</li></ul><a class="btn btn--lg" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" data-track="buy-pricing" style="width:100%;justify-content:center">Get Pulse Edit <span class="arr">→</span></a><p style="font-size:14px;margin-top:14px;margin-bottom:0;text-align:center">Shooting a full season?<!-- --> <a href="https://buy.stripe.com/14A28qgKOdnKgZafHnawo0n" data-track="buy-yearly">Pay <!-- -->€130<!-- --> for the year</a> <!-- -->and get two months free.</p><p style="font-family:var(--font-mono);font-size:12px;color:var(--faint);margin-top:10px;margin-bottom:0;text-align:center">VAT included. Renews until you cancel.<!-- --> <a href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Cancel in one click</a> — no email, no phone call.</p></div></div></section><section class="section wrap" id="faq"><div class="reveal"><span class="kicker">Questions</span><h2 class="h-lg" style="margin-top:18px">Before you buy</h2></div><div class="faq-list reveal"><div class="faq-item"><button class="faq-q" aria-expanded="true">How do I auto-edit videos to the beat in DaVinci Resolve?<span class="pm">+</span></button><div class="faq-a"><p>Drop a music track and your video clips into Pulse Edit, pick one of five cut patterns — including Energy Map, which adapts cut density to the music — then hit Generate &amp; Send. It detects every beat, cuts your clips to it, and drops the timeline straight into DaVinci Resolve via OTIO. Works on all DaVinci Resolve versions (Free and Studio, 18.5+). You do not need DaVinci Resolve Studio.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Do I need DaVinci Resolve Studio?<span class="pm">+</span></button><div class="faq-a"><p>No. Pulse Edit works with ALL versions of DaVinci Resolve — both the free DR and DR Studio, 18.5 or later. It uses OTIO timeline export, so no scripting API is required. Whether you run the free DaVinci Resolve or Studio, Pulse Edit works the same way.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">What is the best BeatEdit alternative for DaVinci Resolve?<span class="pm">+</span></button><div class="faq-a"><p>BeatEdit for DaVinci Resolve ($49.99) detects beats and places markers for you to cut against — and since DaVinci Resolve 19.1 it only runs on the Studio version. Pulse Edit goes further: it auto-cuts and assembles your clips on the beat, picks the pattern from the mood of the track, works on DaVinci Resolve Free too (via OTIO), and costs €13 a month with no lock-in.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Is this a subscription?<span class="pm">+</span></button><div class="faq-a"><p>Yes — €13 per month, or €130 for a year (two months free). You can cancel it yourself in one click from the Manage subscription link at the top of this page. No contract, no minimum term. While you&#x27;re subscribed you get every update. If you bought a licence before July 2026, it stays yours forever: nothing changes for you.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">What if it doesn&#x27;t work on my setup?<span class="pm">+</span></button><div class="faq-a"><p>Pulse Edit comes with a 14-day money-back guarantee. If it doesn&#x27;t run on your DaVinci Resolve setup, email support@pulseedit.com — we&#x27;ll fix it or refund you, no questions asked.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">What platforms are supported?<span class="pm">+</span></button><div class="faq-a"><p>macOS: Apple Silicon only (M1, M2, M3, M4 or later) — Intel Macs are NOT supported. macOS 12 or later, signed and notarized by Apple. Windows: 10/11, 64-bit. Pulse Edit works with all DaVinci Resolve versions (Free and Studio), 18.5 or later.</p></div></div></div></section></main><footer class="footer"><div class="wrap"><div class="foot-top"><div class="foot-brand"><a class="brand" href="/">Pulse Edit<span class="dot"></span></a><p>Beat-synced auto-editing for DaVinci Resolve. Built by AB Tools.</p></div><div class="foot-col"><h4>Product</h4><a href="#how">How it works</a><a href="#patterns">Cut patterns</a><a href="#pricing">Pricing</a><a href="/tutorial.html">Tutorial</a><a href="/wedding-pro/">Weddings</a></div><div class="foot-col"><h4>Guides</h4><a href="/blog/beat-detection-plugin-davinci-resolve.html">Beat detection plugin</a><a href="/blog/auto-place-beat-markers-davinci-resolve.html">Auto-place beat markers</a><a href="/complete-guide-davinci-resolve-music-editing.html">Complete guide</a><a href="/davinci-resolve-19-scripting-api-fix.html">DR Free scripting fix</a></div><div class="foot-col"><h4>More</h4><a href="/blog/">Blog</a><a href="mailto:support@pulseedit.com">Support</a><a href="/withdrawal.html">Refunds &amp; Withdrawal</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div></div><div class="foot-bottom"><span>© 2026 AB Tools — Pulse Edit</span><span>Made for editors who&#x27;d rather not tap to the beat.</span></div></div></footer></div>
-  
-    <!-- Download chooser (fuori da #root: hydration-safe). Si apre dai link Download della nav. -->
-    <div id="dl-modal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(23,21,15,.55);backdrop-filter:blur(4px);" role="dialog" aria-modal="true" aria-label="Download">
-      <div style="max-width:680px;margin:8vh auto 0;background:#f3efe6;color:#17150f;border-radius:16px;padding:28px;box-shadow:0 24px 80px rgba(23,21,15,.35);font-family:'Hanken Grotesk',system-ui,sans-serif;position:relative;">
-        <button id="dl-close" aria-label="Close" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:22px;cursor:pointer;color:#17150f;">×</button>
-        <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 6px;color:#6c6557;">Downloads · one license, both tools</p>
-        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-size:26px;margin:0 0 18px;">Pick your tool</h2>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;">
-          <div style="border:1px solid rgba(23,21,15,.2);border-radius:12px;padding:18px;">
-            <h3 style="margin:0 0 4px;font-size:18px;">Pulse Edit</h3>
-            <p style="margin:0 0 12px;font-size:14px;color:#6c6557;">Beat-synced auto-editing. Cuts your footage to the music.</p>
-            <a href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg" style="display:block;background:#17150f;color:#f3efe6;text-align:center;border-radius:8px;padding:9px 0;text-decoration:none;font-weight:700;margin-bottom:8px;">↓ macOS (Apple Silicon)</a>
-            <a href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-Setup.exe" style="display:block;border:1px solid rgba(23,21,15,.4);color:#17150f;text-align:center;border-radius:8px;padding:9px 0;text-decoration:none;font-weight:700;">↓ Windows</a>
-          </div>
-          <div style="border:1px solid #e8472b;border-radius:12px;padding:18px;">
-            <h3 style="margin:0 0 4px;font-size:18px;">Pulse Color <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#e8472b;">NEW</span></h3>
-            <p style="margin:0 0 12px;font-size:14px;color:#6c6557;">Pro-Mist &amp; halation filters + film looks for 18 log formats.</p>
-            <a href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseColor-macOS.dmg" style="display:block;background:#e8472b;color:#f3efe6;text-align:center;border-radius:8px;padding:9px 0;text-decoration:none;font-weight:700;margin-bottom:8px;">↓ macOS (Intel &amp; Apple Silicon)</a>
-            <a href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseColor-Windows.zip" style="display:block;border:1px solid rgba(23,21,15,.4);color:#17150f;text-align:center;border-radius:8px;padding:9px 0;text-decoration:none;font-weight:700;">↓ Windows</a>
-          </div>
-        </div>
-        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9a9384;margin:16px 0 0;">Free to install — both activate with the same Pulse license. macOS builds notarized by Apple, Windows signed.</p>
-      </div>
+</head>
+<body>
+<div id="root">
+<header class="nav"><div class="wrap nav__in">
+    <a class="brand" href="/" aria-label="Pulse home">Pulse<span class="dot"></span></a>
+    <nav class="nav__links">
+        <a href="/pulse-edit.html">Pulse Edit</a>
+        <a href="/pulse-color.html">Pulse Color</a>
+        <a href="#pricing">Pricing</a>
+        <a href="/blog/">Blog</a>
+    </nav>
+    <div class="nav__cta">
+        <a class="nav__price" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg">↓ Download</a>
+        <a class="nav__price" href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Manage subscription</a>
+        <a class="btn" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" data-track="buy-nav">Get Pulse — €13/mo</a>
     </div>
-    <script>
-    (function(){
-      var m = document.getElementById('dl-modal');
-      function apri(e){ e.preventDefault(); m.style.display = 'block'; }
-      function chiudi(){ m.style.display = 'none'; }
-      document.addEventListener('click', function(e){
-        var a = e.target.closest && e.target.closest('a');
-        if (a && /Download/.test(a.textContent || '') && /pulse-edit-mirror/.test(a.href || '') && a.closest('.nav__cta, .mobile, header')) apri(e);
-        if (e.target === m) chiudi();
-      }, true);
-      document.getElementById('dl-close').addEventListener('click', chiudi);
-      document.addEventListener('keydown', function(e){ if (e.key === 'Escape') chiudi(); });
-      // link PRODOTTI nella nav (post-hydration: React non ritocca questi parent)
-      function aggiungiProdotti(){
-        var punti = [document.querySelector('.nav__links'), document.querySelector('.mobile')];
-        punti.forEach(function(p){
-          if (!p || p.querySelector('.px-prod')) return;
-          var pc = document.createElement('a');
-          pc.href = '/pulse-color.html'; pc.textContent = 'Pulse Color';
-          pc.className = 'px-prod'; pc.style.color = '#c2371d'; pc.style.fontWeight = '600';
-          p.insertBefore(pc, p.firstChild);
-          var pe = document.createElement('a');
-          pe.href = '/'; pe.textContent = 'Pulse Edit'; pe.className = 'px-prod';
-          p.insertBefore(pe, pc);
-        });
-      }
-      if (document.readyState === 'complete') setTimeout(aggiungiProdotti, 400);
-      else window.addEventListener('load', function(){ setTimeout(aggiungiProdotti, 400); });
-    })();
-    </script>
+</div></header>
 
-  </body>
+<main>
+<section class="hero wrap"><div>
+    <span class="kicker">The DaVinci Resolve suite · Free &amp; Studio</span>
+    <h1 class="h-xl" style="max-width:16ch;">Edit to the beat.<br /><span class="ln2">Grade to a look.</span></h1>
+    <p class="lede hero__lede" style="max-width:56ch;">Two tools that do the tedious parts of editing for you, inside DaVinci Resolve: <strong>Pulse Edit</strong> cuts your footage to the music, <strong>Pulse Color</strong> takes camera log straight to a film look — with the optical filters Hollywood puts in front of the lens. One license covers both.</p>
+    <div class="hero__cta">
+        <a class="btn btn--lg" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" data-track="buy-hero">Get Pulse — €13/mo <span class="arr">→</span></a>
+        <a class="btn btn--ghost btn--lg" href="#products">See the tools ↓</a>
+    </div>
+    <div class="hero__trust"><span>Works on DR Free &amp; Studio</span><span>macOS &amp; Windows, signed</span><span>Cancel any time</span></div>
+</div></section>
+
+<div class="ticker" aria-hidden="true"><div class="ticker__track">
+    <span>Beat detection<span class="dot">/</span></span><span>Auto-cut<span class="dot">/</span></span><span>Chronological weddings<span class="dot">/</span></span><span>Black Pro-Mist<span class="dot">/</span></span><span>Halation<span class="dot">/</span></span><span>18 log formats<span class="dot">/</span></span><span>Film looks<span class="dot">/</span></span><span>One license<span class="dot">/</span></span>
+    <span>Beat detection<span class="dot">/</span></span><span>Auto-cut<span class="dot">/</span></span><span>Chronological weddings<span class="dot">/</span></span><span>Black Pro-Mist<span class="dot">/</span></span><span>Halation<span class="dot">/</span></span><span>18 log formats<span class="dot">/</span></span><span>Film looks<span class="dot">/</span></span><span>One license<span class="dot">/</span></span>
+</div></div>
+
+<section class="section wrap" id="products">
+    <span class="kicker">The tools</span>
+    <h2 class="h-lg" style="margin-top:18px;max-width:18ch">Two jobs editors hate. Two one-click tools.</h2>
+
+    <div class="step" style="margin-top:40px;">
+        <div class="step__txt">
+            <div class="step__no">01 —</div>
+            <h3 class="h-md">Pulse Edit</h3>
+            <p><strong>Cut to the beat, automatically.</strong> Detects every beat in your music and cuts and places your clips on it — five cut patterns, AI mood, humanize. Or lays a wedding out in chronological order across two cameras. Exports an OTIO timeline straight into Resolve, Free or Studio.</p>
+            <div class="step__meta"><span class="chip">Beat detection</span><span class="chip">5 cut patterns</span><span class="chip">Weddings in order</span></div>
+            <p style="margin-top:16px;"><a class="btn" href="/pulse-edit.html">Explore Pulse Edit →</a></p>
+        </div>
+        <div class="frame frame--shot"><img src="/images/free/free-01-drop.png" alt="Pulse Edit — drop your music and clips, pick a pattern, generate the timeline" loading="lazy" width="760" /></div>
+    </div>
+
+    <div class="step" style="margin-top:56px;">
+        <div class="step__txt">
+            <div class="step__no">02 —</div>
+            <h3 class="h-md">Pulse Color <span style="font-family:var(--font-mono);font-size:12px;color:var(--accent-ink);">NEW</span></h3>
+            <p><strong>From log to look, one node.</strong> Grades 18 camera log formats — S-Log3, LogC, Canon Log, Apple Log and more — to a finished film look, with 12 stackable optical filter emulations: Black &amp; White Pro-Mist, Glimmerglass, halation, anamorphic streak, star filter. Real-time on a 25p HD timeline.</p>
+            <div class="step__meta"><span class="chip">18 log formats</span><span class="chip">Pro-Mist family</span><span class="chip">Works on DR Free</span></div>
+            <p style="margin-top:16px;"><a class="btn" href="/pulse-color.html">Explore Pulse Color →</a></p>
+        </div>
+        <div class="frame frame--shot"><img src="/images/pulse-color-node-search.png" alt="Pulse Color node appearing in DaVinci Resolve's OpenFX search" loading="lazy" width="559" /></div>
+    </div>
+</section>
+
+<hr class="rule wrap" style="max-width:var(--maxw)" />
+
+<section class="section wrap" id="pricing"><div class="price-wrap">
+    <div class="price-pts">
+        <span class="kicker">Pricing</span>
+        <h2 class="h-lg" style="margin-top:18px">One license. The whole suite.</h2>
+        <p>No tiers, no add-ons. Everything Pulse Edit and Pulse Color do, for €13 a month or €130 a year (two months free). Every new Pulse tool joins the same license.</p>
+        <p class="guarantee">14-day money-back guarantee. If it doesn't work on your DaVinci Resolve setup, we fix it or refund you — no questions asked.</p>
+        <p class="guarantee">Bought Pulse Edit before July 2026? Your licence stays yours forever.</p>
+    </div>
+    <div class="price-card">
+        <span class="kicker kicker--plain">Pulse license</span>
+        <div class="amt">€13<small> / month</small></div>
+        <ul>
+            <li>Pulse Edit — beat detection &amp; auto-cut</li>
+            <li>Pulse Color — film looks &amp; filter FX</li>
+            <li>Chronological order for weddings</li>
+            <li>Works on DR Free &amp; Studio (18.5+)</li>
+            <li>macOS &amp; Windows · cancel any time</li>
+        </ul>
+        <a class="btn btn--lg" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" data-track="buy-pricing" style="width:100%;justify-content:center">Get Pulse <span class="arr">→</span></a>
+        <p style="font-size:14px;margin-top:14px;margin-bottom:0;text-align:center"><a href="https://buy.stripe.com/14A28qgKOdnKgZafHnawo0n" data-track="buy-yearly">Pay €130 for the year</a> and get two months free.</p>
+        <p style="font-family:var(--font-mono);font-size:12px;color:var(--faint);margin-top:10px;margin-bottom:0;text-align:center">VAT included. Renews until you cancel. <a href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Cancel in one click</a>.</p>
+    </div>
+</div></section>
+
+<section class="section wrap" id="faq" style="padding-top:0">
+    <span class="kicker">Questions</span>
+    <h2 class="h-lg" style="margin-top:18px">Before you buy</h2>
+    <div class="faq-list" style="margin-top:30px">
+        <div class="faq-item"><h3 style="font-size:18px;margin-bottom:6px">What's included in the license?</h3><p class="muted">Both tools — Pulse Edit and Pulse Color — with one key, on macOS and Windows. €13/month or €130/year, and every future Pulse tool joins the same license.</p></div>
+        <div class="faq-item"><h3 style="font-size:18px;margin-bottom:6px">Does it work on DaVinci Resolve Free?</h3><p class="muted">Yes, both tools. Pulse Edit uses OTIO timeline export (no scripting API needed) and Pulse Color is a standard OpenFX plugin — Resolve Free supports both, 18.5+.</p></div>
+        <div class="faq-item"><h3 style="font-size:18px;margin-bottom:6px">Can I cancel?</h3><p class="muted">Any time, in one click, from the customer portal. No contract, no minimum term. 14-day money-back guarantee if it doesn't work on your setup.</p></div>
+    </div>
+</section>
+</main>
+
+<footer class="footer"><div class="wrap">
+    <div class="foot-top">
+        <div class="foot-brand"><a class="brand" href="/">Pulse<span class="dot"></span></a><p>Beat-synced auto-editing and film color for DaVinci Resolve. Built by AB Tools.</p></div>
+        <div class="foot-col"><h4>Products</h4><a href="/pulse-edit.html">Pulse Edit</a><a href="/pulse-color.html">Pulse Color</a><a href="/wedding-pro/">Weddings</a><a href="/tutorial.html">Tutorial</a></div>
+        <div class="foot-col"><h4>Guides</h4><a href="/blog/black-pro-mist-davinci-resolve.html">Black Pro-Mist guide</a><a href="/blog/beat-detection-plugin-davinci-resolve.html">Beat detection plugin</a><a href="/complete-guide-davinci-resolve-music-editing.html">Complete guide</a></div>
+        <div class="foot-col"><h4>More</h4><a href="/blog/">Blog</a><a href="mailto:support@pulseedit.com">Support</a><a href="/withdrawal.html">Refunds &amp; Withdrawal</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 AB Tools — Pulse</span><span>Edit to the beat. Grade to a look.</span></div>
+</div></footer>
+</div>
+</body>
 </html>
