@@ -59,6 +59,74 @@
     <span>S-Log3<span class="dot">/</span></span><span>LogC3 · LogC4<span class="dot">/</span></span><span>Canon Log 2/3<span class="dot">/</span></span><span>Apple Log 1/2<span class="dot">/</span></span><span>V-Log<span class="dot">/</span></span><span>F-Log<span class="dot">/</span></span><span>Log3G10<span class="dot">/</span></span><span>N-Log<span class="dot">/</span></span><span>D-Log<span class="dot">/</span></span><span>L-Log<span class="dot">/</span></span><span>Rec.709<span class="dot">/</span></span>
 </div></div>
 
+<section class="section wrap" id="try">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap">
+        <div><span class="kicker">Try it — real renders</span><h2 class="h-lg" style="margin-top:18px;max-width:15ch">Grade a still, right here.</h2></div>
+        <p class="muted" style="max-width:34ch">These aren't mockups: every frame below is the actual output of the Pulse Color engine on S-Log3 footage. Pick a look, drag the divider.</p>
+    </div>
+    <div style="margin-top:32px">
+        <div id="pc-looks" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+            <button class="chip" data-look="log" style="cursor:pointer;border:1px solid var(--line-strong)">Log (before)</button>
+            <button class="chip" data-look="nordic" style="cursor:pointer">Nordic</button>
+            <button class="chip" data-look="cinema-print" style="cursor:pointer">Cinema Print</button>
+            <button class="chip" data-look="midnight" style="cursor:pointer">Midnight</button>
+            <button class="chip" data-look="daylight" style="cursor:pointer">Daylight</button>
+            <button class="chip" data-look="linen" style="cursor:pointer">Linen</button>
+            <button class="chip" data-look="amber" style="cursor:pointer">Amber</button>
+        </div>
+        <div id="pc-stage" class="frame frame--shot" style="position:relative;overflow:hidden;user-select:none;touch-action:none;cursor:ew-resize">
+            <img id="pc-before" src="/images/pulse-color/C0165-log.jpg" alt="Ungraded S-Log3 still" width="1280" style="display:block;width:100%">
+            <img id="pc-after" src="/images/pulse-color/C0165-nordic.jpg" alt="Same still graded with a Pulse Color look" width="1280"
+                 style="position:absolute;inset:0;width:100%;clip-path:inset(0 0 0 50%)">
+            <div id="pc-divider" style="position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--paper);box-shadow:0 0 0 1px var(--line-strong);pointer-events:none">
+                <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--paper);border:1px solid var(--line-strong);border-radius:999px;padding:4px 10px;font-family:var(--font-mono);font-size:11px;white-space:nowrap">◂ drag ▸</span>
+            </div>
+        </div>
+        <div id="pc-scenes" style="display:flex;gap:10px;margin-top:12px">
+            <img data-scene="C0165" src="/images/pulse-color/C0165-log.jpg" alt="Scene 1" width="120" style="width:120px;border-radius:8px;cursor:pointer;border:2px solid var(--accent)">
+            <img data-scene="C0398" src="/images/pulse-color/C0398-log.jpg" alt="Scene 2" width="120" loading="lazy" style="width:120px;border-radius:8px;cursor:pointer;border:2px solid transparent">
+            <img data-scene="C0542" src="/images/pulse-color/C0542-log.jpg" alt="Scene 3" width="120" loading="lazy" style="width:120px;border-radius:8px;cursor:pointer;border:2px solid transparent">
+        </div>
+    </div>
+    <script>
+    (function(){
+        var scena = "C0165", look = "nordic";
+        var prima = document.getElementById("pc-before"), dopo = document.getElementById("pc-after");
+        var stage = document.getElementById("pc-stage"), div = document.getElementById("pc-divider");
+        function aggiorna(){
+            prima.src = "/images/pulse-color/" + scena + "-log.jpg";
+            dopo.src  = "/images/pulse-color/" + scena + "-" + (look === "log" ? "log" : look) + ".jpg";
+        }
+        document.querySelectorAll("#pc-looks .chip").forEach(function(b){
+            b.addEventListener("click", function(){
+                look = b.dataset.look;
+                document.querySelectorAll("#pc-looks .chip").forEach(function(x){ x.style.border = "1px solid transparent"; });
+                b.style.border = "1px solid var(--line-strong)";
+                aggiorna();
+            });
+        });
+        document.querySelectorAll("#pc-scenes img").forEach(function(t){
+            t.addEventListener("click", function(){
+                scena = t.dataset.scene;
+                document.querySelectorAll("#pc-scenes img").forEach(function(x){ x.style.border = "2px solid transparent"; });
+                t.style.border = "2px solid var(--accent)";
+                aggiorna();
+            });
+        });
+        function muovi(clientX){
+            var r = stage.getBoundingClientRect();
+            var p = Math.max(2, Math.min(98, (clientX - r.left) / r.width * 100));
+            dopo.style.clipPath = "inset(0 0 0 " + p + "%)";
+            div.style.left = p + "%";
+        }
+        stage.addEventListener("pointerdown", function(e){ stage.setPointerCapture(e.pointerId); muovi(e.clientX); });
+        stage.addEventListener("pointermove", function(e){ if (e.buttons) muovi(e.clientX); });
+    })();
+    </script>
+</section>
+
+<hr class="rule wrap" style="max-width:var(--maxw)" />
+
 <section class="section wrap" id="formats">
     <div style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap">
         <div><span class="kicker">Camera profiles</span><h2 class="h-lg" style="margin-top:18px;max-width:16ch">Your camera speaks log. Pulse Color is fluent.</h2></div>
