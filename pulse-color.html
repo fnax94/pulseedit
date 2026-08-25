@@ -1,147 +1,146 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    function loadGA() {
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2';
-      document.head.appendChild(s);
-      gtag('js', new Date());
-      gtag('config', 'G-JV9DJHLCY2');
-    }
-    if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
-    </script>
-    <title>Pulse Color — Log to Look OFX Plugin for DaVinci Resolve</title>
-    <meta name="description" content="Pulse Color: film looks for DaVinci Resolve Free &amp; Studio. 18 camera log formats (S-Log3, LogC, Canon Log, V-Log, Apple Log…), 12 stackable filter FX, one click. Included with the Pulse license.">
-    <meta name="keywords" content="davinci resolve free color grading plugin, s-log3 lut davinci resolve, log to rec709 plugin, film look davinci resolve free, ofx plugin resolve free, pro mist filter plugin, apple log resolve">
-    <meta property="og:title" content="Pulse Color — From Log to Look, One Click">
-    <meta property="og:description" content="Film looks + stackable filter FX for DaVinci Resolve Free &amp; Studio. 18 camera log formats. Included with the Pulse license.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pulseedit.com/pulse-color.html">
-    <meta property="og:image" content="https://pulseedit.com/og-image.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="canonical" href="https://pulseedit.com/pulse-color.html">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles-v2.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pulse Color — Log to Film Look, One Click · OFX Plugin for DaVinci Resolve</title>
+    <meta name="description" content="Pulse Color: film looks for DaVinci Resolve Free & Studio. 18 camera log formats (S-Log3, LogC, Canon Log, V-Log, Apple Log…), 6 looks, 12 stackable filter FX. Included with the Pulse license." />
+    <link rel="canonical" href="https://pulseedit.com/pulse-color.html" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#f3efe6" />
+    <meta property="og:title" content="Pulse Color — From Log to Look, One Click" />
+    <meta property="og:description" content="Film looks + stackable optical filter FX for DaVinci Resolve Free & Studio. 18 camera log formats. Included with the Pulse license." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pulseedit.com/pulse-color.html" />
+    <meta property="og:image" content="https://pulseedit.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" crossorigin href="/assets/index-dsPNw69o.css" />
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Pulse Color",
-        "applicationCategory": "MultimediaApplication",
-        "operatingSystem": "macOS, Windows",
-        "description": "OFX color plugin for DaVinci Resolve (Free and Studio): converts 18 camera log formats to finished film looks with stackable optical filter FX. One node, one click.",
-        "softwareRequirements": "DaVinci Resolve Free or Studio 18.5+",
-        "offers": { "@type": "Offer", "price": "13.00", "priceCurrency": "EUR",
-                    "description": "Included with the Pulse license — one license covers Pulse Edit and Pulse Color." }
-    }
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Pulse Color","applicationCategory":"MultimediaApplication","operatingSystem":["macOS 11+ (Intel & Apple Silicon)","Windows 10","Windows 11"],"description":"OFX color plugin for DaVinci Resolve (Free and Studio): converts 18 camera log formats to finished film looks with stackable optical filter FX. One node, one click.","softwareRequirements":"DaVinci Resolve Free or Studio 18.5+","offers":{"@type":"Offer","price":"13.00","priceCurrency":"EUR","description":"Included with the Pulse license — one license covers Pulse Edit and Pulse Color."},"author":{"@type":"Organization","name":"AB Tools"}}
     </script>
 </head>
 <body>
-
-    <nav>
-        <div class="container nav-inner">
-            <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
-            <div class="nav-links">
-                <a href="/">Pulse Edit Free</a>
-                <a href="/pulse-color.html">Pulse Color</a>
-                <a href="/blog/">Blog</a>
-                <a href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
-            </div>
-        </div>
+<div id="root">
+<header class="nav"><div class="wrap nav__in">
+    <a class="brand" href="/" aria-label="Pulse Edit home">Pulse Edit<span class="dot"></span></a>
+    <nav class="nav__links">
+        <a href="/#how">How it works</a>
+        <a href="/pulse-color.html" style="color:var(--accent-ink)">Pulse Color</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/blog/">Blog</a>
     </nav>
+    <div class="nav__cta">
+        <a class="nav__price" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseColor-macOS.dmg">↓ Download</a>
+        <a class="btn" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m">Get the Pulse license — €13/mo</a>
+    </div>
+</div></header>
 
-    <main class="container" style="max-width:860px;padding:48px 20px;">
+<main>
+<section class="hero wrap"><div class="hero__grid"><div>
+    <span class="kicker">New · OFX plugin for DaVinci Resolve</span>
+    <h1 class="h-xl">From log to look.<br /><span class="ln2">One click.</span></h1>
+    <p class="lede hero__lede">A single color node for DaVinci Resolve — Free and Studio — that takes your camera's log footage straight to a finished film look, with the optical filters Hollywood puts in front of the lens. No LUT folders, no color science homework.</p>
+    <div class="hero__cta">
+        <a class="btn btn--lg" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseColor-macOS.dmg">↓ Download for macOS</a>
+        <a class="btn btn--ghost btn--lg" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseColor-Windows.zip">↓ Download for Windows</a>
+    </div>
+    <div class="hero__trust"><span>Works on DR Free &amp; Studio</span><span>macOS notarized &amp; Windows</span><span>Included with the Pulse license</span></div>
+</div></div></section>
 
-        <p style="font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:13px;opacity:.7;">New · Pulse Color 1.0</p>
-        <h1 style="font-size:clamp(32px,6vw,52px);line-height:1.1;margin:8px 0 16px;">From log to look.<br>One click.</h1>
-        <p style="font-size:19px;max-width:640px;opacity:.85;">
-            A single OFX node for DaVinci Resolve — <strong>Free and Studio</strong> — that takes your
-            camera's log footage straight to a finished film look, with the optical filters
-            Hollywood puts in front of the lens. No LUT folders, no color science homework.
-        </p>
+<div class="ticker" aria-hidden="true"><div class="ticker__track">
+    <span>S-Log3<span class="dot">/</span></span><span>LogC3 · LogC4<span class="dot">/</span></span><span>Canon Log 2/3<span class="dot">/</span></span><span>Apple Log 1/2<span class="dot">/</span></span><span>V-Log<span class="dot">/</span></span><span>F-Log<span class="dot">/</span></span><span>Log3G10<span class="dot">/</span></span><span>N-Log<span class="dot">/</span></span><span>D-Log<span class="dot">/</span></span><span>L-Log<span class="dot">/</span></span><span>Rec.709<span class="dot">/</span></span>
+    <span>S-Log3<span class="dot">/</span></span><span>LogC3 · LogC4<span class="dot">/</span></span><span>Canon Log 2/3<span class="dot">/</span></span><span>Apple Log 1/2<span class="dot">/</span></span><span>V-Log<span class="dot">/</span></span><span>F-Log<span class="dot">/</span></span><span>Log3G10<span class="dot">/</span></span><span>N-Log<span class="dot">/</span></span><span>D-Log<span class="dot">/</span></span><span>L-Log<span class="dot">/</span></span><span>Rec.709<span class="dot">/</span></span>
+</div></div>
 
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 10px;">
-            <a href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseColor-macOS.dmg"
-               style="background:#4ade80;color:#0c1f12;padding:12px 22px;border-radius:10px;font-weight:700;text-decoration:none;">
-               Download for macOS</a>
-            <a href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseColor-Windows.zip"
-               style="background:#17150f;color:#f3efe6;padding:12px 22px;border-radius:10px;font-weight:700;text-decoration:none;">
-               Download for Windows</a>
-        </div>
-        <p style="font-size:14px;opacity:.65;">macOS 11+ (Intel &amp; Apple Silicon, notarized) · Windows 10/11 x64 · Resolve 18.5+, Free or Studio.<br>
-        Free to install — activates with your <strong>Pulse license</strong> (one license, the whole suite: Pulse Edit + Pulse Color, €13/month).</p>
+<section class="section wrap" id="formats">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap">
+        <div><span class="kicker">Camera profiles</span><h2 class="h-lg" style="margin-top:18px;max-width:16ch">Your camera speaks log. Pulse Color is fluent.</h2></div>
+        <p class="muted" style="max-width:34ch">Pick your format, pick a look, done. Every profile is built from measured color science — not eyeballed LUTs.</p>
+    </div>
+    <div class="pat-list" style="margin-top:36px">
+        <div class="pat"><div class="pat__no">01</div><div class="pat__name">Sony</div><div class="pat__tag">S-Log3 &amp; S-Log2 — every Color Mode the camera menu offers, Venice included</div></div>
+        <div class="pat"><div class="pat__no">02</div><div class="pat__name">ARRI · Canon · RED</div><div class="pat__tag">LogC3, LogC4 · Canon Log 2/3 with Cinema Gamut, BT.2020 or BT.709 · Log3G10</div></div>
+        <div class="pat"><div class="pat__no">03</div><div class="pat__name">Apple iPhone</div><div class="pat__tag">Apple Log &amp; Apple Log 2 (iPhone 15–17 Pro) — Rec.2020, P3-D65 or Rec.709</div></div>
+        <div class="pat"><div class="pat__no">04</div><div class="pat__name">Panasonic · Fujifilm · Nikon · DJI · Leica</div><div class="pat__tag">V-Log · F-Log, F-Log2, F-Log2 C · N-Log · D-Log · L-Log</div></div>
+        <div class="pat"><div class="pat__no">05</div><div class="pat__name">No log? No problem.</div><div class="pat__tag">Rec.709 and sRGB inputs built in — graded footage, older cameras and phone SDR (it's the default)</div></div>
+    </div>
+</section>
 
-        <h2 style="margin-top:48px;">Your camera speaks log. Pulse Color is fluent in 18 dialects.</h2>
-        <p>Pick your camera, pick a look, done. Every profile is built from measured color science — not
-        eyeballed LUTs:</p>
-        <ul style="line-height:1.9;">
-            <li><strong>Sony</strong> — S-Log3 &amp; S-Log2, every Color Mode the camera menu offers (S-Gamut3.Cine, S-Gamut3, S-Gamut, BT.2020, 709, Venice)</li>
-            <li><strong>ARRI</strong> — LogC3 / Wide Gamut 3, LogC4 / Wide Gamut 4</li>
-            <li><strong>Canon</strong> — Canon Log 3 &amp; Log 2 with Cinema Gamut, BT.2020 or BT.709</li>
-            <li><strong>Apple</strong> — Apple Log and Apple Log 2 (iPhone 15–17 Pro), Rec.2020 / P3-D65 / Rec.709</li>
-            <li><strong>Panasonic V-Log · Fujifilm F-Log, F-Log2, F-Log2 C · RED Log3G10 · Nikon N-Log · DJI D-Log · Leica L-Log</strong></li>
-            <li><strong>No log? No problem.</strong> Rec.709 and sRGB inputs are built in — graded footage, older cameras and phone SDR work too (and it's the default).</li>
+<hr class="rule wrap" style="max-width:var(--maxw)" />
+
+<section class="section wrap" id="looks">
+    <span class="kicker">The looks</span>
+    <h2 class="h-lg" style="margin-top:18px;max-width:18ch">Six looks. Zero fake grain by default.</h2>
+    <p class="muted" style="max-width:60ch;margin-top:16px"><strong>Nordic · Cinema Print · Midnight · Daylight · Linen · Amber</strong> — print-film rendering chains (cross-talk, highlight desaturation, palette shaping), not Instagram filters. A <em>Look Strength</em> dial blends each from subtle to full. Film character comes from curve, color and light — grain is there if you want it, off if you don't.</p>
+</section>
+
+<section class="section wrap" id="filters" style="padding-top:0">
+    <span class="kicker">The filter drawer</span>
+    <h2 class="h-lg" style="margin-top:18px;max-width:16ch">Stackable, like real glass</h2>
+    <p class="muted" style="max-width:34ch;margin-top:16px">Twelve optical FX, each with its own toggle, freely combinable — the way DPs stack filters on set.</p>
+    <div class="feat-grid" style="margin-top:36px">
+        <div class="feat"><div class="feat__ic">A.</div><h3>The mist family</h3><p>Black Pro-Mist, White Pro-Mist, Glimmerglass, Skin Diffusion — sliders graded like the physical filters: 0.125 = 1/8, 0.25 = 1/4, 0.5 = 1/2, 1 = full.</p></div>
+        <div class="feat"><div class="feat__ic">B.</div><h3>Light effects</h3><p>Halation, Bloom, Anamorphic Streak and a 4/6/8-point Star Filter — measured to behave like the real thing.</p></div>
+        <div class="feat"><div class="feat__ic">C.</div><h3>Finishing touches</h3><p>Enhance, Chromatic Aberration, Vignette and Film Grain — all opt-in, all independent.</p></div>
+        <div class="feat"><div class="feat__ic">D.</div><h3>Real-time playback</h3><p>LUT-accelerated engine on all CPU cores. Full-speed playback on a 25p HD timeline, no GPU requirements.</p></div>
+        <div class="feat"><div class="feat__ic">E.</div><h3>Made for Resolve Free</h3><p>One node that works in the Free version — same node, same looks, on macOS and Windows.</p></div>
+        <div class="feat"><div class="feat__ic">F.</div><h3>Offline-friendly license</h3><p>Activate once, work offline for 30 days at a time. Same key as Pulse Edit — one license, the whole suite.</p></div>
+    </div>
+</section>
+
+<section class="section wrap" id="install">
+    <span class="kicker">Install</span>
+    <h2 class="h-lg" style="margin-top:18px">Ready in one minute</h2>
+    <div class="pat-list" style="margin-top:36px">
+        <div class="pat"><div class="pat__no">01</div><div class="pat__name">Download &amp; install</div><div class="pat__tag">macOS: notarized DMG, double-click the installer · Windows: copy one folder</div></div>
+        <div class="pat"><div class="pat__no">02</div><div class="pat__name">Restart Resolve</div><div class="pat__tag">Color page → OpenFX → Pulse → Pulse Color. Drag it onto a node</div></div>
+        <div class="pat"><div class="pat__no">03</div><div class="pat__name">Activate</div><div class="pat__tag">Paste your Pulse license key and press Activate License. Same key as Pulse Edit</div></div>
+    </div>
+</section>
+
+<section class="section wrap" id="pricing"><div class="price-wrap">
+    <div class="price-pts">
+        <span class="kicker">Pricing</span>
+        <h2 class="h-lg" style="margin-top:18px">One license. The whole suite.</h2>
+        <p>Pulse Color is included with the Pulse license — the same €13 a month that gets you Pulse Edit's beat detection and auto-editing. No add-on, no second subscription.</p>
+        <p class="guarantee">Already subscribed? Pulse Color is yours today — download it and use your existing key.</p>
+    </div>
+    <div class="price-card">
+        <span class="kicker kicker--plain">Pulse license</span>
+        <div class="amt">€13<small> / month</small></div>
+        <ul>
+            <li>Pulse Color — looks, profiles &amp; filter FX</li>
+            <li>Pulse Edit — beat detection &amp; auto-cut</li>
+            <li>Works on DR Free &amp; Studio (18.5+)</li>
+            <li>macOS &amp; Windows</li>
+            <li>Cancel any time</li>
         </ul>
+        <a class="btn btn--lg" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" style="width:100%;justify-content:center">Get the Pulse license <span class="arr">→</span></a>
+        <p style="font-family:var(--font-mono);font-size:12px;color:var(--faint);margin-top:10px;margin-bottom:0;text-align:center">VAT included. Renews until you cancel. <a href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Cancel in one click</a>.</p>
+    </div>
+</div></section>
 
-        <h2 style="margin-top:40px;">Six looks. Zero fake film grain by default.</h2>
-        <p><strong>Nordic · Cinema Print · Midnight · Daylight · Linen · Amber</strong> — print-film
-        rendering chains (cross-talk, highlight desaturation, palette shaping), not Instagram filters.
-        A <em>Look Strength</em> dial blends each one from subtle to full. Clean by design: film
-        character comes from curve, color and light — grain is there if you want it, off if you don't.</p>
+<section class="section wrap" style="padding-top:0">
+    <p style="font-family:var(--font-mono);font-size:12px;color:var(--faint);max-width:72ch">Camera and format names (Sony, ARRI, Canon, Panasonic, Fujifilm, RED, Nikon, DJI, Apple, Leica and their log formats) are trademarks of their respective owners, used to indicate compatibility only. Filter names reference the visual character of well-known optical filters; Pulse Color is an independent software emulation, not affiliated with or endorsed by any filter or camera manufacturer.</p>
+</section>
+</main>
 
-        <h2 style="margin-top:40px;">The filter drawer — stackable, like real glass</h2>
-        <p>Twelve optical FX, each with its own on/off toggle, freely combinable — the way DPs stack
-        filters on set:</p>
-        <ul style="line-height:1.9;">
-            <li><strong>Black Pro-Mist · White Pro-Mist · Glimmerglass · Skin Diffusion</strong> — the diffusion family, with sliders graded like the physical filters (0.125 = 1/8, 0.25 = 1/4, 0.5 = 1/2, 1 = full)</li>
-            <li><strong>Halation · Bloom · Anamorphic Streak · Star Filter (4/6/8 points)</strong> — light effects measured to behave like the real thing</li>
-            <li><strong>Enhance · Chromatic Aberration · Vignette · Film Grain</strong> — finishing touches, all opt-in</li>
-        </ul>
-        <p>Everything runs in real time on a 25p HD timeline (LUT-accelerated engine, all CPU cores,
-        no GPU requirements).</p>
-
-        <h2 style="margin-top:40px;">Made for Resolve Free</h2>
-        <p>Resolve's own film-look tools are Studio-only or scattered across a dozen nodes. Pulse Color
-        is <strong>one node that works in the Free version</strong> — the same node, the same looks, on
-        macOS and Windows. Offline-friendly licensing: activate once, work offline for 30 days at a time.</p>
-
-        <h2 style="margin-top:40px;">Install in one minute</h2>
-        <ol style="line-height:1.9;">
-            <li>Download, open, run the installer (macOS: notarized DMG · Windows: copy one folder).</li>
-            <li>Restart Resolve → Color page → OpenFX → <strong>Pulse → Pulse Color</strong>.</li>
-            <li>Paste your Pulse license key and press <em>Activate License</em>. Same key as Pulse Edit.</li>
-        </ol>
-
-        <div style="background:#17150f;color:#f3efe6;border-radius:14px;padding:28px;margin:40px 0;">
-            <h2 style="margin-top:0;color:#f3efe6;">One license. The whole suite.</h2>
-            <p style="opacity:.85;">Pulse Color is included with the Pulse license — the same €13/month
-            that gets you Pulse Edit's beat detection and auto-editing. Already subscribed? Pulse Color
-            is yours today: download it and use your existing key.</p>
-            <a href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m"
-               style="background:#4ade80;color:#0c1f12;padding:12px 22px;border-radius:10px;font-weight:700;text-decoration:none;display:inline-block;">
-               Get the Pulse license — €13/month</a>
-            <p style="font-size:13px;opacity:.6;margin-bottom:0;">Renews monthly until you cancel. Cancel any time.</p>
-        </div>
-
-        <p style="font-size:13px;opacity:.55;">Camera and format names (Sony, ARRI, Canon, Panasonic, Fujifilm, RED, Nikon, DJI, Apple, Leica and their log formats)
-        are trademarks of their respective owners, used to indicate compatibility only. Filter names reference the visual
-        character of well-known optical filters; Pulse Color is an independent software emulation and is not affiliated
-        with or endorsed by any filter or camera manufacturer.</p>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2026 AB Tools · <a href="/">Pulse Edit</a> · <a href="/pulse-color.html">Pulse Color</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
-    </footer>
-
+<footer class="footer"><div class="wrap">
+    <div class="foot-top">
+        <div class="foot-brand"><a class="brand" href="/">Pulse Edit<span class="dot"></span></a><p>Beat-synced auto-editing and film color for DaVinci Resolve. Built by AB Tools.</p></div>
+        <div class="foot-col"><h4>Product</h4><a href="/#how">How it works</a><a href="/pulse-color.html">Pulse Color</a><a href="/#pricing">Pricing</a><a href="/tutorial.html">Tutorial</a></div>
+        <div class="foot-col"><h4>Guides</h4><a href="/blog/beat-detection-plugin-davinci-resolve.html">Beat detection plugin</a><a href="/complete-guide-davinci-resolve-music-editing.html">Complete guide</a></div>
+        <div class="foot-col"><h4>More</h4><a href="/blog/">Blog</a><a href="mailto:support@pulseedit.com">Support</a><a href="/withdrawal.html">Refunds &amp; Withdrawal</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 AB Tools — Pulse Edit</span><span>From log to look. One click.</span></div>
+</div></footer>
+</div>
 </body>
 </html>
