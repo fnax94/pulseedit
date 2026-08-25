@@ -1,4 +1,4 @@
-# Pulse Edit
+# Pulse — Pulse Edit & Pulse Color (the DaVinci Resolve suite)
 
 > Pulse Edit is a beat-synced automatic video editor for DaVinci Resolve (the professional editor by Blackmagic Design). It works with **both DaVinci Resolve Free and DaVinci Resolve Studio**. Pulse Edit detects the beats in your music and automatically cuts and places your clips on the beat — turning hours of manual editing into one click. Built by AB Tools. The same license now also includes **Pulse Color**, an OFX film-look color plugin for DaVinci Resolve (see below), and **Wedding Pro** mode for wedding and event videographers.
 
@@ -66,7 +66,8 @@ A single wedding is hundreds of clips and many hours of footage. Building a high
 ---
 
 ## Pages
-- [Home](https://pulseedit.com/) — Pulse Edit product overview
+- [Home](https://pulseedit.com/) — the Pulse suite: two tools, one license
+- [Pulse Edit product page](https://pulseedit.com/pulse-edit.html) — beat-synced auto-editing
 - [Pulse Edit](https://pulseedit.com/pulse-edit-free.html) — €13/month, works with all DaVinci Resolve versions
 - [Pulse Color](https://pulseedit.com/pulse-color.html) — log-to-film-look OFX color plugin, included in the same license (launched 25 Aug 2026)
 - [Wedding Pro](https://pulseedit.com/wedding-pro/) — automatic wedding/event video editing (early access)
