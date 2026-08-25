@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadGA() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-JV9DJHLCY2');
+    }
+    if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
+    </script>
+    <title>Black Pro-Mist in DaVinci Resolve: Filter Emulation Guide (2026)</title>
+    <meta name="description" content="How to get the Black Pro-Mist look in DaVinci Resolve — Free or Studio: what the filter actually does, what real glass costs, and how to emulate it (plus halation, Glimmerglass and anamorphic streaks) with an OFX plugin." />
+    <meta name="keywords" content="black pro mist davinci resolve, pro mist filter emulation, diffusion filter plugin davinci resolve, halation davinci resolve free, black pro mist plugin, glimmerglass emulation, tiffen black pro mist digital" />
+    <meta property="og:title" content="Black Pro-Mist in DaVinci Resolve: Filter Emulation Guide" />
+    <meta property="og:description" content="What Black Pro-Mist actually does, what real glass costs, and how to stack Pro-Mist, halation and streak filters in DaVinci Resolve Free." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://pulseedit.com/blog/black-pro-mist-davinci-resolve.html" />
+    <meta property="og:image" content="https://pulseedit.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="canonical" href="https://pulseedit.com/blog/black-pro-mist-davinci-resolve.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" crossorigin href="/assets/index-dsPNw69o.css" />
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article",
+     "headline":"Black Pro-Mist in DaVinci Resolve: the Filter Emulation Guide",
+     "description":"What the Black Pro-Mist filter actually does to an image, what real diffusion glass costs, and how to emulate the whole mist family — plus halation and anamorphic streaks — inside DaVinci Resolve Free and Studio.",
+     "author":{"@type":"Person","name":"Abramo Benedetti","jobTitle":"Video editor & founder, AB Tools"},
+     "publisher":{"@type":"Organization","name":"Pulse Edit — AB Tools"},
+     "datePublished":"2026-08-25","dateModified":"2026-08-25",
+     "mainEntityOfPage":"https://pulseedit.com/blog/black-pro-mist-davinci-resolve.html"}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Can you emulate a Black Pro-Mist filter in post?","acceptedAnswer":{"@type":"Answer","text":"Yes, faithfully. A Black Pro-Mist does two measurable things: it blooms highlights past their edges and keeps blacks dense. Both are spatial operations a plugin can reproduce — a thresholded highlight mask blurred at wide radius and screened back over the image. What can't be recreated in post are polarization effects, not diffusion."}},
+    {"@type":"Question","name":"What is the difference between Black Pro-Mist and White Pro-Mist?","acceptedAnswer":{"@type":"Answer","text":"Both bloom the highlights, but White Pro-Mist adds a milky veil that lifts shadows across the frame in proportion to scene light — the dreamy vintage look. Black Pro-Mist uses dark particles in the glass, so highlights glow while blacks stay dense. Black is the modern favorite for taking the digital edge off interviews."}},
+    {"@type":"Question","name":"Is there a free way to get halation in DaVinci Resolve?","acceptedAnswer":{"@type":"Answer","text":"DaVinci Resolve 19+ includes Film Look Creator with a halation control, in the Free version too. For a filter-style workflow — Pro-Mist family, halation, anamorphic streak and star filter as independent, stackable effects graded like physical glass — Pulse Color adds a dedicated OFX node that also handles 18 camera log formats."}}
+    ]}
+    </script>
+</head>
+<body>
+<div id="root">
+<header class="nav"><div class="wrap nav__in">
+    <a class="brand" href="/" aria-label="Pulse Edit home">Pulse Edit<span class="dot"></span></a>
+    <nav class="nav__links">
+        <a href="/#how">How it works</a>
+        <a href="/pulse-color.html">Pulse Color</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/blog/">Blog</a>
+    </nav>
+    <div class="nav__cta">
+        <a class="btn" href="/pulse-color.html">Try Pulse Color</a>
+    </div>
+</div></header>
+
+<main class="wrap" style="max-width:760px;padding-top:48px;">
+    <p style="font-family:var(--font-mono);font-size:13px;"><a href="/">Home</a> › <a href="/blog/">Blog</a> › Black Pro-Mist in DaVinci Resolve</p>
+    <span class="kicker" style="margin-top:18px">Filter emulation · 2026 guide</span>
+    <h1 class="h-lg" style="margin-top:14px;">Black Pro-Mist in DaVinci Resolve: real glass, and how to fake it honestly</h1>
+    <p style="font-family:var(--font-mono);font-size:12px;color:var(--faint);">By Abramo Benedetti, video editor — last updated 25 August 2026</p>
+
+    <p class="lede" style="margin-top:22px;">Watch any A24 film or a modern Netflix drama and you'll notice digital footage that doesn't feel digital: highlights that glow softly, skin that isn't clinically sharp, blacks that stay rich. A lot of that is one piece of glass — the <strong>Black Pro-Mist</strong> diffusion filter. Here's what it actually does, what it costs, and how to get the look inside DaVinci Resolve, including the Free version.</p>
+
+    <h2 class="h-md" style="margin-top:44px;">What a Black Pro-Mist actually does</h2>
+    <p>A Pro-Mist filter is glass with microscopic particles suspended in it. Light from bright sources scatters around those particles before hitting the sensor, which produces two measurable effects: <strong>highlights bloom past their edges</strong> (a soft halo around windows, practicals, skin speculars) and <strong>fine detail is gently softened</strong> without looking blurred.</p>
+    <p>The "Black" version uses dark particles, and that's the trick: the bloom happens, but the veil doesn't lift the shadows — <strong>blacks stay dense</strong>. The "White" version scatters more light across the whole frame, lifting the shadows into that milky, dreamy look you know from 1980s cinema. In one sentence: <em>White Pro-Mist glows everywhere, Black Pro-Mist glows only where the light is.</em></p>
+
+    <h2 class="h-md" style="margin-top:40px;">What the real glass costs</h2>
+    <p>Physical diffusion is priced like pro gear, and it's per filter, per strength, per size. A single 77&nbsp;mm Black Pro-Mist for mirrorless lenses typically runs <strong>€150–250</strong>; the 4×5.65" cinema versions cost several times that, and a matched set of strengths (1/8, 1/4, 1/2, 1) multiplies it again. Shooting with a filter also <strong>commits you forever</strong>: the diffusion is baked into the negative, and if the director changes their mind in the grade, there is no undo.</p>
+    <p>That's the honest case for emulation in post: not just the money — the reversibility.</p>
+
+    <h2 class="h-md" style="margin-top:40px;">Can post-production emulate it faithfully?</h2>
+    <p>For diffusion, yes — and it's worth being precise about why. The Pro-Mist effect is a <strong>spatial light transport</strong>: take the energy above a luminance threshold, spread it with a wide-radius falloff, and composite it back over the image (screen blend), while leaving the rest of the tonal range alone. That is exactly what a well-built plugin does. It is also why <strong>a LUT can never be a Pro-Mist</strong>: a .cube file maps each pixel's color independently — it cannot move light between pixels, so it cannot bloom a highlight.</p>
+    <p>What genuinely can't be recreated in post: polarization (a polarizer changes what light reaches the sensor) and information lost to clipping. Diffusion, halation, streaks and star patterns are all fair game.</p>
+
+    <h2 class="h-md" style="margin-top:40px;">Your options in DaVinci Resolve</h2>
+    <div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:15px;">
+        <tr style="border-bottom:1px solid var(--line-strong);text-align:left;"><th style="padding:10px 8px;">Option</th><th style="padding:10px 8px;">What you get</th><th style="padding:10px 8px;">Cost</th></tr>
+        <tr style="border-bottom:1px solid var(--line);"><td style="padding:10px 8px;">Real Tiffen glass</td><td style="padding:10px 8px;">The reference. Baked in forever, one strength per filter</td><td style="padding:10px 8px;">€150–250+ per filter</td></tr>
+        <tr style="border-bottom:1px solid var(--line);"><td style="padding:10px 8px;">Film Look Creator (built into Resolve 19+)</td><td style="padding:10px 8px;">Film-look node with halation &amp; grain controls — works in Free</td><td style="padding:10px 8px;">Free</td></tr>
+        <tr style="border-bottom:1px solid var(--line);"><td style="padding:10px 8px;">Dehancer</td><td style="padding:10px 8px;">Deep film-stock emulation incl. bloom/halation</td><td style="padding:10px 8px;">~€400</td></tr>
+        <tr style="border-bottom:1px solid var(--line);"><td style="padding:10px 8px;"><a href="/pulse-color.html">Pulse Color</a></td><td style="padding:10px 8px;">The mist family (Black &amp; White Pro-Mist, Glimmerglass, Skin Diffusion) + halation, anamorphic streak, star filter — 12 stackable FX graded like physical filters, plus film looks for 18 camera log formats</td><td style="padding:10px 8px;">Included in the Pulse license, €13/month</td></tr>
+    </table></div>
+
+    <h2 class="h-md" style="margin-top:40px;">How to stack the mist family in Resolve Free</h2>
+    <ol style="line-height:1.9;">
+        <li><a href="/pulse-color.html">Install Pulse Color</a> (notarized DMG on macOS, folder copy on Windows) and restart Resolve.</li>
+        <li>Color page → Effects → OpenFX → <strong>Pulse → Pulse Color</strong>, drag onto a node.</li>
+        <li>Pick your camera's log format (or leave Rec.709 for graded/non-log footage).</li>
+        <li>Toggle <strong>Black Pro-Mist</strong> and set the grade like you'd order glass: 0.125 = 1/8, 0.25 = 1/4, 0.5 = 1/2, 1 = full.</li>
+        <li>Stack to taste — a classic interview combo is Black Pro-Mist 1/4 + Glimmerglass 1/4 + a touch of halation. Every effect has its own on/off toggle, so the before/after is one click, forever reversible.</li>
+    </ol>
+
+    <h2 class="h-md" style="margin-top:40px;">The rest of the drawer</h2>
+    <p><strong>Halation</strong> — the warm ring around bright lights that comes from film stock, not glass; the signature "shot on film" tell. <strong>Anamorphic streak</strong> — the horizontal blue flare of anamorphic lenses. <strong>Star filter</strong> — cross-etched glass that turns point lights into 4, 6 or 8-point stars. <strong>Skin Diffusion</strong> — detail softening with no halo, the digital Black Satin. All of them are spatial effects, all of them stack, and none of them can live in a LUT.</p>
+
+    <div style="background:var(--ink);color:var(--paper);border-radius:14px;padding:26px;margin:44px 0;">
+        <h2 class="h-md" style="margin-top:0;color:var(--paper);">Twelve filters. One node. €13/month.</h2>
+        <p style="opacity:.85;">Pulse Color puts the whole filter drawer inside DaVinci Resolve — Free and Studio — together with measured film looks for 18 camera log formats, from S-Log3 to Apple Log. Included in the same license as Pulse Edit.</p>
+        <a class="btn btn--lg" href="/pulse-color.html" style="background:#4ade80;color:#0c1f12;">See Pulse Color →</a>
+    </div>
+
+    <p style="font-family:var(--font-mono);font-size:12px;color:var(--faint);">Tiffen, Pro-Mist, Glimmerglass and Black Satin are trademarks of The Tiffen Company. Pulse Color is an independent software emulation of the visual character of diffusion filters and is not affiliated with or endorsed by Tiffen. Dehancer is a trademark of its respective owner.</p>
+</main>
+
+<footer class="footer" style="margin-top:60px;"><div class="wrap">
+    <div class="foot-bottom"><span>© 2026 AB Tools — Pulse Edit</span><span><a href="/pulse-color.html">Pulse Color</a> · <a href="/blog/">Blog</a> · <a href="/privacy.html">Privacy</a></span></div>
+</div></footer>
+</div>
+</body>
+</html>
