@@ -149,20 +149,34 @@
         footer a { color: #7c6ff7; text-decoration: none; }
         @media (max-width: 640px) { .article-header h1 { font-size: 28px; } .article-body h2 { font-size: 22px; } .nav-links { gap: 16px; } .nav-links a { font-size: 13px; } }
     </style>
+    <link rel="stylesheet" href="/pulse-nav.css">
 </head>
 <body>
 
-    <nav>
-        <div class="container nav-inner">
-            <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
-            <div class="nav-links">
-                <a href="/">Pulse Edit</a>
-                <a href="/tutorial.html">Tutorial</a>
-                <a href="/blog/">Blog</a>
-                <a href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
-            </div>
-        </div>
+    <header class="nav pulse-nav"><!-- pulse-nav:canonical --><div class="pn-wrap">
+    <a class="brand" href="/" aria-label="Pulse home">Pulse<span class="dot"></span></a>
+    <nav class="nav__links">
+        <a href="/pulse-edit.html">Pulse Edit</a>
+        <a href="/pulse-color.html">Pulse Color</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/blog/">Blog</a>
     </nav>
+    <div class="nav__cta">
+        <a class="nav__price" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg" data-track="download-nav">↓ Download</a>
+        <a class="nav__price" href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Manage subscription</a>
+        <a class="pn-btn" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" data-track="buy-nav">Get Pulse — €13/mo</a>
+        <button class="nav__burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+</div>
+<div class="mobile">
+    <a href="/pulse-edit.html">Pulse Edit</a>
+    <a href="/pulse-color.html">Pulse Color</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog/">Blog</a>
+    <a class="pn-btn" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" style="margin-top:18px" data-track="buy-mobile">Get Pulse — €13/mo</a>
+    <a class="pn-btn" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg" style="margin-top:10px" data-track="download-mobile">↓ Download</a>
+    <a href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Manage subscription</a>
+</div></header>
 
     <article>
         <header class="article-header">
@@ -311,5 +325,6 @@ function declineCookies() {
 
 <p style="font-size:11px;color:var(--muted);margin:32px auto 16px;max-width:1100px;padding:0 24px;text-align:center;border-top:1px solid var(--line);padding-top:16px;line-height:1.5;">All third-party product names mentioned (BeatEdit, Descript, Runway, CapCut, Adobe Premiere Pro, DaVinci Resolve, Frame.io, etc. &mdash; where applicable) are trademarks of their respective owners. Pulse Edit is not affiliated with or endorsed by these companies. Pricing references accurate as of April 2026 &mdash; check vendor sites for the latest.</p>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"090ce13315b84609bc53b871490246d2"}'></script>
+    <script src="/pulse-nav.js" defer></script>
 </body>
 </html>

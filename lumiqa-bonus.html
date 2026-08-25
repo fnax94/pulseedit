@@ -13,19 +13,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles-v2.css">
+    <link rel="stylesheet" href="/pulse-nav.css">
 </head>
 <body>
-    <nav>
-        <div class="container nav-inner">
-            <a href="/" class="nav-brand">Pulse <span>Edit</span></a>
-            <div class="nav-links">
-                <a href="/pulse-edit-free.html">Pulse Edit</a>
-                <a href="/tutorial.html">Tutorial</a>
-                <a href="/blog/">Blog</a>
-                <a href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" style="background:#4ade80;color:#0c1f12;padding:6px 14px;border-radius:8px;font-weight:700;">Buy</a>
-            </div>
-        </div>
+    <header class="nav pulse-nav"><!-- pulse-nav:canonical --><div class="pn-wrap">
+    <a class="brand" href="/" aria-label="Pulse home">Pulse<span class="dot"></span></a>
+    <nav class="nav__links">
+        <a href="/pulse-edit.html">Pulse Edit</a>
+        <a href="/pulse-color.html">Pulse Color</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/blog/">Blog</a>
     </nav>
+    <div class="nav__cta">
+        <a class="nav__price" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg" data-track="download-nav">↓ Download</a>
+        <a class="nav__price" href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Manage subscription</a>
+        <a class="pn-btn" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" data-track="buy-nav">Get Pulse — €13/mo</a>
+        <button class="nav__burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+</div>
+<div class="mobile">
+    <a href="/pulse-edit.html">Pulse Edit</a>
+    <a href="/pulse-color.html">Pulse Color</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog/">Blog</a>
+    <a class="pn-btn" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" style="margin-top:18px" data-track="buy-mobile">Get Pulse — €13/mo</a>
+    <a class="pn-btn" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg" style="margin-top:10px" data-track="download-mobile">↓ Download</a>
+    <a href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Manage subscription</a>
+</div></header>
 
     <section style="padding:80px 0;min-height:60vh">
         <div class="container" style="max-width:640px">
@@ -193,5 +207,6 @@ function manageCookies() {
 }
 </script>
 <a href="#" onclick="manageCookies();return false;" aria-label="Manage cookie preferences" style="position:fixed;bottom:14px;left:14px;background:rgba(15,15,26,0.92);color:#9ca3af;border:1px solid rgba(255,255,255,0.12);padding:6px 12px;border-radius:999px;font-size:11px;font-family:inherit;text-decoration:none;z-index:99998;backdrop-filter:blur(8px);">&#127850; Manage cookies</a>
+    <script src="/pulse-nav.js" defer></script>
 </body>
 </html>

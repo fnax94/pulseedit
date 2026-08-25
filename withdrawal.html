@@ -127,31 +127,34 @@
         .foot-top{grid-template-columns:1fr;}
       }
     </style>
+    <link rel="stylesheet" href="/pulse-nav.css">
 </head>
 <body>
 
-    <header class="nav">
-      <div class="nav__in">
-        <a class="brand" href="/" aria-label="Pulse Edit home">Pulse Edit<span class="dot"></span></a>
-        <nav class="nav__links">
-          <a href="/#how">How it works</a>
-          <a href="/#patterns">Patterns</a>
-          <a href="/#pricing">Pricing</a>
-          <a href="/#faq">FAQ</a>
-        </nav>
-        <div class="nav__cta">
-          <a class="btn" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" data-track="buy-nav">Get Pulse Edit</a>
-          <button class="nav__burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()"><span></span></button>
-        </div>
-      </div>
-      <div class="mobile" id="mobileMenu">
-        <a href="/#how" onclick="closeMenu()">How it works</a>
-        <a href="/#patterns" onclick="closeMenu()">Patterns</a>
-        <a href="/#pricing" onclick="closeMenu()">Pricing</a>
-        <a href="/#faq" onclick="closeMenu()">FAQ</a>
-        <a class="btn" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m">Get Pulse Edit — €13/mo</a>
-      </div>
-    </header>
+    <header class="nav pulse-nav"><!-- pulse-nav:canonical --><div class="pn-wrap">
+    <a class="brand" href="/" aria-label="Pulse home">Pulse<span class="dot"></span></a>
+    <nav class="nav__links">
+        <a href="/pulse-edit.html">Pulse Edit</a>
+        <a href="/pulse-color.html">Pulse Color</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/blog/">Blog</a>
+    </nav>
+    <div class="nav__cta">
+        <a class="nav__price" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg" data-track="download-nav">↓ Download</a>
+        <a class="nav__price" href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Manage subscription</a>
+        <a class="pn-btn" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" data-track="buy-nav">Get Pulse — €13/mo</a>
+        <button class="nav__burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+</div>
+<div class="mobile">
+    <a href="/pulse-edit.html">Pulse Edit</a>
+    <a href="/pulse-color.html">Pulse Color</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog/">Blog</a>
+    <a class="pn-btn" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" style="margin-top:18px" data-track="buy-mobile">Get Pulse — €13/mo</a>
+    <a class="pn-btn" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg" style="margin-top:10px" data-track="download-mobile">↓ Download</a>
+    <a href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Manage subscription</a>
+</div></header>
 
     <header class="page-header">
       <div class="wrap wrap--narrow">
@@ -283,5 +286,6 @@ Date: ____________________</div>
         return false;
       }
     </script>
+    <script src="/pulse-nav.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,160 @@
+/* Pulse suite navbar — standalone replica of the design-system nav
+   (assets/index-*.css). Loaded ONLY by pages that do NOT use the hashed
+   design-system CSS, so the navbar looks identical site-wide.
+   Everything is scoped under .pulse-nav to survive legacy page CSS
+   (styles-v2.css styles bare `nav`/`a` elements). */
+
+header.pulse-nav {
+  --pn-paper: #f3efe6;
+  --pn-ink: #17150f;
+  --pn-muted: #6c6557;
+  --pn-accent: #e8472b;
+  --pn-line: rgba(23, 21, 15, .16);
+  --pn-line-strong: rgba(23, 21, 15, .42);
+  --pn-font-display: "Bricolage Grotesque", "Hanken Grotesk", system-ui, sans-serif;
+  --pn-font-text: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --pn-font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--pn-paper);
+  border-bottom: 1px solid var(--pn-line);
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  font-family: var(--pn-font-text);
+  color: var(--pn-ink);
+}
+@supports (background: color-mix(in srgb, red 50%, transparent)) {
+  header.pulse-nav {
+    background: color-mix(in srgb, var(--pn-paper) 86%, transparent);
+    -webkit-backdrop-filter: saturate(1.1) blur(8px);
+    backdrop-filter: saturate(1.1) blur(8px);
+  }
+}
+header.pulse-nav .pn-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-inline: clamp(20px, 5vw, 64px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 66px;
+}
+header.pulse-nav a { text-decoration: none; transition: color .14s ease; }
+header.pulse-nav .brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 9px;
+  font-family: var(--pn-font-display);
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: -.03em;
+  color: var(--pn-ink);
+}
+header.pulse-nav .brand .dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--pn-accent);
+  display: inline-block;
+  transform: translateY(-1px);
+}
+/* reset any legacy `nav {}` element rules leaking into the inner nav */
+header.pulse-nav nav.nav__links {
+  position: static;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}
+header.pulse-nav nav.nav__links a {
+  font-family: var(--pn-font-mono);
+  font-size: 12.5px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--pn-muted);
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-weight: 400;
+}
+header.pulse-nav nav.nav__links a:hover { color: var(--pn-ink); }
+header.pulse-nav .nav__cta { display: flex; align-items: center; gap: 16px; }
+header.pulse-nav .nav__price {
+  font-family: var(--pn-font-mono);
+  font-size: 13px;
+  color: var(--pn-muted);
+}
+header.pulse-nav .nav__price:hover { color: var(--pn-ink); }
+header.pulse-nav .pn-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--pn-font-text);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 14px 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid var(--pn-ink);
+  background: var(--pn-ink);
+  color: var(--pn-paper);
+  transition: transform .14s ease, background .14s ease;
+}
+header.pulse-nav .pn-btn:hover { background: var(--pn-accent); border-color: var(--pn-accent); color: var(--pn-paper); }
+header.pulse-nav .pn-btn:active { transform: translateY(1px); }
+header.pulse-nav .nav__burger {
+  display: none;
+  background: none;
+  border: 1px solid var(--pn-line-strong);
+  border-radius: 4px;
+  width: 40px; height: 36px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+header.pulse-nav .nav__burger span { display: block; width: 18px; height: 1.5px; background: var(--pn-ink); position: relative; }
+header.pulse-nav .nav__burger span:before,
+header.pulse-nav .nav__burger span:after {
+  content: ""; position: absolute; left: 0; width: 18px; height: 1.5px; background: var(--pn-ink);
+}
+header.pulse-nav .nav__burger span:before { top: -5px; }
+header.pulse-nav .nav__burger span:after { top: 5px; }
+header.pulse-nav .mobile { display: none; }
+@media (max-width: 900px) {
+  header.pulse-nav nav.nav__links, header.pulse-nav .nav__price { display: none; }
+  header.pulse-nav .nav__burger { display: inline-flex; }
+  header.pulse-nav .pn-btn { font-size: 14px; padding: 10px 14px; }
+  header.pulse-nav .mobile.open {
+    display: block;
+    position: fixed;
+    top: 66px; left: 0; right: 0; bottom: 0;
+    min-height: calc(100dvh - 66px);
+    background: var(--pn-paper);
+    z-index: 49;
+    padding: 24px clamp(20px, 5vw, 64px);
+    overflow-y: auto;
+  }
+  header.pulse-nav .mobile.open a {
+    display: block;
+    font-family: var(--pn-font-display);
+    font-weight: 600;
+    font-size: 28px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--pn-line);
+    color: var(--pn-ink);
+    background: none;
+  }
+  header.pulse-nav .mobile.open a.pn-btn {
+    display: inline-flex;
+    font-size: 17px;
+    padding: 17px 28px;
+    color: var(--pn-paper);
+    border-bottom: 0;
+    margin-top: 18px;
+  }
+}

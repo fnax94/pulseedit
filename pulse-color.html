@@ -39,18 +39,29 @@
 </head>
 <body>
 <div id="root">
-<header class="nav"><div class="wrap nav__in">
-    <a class="brand" href="/" aria-label="Pulse Edit home">Pulse Edit<span class="dot"></span></a>
+<header class="nav"><!-- pulse-nav:canonical --><div class="wrap nav__in">
+    <a class="brand" href="/" aria-label="Pulse home">Pulse<span class="dot"></span></a>
     <nav class="nav__links">
-        <a href="/pulse-edit.html#how">How it works</a>
-        <a href="/pulse-color.html" style="color:var(--accent-ink)">Pulse Color</a>
+        <a href="/pulse-edit.html">Pulse Edit</a>
+        <a href="/pulse-color.html">Pulse Color</a>
         <a href="/#pricing">Pricing</a>
         <a href="/blog/">Blog</a>
     </nav>
     <div class="nav__cta">
-        <a class="nav__price" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseColor-macOS.dmg">↓ Download</a>
-        <a class="btn" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m">Get the Pulse license — €13/mo</a>
+        <a class="nav__price" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg" data-track="download-nav">↓ Download</a>
+        <a class="nav__price" href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Manage subscription</a>
+        <a class="btn" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" data-track="buy-nav">Get Pulse — €13/mo</a>
+        <button class="nav__burger" aria-label="Menu" aria-expanded="false"><span></span></button>
     </div>
+</div>
+<div class="mobile">
+    <a href="/pulse-edit.html">Pulse Edit</a>
+    <a href="/pulse-color.html">Pulse Color</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog/">Blog</a>
+    <a class="btn btn--lg" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" style="margin-top:18px" data-track="buy-mobile">Get Pulse — €13/mo</a>
+    <a class="btn btn--ghost btn--lg" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg" style="margin-top:10px" data-track="download-mobile">↓ Download</a>
+    <a href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Manage subscription</a>
 </div></header>
 
 <main>
@@ -222,5 +233,6 @@
     })();
     </script>
 
-  </body>
+      <script src="/pulse-nav.js" defer></script>
+</body>
 </html>
