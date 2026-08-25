@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Pulse Color — Log to Film Look, One Click · OFX Plugin for DaVinci Resolve</title>
-    <meta name="description" content="Pulse Color: film looks for DaVinci Resolve Free & Studio. 18 camera log formats (S-Log3, LogC, Canon Log, V-Log, Apple Log…), 6 looks, 12 stackable filter FX. Included with the Pulse license." />
+    <title>Pulse Color — Pro-Mist, Halation &amp; Film Look Filters for DaVinci Resolve (Free &amp; Studio)</title>
+    <meta name="description" content="Black Pro-Mist, White Pro-Mist, Glimmerglass, halation, anamorphic streak and star filter — 12 stackable optical filter emulations plus film looks for 18 camera log formats. One OFX node for DaVinci Resolve Free & Studio." />
     <link rel="canonical" href="https://pulseedit.com/pulse-color.html" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#f3efe6" />
-    <meta property="og:title" content="Pulse Color — From Log to Look, One Click" />
-    <meta property="og:description" content="Film looks + stackable optical filter FX for DaVinci Resolve Free & Studio. 18 camera log formats. Included with the Pulse license." />
+    <meta property="og:title" content="Pulse Color — Pro-Mist, Halation &amp; Film Looks for DaVinci Resolve" />
+    <meta property="og:description" content="Pro-Mist, halation, anamorphic streak, star filter + film looks for 18 log formats — one OFX node for DaVinci Resolve Free & Studio." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://pulseedit.com/pulse-color.html" />
     <meta property="og:image" content="https://pulseedit.com/og-image.png" />
@@ -32,6 +32,7 @@
     {"@type":"Question","name":"Which camera log formats does Pulse Color support?","acceptedAnswer":{"@type":"Answer","text":"18 log formats across 32 profiles: Sony S-Log3 and S-Log2 with every Color Mode the camera offers (S-Gamut3.Cine, S-Gamut3, S-Gamut, BT.2020, 709, Venice), ARRI LogC3 and LogC4, Canon Log 2 and 3, Apple Log and Apple Log 2 (iPhone 15–17 Pro), Panasonic V-Log, Fujifilm F-Log/F-Log2/F-Log2 C, RED Log3G10, Nikon N-Log, DJI D-Log, Leica L-Log — plus Rec.709 and sRGB for non-log footage."}},
     {"@type":"Question","name":"Is Pulse Color a LUT pack?","acceptedAnswer":{"@type":"Answer","text":"No. LUT files are fixed conversions eyeballed for one camera. Pulse Color is a color engine: every camera profile is generated and verified against the colour-science reference library, looks are full print-film rendering chains, and the optical filter FX (mist, halation, streak) are spatial effects that no .cube file can contain."}},
     {"@type":"Question","name":"How much does Pulse Color cost?","acceptedAnswer":{"@type":"Answer","text":"Nothing extra: Pulse Color is included in the Pulse license — €13/month or €130/year — which also covers Pulse Edit. One key activates the whole suite. There is a 14-day money-back guarantee, and activation works offline for 30 days at a time."}},
+    {"@type":"Question","name":"Is there a Black Pro-Mist filter plugin for DaVinci Resolve?","acceptedAnswer":{"@type":"Answer","text":"Yes — Pulse Color emulates the Black Pro-Mist diffusion filter (plus White Pro-Mist, Glimmerglass and Skin Diffusion) as stackable OFX effects inside DaVinci Resolve, Free and Studio. The sliders are graded like the physical filters: 0.125 equals a 1/8 filter, 0.25 a 1/4, 0.5 a 1/2, 1 a full-strength filter."}},
     {"@type":"Question","name":"Where do I find the Pulse Color node in DaVinci Resolve?","acceptedAnswer":{"@type":"Answer","text":"After installing and restarting Resolve: open the Color page, then the Effects panel, then OpenFX. Pulse Color is in the group named Pulse. Drag it onto a node in your node graph, pick your camera's log format, choose a look, and adjust the filter FX."}}
     ]}
     </script>
@@ -56,7 +57,7 @@
 <section class="hero wrap"><div class="hero__grid"><div>
     <span class="kicker">New · OFX plugin for DaVinci Resolve</span>
     <h1 class="h-xl">From log to look.<br /><span class="ln2">One click.</span></h1>
-    <p class="lede hero__lede">A single color node for DaVinci Resolve — Free and Studio — that takes your camera's log footage straight to a finished film look, with the optical filters Hollywood puts in front of the lens. No LUT folders, no color science homework.</p>
+    <p class="lede hero__lede">One node for DaVinci Resolve — Free and Studio — with the optical filters Hollywood puts in front of the lens: Black Pro-Mist, halation, anamorphic streak, star filter and eight more, stackable like real glass. Plus film looks for 18 camera log formats. No LUT folders, no color science homework.</p>
     <div class="hero__cta">
         <a class="btn btn--lg" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseColor-macOS.dmg">↓ Download for macOS</a>
         <a class="btn btn--ghost btn--lg" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseColor-Windows.zip">↓ Download for Windows</a>
@@ -65,9 +66,23 @@
 </div></div></section>
 
 <div class="ticker" aria-hidden="true"><div class="ticker__track">
-    <span>S-Log3<span class="dot">/</span></span><span>LogC3 · LogC4<span class="dot">/</span></span><span>Canon Log 2/3<span class="dot">/</span></span><span>Apple Log 1/2<span class="dot">/</span></span><span>V-Log<span class="dot">/</span></span><span>F-Log<span class="dot">/</span></span><span>Log3G10<span class="dot">/</span></span><span>N-Log<span class="dot">/</span></span><span>D-Log<span class="dot">/</span></span><span>L-Log<span class="dot">/</span></span><span>Rec.709<span class="dot">/</span></span>
-    <span>S-Log3<span class="dot">/</span></span><span>LogC3 · LogC4<span class="dot">/</span></span><span>Canon Log 2/3<span class="dot">/</span></span><span>Apple Log 1/2<span class="dot">/</span></span><span>V-Log<span class="dot">/</span></span><span>F-Log<span class="dot">/</span></span><span>Log3G10<span class="dot">/</span></span><span>N-Log<span class="dot">/</span></span><span>D-Log<span class="dot">/</span></span><span>L-Log<span class="dot">/</span></span><span>Rec.709<span class="dot">/</span></span>
+    <span>Black Pro-Mist<span class="dot">/</span></span><span>White Pro-Mist<span class="dot">/</span></span><span>Halation<span class="dot">/</span></span><span>Glimmerglass<span class="dot">/</span></span><span>Anamorphic Streak<span class="dot">/</span></span><span>Star Filter<span class="dot">/</span></span><span>Skin Diffusion<span class="dot">/</span></span><span>S-Log3<span class="dot">/</span></span><span>LogC<span class="dot">/</span></span><span>Apple Log<span class="dot">/</span></span><span>Rec.709<span class="dot">/</span></span>
+    <span>Black Pro-Mist<span class="dot">/</span></span><span>White Pro-Mist<span class="dot">/</span></span><span>Halation<span class="dot">/</span></span><span>Glimmerglass<span class="dot">/</span></span><span>Anamorphic Streak<span class="dot">/</span></span><span>Star Filter<span class="dot">/</span></span><span>Skin Diffusion<span class="dot">/</span></span><span>S-Log3<span class="dot">/</span></span><span>LogC<span class="dot">/</span></span><span>Apple Log<span class="dot">/</span></span><span>Rec.709<span class="dot">/</span></span>
 </div></div>
+
+<section class="section wrap" id="filters">
+    <span class="kicker">The filter drawer</span>
+    <h2 class="h-lg" style="margin-top:18px;max-width:20ch">The filters Hollywood screws on the lens. Stackable, like real glass.</h2>
+    <p class="muted" style="max-width:60ch;margin-top:16px">Twelve optical FX, each with its own toggle, freely combinable — the way DPs stack filters on set: <strong>Black Pro-Mist · White Pro-Mist · Glimmerglass · Skin Diffusion · Halation · Bloom · Anamorphic Streak · Star Filter (4/6/8 pt) · Enhance · Chromatic Aberration · Vignette · Film Grain</strong>. Mist sliders are graded like the physical filters: 0.125 = 1/8, 0.25 = 1/4, 0.5 = 1/2, 1 = full.</p>
+    <div class="feat-grid" style="margin-top:36px">
+        <div class="feat"><div class="feat__ic">A.</div><h3>The mist family</h3><p>Black Pro-Mist, White Pro-Mist, Glimmerglass, Skin Diffusion — sliders graded like the physical filters: 0.125 = 1/8, 0.25 = 1/4, 0.5 = 1/2, 1 = full.</p></div>
+        <div class="feat"><div class="feat__ic">B.</div><h3>Light effects</h3><p>Halation, Bloom, Anamorphic Streak and a 4/6/8-point Star Filter — measured to behave like the real thing.</p></div>
+        <div class="feat"><div class="feat__ic">C.</div><h3>Finishing touches</h3><p>Enhance, Chromatic Aberration, Vignette and Film Grain — all opt-in, all independent.</p></div>
+        <div class="feat"><div class="feat__ic">D.</div><h3>Real-time playback</h3><p>LUT-accelerated engine on all CPU cores. Full-speed playback on a 25p HD timeline, no GPU requirements.</p></div>
+        <div class="feat"><div class="feat__ic">E.</div><h3>Made for Resolve Free</h3><p>One node that works in the Free version — same node, same looks, on macOS and Windows.</p></div>
+        <div class="feat"><div class="feat__ic">F.</div><h3>Offline-friendly license</h3><p>Activate once, work offline for 30 days at a time. Same key as Pulse Edit — one license, the whole suite.</p></div>
+    </div>
+</section>
 
 <section class="section wrap" id="formats">
     <div style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap">
@@ -89,20 +104,6 @@
     <span class="kicker">The looks</span>
     <h2 class="h-lg" style="margin-top:18px;max-width:18ch">Six looks. Zero fake grain by default.</h2>
     <p class="muted" style="max-width:60ch;margin-top:16px"><strong>Nordic · Cinema Print · Midnight · Daylight · Linen · Amber</strong> — print-film rendering chains (cross-talk, highlight desaturation, palette shaping), not Instagram filters. A <em>Look Strength</em> dial blends each from subtle to full. Film character comes from curve, color and light — grain is there if you want it, off if you don't.</p>
-</section>
-
-<section class="section wrap" id="filters" style="padding-top:0">
-    <span class="kicker">The filter drawer</span>
-    <h2 class="h-lg" style="margin-top:18px;max-width:16ch">Stackable, like real glass</h2>
-    <p class="muted" style="max-width:34ch;margin-top:16px">Twelve optical FX, each with its own toggle, freely combinable — the way DPs stack filters on set.</p>
-    <div class="feat-grid" style="margin-top:36px">
-        <div class="feat"><div class="feat__ic">A.</div><h3>The mist family</h3><p>Black Pro-Mist, White Pro-Mist, Glimmerglass, Skin Diffusion — sliders graded like the physical filters: 0.125 = 1/8, 0.25 = 1/4, 0.5 = 1/2, 1 = full.</p></div>
-        <div class="feat"><div class="feat__ic">B.</div><h3>Light effects</h3><p>Halation, Bloom, Anamorphic Streak and a 4/6/8-point Star Filter — measured to behave like the real thing.</p></div>
-        <div class="feat"><div class="feat__ic">C.</div><h3>Finishing touches</h3><p>Enhance, Chromatic Aberration, Vignette and Film Grain — all opt-in, all independent.</p></div>
-        <div class="feat"><div class="feat__ic">D.</div><h3>Real-time playback</h3><p>LUT-accelerated engine on all CPU cores. Full-speed playback on a 25p HD timeline, no GPU requirements.</p></div>
-        <div class="feat"><div class="feat__ic">E.</div><h3>Made for Resolve Free</h3><p>One node that works in the Free version — same node, same looks, on macOS and Windows.</p></div>
-        <div class="feat"><div class="feat__ic">F.</div><h3>Offline-friendly license</h3><p>Activate once, work offline for 30 days at a time. Same key as Pulse Edit — one license, the whole suite.</p></div>
-    </div>
 </section>
 
 <section class="section wrap" id="install">
@@ -157,6 +158,7 @@
         <div class="faq-item"><h3 style="font-size:18px;margin-bottom:6px">What is Pulse Color?</h3><p class="muted">An OFX color-grading plugin for DaVinci Resolve — Free and Studio — that takes camera log footage to a finished film look in one node, with stackable emulations of on-set optical filters (Black Pro-Mist, halation, anamorphic streak). Included in the Pulse license together with Pulse Edit.</p></div>
         <div class="faq-item"><h3 style="font-size:18px;margin-bottom:6px">Does it work on DaVinci Resolve Free?</h3><p class="muted">Yes. Pulse Color is a standard OpenFX plugin, and OFX works in Resolve Free as well as Studio (18.5+), on macOS and Windows. The macOS build is notarized by Apple; the Windows build is Authenticode-signed.</p></div>
         <div class="faq-item"><h3 style="font-size:18px;margin-bottom:6px">Is it a LUT pack?</h3><p class="muted">No. Every camera profile is generated and verified against the colour-science reference library, the looks are full print-film rendering chains, and the filter FX are spatial effects no .cube file can contain — a LUT cannot do halation or Pro-Mist.</p></div>
+        <div class="faq-item"><h3 style="font-size:18px;margin-bottom:6px">Is there a Black Pro-Mist plugin for Resolve?</h3><p class="muted">Yes — Pulse Color emulates Black Pro-Mist, White Pro-Mist, Glimmerglass and Skin Diffusion as stackable OFX effects, with sliders graded like the physical filters (0.25 = a 1/4 filter). Works in Resolve Free and Studio.</p></div>
         <div class="faq-item"><h3 style="font-size:18px;margin-bottom:6px">How much does it cost?</h3><p class="muted">Nothing extra: it's included in the Pulse license (€13/month or €130/year) together with Pulse Edit. One key, the whole suite, 14-day money-back guarantee, offline-friendly activation (30 days at a time).</p></div>
     </div>
     <p style="font-family:var(--font-mono);font-size:12px;color:var(--faint);margin-top:26px">Last updated: 25 August 2026 · Pulse Color 1.0</p>
