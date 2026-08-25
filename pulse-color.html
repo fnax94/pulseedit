@@ -23,7 +23,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" crossorigin href="/assets/index-dsPNw69o.css" />
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Pulse Color","applicationCategory":"MultimediaApplication","operatingSystem":["macOS 11+ (Intel & Apple Silicon)","Windows 10","Windows 11"],"description":"OFX color plugin for DaVinci Resolve (Free and Studio): converts 18 camera log formats to finished film looks with stackable optical filter FX. One node, one click.","softwareRequirements":"DaVinci Resolve Free or Studio 18.5+","offers":{"@type":"Offer","price":"13.00","priceCurrency":"EUR","description":"Included with the Pulse license — one license covers Pulse Edit and Pulse Color."},"author":{"@type":"Organization","name":"AB Tools"}}
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Pulse Color","applicationCategory":"MultimediaApplication","operatingSystem":["macOS 11+ (Intel & Apple Silicon)","Windows 10","Windows 11"],"description":"OFX color plugin for DaVinci Resolve (Free and Studio): converts 18 camera log formats to finished film looks with stackable optical filter FX. One node, one click.","softwareRequirements":"DaVinci Resolve Free or Studio 18.5+","datePublished":"2026-08-25","offers":{"@type":"Offer","price":"13.00","priceCurrency":"EUR","description":"Included with the Pulse license — one license covers Pulse Edit and Pulse Color."},"author":{"@type":"Organization","name":"AB Tools"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is Pulse Color?","acceptedAnswer":{"@type":"Answer","text":"Pulse Color is an OFX color-grading plugin for DaVinci Resolve (Free and Studio) that converts camera log footage straight to a finished film look in one node, with stackable emulations of on-set optical filters like Black Pro-Mist, halation and anamorphic streak. It is included in the Pulse license (€13/month) together with Pulse Edit."}},
+    {"@type":"Question","name":"Does Pulse Color work on the free version of DaVinci Resolve?","acceptedAnswer":{"@type":"Answer","text":"Yes. Pulse Color is a standard OpenFX plugin, and OFX plugins work in DaVinci Resolve Free as well as Studio (18.5 or later), on macOS and Windows. The macOS build is notarized by Apple; the Windows build is Authenticode-signed."}},
+    {"@type":"Question","name":"Which camera log formats does Pulse Color support?","acceptedAnswer":{"@type":"Answer","text":"18 log formats across 32 profiles: Sony S-Log3 and S-Log2 with every Color Mode the camera offers (S-Gamut3.Cine, S-Gamut3, S-Gamut, BT.2020, 709, Venice), ARRI LogC3 and LogC4, Canon Log 2 and 3, Apple Log and Apple Log 2 (iPhone 15–17 Pro), Panasonic V-Log, Fujifilm F-Log/F-Log2/F-Log2 C, RED Log3G10, Nikon N-Log, DJI D-Log, Leica L-Log — plus Rec.709 and sRGB for non-log footage."}},
+    {"@type":"Question","name":"Is Pulse Color a LUT pack?","acceptedAnswer":{"@type":"Answer","text":"No. LUT files are fixed conversions eyeballed for one camera. Pulse Color is a color engine: every camera profile is generated and verified against the colour-science reference library, looks are full print-film rendering chains, and the optical filter FX (mist, halation, streak) are spatial effects that no .cube file can contain."}},
+    {"@type":"Question","name":"How much does Pulse Color cost?","acceptedAnswer":{"@type":"Answer","text":"Nothing extra: Pulse Color is included in the Pulse license — €13/month or €130/year — which also covers Pulse Edit. One key activates the whole suite. There is a 14-day money-back guarantee, and activation works offline for 30 days at a time."}},
+    {"@type":"Question","name":"Where do I find the Pulse Color node in DaVinci Resolve?","acceptedAnswer":{"@type":"Answer","text":"After installing and restarting Resolve: open the Color page, then the Effects panel, then OpenFX. Pulse Color is in the group named Pulse. Drag it onto a node in your node graph, pick your camera's log format, choose a look, and adjust the filter FX."}}
+    ]}
     </script>
 </head>
 <body>
@@ -139,6 +149,18 @@
         <p style="font-family:var(--font-mono);font-size:12px;color:var(--faint);margin-top:10px;margin-bottom:0;text-align:center">VAT included. Renews until you cancel. <a href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Cancel in one click</a>.</p>
     </div>
 </div></section>
+
+<section class="section wrap" id="faq" style="padding-top:0">
+    <span class="kicker">Questions</span>
+    <h2 class="h-lg" style="margin-top:18px">Quick answers</h2>
+    <div class="faq-list" style="margin-top:30px">
+        <div class="faq-item"><h3 style="font-size:18px;margin-bottom:6px">What is Pulse Color?</h3><p class="muted">An OFX color-grading plugin for DaVinci Resolve — Free and Studio — that takes camera log footage to a finished film look in one node, with stackable emulations of on-set optical filters (Black Pro-Mist, halation, anamorphic streak). Included in the Pulse license together with Pulse Edit.</p></div>
+        <div class="faq-item"><h3 style="font-size:18px;margin-bottom:6px">Does it work on DaVinci Resolve Free?</h3><p class="muted">Yes. Pulse Color is a standard OpenFX plugin, and OFX works in Resolve Free as well as Studio (18.5+), on macOS and Windows. The macOS build is notarized by Apple; the Windows build is Authenticode-signed.</p></div>
+        <div class="faq-item"><h3 style="font-size:18px;margin-bottom:6px">Is it a LUT pack?</h3><p class="muted">No. Every camera profile is generated and verified against the colour-science reference library, the looks are full print-film rendering chains, and the filter FX are spatial effects no .cube file can contain — a LUT cannot do halation or Pro-Mist.</p></div>
+        <div class="faq-item"><h3 style="font-size:18px;margin-bottom:6px">How much does it cost?</h3><p class="muted">Nothing extra: it's included in the Pulse license (€13/month or €130/year) together with Pulse Edit. One key, the whole suite, 14-day money-back guarantee, offline-friendly activation (30 days at a time).</p></div>
+    </div>
+    <p style="font-family:var(--font-mono);font-size:12px;color:var(--faint);margin-top:26px">Last updated: 25 August 2026 · Pulse Color 1.0</p>
+</section>
 
 <section class="section wrap" style="padding-top:0">
     <p style="font-family:var(--font-mono);font-size:12px;color:var(--faint);max-width:72ch">Camera and format names (Sony, ARRI, Canon, Panasonic, Fujifilm, RED, Nikon, DJI, Apple, Leica and their log formats) are trademarks of their respective owners, used to indicate compatibility only. Filter names reference the visual character of well-known optical filters; Pulse Color is an independent software emulation, not affiliated with or endorsed by any filter or camera manufacturer.</p>
