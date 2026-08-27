@@ -52,6 +52,15 @@ const state = {
   // adaptive resolution (one-way: only steps down, never back up)
   widthStep: 0,
   perfWindow: [],
+  // WebGL fast path
+  lutReady: false,
+  lutKey: '',
+  bakePtr: 0,
+  bakeCap: 0,
+  fxZeroPtr: 0,
+  refineTimer: 0,
+  latticeCache: new Map(),
+  forceWasm: false,
   // render scheduling
   renderPending: false,
   videoCbId: 0,
@@ -63,6 +72,88 @@ const srcCtx = srcCanvas.getContext('2d', { willReadFrequently: true });
 const viewCanvas = $('#viewer-canvas');
 const viewCtx = viewCanvas.getContext('2d');
 
+/* ---------------- WebGL fast path ----------------
+   Il colore è una LUT 3D cotta DAL MOTORE WASM (nodi u8 esatti a passo intero,
+   quindi griglia uniforme senza errore di piazzamento); gli FX girano in shader
+   (gl.js, porting di applica_fx). Il wasm resta la referenza e il fallback. */
+let glr = null, glCanvas = null, wmCanvas = null, wmCtx = null;
+
+function initGL() {
+  if (typeof PulseGL === 'undefined') return;
+  const c = document.createElement('canvas');
+  c.width = viewCanvas.width; c.height = viewCanvas.height;
+  const t = new PulseGL(c);
+  if (!t.ok) return;
+  glr = t; glCanvas = c;
+  viewCanvas.id = 'viewer-canvas-2d';
+  c.id = 'viewer-canvas';                      // eredita lo stile del viewer
+  viewCanvas.parentNode.insertBefore(c, viewCanvas);
+  viewCanvas.style.display = 'none';
+}
+
+const BAKE_N_FINE = 86, BAKE_N_FAST = 52;      // passi 255/85=3 e 255/51=5: nodi u8 ESATTI
+function lattice(N) {
+  let l = state.latticeCache.get(N);
+  if (l) return l;
+  const step = 255 / (N - 1);
+  l = new Uint8Array(N * N * N * 4);
+  let i = 0;
+  for (let b = 0; b < N; b++) for (let g = 0; g < N; g++) for (let r = 0; r < N; r++) {
+    l[i] = r * step; l[i + 1] = g * step; l[i + 2] = b * step; l[i + 3] = 255; i += 4;
+  }
+  state.latticeCache.set(N, l);
+  return l;
+}
+
+function bakeLut(N) {
+  const M = state.M;
+  const lat = lattice(N);
+  const n = lat.length;
+  if (n > state.bakeCap) {
+    if (state.bakePtr) M._free(state.bakePtr);
+    state.bakePtr = M._malloc(n); state.bakeCap = n;
+  }
+  if (!state.fxZeroPtr) state.fxZeroPtr = M._malloc(12 * 4);
+  M.HEAPU8.set(lat, state.bakePtr);
+  M.HEAPF32.fill(0, state.fxZeroPtr >> 2, (state.fxZeroPtr >> 2) + 12);
+  M._pd_process(state.bakePtr, N, N * N, state.profile,
+                state.strength, state.ev, state.temp, state.tint,
+                state.fxZeroPtr, PUNTE, 0);
+  glr.setLut(M.HEAPU8.subarray(state.bakePtr, state.bakePtr + n), N);
+  state.lutReady = true;
+}
+
+function colorKey() {
+  return [state.lookIndex, state.profile, state.strength, state.ev, state.temp, state.tint].join('|');
+}
+
+/* cottura rapida durante il drag, rifinitura fine a riposo */
+function scheduleRebake() {
+  if (!glr || !state.ready || state.lookIndex < 0) return;
+  const key = colorKey();
+  if (key === state.lutKey && state.lutReady) return;
+  state.lutKey = key;
+  bakeLut(BAKE_N_FAST);
+  clearTimeout(state.refineTimer);
+  state.refineTimer = setTimeout(() => {
+    if (colorKey() === state.lutKey && glr) { bakeLut(BAKE_N_FINE); requestRender(); }
+  }, 180);
+}
+
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(() => { if (wmCanvas) { wmCanvas.width = 0; requestRender(); } });
+}
+
+function ensureWatermark(w, h) {
+  if (!wmCanvas) { wmCanvas = document.createElement('canvas'); wmCtx = wmCanvas.getContext('2d'); }
+  if (wmCanvas.width !== w || wmCanvas.height !== h) {
+    wmCanvas.width = w; wmCanvas.height = h;
+    wmCtx.clearRect(0, 0, w, h);
+    drawWatermark(wmCtx, w, h);
+    glr.setWatermark(wmCanvas);
+  }
+}
+
 /* ---------------- core pipeline ---------------- */
 
 function fitSize(sw, sh) {
@@ -73,6 +164,7 @@ function fitSize(sw, sh) {
 }
 
 function drawWatermark(ctx, w, h) {
+  if (state.noWm) return;   // solo per il gate di parità (?debug)
   ctx.save();
   ctx.globalAlpha = 0.18;
   ctx.fillStyle = '#ffffff';
@@ -91,6 +183,14 @@ function drawWatermark(ctx, w, h) {
 /* Processes one frame of `el` (image or video) and paints it. Returns process ms. */
 function runPipeline(el, sw, sh, seme) {
   if (!sw || !sh) return 0;
+  if (glr && state.lutReady && !state.forceWasm) {
+    const gw = Math.min(960, sw) || 1;               // il GL non scala mai i gradini
+    const gh = Math.max(1, Math.round(sh * gw / sw));
+    ensureWatermark(gw, gh);
+    const t0 = performance.now();
+    glr.render(el, gw, gh, state.fx, PUNTE, seme, state.showOriginal);
+    return performance.now() - t0;
+  }
   const [w, h] = fitSize(sw, sh);
   if (srcCanvas.width !== w || srcCanvas.height !== h) {
     srcCanvas.width = w; srcCanvas.height = h;
@@ -127,6 +227,8 @@ function runPipeline(el, sw, sh, seme) {
   return ms;
 }
 
+if (location.search.indexOf('debug') !== -1) { window.__pc = () => ({ state, runPipeline, glr: () => glr, bakeLut, viewCanvas, glCanvas: () => glCanvas }); }
+
 /* Rolling perf window: step resolution down once when the budget is blown. */
 function adaptResolution(ms) {
   if (state.widthStep >= WIDTH_STEPS.length - 1) return;
@@ -143,6 +245,7 @@ function adaptResolution(ms) {
 /* ---------------- render scheduling ---------------- */
 
 function requestRender() {
+  scheduleRebake();
   if (state.renderPending) return;
   const s = state.source;
   if (!s || s.kind !== 'image') return; // video repaints itself every frame
@@ -274,6 +377,8 @@ async function selectLook(index) {
     if (state.lookIndex !== index) return; // user clicked another look meanwhile
   }
   M._pd_set_lut(ptr, state.techPtr, state.data.lut_n);
+  state.lutReady = false;
+  state.lutKey = '';
   requestRender();
 }
 
@@ -494,6 +599,7 @@ async function boot() {
   state.fxPtr = M._malloc(12 * 4);
 
   buildUI();
+  initGL();
 
   setStatus('loading look…');
   await selectLook(0);
