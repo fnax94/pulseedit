@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pulse Color — Web Demo</title>
+<meta name="description" content="Try Pulse Color in your browser: from log to look in one click. Load your own log footage — it never leaves your browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./demo.css">
+</head>
+<body>
+<main class="app">
+
+  <section class="viewer-col">
+    <div class="viewer-head">
+      <span class="chip">PULSE COLOR — WEB DEMO</span>
+      <span id="engine-status" class="engine-status">loading engine…</span>
+    </div>
+
+    <div class="viewer-frame">
+      <canvas id="viewer-canvas" width="960" height="540"></canvas>
+      <div id="empty-state" class="empty-state"><div><b>Load a log clip to start</b><br>Everything runs in your browser — your footage never leaves your computer.</div></div>
+      <div id="viewer-overlay" class="viewer-overlay">Loading…</div>
+    </div>
+
+    <div class="viewer-foot">
+      <button id="compare-btn" class="btn btn-ghost" type="button">Hold to see the original</button>
+      <a class="btn btn-accent cta" href="https://pulseedit.com">Want this inside DaVinci Resolve? →</a>
+    </div>
+
+    <div class="source-panel">
+      <div class="panel-title">Source</div>
+      <div id="dropzone" class="dropzone">
+        <span><b>Drop your clip or a frame here</b> — S-Log3, LogC, V-Log, F-Log… or</span>
+        <label class="btn btn-small" for="file-input">Load your own clip</label>
+        <input id="file-input" type="file" accept="video/*,image/*">
+      </div>
+      <p class="privacy-note">Shot in log? Load it — your clip never leaves your browser.</p>
+    </div>
+  </section>
+
+  <aside class="inspector">
+    <div class="panel">
+      <div class="panel-title">Camera profile</div>
+      <select id="profile-select" aria-label="Camera profile"></select>
+      <p class="hint">The looks are designed for log footage. Rec.709 clips will look off — that's expected.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Look</div>
+      <ul id="look-list" class="look-list"></ul>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Adjust</div>
+      <div id="global-sliders"></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title-row">
+        <div class="panel-title">Effects</div>
+        <button id="reset-fx" class="btn btn-small" type="button">Reset recipe</button>
+      </div>
+      <div id="fx-sliders"></div>
+    </div>
+  </aside>
+
+</main>
+
+<script src="./pd.js"></script>
+<script src="./demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "lut_n": 65,
+  "looks": [
+    {"nome": "Nordic", "slug": "nordic", "fx": {"enhance": 0.000, "halation": 0.280, "bloom": 0.160, "vignetta": 0.100, "grana": 0.000, "promist": 0.000, "mist_bianca": 0.000, "glimmer": 0.125, "pelle": 0.000, "streak": 0.000, "ca": 0.000, "stella": 0.000}},
+    {"nome": "Cinema Print", "slug": "cinema-print", "fx": {"enhance": 0.000, "halation": 0.380, "bloom": 0.200, "vignetta": 0.160, "grana": 0.000, "promist": 0.250, "mist_bianca": 0.000, "glimmer": 0.000, "pelle": 0.000, "streak": 0.000, "ca": 0.000, "stella": 0.000}},
+    {"nome": "Midnight", "slug": "midnight", "fx": {"enhance": 0.000, "halation": 0.420, "bloom": 0.260, "vignetta": 0.220, "grana": 0.000, "promist": 0.500, "mist_bianca": 0.000, "glimmer": 0.000, "pelle": 0.000, "streak": 0.180, "ca": 0.000, "stella": 0.000}},
+    {"nome": "Daylight", "slug": "daylight", "fx": {"enhance": 0.000, "halation": 0.240, "bloom": 0.180, "vignetta": 0.120, "grana": 0.000, "promist": 0.000, "mist_bianca": 0.125, "glimmer": 0.000, "pelle": 0.000, "streak": 0.000, "ca": 0.000, "stella": 0.000}},
+    {"nome": "Linen", "slug": "linen", "fx": {"enhance": 0.000, "halation": 0.000, "bloom": 0.080, "vignetta": 0.060, "grana": 0.000, "promist": 0.000, "mist_bianca": 0.000, "glimmer": 0.000, "pelle": 0.000, "streak": 0.000, "ca": 0.000, "stella": 0.000}},
+    {"nome": "Amber", "slug": "amber", "fx": {"enhance": 0.000, "halation": 0.450, "bloom": 0.200, "vignetta": 0.140, "grana": 0.000, "promist": 0.000, "mist_bianca": 0.125, "glimmer": 0.000, "pelle": 0.000, "streak": 0.000, "ca": 0.000, "stella": 0.000}},
+    {"nome": "Ember", "slug": "ember", "fx": {"enhance": 0.000, "halation": 0.300, "bloom": 0.150, "vignetta": 0.180, "grana": 0.000, "promist": 0.125, "mist_bianca": 0.000, "glimmer": 0.000, "pelle": 0.000, "streak": 0.000, "ca": 0.000, "stella": 0.000}},
+    {"nome": "Amalfi", "slug": "amalfi", "fx": {"enhance": 0.000, "halation": 0.120, "bloom": 0.220, "vignetta": 0.100, "grana": 0.000, "promist": 0.000, "mist_bianca": 0.000, "glimmer": 0.125, "pelle": 0.000, "streak": 0.000, "ca": 0.000, "stella": 0.000}},
+    {"nome": "Velvet", "slug": "velvet", "fx": {"enhance": 0.000, "halation": 0.380, "bloom": 0.280, "vignetta": 0.260, "grana": 0.000, "promist": 0.250, "mist_bianca": 0.000, "glimmer": 0.000, "pelle": 0.000, "streak": 0.150, "ca": 0.000, "stella": 0.000}},
+    {"nome": "Brass", "slug": "brass", "fx": {"enhance": 0.000, "halation": 0.420, "bloom": 0.300, "vignetta": 0.200, "grana": 0.000, "promist": 0.125, "mist_bianca": 0.000, "glimmer": 0.000, "pelle": 0.000, "streak": 0.100, "ca": 0.000, "stella": 0.000}},
+    {"nome": "Silk", "slug": "silk", "fx": {"enhance": 0.000, "halation": 0.220, "bloom": 0.340, "vignetta": 0.080, "grana": 0.000, "promist": 0.000, "mist_bianca": 0.250, "glimmer": 0.000, "pelle": 0.250, "streak": 0.000, "ca": 0.000, "stella": 0.000}},
+    {"nome": "Olive", "slug": "olive", "fx": {"enhance": 0.000, "halation": 0.160, "bloom": 0.140, "vignetta": 0.160, "grana": 0.000, "promist": 0.000, "mist_bianca": 0.000, "glimmer": 0.000, "pelle": 0.000, "streak": 0.000, "ca": 0.050, "stella": 0.000}}
+  ],
+  "profili": ["Sony S-Log3 / S-Gamut3.Cine", "ARRI LogC3 / Wide Gamut 3", "ARRI LogC4 / Wide Gamut 4", "Canon Log 3 / Cinema Gamut", "Panasonic V-Log / V-Gamut", "Fujifilm F-Log / F-Gamut", "Fujifilm F-Log2 / F-Gamut", "RED Log3G10 / WideGamutRGB", "Nikon N-Log / N-Gamut", "DJI D-Log / D-Gamut", "Apple Log / Rec.2020", "Sony S-Log3 / S-Gamut3", "Sony S-Log2 / S-Gamut", "Sony Venice S-Log3 / SGamut3", "Sony Venice S-Log3 / SG3.Cine", "Sony S-Log3 / S-Gamut", "Sony S-Log3 / BT.2020", "Sony S-Log3 / 709", "Sony S-Log2 / BT.2020", "Sony S-Log2 / 709", "Apple Log / P3-D65", "Apple Log / 709", "Canon Log 3 / BT.2020", "Canon Log 3 / BT.709", "Canon Log 2 / Cinema Gamut", "Canon Log 2 / BT.2020", "Canon Log 2 / BT.709", "Fujifilm F-Log2 C / F-Gamut C", "Leica L-Log / Rec.2020", "Apple Log 2 / Apple Wide Gamut", "Rec.709 (No Log)", "sRGB (No Log)"],
+  "m0_inv": [0.645782265,0.259108621,0.095183269,0.087543928,0.759682028,0.152733757,0.036963280,0.129277866,0.833561694],
+  "tab_n": 4096,
+  "n_profili": 32
+}
