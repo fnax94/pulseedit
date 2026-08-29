@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Page not found — Pulse</title>
+<script>
+/* Riscatto dei link /files/… finiti nell'annuncio Pulse Studio del 29/08/2026:
+   i binari vivono sul mirror, non su GitHub Pages. GitHub serve questa pagina per
+   ogni path mancante, quindi qui si rimbalza al mirror PRIMA di disegnare qualcosa.
+   Whitelist esplicita: un redirect aperto su tutto /files/ sarebbe un open redirect. */
+(function () {
+  var MIRROR = 'https://pulse-edit-mirror.abtools.workers.dev/files/';
+  var OK = ['PulseStudio-macOS.dmg','PulseStudio-macOS.zip','PulseStudio-Setup.exe','PulseStudio-Windows.zip',
+            'PulseEdit-macOS.dmg','PulseEdit-macOS.zip','PulseEdit-Setup.exe','PulseEdit-Windows.zip',
+            'PulseColor-macOS.dmg','PulseColor-Setup.exe','PulseColor-Windows.zip'];
+  var m = location.pathname.match(/^\/files\/([^\/?#]+)$/);
+  if (m && OK.indexOf(m[1]) !== -1) { location.replace(MIRROR + m[1]); }
+})();
+</script>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="stylesheet" href="/pulse-nav.css">
+<style>
+  body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:#f3efe6;color:#17150f;
+       margin:0;min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center}
+  .box{max-width:520px;padding:40px 24px}
+  h1{font-size:2.2rem;margin:0 0 12px}
+  p{line-height:1.6;color:#4a463c}
+  a.btn{display:inline-block;margin-top:20px;background:#17150f;color:#f3efe6;
+        padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:700}
+  a{color:#17150f}
+</style>
+</head>
+<body>
+  <div class="box">
+    <h1>Page not found</h1>
+    <p>This page doesn't exist — but everything else does.</p>
+    <p>Looking for a download? All installers live on
+       <a href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseStudio-macOS.dmg">the mirror</a>,
+       and every product page links to the right one.</p>
+    <a class="btn" href="/">Back to Pulse</a>
+    <p style="margin-top:24px;font-size:14px">Stuck? Write to
+       <a href="mailto:support@pulseedit.com">support@pulseedit.com</a>.</p>
+  </div>
+</body>
+</html>
