@@ -17,8 +17,11 @@
     });
     return h + '</div>';
   }
-  var links = nav.querySelector('.nav__links');
-  if (links) {
+  function applyPnav() {
+    // ri-query dal document: React puo' sostituire l'INTERO header dopo
+    // l'hydration, lasciando `nav` come nodo staccato dal DOM
+    var links = document.querySelector('header.nav .nav__links');
+    if (!links || links.querySelector('.pnav')) return;
     links.innerHTML =
       '<div class="pnav" style="position:relative;display:inline-block;">' +
       '<a href="/#products" class="pnav__t" aria-haspopup="true" aria-expanded="false">Products <span style="font-size:9px;">&#9662;</span></a>' +
@@ -52,10 +55,21 @@
       if (!pn.contains(e.target)) closeM();
     });
   }
+  applyPnav();
+  // Le pagine idratate da React (es. pulse-edit.html) ri-renderizzano la nav
+  // DOPO questo script e ripristinano i vecchi link: riapplica per ~8s.
+  var pnavTries = 0;
+  var pnavTimer = setInterval(function () {
+    applyPnav();
+    applyMobile();
+    if (++pnavTries > 16) clearInterval(pnavTimer);
+  }, 500);
 
   // Mobile: sostituisci i link prodotto con i due gruppi per edizione
-  var mob0 = nav.querySelector('.mobile');
-  if (mob0) {
+  function applyMobile() {
+  var mob0 = document.querySelector('header.nav .mobile');
+  if (mob0 && !mob0.dataset.pnavDone) {
+    mob0.dataset.pnavDone = '1';
     var prodHrefs = ['/pulse-edit.html', '/pulse-studio.html', '/pulse-color.html'];
     var first = null;
     prodHrefs.forEach(function (h) {
@@ -82,6 +96,8 @@
       });
     }
   }
+  }
+  applyMobile();
 
   var burger = nav.querySelector('.nav__burger');
   var mobile = nav.querySelector('.mobile');
