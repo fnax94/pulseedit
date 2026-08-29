@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://pulseedit.com/</loc><lastmod>2026-08-26</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://pulseedit.com/</loc><lastmod>2026-08-29</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://pulseedit.com/blog/black-pro-mist-davinci-resolve.html</loc><lastmod>2026-08-25</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://pulseedit.com/pulse-edit.html</loc><lastmod>2026-08-26</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://pulseedit.com/pulse-studio.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://pulseedit.com/pulse-color.html</loc><lastmod>2026-08-25</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://pulseedit.com/pulse-edit.html</loc><lastmod>2026-08-29</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://pulseedit.com/pulse-studio.html</loc><lastmod>2026-08-29</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://pulseedit.com/pulse-color.html</loc><lastmod>2026-08-29</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://pulseedit.com/pulse-edit-free.html</loc><lastmod>2026-06-04</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://pulseedit.com/blog/</loc><lastmod>2026-06-04</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pulseedit.com/blog/</loc><lastmod>2026-08-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://pulseedit.com/tutorial.html</loc><lastmod>2026-06-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://pulseedit.com/wedding-pro/</loc><lastmod>2026-06-20</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://pulseedit.com/withdrawal.html</loc><lastmod>2026-06-19</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
@@ -16,7 +16,7 @@
   <url><loc>https://pulseedit.com/complete-guide-davinci-resolve-music-editing.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
 
   <!-- Comparison pages (high commercial intent) -->
-  <url><loc>https://pulseedit.com/vs-beatedit.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://pulseedit.com/vs-beatedit.html</loc><lastmod>2026-08-29</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://pulseedit.com/vs-premiere-auto-cut.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://pulseedit.com/vs-runway.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://pulseedit.com/vs-descript.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
@@ -34,7 +34,7 @@
   <!-- Blog articles -->
   <url><loc>https://pulseedit.com/blog/sync-video-to-music-davinci-resolve.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://pulseedit.com/blog/beat-detection-plugin-davinci-resolve.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://pulseedit.com/blog/auto-place-beat-markers-davinci-resolve.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pulseedit.com/blog/auto-place-beat-markers-davinci-resolve.html</loc><lastmod>2026-08-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://pulseedit.com/blog/beatedit-alternative-davinci-resolve.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://pulseedit.com/blog/auto-edit-video-to-music-davinci-resolve.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://pulseedit.com/blog/best-davinci-resolve-plugins-music-videos.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -46,4 +46,11 @@
   <url><loc>https://pulseedit.com/blog/travel-montage-auto-edit-davinci-resolve.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://pulseedit.com/blog/music-video-editing-automation-2026.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://pulseedit.com/blog/why-pulse-edit-is-a-subscription.html</loc><lastmod>2026-07-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pulseedit.com/faq.html</loc><lastmod>2026-08-29</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://pulseedit.com/pricing.html</loc><lastmod>2026-08-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pulseedit.com/vs-autocut.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pulseedit.com/vs-contentclaw.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pulseedit.com/blog/pulse-studio-auto-edit-inside-davinci-resolve.html</loc><lastmod>2026-08-29</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://pulseedit.com/blog/pulse-edit-vs-pulse-studio.html</loc><lastmod>2026-08-29</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://pulseedit.com/blog/speed-ramps-on-the-beat-davinci-resolve.html</loc><lastmod>2026-08-29</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
 </urlset>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="gbFMCBXWgDK3Tqa_aNvF8cAw--jC0UAw30LJeLuzXZ0" />
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadGA() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-JV9DJHLCY2');
+    }
+    if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
+    </script>
+    <title>Speed Ramps on the Beat in DaVinci Resolve — Manual vs Automatic (2026)</title>
+    <meta name="description" content="How to build speed ramps in DaVinci Resolve with Optical Flow — and how Pulse Studio generates them automatically on the beat of your music, with easing, inside Resolve Studio.">
+    <meta name="keywords" content="speed ramp davinci resolve, retime curve resolve optical flow, automatic speed ramp on beat, speed warp resolve, music video speed ramps">
+    <meta property="og:title" content="Speed Ramps on the Beat in DaVinci Resolve — Manual vs Automatic (2026)">
+    <meta property="og:description" content="How to build speed ramps in DaVinci Resolve with Optical Flow — and how Pulse Studio generates them automatically on the beat of your music, with easing, inside Resolve Studio.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://pulseedit.com/blog/speed-ramps-on-the-beat-davinci-resolve.html">
+    <meta property="og:image" content="https://pulseedit.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Speed Ramps on the Beat in DaVinci Resolve — Manual vs Automatic (2026)">
+    <meta name="twitter:description" content="How to build speed ramps in DaVinci Resolve with Optical Flow — and how Pulse Studio generates them automatically on the beat of your music, with easing, inside Resolve Studio.">
+    <meta name="twitter:image" content="https://pulseedit.com/og-image.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#7c6ff7">
+    <link rel="canonical" href="https://pulseedit.com/blog/speed-ramps-on-the-beat-davinci-resolve.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/pulse-nav.css">
+    <link rel="stylesheet" href="/blog/blog-v3.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Speed Ramps on the Beat in DaVinci Resolve: Manual vs Automatic",
+  "description": "How to build speed ramps in DaVinci Resolve with Optical Flow \u2014 and how Pulse Studio generates them automatically on the beat of your music, with easing, inside Resolve Studio.",
+  "author": {
+    "@type": "Person",
+    "name": "Abramo Benedetti"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AB Tools"
+  },
+  "datePublished": "2026-08-29",
+  "dateModified": "2026-08-29",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pulseedit.com/blog/speed-ramps-on-the-beat-davinci-resolve.html"
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What retime process should speed ramps use in DaVinci Resolve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Optical Flow gives the smoothest result for speed changes, especially slow motion below 50%. In Resolve: right-click the clip \u2192 Retime Process \u2192 Optical Flow, and set Motion Estimation to Enhanced Better or Speed Warp for the cleanest frames."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can DaVinci Resolve do speed ramps automatically on the beat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Out of the box, no \u2014 retime curves are manual. Pulse Studio (for Resolve Studio) generates them automatically: it detects the beats, picks ramp moments from the music's energy, and animates the speed with easing and Optical Flow retiming. The feature is in beta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are automatic ramps only slow motion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Pulse Studio generates both slow-motion dives and speed-up whips, chosen from the mood and energy of the song \u2014 an energetic track gets fast ramps too."
+      }
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://pulseedit.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://pulseedit.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Speed Ramps on the Beat",
+      "item": "https://pulseedit.com/blog/speed-ramps-on-the-beat-davinci-resolve.html"
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+
+
+    <header class="nav pulse-nav"><!-- pulse-nav:canonical --><div class="pn-wrap">
+    <a class="brand" href="/" aria-label="Pulse home">Pulse<span class="dot"></span></a>
+    <nav class="nav__links">
+        <a href="/pulse-edit.html">Pulse Edit</a>
+        <a href="/pulse-color.html">Pulse Color</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/blog/">Blog</a>
+    </nav>
+    <div class="nav__cta">
+        <a class="nav__price" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg" data-track="download-nav">↓ Download</a>
+        <a class="nav__price" href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Manage subscription</a>
+        <a class="pn-btn" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" data-track="buy-nav">Get Pulse — €13/mo</a>
+        <button class="nav__burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+</div>
+<div class="mobile">
+    <a href="/pulse-edit.html">Pulse Edit</a>
+    <a href="/pulse-color.html">Pulse Color</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog/">Blog</a>
+    <a class="pn-btn" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" style="margin-top:18px" data-track="buy-mobile">Get Pulse — €13/mo</a>
+    <a class="pn-btn" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg" style="margin-top:10px" data-track="download-mobile">↓ Download</a>
+    <a href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Manage subscription</a>
+</div></header>
+
+        <article>
+        <header class="article-header">
+            <div class="container">
+                <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/blog/">Blog</a> &rsaquo; Speed Ramps on the Beat</div>
+                <h1>Speed Ramps on the Beat in DaVinci Resolve: Manual vs Automatic</h1>
+                <p class="article-meta">By Abramo Benedetti &mdash; August 29, 2026 &mdash; 5 min read</p>
+            </div>
+        </header>
+
+        <div class="article-body">
+            <div class="container">
+
+                <p>A speed ramp — footage diving into slow motion on the drop, or whipping fast between beats — is the single most recognizable move in music-driven editing. Resolve can do it beautifully. It just makes you work for it.</p>
+
+                <h2>The manual way (any Resolve edition)</h2>
+                <ol>
+                    <li>Right-click the clip &rarr; <strong>Retime Controls</strong> (Ctrl/Cmd+R).</li>
+                    <li>Add speed points where the change should start and end — on the beat, which you find by ear or by scrubbing the waveform.</li>
+                    <li>Right-click &rarr; <strong>Retime Curve</strong>, then shape the transition so the speed eases in and out instead of snapping.</li>
+                    <li>Set <strong>Retime Process &rarr; Optical Flow</strong> (Clip Attributes or right-click menu). For slow motion below ~50%, push Motion Estimation to <strong>Enhanced Better</strong> or <strong>Speed Warp</strong> — otherwise slow-mo stutters.</li>
+                </ol>
+                <p>It works, and for one hero shot it is fine. For a three-minute video with a ramp every few bars, it is an afternoon of repetitive curve-dragging — and every beat you misjudge by a few frames reads as sloppy.</p>
+
+                <h2>The automatic way (Resolve Studio)</h2>
+                <p><a href="/pulse-studio.html">Pulse Studio</a> already knows where every beat is — it detected them to cut your timeline. So it places the ramps for you: it reads the energy and mood of the song, picks the moments that deserve a ramp, and animates the speed change with a proper easing curve, not a linear jump. Slow-motion dives on heavy moments, speed-up whips on energetic ones.</p>
+                <p>Every generated ramp gets <strong>Optical Flow retiming applied automatically</strong> — with motion estimation stepped up for deep slow motion — so the frames it invents look like footage, not smearing. The ramps land as real retime data on the clips in your project: you can inspect them, adjust them, or delete any you disagree with.</p>
+
+                <h2>Where this stands today</h2>
+                <p>Speed ramps shipped with Pulse Studio on August 29, 2026 and are flagged <strong>beta</strong> in the app — the newest part of a workflow that is itself in beta testing. If a ramp looks wrong on your footage, write to <a href="mailto:support@pulseedit.com">support@pulseedit.com</a> with the clip details; reports go straight to me.</p>
+                <p>Everything else — <a href="/blog/pulse-studio-auto-edit-inside-davinci-resolve.html">the full inside-Resolve auto-edit</a>, beat markers, audio insertion — is included in the same generation. One license, €13/month, covers Pulse Studio, <a href="/pulse-edit.html">Pulse Edit</a> (for Resolve Free) and <a href="/pulse-color.html">Pulse Color</a>.</p>
+<p style="margin-top:28px"><a href="/pulse-studio.html" class="pn-btn" style="display:inline-block;background:#7c6ff7;color:#fff;padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:700">See Pulse Studio &rarr;</a></p>
+            </div>
+        </div>
+    </article>
+
+    <section style="padding: 0 0 60px;">
+        <div class="container" style="max-width:720px;margin:0 auto;padding:0 24px;">
+            <h2 style="font-size:22px;color:#fff;margin-bottom:20px;">Related Articles</h2>
+            <ul style="list-style:none;padding:0;margin:0;display:grid;gap:12px;">
+                <li><a href="/blog/auto-edit-video-to-music-davinci-resolve.html" style="color:#7c6ff7;text-decoration:none;font-size:15px;">How to auto-edit videos to music in DaVinci Resolve</a></li>
+                <li><a href="/blog/tiktok-creator-davinci-resolve-plugin.html" style="color:#7c6ff7;text-decoration:none;font-size:15px;">Best DaVinci Resolve plugin for TikTok creators</a></li>
+                <li><a href="/blog/best-davinci-resolve-plugins-music-videos.html" style="color:#7c6ff7;text-decoration:none;font-size:15px;">7 best DaVinci Resolve plugins for music videos</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 8px;"><strong style="color: #fff;">Pulse Edit</strong> &mdash; Auto-edit videos to the beat in DaVinci Resolve</p>
+            <p>Made by <a href="https://www.instagram.com/aki.vhs/" target="_blank">Abramo Benedetti</a> &mdash; Professional Video Editor</p>
+            <p style="margin-top: 8px;"><a href="/privacy.html" style="margin-right:16px;">Privacy Policy</a> <a href="/terms.html">Terms of Service</a></p>
+        </div>
+    </footer>
+
+<div id="cookie-modal" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(8,8,16,0.88);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px;">
+  <div style="max-width:440px;width:100%;background:#15151f;border:1px solid rgba(124,111,247,0.3);border-radius:16px;padding:32px;text-align:center;box-shadow:0 24px 70px rgba(0,0,0,0.6);">
+    <div style="font-size:32px;margin-bottom:12px;">&#127850;</div>
+    <h3 style="color:#fff;font-size:1.25rem;margin:0 0 12px;">We use cookies</h3>
+    <p style="color:#a0a0b8;font-size:14px;line-height:1.6;margin:0 0 24px;">We use cookies to analyze site traffic and improve your experience. Please choose how you'd like to continue. <a href="/privacy.html" style="color:#7c6ff7;">Privacy Policy</a></p>
+    <div style="display:flex;gap:10px;">
+      <button onclick="declineCookies()" style="flex:1;background:transparent;color:#cbd5e1;border:1px solid rgba(255,255,255,0.2);padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:600;">Decline</button>
+      <button onclick="acceptCookies()" style="flex:1;background:#7c6ff7;color:#fff;border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:700;">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  if (!localStorage.getItem('cookie_consent')) {
+    document.getElementById('cookie-modal').style.display = 'flex';
+  }
+})();
+function acceptCookies() {
+  localStorage.setItem('cookie_consent', 'accepted');
+  document.getElementById('cookie-modal').style.display = 'none';
+  if (typeof loadGA === 'function') loadGA();
+}
+function declineCookies() {
+  localStorage.setItem('cookie_consent', 'declined');
+  document.getElementById('cookie-modal').style.display = 'none';
+}
+</script>
+
+<p style="font-size:11px;color:var(--muted);margin:32px auto 16px;max-width:1100px;padding:0 24px;text-align:center;border-top:1px solid var(--line);padding-top:16px;line-height:1.5;">All third-party product names mentioned (BeatEdit, Descript, Runway, CapCut, Adobe Premiere Pro, DaVinci Resolve, Frame.io, etc. &mdash; where applicable) are trademarks of their respective owners. Pulse Edit is not affiliated with or endorsed by these companies. Pricing references accurate as of April 2026 &mdash; check vendor sites for the latest.</p>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"090ce13315b84609bc53b871490246d2"}'></script>
+    <script src="/pulse-nav.js?v=5" defer></script>
+</body>
+</html>

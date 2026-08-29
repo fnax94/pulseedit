@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="gbFMCBXWgDK3Tqa_aNvF8cAw--jC0UAw30LJeLuzXZ0" />
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadGA() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-JV9DJHLCY2');
+    }
+    if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
+    </script>
+    <title>Auto-Edit to the Beat Inside DaVinci Resolve Studio — How Pulse Studio Works (2026)</title>
+    <meta name="description" content="Pulse Studio builds a beat-synced edit directly inside DaVinci Resolve Studio via the scripting API: AI beat detection, frame-exact cuts, markers, speed ramps. No OTIO, no import.">
+    <meta name="keywords" content="davinci resolve studio auto edit, davinci resolve scripting api plugin, beat sync davinci resolve studio, auto edit music video resolve, pulse studio">
+    <meta property="og:title" content="Auto-Edit to the Beat Inside DaVinci Resolve Studio — How Pulse Studio Works (2026)">
+    <meta property="og:description" content="Pulse Studio builds a beat-synced edit directly inside DaVinci Resolve Studio via the scripting API: AI beat detection, frame-exact cuts, markers, speed ramps. No OTIO, no import.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://pulseedit.com/blog/pulse-studio-auto-edit-inside-davinci-resolve.html">
+    <meta property="og:image" content="https://pulseedit.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Auto-Edit to the Beat Inside DaVinci Resolve Studio — How Pulse Studio Works (2026)">
+    <meta name="twitter:description" content="Pulse Studio builds a beat-synced edit directly inside DaVinci Resolve Studio via the scripting API: AI beat detection, frame-exact cuts, markers, speed ramps. No OTIO, no import.">
+    <meta name="twitter:image" content="https://pulseedit.com/og-image.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#7c6ff7">
+    <link rel="canonical" href="https://pulseedit.com/blog/pulse-studio-auto-edit-inside-davinci-resolve.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/pulse-nav.css">
+    <link rel="stylesheet" href="/blog/blog-v3.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Auto-Edit to the Beat Inside DaVinci Resolve Studio: How Pulse Studio Works",
+  "description": "Pulse Studio builds a beat-synced edit directly inside DaVinci Resolve Studio via the scripting API: AI beat detection, frame-exact cuts, markers, speed ramps. No OTIO, no import.",
+  "author": {
+    "@type": "Person",
+    "name": "Abramo Benedetti"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AB Tools"
+  },
+  "datePublished": "2026-08-29",
+  "dateModified": "2026-08-29",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pulseedit.com/blog/pulse-studio-auto-edit-inside-davinci-resolve.html"
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Pulse Studio work with DaVinci Resolve Free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. DaVinci Resolve Free does not expose the scripting API, so Pulse Studio cannot connect to it. On Resolve Free, Pulse Edit does the same beat-synced edit through OTIO export/import \u2014 and it is included in the same license."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to export or import anything?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Pulse Studio works with the clips already in your Media Pool and builds the timeline directly inside your open project. There is no OTIO file and no import step."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Pulse Studio a separate purchase?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. One Pulse license (\u20ac13/month or \u20ac130/year) activates Pulse Edit, Pulse Studio and Pulse Color with the same key."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Pulse Studio finished software?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The workflow is in beta testing (launched 29 August 2026). It works \u2014 but if anything looks off, write to support@pulseedit.com: reports go straight to the developer."
+      }
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://pulseedit.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://pulseedit.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Pulse Studio: Auto-Edit Inside Resolve",
+      "item": "https://pulseedit.com/blog/pulse-studio-auto-edit-inside-davinci-resolve.html"
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+
+
+    <header class="nav pulse-nav"><!-- pulse-nav:canonical --><div class="pn-wrap">
+    <a class="brand" href="/" aria-label="Pulse home">Pulse<span class="dot"></span></a>
+    <nav class="nav__links">
+        <a href="/pulse-edit.html">Pulse Edit</a>
+        <a href="/pulse-color.html">Pulse Color</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/blog/">Blog</a>
+    </nav>
+    <div class="nav__cta">
+        <a class="nav__price" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg" data-track="download-nav">↓ Download</a>
+        <a class="nav__price" href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Manage subscription</a>
+        <a class="pn-btn" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" data-track="buy-nav">Get Pulse — €13/mo</a>
+        <button class="nav__burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+</div>
+<div class="mobile">
+    <a href="/pulse-edit.html">Pulse Edit</a>
+    <a href="/pulse-color.html">Pulse Color</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog/">Blog</a>
+    <a class="pn-btn" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" style="margin-top:18px" data-track="buy-mobile">Get Pulse — €13/mo</a>
+    <a class="pn-btn" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg" style="margin-top:10px" data-track="download-mobile">↓ Download</a>
+    <a href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Manage subscription</a>
+</div></header>
+
+        <article>
+        <header class="article-header">
+            <div class="container">
+                <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/blog/">Blog</a> &rsaquo; Pulse Studio: Auto-Edit Inside Resolve</div>
+                <h1>Auto-Edit to the Beat Inside DaVinci Resolve Studio: How Pulse Studio Works</h1>
+                <p class="article-meta">By Abramo Benedetti &mdash; August 29, 2026 &mdash; 6 min read</p>
+            </div>
+        </header>
+
+        <div class="article-body">
+            <div class="container">
+
+                <p>Until now, automatic beat-synced editing in DaVinci Resolve meant a round trip: point a tool at your clips on disk, let it build a timeline, export an OTIO file, drag it into Resolve. That is how <a href="/pulse-edit.html">Pulse Edit</a> works, and it is still the only way on DaVinci Resolve Free — the free edition has no scripting API. But if you own <strong>DaVinci Resolve Studio</strong>, the round trip is no longer necessary.</p>
+
+                <p><strong>Pulse Studio</strong> connects to your open Resolve project through the official scripting API and builds the whole edit inside it. You pick a song and a folder of clips from your Media Pool, and about a minute later there is a new timeline in your project: every cut placed frame-exact on a beat, markers on the beats, the audio track inserted underneath.</p>
+
+                <h2>What actually happens when you press Generate</h2>
+                <ul>
+                    <li><strong>Beat detection with AI.</strong> Pulse Studio analyzes the song — beats, downbeats, energy, mood — the same engine that powers Pulse Edit.</li>
+                    <li><strong>Clips straight from the Media Pool.</strong> Choose the Master folder or any bin; Pulse Studio scans it recursively, videos and songs alike. Your song can come from disk or from the Media Pool itself.</li>
+                    <li><strong>Frame-exact cuts on the beat.</strong> The timeline is assembled clip by clip through the scripting API, with each edit point landing on the detected beat.</li>
+                    <li><strong>Beat markers, always.</strong> Markers go on the timeline or on the audio clip — your choice — so you can keep editing on the grid afterwards.</li>
+                    <li><strong>Chronological order for weddings.</strong> Like Pulse Edit, it can read each clip's real recording time and assemble the day as it happened.</li>
+                    <li><strong>Speed ramps with Optical Flow <em>(beta)</em>.</strong> Slow-motion dives and speed-up whips animated with easing curves, with Resolve's Optical Flow retiming applied automatically.</li>
+                </ul>
+
+                <h2>The setup (one time, two clicks)</h2>
+                <p>Resolve Studio ships with external scripting disabled. Enable it once: <strong>Preferences &rarr; System &rarr; General &rarr; "External scripting using" = Local</strong>, restart Resolve, done. Pulse Studio finds your Resolve installation on its own, on macOS and Windows. A guided tour opens on first launch, and every control has a <strong>?</strong> button that explains it.</p>
+
+                <h2>Where it stands</h2>
+                <p>Honest note: the Pulse Studio workflow launched on August 29, 2026 and is in <strong>beta testing</strong>. I use it every day and the core path — detect, cut, markers, audio — is solid. Speed ramps are the newest part. If anything looks off on your system, write to <a href="mailto:support@pulseedit.com">support@pulseedit.com</a>; every report lands in my inbox.</p>
+
+                <p>Not sure whether you need Pulse Edit or Pulse Studio? <a href="/blog/pulse-edit-vs-pulse-studio.html">Here is the two-minute answer</a>. Both come with the same license — €13/month unlocks the whole Pulse suite, Pulse Color included.</p>
+<p style="margin-top:28px"><a href="/pulse-studio.html" class="pn-btn" style="display:inline-block;background:#7c6ff7;color:#fff;padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:700">See Pulse Studio &rarr;</a></p>
+            </div>
+        </div>
+    </article>
+
+    <section style="padding: 0 0 60px;">
+        <div class="container" style="max-width:720px;margin:0 auto;padding:0 24px;">
+            <h2 style="font-size:22px;color:#fff;margin-bottom:20px;">Related Articles</h2>
+            <ul style="list-style:none;padding:0;margin:0;display:grid;gap:12px;">
+                <li><a href="/blog/auto-edit-video-to-music-davinci-resolve.html" style="color:#7c6ff7;text-decoration:none;font-size:15px;">How to auto-edit videos to music in DaVinci Resolve</a></li>
+                <li><a href="/blog/tiktok-creator-davinci-resolve-plugin.html" style="color:#7c6ff7;text-decoration:none;font-size:15px;">Best DaVinci Resolve plugin for TikTok creators</a></li>
+                <li><a href="/blog/best-davinci-resolve-plugins-music-videos.html" style="color:#7c6ff7;text-decoration:none;font-size:15px;">7 best DaVinci Resolve plugins for music videos</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 8px;"><strong style="color: #fff;">Pulse Edit</strong> &mdash; Auto-edit videos to the beat in DaVinci Resolve</p>
+            <p>Made by <a href="https://www.instagram.com/aki.vhs/" target="_blank">Abramo Benedetti</a> &mdash; Professional Video Editor</p>
+            <p style="margin-top: 8px;"><a href="/privacy.html" style="margin-right:16px;">Privacy Policy</a> <a href="/terms.html">Terms of Service</a></p>
+        </div>
+    </footer>
+
+<div id="cookie-modal" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(8,8,16,0.88);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px;">
+  <div style="max-width:440px;width:100%;background:#15151f;border:1px solid rgba(124,111,247,0.3);border-radius:16px;padding:32px;text-align:center;box-shadow:0 24px 70px rgba(0,0,0,0.6);">
+    <div style="font-size:32px;margin-bottom:12px;">&#127850;</div>
+    <h3 style="color:#fff;font-size:1.25rem;margin:0 0 12px;">We use cookies</h3>
+    <p style="color:#a0a0b8;font-size:14px;line-height:1.6;margin:0 0 24px;">We use cookies to analyze site traffic and improve your experience. Please choose how you'd like to continue. <a href="/privacy.html" style="color:#7c6ff7;">Privacy Policy</a></p>
+    <div style="display:flex;gap:10px;">
+      <button onclick="declineCookies()" style="flex:1;background:transparent;color:#cbd5e1;border:1px solid rgba(255,255,255,0.2);padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:600;">Decline</button>
+      <button onclick="acceptCookies()" style="flex:1;background:#7c6ff7;color:#fff;border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:700;">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  if (!localStorage.getItem('cookie_consent')) {
+    document.getElementById('cookie-modal').style.display = 'flex';
+  }
+})();
+function acceptCookies() {
+  localStorage.setItem('cookie_consent', 'accepted');
+  document.getElementById('cookie-modal').style.display = 'none';
+  if (typeof loadGA === 'function') loadGA();
+}
+function declineCookies() {
+  localStorage.setItem('cookie_consent', 'declined');
+  document.getElementById('cookie-modal').style.display = 'none';
+}
+</script>
+
+<p style="font-size:11px;color:var(--muted);margin:32px auto 16px;max-width:1100px;padding:0 24px;text-align:center;border-top:1px solid var(--line);padding-top:16px;line-height:1.5;">All third-party product names mentioned (BeatEdit, Descript, Runway, CapCut, Adobe Premiere Pro, DaVinci Resolve, Frame.io, etc. &mdash; where applicable) are trademarks of their respective owners. Pulse Edit is not affiliated with or endorsed by these companies. Pricing references accurate as of April 2026 &mdash; check vendor sites for the latest.</p>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"090ce13315b84609bc53b871490246d2"}'></script>
+    <script src="/pulse-nav.js?v=5" defer></script>
+</body>
+</html>
