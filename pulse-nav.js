@@ -6,6 +6,79 @@
   var nav = document.querySelector('header.nav');
   if (!nav) return;
 
+  // ── Products dropdown — fonte unica per tutte le pagine ──────────────────
+  // Raggruppa i prodotti per edizione di Resolve (Abramo, 29/08/2026).
+  function pnavCol(title, items) {
+    var h = '<div><p style="font-family:\'IBM Plex Mono\',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 8px;color:#6c6557;white-space:nowrap;">' + title + '</p>';
+    items.forEach(function (it) {
+      h += '<a href="' + it[0] + '" style="display:block;padding:7px 8px;margin:0 -8px;border-radius:8px;text-decoration:none;color:#17150f;">' +
+           '<span style="font-weight:700;font-size:14px;letter-spacing:0;text-transform:none;">' + it[1] + '</span>' +
+           '<span style="display:block;font-size:12px;color:#6c6557;letter-spacing:0;text-transform:none;margin-top:1px;">' + it[2] + '</span></a>';
+    });
+    return h + '</div>';
+  }
+  var links = nav.querySelector('.nav__links');
+  if (links) {
+    links.innerHTML =
+      '<div class="pnav" style="position:relative;display:inline-block;">' +
+      '<a href="/#products" class="pnav__t" aria-haspopup="true" aria-expanded="false">Products <span style="font-size:9px;">&#9662;</span></a>' +
+      '<div class="pnav__m" style="display:none;position:absolute;left:-18px;top:100%;padding-top:12px;z-index:80;">' +
+      '<div style="background:#f3efe6;color:#17150f;border:1px solid rgba(23,21,15,.15);border-radius:14px;box-shadow:0 18px 60px rgba(23,21,15,.22);padding:18px 20px;min-width:560px;display:grid;grid-template-columns:1fr 1fr;gap:22px;text-align:left;">' +
+      pnavCol('For DaVinci Resolve Free', [
+        ['/pulse-edit.html', 'Pulse Edit', 'Beat-synced auto-edit, via OTIO'],
+        ['/pulse-color.html', 'Pulse Color', 'Film looks &amp; filter FX (Studio too)']]) +
+      pnavCol('For DaVinci Resolve Studio', [
+        ['/pulse-studio.html', 'Pulse Studio', 'The whole edit, built inside Resolve'],
+        ['/pulse-color.html', 'Pulse Color', 'Film looks &amp; filter FX']]) +
+      '</div></div></div>' +
+      '<a href="/#pricing">Pricing</a><a href="/blog/">Blog</a>';
+
+    var pn = links.querySelector('.pnav');
+    var pt = pn.querySelector('.pnav__t');
+    var pm = pn.querySelector('.pnav__m');
+    var hideT = null;
+    function openM() { clearTimeout(hideT); pm.style.display = 'block'; pt.setAttribute('aria-expanded', 'true'); }
+    function closeM() { pm.style.display = 'none'; pt.setAttribute('aria-expanded', 'false'); }
+    pn.addEventListener('mouseenter', openM);
+    pn.addEventListener('mouseleave', function () { hideT = setTimeout(closeM, 180); });
+    pt.addEventListener('click', function (e) {
+      if (pm.style.display === 'none') { e.preventDefault(); openM(); }
+    });
+    document.addEventListener('click', function (e) {
+      if (!pn.contains(e.target)) closeM();
+    });
+  }
+
+  // Mobile: sostituisci i link prodotto con i due gruppi per edizione
+  var mob0 = nav.querySelector('.mobile');
+  if (mob0) {
+    var prodHrefs = ['/pulse-edit.html', '/pulse-studio.html', '/pulse-color.html'];
+    var first = null;
+    prodHrefs.forEach(function (h) {
+      mob0.querySelectorAll('a[href="' + h + '"]').forEach(function (a) {
+        if (!first) first = a;
+        else a.remove();
+      });
+    });
+    if (first) {
+      var grp = document.createElement('div');
+      grp.innerHTML =
+        '<p style="font-family:\'IBM Plex Mono\',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin:4px 0 2px;opacity:.6;">For DaVinci Resolve Free</p>' +
+        '<a href="/pulse-edit.html">Pulse Edit</a>' +
+        '<a href="/pulse-color.html">Pulse Color</a>' +
+        '<p style="font-family:\'IBM Plex Mono\',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin:10px 0 2px;opacity:.6;">For DaVinci Resolve Studio</p>' +
+        '<a href="/pulse-studio.html">Pulse Studio</a>' +
+        '<a href="/pulse-color.html">Pulse Color</a>';
+      first.replaceWith(grp);
+      // rimuovi l\'eventuale primo link superstite di altri prodotti
+      prodHrefs.forEach(function (h) {
+        mob0.querySelectorAll('a[href="' + h + '"]').forEach(function (a) {
+          if (!grp.contains(a)) a.remove();
+        });
+      });
+    }
+  }
+
   var burger = nav.querySelector('.nav__burger');
   var mobile = nav.querySelector('.mobile');
   if (burger && mobile) {
