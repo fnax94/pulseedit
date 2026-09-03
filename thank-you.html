@@ -3,12 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex">
-    <title>Thank you — Pulse Edit Free</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta name="referrer" content="no-referrer">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Thank you — Pulse Edit</title>
+    <meta name="theme-color" content="#f3efe6">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- GA4 + purchase conversion -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- 1. Session capture — MUST run before gtag: the Stripe session id leaves the
+         URL (and therefore every referrer, page_location and browser history entry)
+         before anything else sees it. It survives a reload in sessionStorage. -->
+    <script>
+    (function () {
+      var STORE = 'pe_claim_sid';
+      var RE = /^cs_(live|test)_[A-Za-z0-9]{20,80}$/;
+      var raw = null, sid = null, fromUrl = false;
+      try { raw = new URLSearchParams(location.search).get('session_id'); } catch (e) {}
+      if (raw && RE.test(raw)) { sid = raw; fromUrl = true; }
+      try {
+        if (sid) sessionStorage.setItem(STORE, sid);
+        else sid = sessionStorage.getItem(STORE) || null;
+      } catch (e) {}
+      if (raw !== null) {
+        try { history.replaceState({}, '', '/thank-you.html'); } catch (e) {}
+      }
+      window.__PE = { sid: sid, fromUrl: fromUrl, rawSid: raw };
+    })();
+    </script>
+
+    <!-- 2. GA4 (same property as the rest of the site). The purchase event is fired by
+         the claim script below, once the response tells us the amount — or without a
+         value if it never does. transaction_id is a short hash of the session id. -->
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -19,50 +49,460 @@
       document.head.appendChild(s);
       gtag('js', new Date());
       gtag('config', 'G-JV9DJHLCY2');
-      var sid = new URLSearchParams(location.search).get('session_id');
-      if (sid) gtag('event', 'purchase', {
-        transaction_id: sid,
-        value: 13.00,
-        currency: 'EUR',
-        items: [{ item_id: 'pulse-edit-subscription', item_name: 'Pulse Edit (monthly)', price: 13.00, quantity: 1 }]
-      });
     })();
     </script>
+
     <style>
-      :root { --bg:#0a0a0f; --card:rgba(255,255,255,0.04); --line:rgba(255,255,255,0.08); --muted:#9ca3af; --green:#22c55e; --purple:#7c6ff7; }
-      * { box-sizing:border-box; }
-      body { margin:0; background:var(--bg); color:#f4f4f6; font-family:Inter,system-ui,sans-serif; line-height:1.6; display:flex; min-height:100vh; align-items:center; justify-content:center; padding:24px; }
-      .card { max-width:560px; width:100%; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:40px 32px; text-align:center; }
-      .badge { width:64px; height:64px; border-radius:50%; background:rgba(34,197,94,0.15); border:1px solid rgba(34,197,94,0.4); color:var(--green); font-size:32px; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; }
-      h1 { font-size:1.7rem; margin:0 0 10px; }
-      p { color:#cbd5e1; margin:0 0 16px; }
-      .muted { color:var(--muted); font-size:0.9rem; }
-      .steps { text-align:left; background:rgba(124,111,247,0.06); border:1px solid rgba(124,111,247,0.2); border-radius:12px; padding:18px 22px; margin:22px 0; }
-      .steps li { margin:6px 0; color:#e2e8f0; }
-      .cta { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:8px; }
-      .btn { display:inline-block; padding:12px 20px; border-radius:10px; font-weight:600; text-decoration:none; font-size:0.95rem; }
-      .btn-green { background:var(--green); color:#06210f; }
-      .btn-outline { border:1px solid var(--line); color:#f4f4f6; }
-      a.link { color:var(--green); }
+      :root{
+        --paper:#f3efe6; --paper-2:#ece7da; --ink:#17150f; --ink-soft:#2c2820;
+        --muted:#6c6557; --faint:#9a9384; --accent:#e8472b; --accent-ink:#c2371d;
+        --ok:#2f7a3d; --ok-ink:#245f2f;
+        --line:rgba(23,21,15,0.16); --line-strong:rgba(23,21,15,0.42);
+        --font-display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;
+        --font-text:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
+        --font-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+        --maxw:760px; --pad:clamp(18px,5vw,48px);
+      }
+      *{box-sizing:border-box;}
+      html{-webkit-text-size-adjust:100%;}
+      body{
+        margin:0; background-color:var(--paper);
+        background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+        color:var(--ink); font-family:var(--font-text); font-size:17px; line-height:1.6;
+        -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden;
+        min-height:100vh; display:flex; flex-direction:column;
+      }
+      [hidden]{display:none !important;}
+      a{color:inherit; text-decoration:none;}
+      ::selection{background:var(--accent); color:var(--paper);}
+      .wrap{max-width:var(--maxw); margin:0 auto; padding-inline:var(--pad); width:100%;}
+
+      .nav{background:color-mix(in srgb,var(--paper) 86%,transparent); border-bottom:1px solid var(--line);}
+      .nav__in{display:flex; align-items:center; justify-content:space-between; height:60px;}
+      .brand{display:inline-flex; align-items:baseline; gap:9px; font-family:var(--font-display); font-weight:800; font-size:19px; letter-spacing:-0.03em;}
+      .brand .dot{width:8px; height:8px; border-radius:50%; background:var(--accent); display:inline-block; transform:translateY(-1px);}
+      .nav__back{font-family:var(--font-mono); font-size:12px; letter-spacing:0.04em; text-transform:uppercase; color:var(--muted);}
+      .nav__back:hover{color:var(--ink);}
+
+      main{flex:1;}
+      .hero{padding-top:clamp(40px,7vw,80px); padding-bottom:clamp(28px,4vw,44px);}
+      .kicker{font-family:var(--font-mono); font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent-ink); display:inline-flex; align-items:center; gap:10px;}
+      .kicker::before{content:""; width:26px; height:1px; background:var(--accent); display:inline-block;}
+      h1,h2,h3{font-family:var(--font-display); font-weight:700; margin:0;}
+      .h-xl{font-size:clamp(38px,8vw,72px); line-height:0.98; letter-spacing:-0.035em; font-weight:800; margin-top:18px;}
+      .h-xl .ln2{color:var(--accent-ink);}
+      .lede{font-size:clamp(17px,1.6vw,20px); line-height:1.5; color:var(--ink-soft); max-width:52ch; margin:22px 0 0;}
+      .muted{color:var(--muted);}
+      .mono{font-family:var(--font-mono);}
+      .small{font-size:14px;}
+
+      /* Claim box — the live part of the page (needs JS + a Stripe session id) */
+      .claim{border:1px solid var(--line-strong); border-radius:8px; background:var(--paper-2); padding:clamp(18px,4vw,28px); margin-top:8px;}
+      .claim__head{display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
+      .claim__title{font-family:var(--font-display); font-weight:700; font-size:clamp(19px,2.2vw,24px); letter-spacing:-0.015em;}
+      .spinner{width:18px; height:18px; border:2px solid var(--line-strong); border-top-color:var(--accent); border-radius:50%; animation:spin .8s linear infinite; flex:none;}
+      @keyframes spin{to{transform:rotate(360deg);}}
+      @media (prefers-reduced-motion:reduce){.spinner{animation:none; border-top-color:var(--accent);}}
+      .claim p{margin:10px 0 0;}
+      .claim__note{font-family:var(--font-mono); font-size:12.5px; color:var(--muted); margin-top:12px;}
+
+      .keys{margin-top:16px; display:grid; gap:10px;}
+      .key{display:flex; gap:8px; align-items:stretch; flex-wrap:wrap;}
+      .key code{
+        flex:1 1 220px; min-width:0; display:flex; align-items:center;
+        font-family:var(--font-mono); font-size:clamp(15px,3.6vw,18px); font-weight:500; letter-spacing:0.02em;
+        background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; padding:13px 14px;
+        word-break:break-all; overflow-wrap:anywhere; -webkit-user-select:all; user-select:all;
+      }
+      .btn{display:inline-flex; align-items:center; justify-content:center; gap:9px; font-family:var(--font-text); font-weight:600; font-size:16px; padding:13px 20px; min-height:48px; border-radius:6px; cursor:pointer; border:1px solid var(--ink); background:var(--ink); color:var(--paper); transition:transform .14s ease, background .14s ease, color .14s ease, border-color .14s ease; white-space:nowrap; text-decoration:none;}
+      .btn:hover{background:var(--accent); border-color:var(--accent);}
+      .btn:active{transform:translateY(1px);}
+      .btn--ghost{background:transparent; color:var(--ink);}
+      .btn--ghost:hover{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+      .btn--copy{flex:0 0 auto; min-width:112px;}
+      .btn--copy.is-ok{background:var(--ok); border-color:var(--ok); color:#fff;}
+      @media (max-width:420px){ .btn--copy{flex:1 1 100%;} }
+
+      .dl{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;}
+      .dl .btn{flex:1 1 200px;}
+      .dl__group{margin-top:14px;}
+      .dl__label{font-family:var(--font-mono); font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin:0 0 8px;}
+      .dl__more{margin-top:10px; font-size:14px; color:var(--muted);}
+      .dl__more a{color:var(--accent-ink); text-decoration:underline; text-underline-offset:3px;}
+
+      .mail{margin-top:18px; padding-top:14px; border-top:1px solid var(--line); font-size:15px; color:var(--ink-soft);}
+      .mail strong{font-family:var(--font-mono); font-weight:500; font-size:14px;}
+
+      .section{padding-block:clamp(28px,5vw,48px);}
+      .rule{height:1px; background:var(--line); border:0; margin:0;}
+      .steps{list-style:none; margin:18px 0 0; padding:0; border-top:1px solid var(--line);}
+      .steps li{display:grid; grid-template-columns:36px 1fr; gap:12px; align-items:baseline; padding:14px 2px; border-bottom:1px solid var(--line);}
+      .steps .n{font-family:var(--font-mono); font-size:12px; color:var(--accent-ink);}
+      .steps .t{font-size:16px; color:var(--ink-soft);}
+      .steps strong{color:var(--ink);}
+      .link{color:var(--accent-ink); text-decoration:underline; text-underline-offset:3px;}
+      .support{margin-top:22px; font-size:15px; color:var(--muted);}
+
+      .footer{border-top:1px solid var(--ink); background:var(--paper-2);}
+      .footer .wrap{padding-block:30px 26px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:center;}
+      .footer a{color:var(--muted); font-size:14px;} .footer a:hover{color:var(--ink);}
+      .foot-links{display:flex; gap:18px; flex-wrap:wrap; font-family:var(--font-mono); font-size:12px;}
     </style>
 </head>
 <body>
-    <div class="card">
-        <div class="badge">&#10003;</div>
-        <h1>Payment received — thank you!</h1>
-        <p>Your <strong>Pulse Edit Free</strong> license and download links are on their way to your email right now.</p>
-        <ul class="steps">
-            <li>1. Check your inbox (and spam) for the email from <strong>support@pulseedit.com</strong></li>
-            <li>2. Download the app and open DaVinci Resolve 18.5+ (Free or Studio)</li>
-            <li>3. Paste your license key &mdash; you're unlimited from now on</li>
-        </ul>
-        <p class="muted">Need the app right away? Grab it here while the email lands:</p>
-        <div class="cta">
-            <a class="btn btn-green" href="https://pulse-edit-mirror.abtools.workers.dev/PulseEdit-macOS.dmg">Download — macOS</a>
-            <a class="btn btn-outline" href="https://pulse-edit-mirror.abtools.workers.dev/PulseEdit-Setup.exe">Download — Windows</a>
+
+    <header class="nav">
+      <div class="wrap nav__in">
+        <a class="brand" href="/">Pulse<span class="dot"></span></a>
+        <a class="nav__back" href="/">← Home</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero wrap">
+        <span class="kicker">Payment received</span>
+        <h1 class="h-xl">Thank you.<br><span class="ln2" id="h1-sub">You're all set.</span></h1>
+        <p class="lede" id="lede">Your <strong>Pulse Edit</strong> license and download links are on their way to your email right now.</p>
+      </section>
+
+      <section class="wrap">
+        <!-- Live claim box: only shown by the script below when a session id is present.
+             Without JavaScript, or without a session id, the page reads exactly like the static text around it. -->
+        <div class="claim" id="claim" hidden aria-live="polite">
+          <div id="claim-pending">
+            <div class="claim__head">
+              <div class="spinner" aria-hidden="true"></div>
+              <div class="claim__title">Preparing your license…</div>
+            </div>
+            <p class="muted">This usually takes a few seconds. Your key is also on its way to your email.</p>
+          </div>
+
+          <div id="claim-ready" hidden>
+            <div class="claim__head">
+              <div class="claim__title" id="ready-title">Your license key</div>
+            </div>
+            <p class="muted small" id="ready-sub">Paste it into the app when it asks for a license.</p>
+            <div class="keys" id="keys"></div>
+            <div id="dl-wrap"></div>
+            <p class="mail" id="mail"></p>
+          </div>
+
+          <div id="claim-fail" hidden>
+            <div class="claim__head">
+              <div class="claim__title">We can't show your license here right now.</div>
+            </div>
+            <p>It will reach you by email within a few minutes. If it doesn't arrive, write to <a class="link" href="mailto:support@pulseedit.com">support@pulseedit.com</a> and we'll sort it immediately.</p>
+          </div>
         </div>
-        <p class="muted" style="margin-top:24px;">Didn't get the email within a few minutes? Write to <a class="link" href="mailto:support@pulseedit.com">support@pulseedit.com</a> and we'll sort it immediately.</p>
-        <p class="muted"><a class="link" href="/">&larr; Back to pulseedit.com</a></p>
-    </div>
+      </section>
+
+      <section class="section wrap">
+        <span class="kicker">Next steps</span>
+        <ol class="steps" id="steps">
+          <li id="step-mail"><span class="n">01</span><span class="t">Check your inbox (and spam) for the email from <strong>support@pulseedit.com</strong></span></li>
+          <li><span class="n">02</span><span class="t">Download the app and open <strong>DaVinci Resolve 18.5+</strong> (Free or Studio)</span></li>
+          <li><span class="n">03</span><span class="t">Paste your license key — you're unlimited from now on</span></li>
+        </ol>
+
+        <div id="static-dl">
+          <p class="muted" style="margin:22px 0 10px;">Need the app right away? Grab it here while the email lands:</p>
+          <div class="dl">
+            <a class="btn" href="https://pulse-edit-mirror.abtools.workers.dev/PulseEdit-macOS.dmg">Download — macOS</a>
+            <a class="btn btn--ghost" href="https://pulse-edit-mirror.abtools.workers.dev/PulseEdit-Setup.exe">Download — Windows</a>
+          </div>
+        </div>
+
+        <p class="support">Didn't get the email within a few minutes? Write to <a class="link" href="mailto:support@pulseedit.com">support@pulseedit.com</a> and we'll sort it immediately.</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div><a class="brand" href="/">Pulse<span class="dot"></span></a><span class="muted" style="font-size:13px;margin-left:12px">Made by AB Tools.</span></div>
+        <div class="foot-links">
+          <a href="mailto:support@pulseedit.com">Support</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 3. Claim: polls the license server for this checkout session and shows the key(s) here. -->
+    <script>
+    (function () {
+      var API = 'https://license-server.abtools.workers.dev/claim';
+      var PE = window.__PE || {};
+      var sid = PE.sid;
+      var $ = function (id) { return document.getElementById(id); };
+
+      /* ---------- GA4: `purchase` ONLY when the key is on screen (ready), with the
+         amount when the response carries one; every other ending (not_found,
+         timeout, bad_id, abandoned) is a `claim_outcome` event, never a purchase. ---------- */
+      var purchaseSent = false;
+      var outcomeSent = false;
+      var hashPromise = null;
+
+      function fnv1a(str) {            // fallback when crypto.subtle is unavailable (still not the raw id)
+        var h = 0x811c9dc5;
+        for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+        return ('0000000000' + h.toString(16)).slice(-10);
+      }
+      function shortHash(str) {
+        if (hashPromise) return hashPromise;
+        hashPromise = (function () {
+          try {
+            if (window.crypto && crypto.subtle && window.TextEncoder) {
+              return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str)).then(function (buf) {
+                var b = new Uint8Array(buf), hex = '';
+                for (var i = 0; i < 5; i++) hex += ('0' + b[i].toString(16)).slice(-2);
+                return hex;                    // first 10 hex chars of sha-256
+              }, function () { return fnv1a(str); });
+            }
+          } catch (e) {}
+          return Promise.resolve(fnv1a(str));
+        })();
+        return hashPromise;
+      }
+      function toMajor(data) {         // amount = major units (13.00); amount_total = minor units (Stripe, 1300)
+        if (!data) return null;
+        var v = null;
+        if (typeof data.amount === 'number' || (typeof data.amount === 'string' && data.amount !== '')) v = Number(data.amount);
+        else if (typeof data.amount_total === 'number') v = data.amount_total / 100;
+        return (v !== null && isFinite(v) && v >= 0) ? Math.round(v * 100) / 100 : null;
+      }
+      function firePurchase(data) {
+        // Solo purchaseSent: un «abandoned» mandato quando l'utente cambia tab (su mobile: va a
+        // guardare la mail) NON deve cancellare la conversione se poi la chiave compare.
+        if (purchaseSent || !PE.rawSid) return;
+        purchaseSent = true;
+        shortHash(PE.rawSid).then(function (tid) {
+          var flag = 'pe_purchase_' + tid;
+          try { if (sessionStorage.getItem(flag)) return; sessionStorage.setItem(flag, '1'); } catch (e) {}
+          var name = (data && typeof data.product_name === 'string' && data.product_name.trim()) ? data.product_name.trim() : 'Pulse Edit';
+          var item = { item_id: 'pulse-edit-subscription', item_name: name, quantity: 1 };
+          var ev = { transaction_id: tid, items: [item] };
+          var value = toMajor(data);
+          if (value !== null) {
+            ev.value = value;
+            ev.currency = (data && typeof data.currency === 'string' && data.currency) ? data.currency.toUpperCase() : 'EUR';
+            item.price = value;
+          }
+          gtag('event', 'purchase', ev);
+        });
+      }
+      // outcome: 'not_found' | 'timeout' | 'bad_id' | 'abandoned' — diagnostic, never a conversion.
+      function fireOutcome(outcome) {
+        if (purchaseSent || outcomeSent || !PE.rawSid) return;
+        outcomeSent = true;
+        shortHash(PE.rawSid).then(function (tid) {
+          gtag('event', 'claim_outcome', { outcome: outcome, transaction_id: tid });
+        });
+      }
+      // Tab closed before the server answered: that is an outcome, not a purchase.
+      window.addEventListener('pagehide', function () { fireOutcome('abandoned'); });
+      document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') fireOutcome('abandoned'); });
+
+      if (!sid) {
+        // No valid session id (direct visit, or a malformed one): the page stays as it is.
+        if (PE.rawSid) fireOutcome('bad_id');
+        return;
+      }
+
+      /* ---------- UI ---------- */
+      var claim = $('claim');
+      claim.hidden = false;
+      function show(state) {
+        $('claim-pending').hidden = state !== 'pending';
+        $('claim-ready').hidden = state !== 'ready';
+        $('claim-fail').hidden = state !== 'fail';
+      }
+      show('pending');
+
+      function el(tag, cls, text) {
+        var n = document.createElement(tag);
+        if (cls) n.className = cls;
+        if (text != null) n.textContent = text;
+        return n;
+      }
+      function copyText(text, btn) {
+        var idle = btn.textContent;
+        function done(ok) {
+          btn.textContent = ok ? 'Copied' : 'Select & copy';
+          btn.classList.toggle('is-ok', !!ok);
+          setTimeout(function () { btn.textContent = idle; btn.classList.remove('is-ok'); }, 2200);
+        }
+        function legacy() {
+          var ta = document.createElement('textarea');
+          ta.value = text; ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed'; ta.style.top = '0'; ta.style.left = '-9999px'; ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.focus(); ta.select();
+          try { ta.setSelectionRange(0, text.length); } catch (e) {}
+          var ok = false;
+          try { ok = document.execCommand('copy'); } catch (e) {}
+          document.body.removeChild(ta);
+          done(ok);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () { done(true); }, legacy);
+        } else legacy();
+      }
+      // Only https, only to hosts the download map can legitimately point at
+      // (the R2 mirror, GitHub, this site). Anything else from the response is
+      // dropped, not rendered.
+      function safeUrl(u) {
+        var HOSTS = ['pulse-edit-mirror.abtools.workers.dev', 'github.com', 'objects.githubusercontent.com', 'pulseedit.com', 'www.pulseedit.com'];
+        if (typeof u !== 'string' || !/^https:\/\/[^\s"'<>]+$/i.test(u)) return null;
+        var host = null;
+        try { var p = new URL(u); if (p.protocol === 'https:') host = p.hostname.toLowerCase(); } catch (e) { return null; }
+        return (host && HOSTS.indexOf(host) !== -1) ? u : null;
+      }
+      // downloads can come as {macUrl,winUrl,winZipUrl}, {mac,win}, a {label,url} list, or nested per product.
+      function parseDownloads(d, label) {
+        var out = [];
+        if (!d) return out;
+        if (Array.isArray(d)) {
+          d.forEach(function (x) {
+            if (x && typeof x === 'object' && safeUrl(x.url)) out.push({ group: label, label: String(x.label || x.name || 'Download'), url: safeUrl(x.url), secondary: !!x.secondary });
+          });
+          return out;
+        }
+        if (typeof d !== 'object') return out;
+        var known = [
+          ['macUrl', 'Download — macOS', false], ['mac', 'Download — macOS', false], ['macos', 'Download — macOS', false],
+          ['winUrl', 'Download — Windows', false], ['win', 'Download — Windows', false], ['windows', 'Download — Windows', false],
+          ['winZipUrl', 'Windows portable ZIP', true], ['winZip', 'Windows portable ZIP', true]
+        ];
+        var used = {};
+        known.forEach(function (k) {
+          if (!used[k[1]] && safeUrl(d[k[0]])) { used[k[1]] = true; out.push({ group: label, label: k[1], url: safeUrl(d[k[0]]), secondary: k[2] }); }
+        });
+        Object.keys(d).forEach(function (k) {
+          var v = d[k];
+          if (v && typeof v === 'object') out = out.concat(parseDownloads(v, k.replace(/[_-]+/g, ' ')));
+        });
+        return out;
+      }
+      function renderDownloads(list) {
+        var wrap = $('dl-wrap');
+        wrap.textContent = '';
+        if (!list.length) return false;
+        var groups = {}, order = [];
+        list.forEach(function (x) { var g = x.group || ''; if (!groups[g]) { groups[g] = []; order.push(g); } groups[g].push(x); });
+        order.forEach(function (g) {
+          var box = el('div', order.length > 1 ? 'dl__group' : '');
+          if (g) box.appendChild(el('p', 'dl__label', g));
+          var row = el('div', 'dl'), more = null, first = true;
+          groups[g].forEach(function (x) {
+            if (x.secondary) {
+              if (!more) { more = el('p', 'dl__more', 'Prefer no installer? '); }
+              else more.appendChild(document.createTextNode(' · '));
+              var a = el('a', null, x.label); a.href = x.url; more.appendChild(a);
+              return;
+            }
+            var b = el('a', first ? 'btn' : 'btn btn--ghost', x.label); b.href = x.url; row.appendChild(b); first = false;
+          });
+          box.appendChild(row);
+          if (more) box.appendChild(more);
+          wrap.appendChild(box);
+        });
+        return true;
+      }
+      function renderReady(data) {
+        var keys = Array.isArray(data.keys) ? data.keys.filter(function (k) { return typeof k === 'string' && k.trim(); }) : [];
+        if (!keys.length) return false;
+        var product = (typeof data.product_name === 'string' && data.product_name.trim()) ? data.product_name.trim() : 'Pulse Edit';
+        $('ready-title').textContent = 'Your ' + product + ' license ' + (keys.length > 1 ? 'keys' : 'key');
+        var box = $('keys'); box.textContent = '';
+        keys.forEach(function (k) {
+          var row = el('div', 'key');
+          var code = el('code', null, k);
+          var btn = el('button', 'btn btn--copy', 'Copy');
+          btn.type = 'button';
+          btn.setAttribute('aria-label', 'Copy license key');
+          btn.addEventListener('click', function () { copyText(k, btn); });
+          row.appendChild(code); row.appendChild(btn);
+          box.appendChild(row);
+        });
+        var hasDl = renderDownloads(parseDownloads(data.downloads, ''));
+        $('static-dl').hidden = hasDl;
+
+        var mail = $('mail'); mail.textContent = '';
+        var masked = (typeof data.email_masked === 'string' && data.email_masked) ? data.email_masked : null;
+        if (data.mailed === false) {
+          mail.appendChild(document.createTextNode('The email is on its way' + (masked ? ' to ' : '')));
+          if (masked) mail.appendChild(el('strong', null, masked));
+          mail.appendChild(document.createTextNode(' — if you don’t see it in a few minutes, check your spam folder.'));
+        } else {
+          mail.appendChild(document.createTextNode('We’ve also sent it' + (masked ? ' to ' : ' by email')));
+          if (masked) mail.appendChild(el('strong', null, masked));
+          mail.appendChild(document.createTextNode(' — if you don’t see it, check your spam folder.'));
+        }
+
+        $('h1-sub').textContent = 'Your license is ready.';
+        $('lede').textContent = 'Here is your ' + product + ' license — it’s also on its way to your email.';
+        $('step-mail').innerHTML = '<span class="n">01</span><span class="t">Copy your license key above (it’s in your email too)</span>';
+        show('ready');
+        return true;
+      }
+      function fail() {
+        $('h1-sub').textContent = 'Check your email.';
+        show('fail');
+      }
+
+      /* ---------- Polling: +3 s, then every 2 s until 30 s, then every 5 s until 120 s ---------- */
+      var t0 = Date.now();
+      var DEADLINE = 120000;
+      var plannedAt = 3000;            // ms after t0
+      var done = false;
+
+      function elapsed() { return Date.now() - t0; }
+      function finish(kind, data) {
+        if (done) return;
+        done = true;
+        if (kind === 'ready' && renderReady(data)) { firePurchase(data); return; }
+        fail();
+        fireOutcome(kind === 'ready' ? 'not_found' : kind);   // a `ready` with no usable key is a miss
+      }
+      function scheduleNext(minDelayMs) {
+        if (done) return;
+        var interval = plannedAt < 30000 ? 2000 : 5000;
+        var next = plannedAt + interval;
+        if (minDelayMs) next = Math.max(next, elapsed() + minDelayMs);
+        if (next > DEADLINE) { finish('timeout'); return; }
+        plannedAt = next;
+        setTimeout(poll, Math.max(0, next - elapsed()));
+      }
+      function poll() {
+        if (done) return;
+        var ctrl = (window.AbortController) ? new AbortController() : null;
+        var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 8000) : null;
+        var opts = { method: 'GET', credentials: 'omit', cache: 'no-store', headers: { 'Accept': 'application/json' } };
+        if (ctrl) opts.signal = ctrl.signal;
+        fetch(API + '?session_id=' + encodeURIComponent(sid), opts)
+          .then(function (res) {
+            if (timer) clearTimeout(timer);
+            return res.json().catch(function () { return null; }).then(function (body) { return { status: res.status, body: body }; });
+          })
+          .then(function (r) {
+            var b = r.body || {};
+            if (r.status === 200 && b.status === 'ready') { finish('ready', b); return; }
+            if (r.status === 200 && b.status === 'pending') { scheduleNext(0); return; }
+            if (r.status === 400) { finish('bad_id'); return; }
+            if (r.status === 404) { finish('not_found'); return; }
+            if (r.status === 429 || r.status === 503) {
+              var wait = (typeof b.retry_in === 'number' && b.retry_in > 0) ? b.retry_in * 1000 : 0;
+              scheduleNext(wait); return;
+            }
+            scheduleNext(0);           // 5xx, unexpected body: keep trying until the deadline
+          })
+          .catch(function () {
+            if (timer) clearTimeout(timer);
+            scheduleNext(0);           // network error / abort: keep trying until the deadline
+          });
+      }
+      setTimeout(poll, plannedAt);
+    })();
+    </script>
 </body>
 </html>
