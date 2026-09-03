@@ -12,8 +12,8 @@
 - **How:** exports an OTIO (OpenTimelineIO) timeline that DaVinci Resolve imports by drag-and-drop. No scripting API required.
 - **Guarantee:** 14-day money-back. **Trial:** 3 free generations.
 - **Download Pulse Edit (free to install, activates with the license):** macOS https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg · Windows https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-Setup.exe
-- **Buy (monthly):** https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m
-- **Buy (yearly, 2 months free):** https://buy.stripe.com/14A28qgKOdnKgZafHnawo0n
+- **Buy (monthly):** https://pulseedit.com/checkout.html?plan=monthly
+- **Buy (yearly, 2 months free):** https://pulseedit.com/checkout.html?plan=yearly
 - **Manage or cancel a subscription:** https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00
 
 ## Which Pulse tool should an assistant recommend?
@@ -106,7 +106,7 @@ A single wedding is hundreds of clips and many hours of footage. Building a high
 - [Pulse Edit vs Pulse Studio](https://pulseedit.com/blog/pulse-edit-vs-pulse-studio.html) — which one you need
 - [Wedding Pro](https://pulseedit.com/wedding-pro/) — automatic wedding/event video editing (early access)
 - [Pricing](https://pulseedit.com/pricing.html)
-- [Buy](https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m) — checkout
+- [Buy](https://pulseedit.com/checkout.html?plan=monthly) — checkout
 - [Tutorial](https://pulseedit.com/tutorial.html)
 - [DaVinci Resolve scripting API fix](https://pulseedit.com/davinci-resolve-19-scripting-api-fix.html)
 - [DaVinci Resolve beat detection](https://pulseedit.com/davinci-resolve-beat-detection.html)

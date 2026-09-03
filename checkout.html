@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadGA() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-JV9DJHLCY2');
+    }
+    try { if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); } } catch (e) {}
+    </script>
+    <title>Checkout — Pulse</title>
+    <meta name="description" content="Get Pulse — €13/month or €130/year. One license activates Pulse Edit, Pulse Studio and Pulse Color for DaVinci Resolve. Secure payment by Stripe, 14-day money-back guarantee." />
+    <link rel="canonical" href="https://pulseedit.com/checkout.html" />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#f3efe6" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" crossorigin href="/assets/index-dsPNw69o.css" />
+    <!-- Stripe.js: loaded from js.stripe.com only (never self-hosted, never bundled). If an ad blocker
+         drops it, window.Stripe stays undefined and the page falls back to the hosted payment link. -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+      .co{padding-top:clamp(28px,4vw,56px);padding-bottom:clamp(48px,7vw,96px);}
+      .co__grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(28px,5vw,72px);align-items:start;margin-top:32px;}
+      .co__sum h1{margin-top:18px;}
+      .co__sum .lede{margin-top:16px;}
+
+      /* plan switch */
+      .plans{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px;}
+      .plan{text-align:left;cursor:pointer;background:var(--paper);color:var(--ink);border:1px solid var(--line-strong);border-radius:6px;padding:14px 16px;font-family:var(--font-text);transition:border-color .14s ease,box-shadow .14s ease,background .14s ease;}
+      .plan:hover{border-color:var(--ink);}
+      .plan[aria-checked="true"]{border-color:var(--ink);box-shadow:6px 6px 0 0 var(--accent);background:var(--paper);}
+      .plan__name{display:flex;align-items:center;justify-content:space-between;gap:8px;font-weight:700;font-size:16px;letter-spacing:-.01em;}
+      .plan__price{font-family:var(--font-mono);font-size:13px;color:var(--muted);margin-top:4px;}
+      .plan__tag{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);border:1px solid var(--accent);border-radius:100px;padding:2px 8px;white-space:nowrap;}
+      .plan__check{width:16px;height:16px;border-radius:50%;border:1px solid var(--line-strong);display:inline-block;flex:none;position:relative;}
+      .plan[aria-checked="true"] .plan__check{border-color:var(--accent);background:var(--accent);}
+      .plan[aria-checked="true"] .plan__check::after{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--paper);}
+
+      .amt{font-family:var(--font-display);font-weight:800;font-size:clamp(46px,6vw,72px);letter-spacing:-.04em;line-height:1;margin-top:28px;}
+      .amt small{font-size:20px;font-weight:600;color:var(--muted);letter-spacing:0;}
+      .amt__note{font-family:var(--font-mono);font-size:12.5px;color:var(--muted);margin:10px 0 0;}
+
+      .incl{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:11px;border-top:1px solid var(--ink);padding-top:22px;}
+      .incl li{display:flex;gap:12px;align-items:baseline;font-size:15.5px;}
+      .incl li::before{content:"—";color:var(--accent);font-family:var(--font-mono);}
+      .incl__h{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:26px 0 0;}
+      .guarantee{margin-top:24px;}
+      .secure{margin-top:22px;font-family:var(--font-mono);font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 18px;}
+      .secure span{display:inline-flex;align-items:center;gap:7px;}
+      .secure span::before{content:"";width:5px;height:5px;background:var(--accent);border-radius:50%;}
+      .secure a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px;}
+
+      /* payment column */
+      .co__pay{position:sticky;top:86px;}
+      .pay-box{border:1px solid var(--ink);background:#fff;box-shadow:12px 12px 0 0 var(--accent);border-radius:4px;overflow:hidden;min-height:560px;position:relative;}
+      #checkout{min-height:inherit;}
+      #checkout iframe{display:block;}
+      .pay-state{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:32px;text-align:center;background:#fff;}
+      .pay-state[hidden]{display:none;}
+      .spinner{width:22px;height:22px;border:2px solid var(--line-strong);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;}
+      @keyframes spin{to{transform:rotate(360deg);}}
+      @media (prefers-reduced-motion:reduce){.spinner{animation:none;border-top-color:var(--accent);}}
+      .pay-state p{margin:0;color:var(--muted);font-size:15px;max-width:38ch;}
+      .pay-state .btn{margin-top:6px;}
+      .pay-state__t{font-family:var(--font-display);font-weight:700;font-size:22px;letter-spacing:-.015em;color:var(--ink);}
+      .pay-state__why{font-family:var(--font-mono);font-size:12px;color:var(--faint);margin-top:4px;}
+      .pay-alt{font-family:var(--font-mono);font-size:12px;color:var(--faint);margin:14px 0 0;text-align:center;}
+      .pay-alt a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px;}
+      .pay-foot{font-family:var(--font-mono);font-size:12px;color:var(--faint);margin:18px 0 0;text-align:center;}
+      .pay-foot a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px;}
+
+      /* Stripe's iframe starts at ~620px and grows (address, Link, wallets): on a laptop viewport a
+         sticky box would pin the Pay button below the fold while the left column scrolls. */
+      @media (max-height:900px){
+        .co__pay{position:static;}
+      }
+      @media (max-width:900px){
+        .co__grid{grid-template-columns:1fr;}
+        .co__pay{position:static;}
+      }
+      @media (max-width:560px){
+        .pay-box{box-shadow:8px 8px 0 0 var(--accent);}
+        .plans{grid-template-columns:1fr;}
+      }
+    </style>
+</head>
+<body>
+<div id="root">
+<header class="nav"><!-- pulse-nav:canonical --><div class="wrap nav__in">
+    <a class="brand" href="/" aria-label="Pulse home">Pulse<span class="dot"></span></a>
+    <nav class="nav__links">
+        <a href="/pulse-edit.html">Pulse Edit</a>
+        <a href="/pulse-studio.html">Pulse Studio</a>
+        <a href="/pulse-color.html">Pulse Color</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/blog/">Blog</a>
+    </nav>
+    <div class="nav__cta">
+        <a class="nav__price" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg" data-track="download-nav">↓ Download</a>
+        <a class="nav__price" href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Manage subscription</a>
+        <button class="nav__burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+</div>
+<div class="mobile">
+    <a href="/pulse-edit.html">Pulse Edit</a>
+    <a href="/pulse-studio.html">Pulse Studio</a>
+    <a href="/pulse-color.html">Pulse Color</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog/">Blog</a>
+    <a class="btn btn--ghost btn--lg" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg" style="margin-top:18px" data-track="download-mobile">↓ Download</a>
+    <a href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Manage subscription</a>
+</div></header>
+
+<main>
+<section class="co wrap">
+    <span class="kicker">Checkout</span>
+    <div class="co__grid">
+        <div class="co__sum">
+            <h1 class="h-lg" style="max-width:14ch">One license.<br />The whole suite.</h1>
+            <p class="lede muted" style="max-width:40ch">Pick monthly or yearly. Either way you get Pulse Edit, Pulse Studio and Pulse Color with one key.</p>
+
+            <div class="plans" role="radiogroup" aria-label="Billing period">
+                <button type="button" class="plan" role="radio" aria-checked="true" data-plan="monthly" id="plan-monthly">
+                    <span class="plan__name"><span>Monthly</span><span class="plan__check" aria-hidden="true"></span></span>
+                    <span class="plan__price">€13 / month</span>
+                </button>
+                <button type="button" class="plan" role="radio" aria-checked="false" data-plan="yearly" id="plan-yearly">
+                    <span class="plan__name"><span>Yearly</span><span class="plan__tag">2 months free</span><span class="plan__check" aria-hidden="true"></span></span>
+                    <span class="plan__price">€130 / year</span>
+                </button>
+            </div>
+
+            <div class="amt" aria-live="polite"><span id="amt-val">€13</span><small id="amt-per"> / month</small></div>
+            <p class="amt__note" id="amt-note">VAT included. Renews monthly until you cancel — in one click, from the customer portal.</p>
+
+            <p class="incl__h">What's included</p>
+            <ul class="incl">
+                <li>Pulse Edit — beat detection &amp; auto-cut</li>
+                <li>Pulse Studio — auto-edit inside DR Studio</li>
+                <li>Pulse Color — film looks &amp; filter FX</li>
+                <li>One key activates everything, on macOS &amp; Windows</li>
+                <li>Works on DR Free &amp; Studio (18.5+)</li>
+                <li>Every update — and every new Pulse tool joins the same license</li>
+            </ul>
+
+            <p class="guarantee">14-day money-back guarantee. If it doesn't work on your DaVinci Resolve setup, we fix it or refund you — no questions asked.</p>
+
+            <div class="secure">
+                <span>Secure payment by <a href="https://stripe.com" target="_blank" rel="noopener">Stripe</a></span>
+                <span>Apple Pay · Google Pay · Link · cards</span>
+                <span>License delivered by email immediately</span>
+            </div>
+        </div>
+
+        <div class="co__pay">
+            <div class="pay-box">
+                <!-- Stripe Embedded Checkout mounts here -->
+                <div id="checkout"></div>
+
+                <div class="pay-state" id="pay-loading" role="status">
+                    <div class="spinner" aria-hidden="true"></div>
+                    <p>Loading secure checkout…</p>
+                </div>
+
+                <!-- Fallback: fetch failed / worker answered with `fallback` / Stripe.js blocked -->
+                <div class="pay-state" id="pay-fallback" hidden>
+                    <div class="pay-state__t">Continue on Stripe</div>
+                    <p id="fallback-why">The embedded checkout couldn't load here, so we'll take you to Stripe's hosted page — same payment options, same license.</p>
+                    <a class="btn btn--lg" id="fallback-btn" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" rel="noopener">Continue to secure checkout <span class="arr">→</span></a>
+                    <p class="pay-state__why" id="fallback-reason" hidden></p>
+                </div>
+
+                <noscript>
+                    <div class="pay-state">
+                        <div class="pay-state__t">Continue on Stripe</div>
+                        <p>Checkout needs JavaScript to load here. You can pay on Stripe's hosted page instead — same payment options, same license.</p>
+                        <a class="btn btn--lg" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" rel="noopener">Continue to secure checkout →</a>
+                        <p class="pay-state__why">Monthly, €13. Prefer yearly? <a href="https://buy.stripe.com/14A28qgKOdnKgZafHnawo0n" rel="noopener" style="color:var(--accent-ink);text-decoration:underline;">€130 / year, two months free</a>.</p>
+                    </div>
+                </noscript>
+            </div>
+            <!-- Always visible: if something goes wrong INSIDE Stripe's iframe (an expired session, an outage) the page
+                 has no event to react to — this is the way out to the hosted checkout. The href follows the plan. -->
+            <p class="pay-alt">Prefer Stripe's hosted page? <a id="hosted-alt" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" rel="noopener">Continue there →</a></p>
+            <p class="pay-foot">Questions before you pay? <a href="/faq.html">Read the FAQ</a> or <a href="mailto:support@pulseedit.com">email support</a>. Already subscribed? <a href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Manage your subscription</a>.</p>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer class="footer"><div class="wrap">
+    <div class="foot-top">
+        <div class="foot-brand"><a class="brand" href="/">Pulse<span class="dot"></span></a><p>Beat-synced auto-editing and film color for DaVinci Resolve. Built by AB Tools.</p></div>
+        <div class="foot-col"><h4>Products</h4><a href="/pulse-edit.html">Pulse Edit</a><a href="/pulse-studio.html">Pulse Studio</a><a href="/pulse-color.html">Pulse Color</a><a href="/wedding-pro/">Weddings</a><a href="/tutorial.html">Tutorial</a></div>
+        <div class="foot-col"><h4>Guides</h4><a href="/blog/black-pro-mist-davinci-resolve.html">Black Pro-Mist guide</a><a href="/blog/beat-detection-plugin-davinci-resolve.html">Beat detection plugin</a><a href="/complete-guide-davinci-resolve-music-editing.html">Complete guide</a></div>
+        <div class="foot-col"><h4>More</h4><a href="/blog/">Blog</a><a href="mailto:support@pulseedit.com">Support</a><a href="/withdrawal.html">Refunds &amp; Withdrawal</a><a href="/faq.html" style="margin-right:16px;">FAQ</a> <a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 AB Tools — Pulse</span><span>Edit to the beat. Grade to a look.</span></div>
+</div></footer>
+</div>
+
+    <script>
+    (function () {
+      // ── Plans: price, copy and the hosted payment link used as fallback ──────────────
+      var PLANS = {
+        monthly: { amount: '€13',  per: ' / month', note: 'VAT included. Renews monthly until you cancel — in one click, from the customer portal.',
+                   link: 'https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m' },
+        yearly:  { amount: '€130', per: ' / year',  note: 'VAT included. Billed once a year — two months free. Renews until you cancel, in one click.',
+                   link: 'https://buy.stripe.com/14A28qgKOdnKgZafHnawo0n' }
+      };
+      var ENDPOINT = 'https://license-server.abtools.workers.dev/checkout/session';
+      var TRACK    = 'https://license-server.abtools.workers.dev/track-click';
+      // Publishable key: public by definition (it can only create tokens, never read or charge).
+      var PK = 'pk_live_51PJfVmBFsO7BGiMmzTP0iYzgbKTTiikxxGzK35htQAcMptDOTLKo8KIZhpDbnGvW5CeftpJciE4TOtM2wGfp9yV200d3Kf9hWI';
+
+      var $ = function (id) { return document.getElementById(id); };
+      var q = new URLSearchParams(location.search);
+      var plan = q.get('plan') === 'yearly' ? 'yearly' : 'monthly';
+      var promo = String(q.get('promo') || '').trim();
+      if (!/^[A-Za-z0-9_-]{1,32}$/.test(promo)) promo = '';
+
+      var stripe = null;          // Stripe.js instance (null when the script was blocked)
+      var checkout = null;        // live EmbeddedCheckout instance
+      var seq = 0;                // guards against a slow init landing after a plan switch
+      var tracked = {};
+
+      // Same mechanism as the other pages' [data-track] click handler: POST /track-click {edition, ref}.
+      // Only checkout-fallback is reported (the worker logs it, no KV); a page view is NOT — GA's page_view
+      // counts it and every accepted click costs the worker 3 KV writes on a 1.000/day quota.
+      function postTrack(edition, extra) {
+        try {
+          var body = { edition: edition, ref: location.pathname };
+          if (extra) for (var k in extra) body[k] = extra[k];
+          fetch(TRACK, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+                         body: JSON.stringify(body), keepalive: true })
+            .catch(function () {});
+        } catch (_) {}
+      }
+      function track(edition, extra) {     // once per page load
+        if (tracked[edition]) return;
+        tracked[edition] = true;
+        postTrack(edition, extra);
+      }
+      document.querySelectorAll('[data-track]').forEach(function (el) {
+        el.addEventListener('click', function () { postTrack(this.getAttribute('data-track')); });
+      });
+
+      function safeLink(url, fallbackUrl) {
+        // Only ever send people to Stripe's own hosted checkout, whatever the response says.
+        return (typeof url === 'string' && /^https:\/\/buy\.stripe\.com\/[A-Za-z0-9]+$/.test(url)) ? url : fallbackUrl;
+      }
+
+      function render() {
+        var p = PLANS[plan];
+        $('amt-val').textContent = p.amount;
+        $('amt-per').textContent = p.per;
+        $('amt-note').textContent = p.note;
+        document.querySelectorAll('.plan').forEach(function (b) {
+          b.setAttribute('aria-checked', b.getAttribute('data-plan') === plan ? 'true' : 'false');
+        });
+        $('fallback-btn').href = p.link;
+        $('hosted-alt').href = p.link;
+        try {
+          history.replaceState(null, '', '/checkout.html?plan=' + plan + (promo ? '&promo=' + encodeURIComponent(promo) : ''));
+        } catch (_) {}
+      }
+
+      function showLoading(on) { $('pay-loading').hidden = !on; }
+
+      function showFallback(reason, url) {
+        showLoading(false);
+        $('fallback-btn').href = safeLink(url, PLANS[plan].link);
+        var why = $('fallback-why');
+        if (reason === 'blocked') {
+          why.textContent = "Stripe's checkout script didn't load in this browser (an ad blocker, most likely), so we'll take you to Stripe's hosted page — same payment options, same license.";
+        } else if (reason === 'unavailable') {
+          why.textContent = "The embedded checkout is temporarily unavailable, so we'll take you to Stripe's hosted page — same payment options, same license.";
+        } else {
+          why.textContent = "The embedded checkout couldn't load here, so we'll take you to Stripe's hosted page — same payment options, same license.";
+        }
+        var r = $('fallback-reason');
+        r.textContent = reason ? 'reason: ' + reason : '';
+        r.hidden = !reason;
+        $('pay-fallback').hidden = false;
+        track('checkout-fallback', { reason: String(reason || 'unknown').toLowerCase().replace(/[^a-z0-9_]/g, '_').slice(0, 32) });
+        try { gtag('event', 'checkout_fallback', { reason: reason || 'unknown', plan: plan }); } catch (_) {}
+      }
+
+      function fetchClientSecret() {
+        return fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ plan: plan, promo: promo })
+        }).then(function (r) {
+          return r.text().then(function (t) {
+            var j = null;
+            try { j = JSON.parse(t); } catch (_) {}
+            if (r.status === 200 && j && typeof j.client_secret === 'string' && j.client_secret) return j.client_secret;
+            var err = new Error((j && j.error) || ('http_' + r.status));
+            err.code = (j && j.error) || ('http_' + r.status);
+            err.fallback = j && j.fallback;
+            throw err;
+          });
+        }).catch(function (e) {
+          if (e && e.code) throw e;
+          var err = new Error('network');     // fetch itself failed (offline, DNS, CORS): no response to read
+          err.code = 'network';
+          throw err;
+        });
+      }
+
+      // Stripe.js allows ONE Embedded Checkout at a time: a new init starts only after the previous one
+      // has settled (and has been destroyed if a plan switch superseded it). `seq` marks the latest request.
+      //
+      // The client secret is fetched HERE, before initEmbeddedCheckout, and handed to Stripe.js already
+      // resolved. Stripe.js v3 resolves initEmbeddedCheckout as soon as its chunk loads — before
+      // fetchClientSecret settles — and turns a rejected fetchClientSecret into an unhandled
+      // IntegrationError: the init promise never rejects, so a worker 503/502 or a network error would
+      // leave "Something went wrong" inside the iframe and the hosted fallback would never appear
+      // (review 03/09, reproduced with the real Stripe.js). Fetching first keeps every failure ours.
+      var inflight = Promise.resolve();
+      function mount() {
+        var my = ++seq;
+        $('pay-fallback').hidden = true;
+        if (!stripe) { showFallback('blocked'); return; }
+        showLoading(true);
+        inflight = inflight.catch(function () {}).then(function () {
+          if (my !== seq) return;                       // superseded while waiting: skip, no session created
+          if (checkout) { try { checkout.destroy(); } catch (_) {} checkout = null; }
+          $('checkout').innerHTML = '';
+          return fetchClientSecret().then(function (secret) {
+            if (my !== seq) return;                     // plan changed while the session was being created
+            var p;
+            try {
+              p = stripe.initEmbeddedCheckout({ fetchClientSecret: function () { return Promise.resolve(secret); } });
+            } catch (e) {
+              console.error('embedded checkout init:', e && e.message);
+              showFallback('init_failed');
+              return;
+            }
+            return Promise.resolve(p).then(function (co) {
+              if (my !== seq) { try { co.destroy(); } catch (_) {} return; }   // plan changed meanwhile
+              checkout = co;
+              co.mount('#checkout');
+              showLoading(false);
+            }, function (e) {
+              if (my !== seq) return;
+              console.error('embedded checkout init:', e && e.message);
+              showFallback('init_failed');
+            });
+          }, function (e) {
+            if (my !== seq) return;
+            var code = (e && e.code) || (e && e.message) || 'error';
+            console.error('embedded checkout:', code);
+            showFallback(code === 'checkout_unavailable' ? 'unavailable' : code, e && e.fallback);
+          });
+        });
+      }
+
+      document.querySelectorAll('.plan').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var next = this.getAttribute('data-plan');
+          if (next === plan || !PLANS[next]) return;
+          plan = next;
+          render();
+          mount();          // destroy + new session for the new price
+        });
+      });
+
+      render();
+      try {
+        if (typeof window.Stripe === 'function') stripe = window.Stripe(PK);
+      } catch (e) { stripe = null; }
+      mount();
+    })();
+    </script>
+    <script src="/pulse-nav.js?v=5" defer></script>
+</body>
+</html>
