@@ -23,7 +23,13 @@
       var STORE = 'pe_claim_sid';
       var RE = /^cs_(live|test)_[A-Za-z0-9]{20,80}$/;
       var raw = null, sid = null, fromUrl = false;
-      try { raw = new URLSearchParams(location.search).get('session_id'); } catch (e) {}
+      // Il payment link manda «#session_id=…» (fragment: non arriva a nessun server, a nessun
+      // log, a nessun Referer — decisione Abramo 03/09). Il «?session_id=» resta per i link vecchi.
+      try {
+        var h = location.hash && location.hash.charAt(0) === '#' ? location.hash.slice(1) : '';
+        raw = new URLSearchParams(h).get('session_id');
+        if (raw === null) raw = new URLSearchParams(location.search).get('session_id');
+      } catch (e) {}
       if (raw && RE.test(raw)) { sid = raw; fromUrl = true; }
       try {
         if (sid) sessionStorage.setItem(STORE, sid);
