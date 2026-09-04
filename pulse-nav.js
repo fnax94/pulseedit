@@ -17,6 +17,13 @@
     });
     return h + '</div>';
   }
+  // Voce col tag «beta»: stesso stile di pnavCol, piu' il marchietto rosso.
+  function pnavBeta(href, nome, sotto) {
+    return '<a href="' + href + '" style="display:block;padding:7px 8px;margin:0 -8px;border-radius:8px;text-decoration:none;color:#17150f;">' +
+      '<span style="font-weight:700;font-size:14px;letter-spacing:0;text-transform:none;">' + nome +
+      '<span style="font-family:\'IBM Plex Mono\',monospace;font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:#e8472b;border:1px solid currentColor;border-radius:5px;padding:0 4px;margin-left:6px;vertical-align:1.5px;">beta</span></span>' +
+      '<span style="display:block;font-size:12px;color:#6c6557;letter-spacing:0;text-transform:none;margin-top:1px;">' + sotto + '</span></a>';
+  }
   function applyPnav() {
     // ri-query dal document: React puo' sostituire l'INTERO header dopo
     // l'hydration, lasciando `nav` come nodo staccato dal DOM
@@ -26,7 +33,7 @@
       '<div class="pnav" style="position:relative;display:inline-block;">' +
       '<a href="/#products" class="pnav__t" aria-haspopup="true" aria-expanded="false">Products <span style="font-size:9px;">&#9662;</span></a>' +
       '<div class="pnav__m" style="display:none;position:absolute;left:-18px;top:100%;padding-top:12px;z-index:80;">' +
-      '<div style="background:#f3efe6;color:#17150f;border:1px solid rgba(23,21,15,.15);border-radius:14px;box-shadow:0 18px 60px rgba(23,21,15,.22);padding:18px 20px;min-width:560px;display:grid;grid-template-columns:1fr 1fr;gap:22px;text-align:left;">' +
+      '<div style="background:#f3efe6;color:#17150f;border:1px solid rgba(23,21,15,.15);border-radius:14px;box-shadow:0 18px 60px rgba(23,21,15,.22);padding:18px 20px;min-width:620px;display:grid;grid-template-columns:1fr 1fr;gap:22px;text-align:left;">' +
       pnavCol('For DaVinci Resolve Free', [
         ['/pulse-edit.html', 'Pulse Edit', 'Beat-synced auto-edit, via OTIO']]) +
       pnavCol('For DaVinci Resolve Studio', [
@@ -37,6 +44,17 @@
       '<span style="font-weight:700;font-size:14px;letter-spacing:0;text-transform:none;">Pulse Color</span>' +
       '<span style="display:block;font-size:12px;color:#6c6557;letter-spacing:0;text-transform:none;margin-top:1px;">Film looks &amp; filter FX &mdash; Resolve Free &amp; Studio</span></a>' +
       '</div>' +
+      // ⛔ 04/09/2026 (Abramo): «una pagina dedicata pulse edit for final cut pro e
+      //    un'altra pulse edit for premiere pro, stessa cosa anche nella navbar».
+      //    Sezione a se': NON sono prodotti diversi, e' lo stesso Pulse Edit che
+      //    scrive un altro file. Per questo stanno sotto «For other editors» e
+      //    portano il tag beta, che e' la verita' finche' nessuno li ha aperti davvero.
+      '<div style="grid-column:1 / -1;border-top:1px solid rgba(23,21,15,.12);padding-top:12px;">' +
+      '<p style="font-family:\'IBM Plex Mono\',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 8px;color:#6c6557;">For other editors</p>' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:0 22px;">' +
+      pnavBeta('/pulse-edit-premiere-pro.html', 'Pulse Edit for Premiere Pro', 'Beat-synced timeline as a Premiere XML') +
+      pnavBeta('/pulse-edit-final-cut-pro.html', 'Pulse Edit for Final Cut Pro', 'Beat-synced timeline as an FCPXML') +
+      '</div></div>' +
       '</div></div></div>' +
       '<a href="/#pricing">Pricing</a><a href="/blog/">Blog</a>';
 
@@ -86,7 +104,10 @@
         '<p style="font-family:\'IBM Plex Mono\',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin:10px 0 2px;opacity:.6;">For DaVinci Resolve Studio</p>' +
         '<a href="/pulse-studio.html">Pulse Studio</a>' +
         '<p style="font-family:\'IBM Plex Mono\',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin:10px 0 2px;opacity:.6;">For both editions</p>' +
-        '<a href="/pulse-color.html">Pulse Color</a>';
+        '<a href="/pulse-color.html">Pulse Color</a>' +
+        '<p style="font-family:\'IBM Plex Mono\',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin:10px 0 2px;opacity:.6;">For other editors</p>' +
+        '<a href="/pulse-edit-premiere-pro.html">Pulse Edit for Premiere Pro</a>' +
+        '<a href="/pulse-edit-final-cut-pro.html">Pulse Edit for Final Cut Pro</a>';
       first.replaceWith(grp);
       // rimuovi l\'eventuale primo link superstite di altri prodotti
       prodHrefs.forEach(function (h) {
