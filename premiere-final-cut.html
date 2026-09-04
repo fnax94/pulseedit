@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>document.documentElement.classList.add("js");</script>
+    <title>Beat-Synced Editing for Premiere Pro and Final Cut Pro — Pulse Edit (Beta)</title>
+    <meta name="description" content="Pulse Edit detects the beats in your music and writes the cut timeline as a Premiere Pro XML or Final Cut Pro FCPXML — cuts, music and beat markers included. In beta, and included in the same €13/month licence as the DaVinci Resolve version." />
+    <link rel="canonical" href="https://pulseedit.com/premiere-final-cut.html" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#f3efe6" />
+    <meta property="og:title" content="Beat-Synced Editing for Premiere Pro and Final Cut Pro — Pulse Edit (Beta)" />
+    <meta property="og:description" content="Pulse Edit detects the beats in your music and writes the cut timeline as a Premiere Pro XML or Final Cut Pro FCPXML — cuts, music and beat markers included. In beta, and included in the same €13/month licence as the DaVinci Resolve version." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pulseedit.com/premiere-final-cut.html" />
+    <meta property="og:image" content="https://pulseedit.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Beat-Synced Editing for Premiere Pro and Final Cut Pro — Pulse Edit (Beta)" />
+    <meta name="twitter:description" content="Pulse Edit detects the beats in your music and writes the cut timeline as a Premiere Pro XML or Final Cut Pro FCPXML — cuts, music and beat markers included. In beta, and included in the same €13/month licence as the DaVinci Resolve version." />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/assets/index-dsPNw69o.css" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Pulse Edit",
+  "applicationCategory": "MultimediaApplication",
+  "applicationSubCategory": "Video editing automation",
+  "operatingSystem": "macOS, Windows",
+  "offers": { "@type": "Offer", "price": "13", "priceCurrency": "EUR" },
+  "featureList": [
+    "AI beat detection",
+    "Cuts on the beat for DaVinci Resolve (OpenTimelineIO)",
+    "Premiere Pro XML export (beta)",
+    "Final Cut Pro FCPXML export (beta)",
+    "Beat markers on the music clip"
+  ],
+  "softwareHelp": "https://pulseedit.com/premiere-final-cut.html"
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Does Pulse Edit work with Premiere Pro?",
+      "acceptedAnswer": { "@type": "Answer", "text": "In beta, yes. Pulse Edit writes a Premiere Pro XML (FCP7 XML) next to the timeline file, containing the cuts, the music track and the beat markers. You import it in Premiere with File \u2192 Import. It is marked beta because we have not yet opened the file inside Premiere Pro ourselves: it is validated against the format, not against the application." } },
+    { "@type": "Question", "name": "Does Pulse Edit work with Final Cut Pro?",
+      "acceptedAnswer": { "@type": "Answer", "text": "In beta, yes. Pulse Edit writes an FCPXML 1.10 file with the cuts, the music and the beat markers placed on the music clip. It is marked beta because we have not yet opened the file inside Final Cut Pro ourselves: the FCPXML is validated against Apple's published DTD on every export, but not against the application." } },
+    { "@type": "Question", "name": "Do speed ramps and zooms work in Premiere or Final Cut?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Speed ramps, animated zooms and the AI mood edit live only in Pulse Studio, which drives DaVinci Resolve Studio through its scripting API. For Premiere and Final Cut, Pulse Edit exports cuts, music and markers." } },
+    { "@type": "Question", "name": "Is it a separate purchase?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. It is the same \u20ac13/month licence that covers Pulse Edit, Pulse Studio and Pulse Color. One key activates everything." } }
+  ]
+}
+    </script>
+  </head>
+<body>
+    <div id="root"><header class="nav"><div class="wrap nav__in"><a class="brand" href="/" aria-label="Pulse home">Pulse<span class="dot"></span></a><nav class="nav__links"><a href="/pulse-edit.html">Pulse Edit</a><a href="/pulse-studio.html">Pulse Studio</a><a href="/pulse-color.html">Pulse Color</a><a href="/#pricing">Pricing</a><a href="/blog/">Blog</a></nav><div class="nav__cta"><a class="nav__price" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg" data-track="nle-download-nav">↓ Download</a><a class="nav__price" href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Manage subscription</a><a class="btn" href="/checkout.html?plan=monthly" data-track="nle-buy-nav">Get Pulse — €13/mo</a><button class="nav__burger" aria-label="Menu" aria-expanded="false"><span></span></button></div></div><div class="mobile"><a href="/pulse-edit.html">Pulse Edit</a><a href="/pulse-studio.html">Pulse Studio</a><a href="/pulse-color.html">Pulse Color</a><a href="/#pricing">Pricing</a><a href="/blog/">Blog</a><a class="btn btn--lg" href="/checkout.html?plan=monthly" style="margin-top:18px" data-track="nle-buy-mobile">Get Pulse — €13/mo</a><a class="btn btn--ghost btn--lg" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg" data-track="nle-download-mobile" style="margin-top:10px">↓ Download</a></div></header><main>
+  <section class="wrap" style="padding:64px 0 24px">
+    <p style="opacity:.7;font-size:14px;letter-spacing:.08em;text-transform:uppercase">Beta</p>
+    <h1>Cut to the beat in Premiere Pro and Final Cut Pro</h1>
+    <p style="font-size:19px;max-width:64ch">
+      Pulse Edit finds the beats in your music and builds the cut timeline for you. Since version
+      1.0.51 it can write that timeline as a <strong>Premiere Pro XML</strong> or a
+      <strong>Final Cut Pro FCPXML</strong>, next to the OpenTimelineIO file it already wrote for
+      DaVinci Resolve. Same licence, same €13/month — you pick the editor from a menu.
+    </p>
+    <p style="max-width:64ch">
+      <a class="btn btn--lg" href="/checkout.html?plan=monthly" data-track="nle-buy-hero">Get Pulse — €13/mo</a>
+      <a class="btn btn--ghost btn--lg" href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg" data-track="nle-download-hero">↓ Download for macOS</a>
+    </p>
+  </section>
+
+  <section class="wrap" style="padding:24px 0">
+    <h2>What it exports today</h2>
+    <ul style="max-width:64ch;line-height:1.7">
+      <li><strong>The cuts</strong>, on the beat, with the in-point of every clip.</li>
+      <li><strong>The music</strong>, trimmed the way you trimmed it.</li>
+      <li><strong>Beat markers</strong>, on the music clip, on the exact frame of the beat.</li>
+      <li><strong>A cut list</strong> in JSON, if you want to read the edit rather than open it.</li>
+    </ul>
+    <h2>What it does not export</h2>
+    <ul style="max-width:64ch;line-height:1.7">
+      <li><strong>Speed ramps and animated zooms.</strong> They are built through the DaVinci
+        Resolve Studio scripting API and live only in Pulse Studio.</li>
+      <li><strong>The AI mood edit.</strong> Same reason.</li>
+      <li><strong>Transitions.</strong> The export carries cuts, not effects.</li>
+    </ul>
+  </section>
+
+  <section class="wrap" style="padding:24px 0">
+    <h2>Why it says beta, and what that means for you</h2>
+    <p style="max-width:64ch">
+      The two files are written to spec — the FCPXML is validated against Apple's DTD on every
+      export. What we have <strong>not</strong> done yet is open them inside Premiere Pro and Final Cut Pro ourselves — not once. We do not own the licences, so the files are validated against the format, not against the applications that read it. Until we have, the feature carries a BETA label in the app, on this
+      page, and in the menu where you pick it. We would rather tell you that than find out from you.
+    </p>
+    <p style="max-width:64ch">
+      If something does not import cleanly, write to
+      <a href="mailto:support@pulseedit.com">support@pulseedit.com</a> and send the file — that is
+      exactly the feedback that takes it out of beta.
+    </p>
+  </section>
+
+  <section class="wrap" style="padding:24px 0 64px">
+    <h2>Questions</h2>
+    <h3>Does it replace BeatEdit?</h3>
+    <p style="max-width:64ch">It does the same job for the same kind of edit — finding the beats and
+      cutting to them — and it is included in a licence that also covers DaVinci Resolve and a colour
+      plugin. Whether it replaces it for you depends on your workflow; the beta label is there so you
+      can find out before deciding.</p>
+    <h3>Which one do I pick in the app?</h3>
+    <p style="max-width:64ch">The «Send to» menu is the first thing on the window: DaVinci Resolve,
+      Premiere Pro (beta), Final Cut Pro (beta). Final Cut is listed on macOS only.</p>
+    <h3>Is it another purchase?</h3>
+    <p style="max-width:64ch">No — one key covers Pulse Edit, Pulse Studio and Pulse Color.</p>
+  </section>
+</main><footer class="footer"><div class="wrap"><div class="foot-top"><div class="foot-brand"><a class="brand" href="/">Pulse<span class="dot"></span></a><p>Beat-synced auto-editing inside DaVinci Resolve Studio. Built by AB Tools.</p></div><div class="foot-col"><h4>Product</h4><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="/pulse-edit.html">Pulse Edit</a><a href="/pulse-color.html">Pulse Color</a></div><div class="foot-col"><h4>Downloads</h4><a href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseStudio-macOS.dmg">Pulse Studio for macOS</a><a href="https://pulse-edit-mirror.abtools.workers.dev/files/PulseStudio-Setup.exe">Pulse Studio for Windows</a></div><div class="foot-col"><h4>More</h4><a href="/blog/">Blog</a><a href="mailto:support@pulseedit.com">Support</a><a href="/withdrawal.html">Refunds &amp; Withdrawal</a><a href="/faq.html" style="margin-right:16px;">FAQ</a> <a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div></div><div class="foot-bottom"><span>© 2026 AB Tools — Pulse Studio</span><span>Made for editors who'd rather not tap to the beat.</span></div></div></footer></div>
+    <script src="/pulse-nav.js?v=5" defer></script>
+    <script>
+    (function(){
+      // burger
+      var b = document.querySelector('.nav__burger');
+      if (b) b.addEventListener('click', function(){
+        var open = document.body.classList.toggle('nav-open');
+        b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      // faq
+      document.querySelectorAll('.faq-q').forEach(function(q){
+        q.addEventListener('click', function(){
+          var open = q.getAttribute('aria-expanded') === 'true';
+          q.setAttribute('aria-expanded', open ? 'false' : 'true');
+          var a = q.nextElementSibling;
+          if (a) a.style.display = open ? 'none' : 'block';
+        });
+        var a = q.nextElementSibling;
+        if (a && q.getAttribute('aria-expanded') !== 'true') a.style.display = 'none';
+      });
+      // reveal
+      document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-in'); });
+    })();
+    </script>
+    <script src="/cookie-consent.js?v=1" defer></script>
+</body>
+</html>
