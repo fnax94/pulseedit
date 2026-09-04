@@ -298,26 +298,67 @@
         try { gtag('event', 'checkout_fallback', { reason: reason || 'unknown', plan: plan }); } catch (_) {}
       }
 
-      function fetchClientSecret() {
-        return fetch(ENDPOINT, {
+      // One attempt. A transport failure (no readable response) is reported as
+      // `network`, or as `timeout` when it was us who gave up waiting — telling the
+      // two apart is the whole point: `network` alone can't say whether the visitor
+      // dropped off or the worker was just slow.
+      var FETCH_TIMEOUT_MS = 12000;
+      function attemptClientSecret() {
+        var ctl = (typeof AbortController === 'function') ? new AbortController() : null;
+        var timedOut = false;
+        var timer = ctl ? setTimeout(function () { timedOut = true; ctl.abort(); }, FETCH_TIMEOUT_MS) : 0;
+        var opts = {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({ plan: plan, promo: promo })
-        }).then(function (r) {
+        };
+        if (ctl) opts.signal = ctl.signal;
+        return fetch(ENDPOINT, opts).then(function (r) {
           return r.text().then(function (t) {
             var j = null;
             try { j = JSON.parse(t); } catch (_) {}
             if (r.status === 200 && j && typeof j.client_secret === 'string' && j.client_secret) return j.client_secret;
             var err = new Error((j && j.error) || ('http_' + r.status));
+            err.ours = true;                      // ⛔ NOT `code`: a DOMException already has one (AbortError.code === 20)
             err.code = (j && j.error) || ('http_' + r.status);
             err.fallback = j && j.fallback;
+            err.retryable = r.status >= 500;      // 5xx: worth one more try; 4xx is our own bug
             throw err;
           });
         }).catch(function (e) {
-          if (e && e.code) throw e;
-          var err = new Error('network');     // fetch itself failed (offline, DNS, CORS): no response to read
-          err.code = 'network';
+          // ⛔ 04/09/2026 — testing this caught a real defect: the guard used to be
+          //    `if (e && e.code) throw e`, and an aborted fetch rejects with a
+          //    DOMException whose .code is already 20 (ABORT_ERR). The timeout was
+          //    therefore rethrown untouched — never turned into `timeout`, never
+          //    retried. Only OUR errors carry `ours`.
+          if (e && e.ours) throw e;
+          var err = new Error(timedOut ? 'timeout' : 'network');
+          err.ours = true;
+          err.code = timedOut ? 'timeout' : 'network';
+          err.retryable = true;                    // no response at all: a blip deserves a second shot
           throw err;
+        }).then(function (v) { if (timer) clearTimeout(timer); return v; },
+                function (e) { if (timer) clearTimeout(timer); throw e; });
+      }
+
+      // ⛔ 04/09/2026 — ONE RETRY BEFORE GIVING UP.
+      //    A visitor in RU hit `network` and was sent straight to the hosted button,
+      //    while the /track-click that reported it went through to the SAME host a
+      //    moment later: the domain was reachable and the worker was up, so a single
+      //    failed request was enough to lose the embedded form. A second attempt costs
+      //    ~800ms and recovers exactly that case. Only transport failures and 5xx are
+      //    retried — a 4xx is deterministic and retrying it just delays the fallback.
+      //    Creating a Checkout Session twice is harmless: an unpaid session expires on
+      //    its own, charges nothing and issues no licence.
+      function fetchClientSecret() {
+        return attemptClientSecret().catch(function (e) {
+          if (!e || !e.retryable) throw e;
+          return new Promise(function (res) { setTimeout(res, 800); }).then(function () {
+            return attemptClientSecret().catch(function (e2) {
+              if (e2) e2.code = (e2.code || 'error') + '_retried';
+              throw e2;
+            });
+          });
         });
       }
 
