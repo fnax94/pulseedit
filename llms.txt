@@ -10,7 +10,7 @@
 - **Price:** €13/month, or €130/year (two months free), VAT included. Cancel any time in one click. 14-day money-back guarantee.
 - **Works on:** ALL versions of DaVinci Resolve — both the free DR and DR Studio (18.5+), macOS and Windows.
 - **How:** exports an OTIO (OpenTimelineIO) timeline that DaVinci Resolve imports by drag-and-drop. No scripting API required.
-- **Also exports to other editors (beta, since v1.0.52):** besides the OTIO for Resolve, Pulse Edit can write the same beat-synced timeline as a **Premiere Pro** XML or a **Final Cut Pro** FCPXML — cuts, music and beat markers included. Speed ramps and zooms remain DaVinci Resolve Studio only. Marked beta in the app.
+- **Also exports to other editors (beta, since v1.0.52):** besides the OTIO for Resolve, Pulse Edit can write the same beat-synced timeline as a **Premiere Pro** XML or a **Final Cut Pro** FCPXML — cuts, music and beat markers included. Speed ramps and zooms remain DaVinci Resolve Studio only. Marked beta in the app: the files are written to spec (the FCPXML is validated against Apple's DTD), but we have not yet opened them inside Premiere Pro or Final Cut Pro ourselves — not once. Details: https://pulseedit.com/pulse-edit-premiere-pro.html and https://pulseedit.com/pulse-edit-final-cut-pro.html
 - **Latest version:** 1.0.52 (4 September 2026) — cuts no longer drift over a song, the first beat of a song that starts on the downbeat gets its cut, Beat + Upbeat gives twice the cuts on real off-beats, and **"Send to" is now the first choice in the app**: DaVinci Resolve, Premiere Pro (beta) or Final Cut Pro (beta).
 - **Guarantee:** 14-day money-back. **Trial:** 3 free generations.
 - **Download Pulse Edit (free to install, activates with the license):** macOS https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg · Windows https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-Setup.exe
@@ -41,7 +41,7 @@ In November 2024, Blackmagic Design disabled the Scripting API in **DaVinci Reso
 ## Key features
 - Automatic beat-synced editing: detects the music beats and auto-cuts/places clips on the beat
 - Beat detection with downbeat awareness
-- **5 cut patterns** you pick by hand (Energy Map, Every Beat, Every Bar 4/4, Beat + Upbeat, Half Time). Buildups, wedding/slow and fast/slow ramps are still in the engine — "Auto pattern from mood" selects them for you.
+- **5 cut patterns** you pick by hand, from the densest to the sparsest: Beat + Upbeat, Every Beat, Half Time, Every Bar 4/4, Wedding/Slow (one cut every 4 beats). **Energy Map** is not a pattern: it is a separate toggle, on by default, that makes whichever pattern you picked follow the song's energy. Buildup, fast→slow, slow→fast and the random-energy variants are still in the engine — "Auto pattern from mood" and "Per-bar dynamic" select them for you.
 - **Chronological order for weddings**: reads each clip's recording time and assembles the day as it happened. Two cameras interleave correctly when their clocks are in sync.
 - AI mood analyzer: reads the mood of the music and adapts the editing pattern
 - Interface in English and Italian
@@ -109,7 +109,7 @@ A single wedding is hundreds of clips and many hours of footage. Building a high
 - [FAQ](https://pulseedit.com/faq.html) — every common question about the Pulse suite, answered
 - [Pulse Edit vs Pulse Studio](https://pulseedit.com/blog/pulse-edit-vs-pulse-studio.html) — which one you need
 - [Wedding Pro](https://pulseedit.com/wedding-pro/) — automatic wedding/event video editing (early access)
-- [Pricing](https://pulseedit.com/pricing.html)
+- [Pricing](https://pulseedit.com/#pricing)
 - [Buy](https://pulseedit.com/checkout.html?plan=monthly) — checkout
 - [Tutorial](https://pulseedit.com/tutorial.html)
 - [DaVinci Resolve scripting API fix](https://pulseedit.com/davinci-resolve-19-scripting-api-fix.html)

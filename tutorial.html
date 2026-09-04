@@ -17,16 +17,16 @@
     }
     if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
     </script>
-    <title>Pulse Edit Free Tutorial — Auto-Edit to the Beat in DaVinci Resolve</title>
-    <meta name="description" content="Step-by-step Pulse Edit Free tutorial for DaVinci Resolve (Free and Studio). Drop your music and clips, auto-cut to the beat, import the OTIO timeline in 5 minutes.">
+    <title>Pulse Edit Tutorial — Cut to the Beat in DaVinci Resolve</title>
+    <meta name="description" content="Step-by-step Pulse Edit tutorial for DaVinci Resolve Free and Studio: drop music and clips, auto-cut to the beat, import the OTIO timeline in 5 minutes.">
     <meta name="keywords" content="Pulse Edit tutorial, how to use Pulse Edit, DaVinci Resolve beat tutorial, davinci resolve free beat tutorial, auto edit to music tutorial, otio workflow tutorial, Pulse Edit setup, install Pulse Edit, music sync video editing tutorial">
-    <meta property="og:title" content="Pulse Edit Free Tutorial — Auto-Edit to the Beat in DaVinci Resolve">
+    <meta property="og:title" content="Pulse Edit Tutorial — Cut to the Beat in DaVinci Resolve">
     <meta property="og:description" content="From install to first beat-synced edit in 5 minutes. Drop your audio and clips, auto-cut to the beat, import the OTIO timeline in DaVinci Resolve (Free or Studio).">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://pulseedit.com/tutorial.html">
     <meta property="og:image" content="https://pulseedit.com/og-image.png?v=3">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Pulse Edit Free Tutorial — Auto-Edit to the Beat in DaVinci Resolve">
+    <meta name="twitter:title" content="Pulse Edit Tutorial — Cut to the Beat in DaVinci Resolve">
     <meta name="twitter:description" content="Beginner walkthrough with screenshots. Auto-edit to the beat in DaVinci Resolve (Free or Studio) via the OTIO workflow.">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -40,13 +40,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles-v2.css">
 
-    <!-- HowTo schema (Google rich snippets) — Pulse Edit Free OTIO workflow -->
+    <!-- HowTo schema (Google rich snippets) — Pulse Edit OTIO workflow -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "HowTo",
-      "name": "How to use Pulse Edit Free to auto-edit videos to the beat in DaVinci Resolve",
-      "description": "Beginner walkthrough: install Pulse Edit Free, drop in your music and clips, auto-cut to the beat, and import the OTIO timeline into DaVinci Resolve (Free or Studio). Takes about 5 minutes. No scripting API required.",
+      "name": "How to use Pulse Edit to auto-edit videos to the beat in DaVinci Resolve",
+      "description": "Beginner walkthrough: install Pulse Edit, drop in your music and clips, auto-cut to the beat, and import the OTIO timeline into DaVinci Resolve (Free or Studio). Takes about 5 minutes. No scripting API required.",
       "image": "https://pulseedit.com/og-image.png?v=3",
       "totalTime": "PT5M",
       "supply": [
@@ -55,12 +55,12 @@
         {"@type": "HowToSupply", "name": "Video clips to edit"}
       ],
       "tool": [
-        {"@type": "HowToTool", "name": "Pulse Edit Free"},
+        {"@type": "HowToTool", "name": "Pulse Edit"},
         {"@type": "HowToTool", "name": "macOS 12+ or Windows 10/11 64-bit"}
       ],
       "step": [
-        {"@type": "HowToStep", "name": "Install Pulse Edit Free", "text": "Download the DMG (macOS) or installer (Windows) from pulseedit.com. On macOS, drag the app to /Applications. On Windows, run the setup."},
-        {"@type": "HowToStep", "name": "Drop in your audio", "text": "Launch Pulse Edit Free and drag your music file into the Audio area. It runs beat_this, a DNN beat tracker, to detect the beats."},
+        {"@type": "HowToStep", "name": "Install Pulse Edit", "text": "Download the DMG (macOS) or installer (Windows) from pulseedit.com. On macOS, drag the app to /Applications. On Windows, run the setup."},
+        {"@type": "HowToStep", "name": "Drop in your audio", "text": "Launch Pulse Edit and drag your music file into the Audio area. It runs beat_this, a DNN beat tracker, to detect the beats."},
         {"@type": "HowToStep", "name": "Drop in your clips", "text": "Drag your video files into the Clips section. Pulse Edit uses them in rotation following the cut pattern you pick."},
         {"@type": "HowToStep", "name": "Pick a cut pattern + mood", "text": "Choose a cut pattern (Energy Map by default) and let the AI mood analyzer adapt the edit to the music. Tune beat sensitivity and intensity to taste."},
         {"@type": "HowToStep", "name": "Generate and import the OTIO timeline", "text": "Click Generate. Pulse Edit auto-cuts and places your clips on the beat and writes an OTIO timeline. Import it in DaVinci Resolve (File > Import Timeline > OpenTimelineIO) — Free or Studio."}
@@ -77,7 +77,10 @@
     <a class="brand" href="/" aria-label="Pulse home">Pulse<span class="dot"></span></a>
     <nav class="nav__links">
         <a href="/pulse-edit.html">Pulse Edit</a>
+        <a href="/pulse-studio.html">Pulse Studio</a>
         <a href="/pulse-color.html">Pulse Color</a>
+        <a href="/pulse-edit-premiere-pro.html">Premiere Pro</a>
+        <a href="/pulse-edit-final-cut-pro.html">Final Cut Pro</a>
         <a href="/#pricing">Pricing</a>
         <a href="/blog/">Blog</a>
     </nav>
@@ -90,7 +93,10 @@
 </div>
 <div class="mobile">
     <a href="/pulse-edit.html">Pulse Edit</a>
+    <a href="/pulse-studio.html">Pulse Studio</a>
     <a href="/pulse-color.html">Pulse Color</a>
+    <a href="/pulse-edit-premiere-pro.html">Premiere Pro</a>
+    <a href="/pulse-edit-final-cut-pro.html">Final Cut Pro</a>
     <a href="/#pricing">Pricing</a>
     <a href="/blog/">Blog</a>
     <a class="pn-btn" href="/checkout.html?plan=monthly" style="margin-top:18px" data-track="buy-mobile">Get Pulse — €13/mo</a>
@@ -101,8 +107,8 @@
     <!-- Tutorial Hero -->
     <section class="hero" style="padding:72px 0 24px">
         <div class="container">
-            <h1 class="animate-scale-in" style="text-align:center;font-size:clamp(2.2rem,5vw,3.2rem);margin-bottom:14px">Pulse Edit Free Tutorial</h1>
-            <p style="text-align:center;max-width:720px;margin:0 auto 8px;font-size:1.1rem;color:#cbd5e1">Drop your music and clips into Pulse Edit Free, let it auto-cut to the beat, and import the OTIO timeline into DaVinci Resolve — Free or Studio.</p>
+            <h1 class="animate-scale-in" style="text-align:center;font-size:clamp(2.2rem,5vw,3.2rem);margin-bottom:14px">Pulse Edit Tutorial</h1>
+            <p style="text-align:center;max-width:720px;margin:0 auto 8px;font-size:1.1rem;color:#cbd5e1">Drop your music and clips into Pulse Edit, let it auto-cut to the beat, and import the OTIO timeline into DaVinci Resolve — Free or Studio.</p>
         </div>
     </section>
 
@@ -198,7 +204,7 @@
                   </div>
                   <p>Choose how the cuts should fall on the beat. Pulse Edit gives you <strong>5 selectable cut patterns</strong> plus an <strong>Auto pattern from mood</strong> option (full reference <a href="#free-cut-patterns" style="color:#4ade80">below</a>) — the default <em>Energy Map</em> is a safe starting point.</p>
                   <ol style="line-height:2;color:#e2e8f0">
-                    <li><strong>Cut Pattern</strong> — Energy Map, Every Beat, Every Bar 4/4, Beat + Upbeat, Half Time, or let <em>Auto pattern from mood</em> pick for you.</li>
+                    <li><strong>Cut Pattern</strong> — Every Beat, Beat + Upbeat, Half Time, Every Bar 4/4, Wedding — plus an Energy Map toggle, or let <em>Auto pattern from mood</em> pick for you.</li>
                     <li><strong>Beat Sensitivity</strong> — slider that controls how many beats trigger a cut. Lower it for cleaner kicks, raise it for weaker percussion.</li>
                     <li><strong>Intensity</strong> — Calm ↔ Intense. Affects clip rotation speed and how aggressively the energy map reacts to dynamics.</li>
                     <li><strong>Time signature</strong> (optional) — 4/4 covers 95% of pop / EDM / hip-hop. Switch to 3/4 (waltz), 6/8 (ballad), or up to 7/4 for prog/odd-meter tracks.</li>

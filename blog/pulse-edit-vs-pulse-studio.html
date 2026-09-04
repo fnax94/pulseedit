@@ -19,16 +19,16 @@
     if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
     </script>
     <title>Pulse Edit vs Pulse Studio: Which One Do You Need? (2026)</title>
-    <meta name="description" content="Same beat-synced AI editing, two workflows: Pulse Edit works on every DaVinci Resolve via OTIO; Pulse Studio builds the edit inside Resolve Studio via the scripting API. One license covers both.">
+    <meta name="description" content="Pulse Edit works on every DaVinci Resolve via OTIO; Pulse Studio builds the edit inside Resolve Studio. Same beat-synced editing, one €13/month license.">
     <meta name="keywords" content="pulse edit vs pulse studio, davinci resolve free vs studio plugin, otio vs scripting api, beat sync plugin resolve">
     <meta property="og:title" content="Pulse Edit vs Pulse Studio: Which One Do You Need? (2026)">
-    <meta property="og:description" content="Same beat-synced AI editing, two workflows: Pulse Edit works on every DaVinci Resolve via OTIO; Pulse Studio builds the edit inside Resolve Studio via the scripting API. One license covers both.">
+    <meta property="og:description" content="Pulse Edit works on every DaVinci Resolve via OTIO; Pulse Studio builds the edit inside Resolve Studio. Same beat-synced editing, one €13/month license.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://pulseedit.com/blog/pulse-edit-vs-pulse-studio.html">
     <meta property="og:image" content="https://pulseedit.com/og-image.png?v=3">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Pulse Edit vs Pulse Studio: Which One Do You Need? (2026)">
-    <meta name="twitter:description" content="Same beat-synced AI editing, two workflows: Pulse Edit works on every DaVinci Resolve via OTIO; Pulse Studio builds the edit inside Resolve Studio via the scripting API. One license covers both.">
+    <meta name="twitter:description" content="Pulse Edit works on every DaVinci Resolve via OTIO; Pulse Studio builds the edit inside Resolve Studio. Same beat-synced editing, one €13/month license.">
     <meta name="twitter:image" content="https://pulseedit.com/og-image.png?v=3">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -57,7 +57,7 @@
     "name": "AB Tools"
   },
   "datePublished": "2026-08-29",
-  "dateModified": "2026-08-29",
+  "dateModified": "2026-09-05",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://pulseedit.com/blog/pulse-edit-vs-pulse-studio.html"
@@ -138,7 +138,10 @@
     <a class="brand" href="/" aria-label="Pulse home">Pulse<span class="dot"></span></a>
     <nav class="nav__links">
         <a href="/pulse-edit.html">Pulse Edit</a>
+        <a href="/pulse-studio.html">Pulse Studio</a>
         <a href="/pulse-color.html">Pulse Color</a>
+        <a href="/pulse-edit-premiere-pro.html">Premiere Pro</a>
+        <a href="/pulse-edit-final-cut-pro.html">Final Cut Pro</a>
         <a href="/#pricing">Pricing</a>
         <a href="/blog/">Blog</a>
     </nav>
@@ -151,7 +154,10 @@
 </div>
 <div class="mobile">
     <a href="/pulse-edit.html">Pulse Edit</a>
+    <a href="/pulse-studio.html">Pulse Studio</a>
     <a href="/pulse-color.html">Pulse Color</a>
+    <a href="/pulse-edit-premiere-pro.html">Premiere Pro</a>
+    <a href="/pulse-edit-final-cut-pro.html">Final Cut Pro</a>
     <a href="/#pricing">Pricing</a>
     <a href="/blog/">Blog</a>
     <a class="pn-btn" href="/checkout.html?plan=monthly" style="margin-top:18px" data-track="buy-mobile">Get Pulse — €13/mo</a>
@@ -182,10 +188,17 @@
                         <tr><td><strong>Beat markers</strong></td><td>&mdash;</td><td>On the timeline or on the audio clip</td></tr>
                         <tr><td><strong>Audio track</strong></td><td>In the OTIO timeline</td><td>Inserted automatically; song from disk or Media Pool</td></tr>
                         <tr><td><strong>Speed ramps</strong></td><td>&mdash;</td><td>Slow-mo + speed-up with Optical Flow <em>(beta)</em></td></tr>
+                        <tr><td><strong>Beat zoom (animated punch-in)</strong></td><td>&mdash;</td><td>Yes <em>(beta, off by default)</em></td></tr>
                         <tr><td><strong>Chronological wedding order</strong></td><td>Yes</td><td>Yes</td></tr>
+                        <tr><td><strong>Setup in Resolve</strong></td><td>None &mdash; drag the .otio into the Media Pool</td><td>One preference, once: External scripting using = Local, then restart</td></tr>
+                        <tr><td><strong>Other editors</strong></td><td><a href="/pulse-edit-premiere-pro.html">Premiere Pro</a> XML and <a href="/pulse-edit-final-cut-pro.html">Final Cut Pro</a> FCPXML <em>(beta &mdash; not yet opened in either app by us, not once)</em></td><td>&mdash;</td></tr>
                         <tr><td><strong>License</strong></td><td colspan="2" style="text-align:center"><strong>The same one</strong> — €13/month (or €130/year) unlocks both, plus Pulse Color</td></tr>
                     </tbody>
                 </table>
+
+                <h2>What OTIO vs scripting API actually changes</h2>
+                <p>An OTIO file is a description of a timeline: which clip, which in-point and out-point, in what order, plus the music track. Resolve reads it once, on import, and builds the timeline from it. Nothing talks to Resolve afterwards &mdash; which is exactly why it works on Resolve Free, where no API exists. It is also why the OTIO route stops at cuts and audio: Pulse Edit's export carries the edit, not the things Resolve does <em>to</em> a clip afterwards, like markers, retime curves or Fusion animations.</p>
+                <p>The scripting API is a live connection to the open project. Pulse Studio uses it to read your Media Pool, place the clips on the timeline, add a beat marker on the exact frame, insert the audio &mdash; and, for speed ramps and beat zooms, write a Fusion composition on each clip with the keyframed curve already inside. Same beat detection, same five cut patterns, same chronological order; only the door into Resolve changes, and with it what can be done once inside.</p>
 
                 <h2>The decision in one sentence</h2>
                 <p><strong>Resolve Free &rarr; Pulse Edit. Resolve Studio &rarr; Pulse Studio.</strong> That's it. Resolve Free has had its scripting API disabled since November 2024, so no tool can build a timeline inside it — <a href="/otio-import-davinci-resolve-free.html">OTIO import</a> is the clean workaround, and it is exactly what Pulse Edit does. Resolve Studio has the API, so Pulse Studio uses it and skips the export/import step entirely.</p>

@@ -103,7 +103,7 @@
                 "name": "How do I fix beat-synced editing in DaVinci Resolve Free without buying Studio?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Use the OTIO (OpenTimelineIO) import route instead of the scripting bridge. Pulse Edit Free detects the beats in your music and builds a fully cut, beat-synced timeline outside Resolve, then exports a .otio file. You import that file via File → Import Timeline → OpenTimelineIO, which is a normal file dialog available in DaVinci Resolve Free. No scripting API is involved, so it works today and cannot be broken by future Resolve updates."
+                    "text": "Use the OTIO (OpenTimelineIO) import route instead of the scripting bridge. Pulse Edit detects the beats in your music and builds a fully cut, beat-synced timeline outside Resolve, then exports a .otio file. You import that file via File → Import Timeline → OpenTimelineIO, which is a normal file dialog available in DaVinci Resolve Free. No scripting API is involved, so it works today and cannot be broken by future Resolve updates."
                 }
             },
             {
@@ -124,10 +124,10 @@
             },
             {
                 "@type": "Question",
-                "name": "What is Pulse Edit Free and what does it do?",
+                "name": "What is Pulse Edit and what does it do?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Pulse Edit Free is a standalone beat-synced editor (€13/month, VAT included, cancel any time in one click — no lock-in) that works with every version of DaVinci Resolve — Free and Studio, 18.5+ — through OTIO export. It does two things: automatic beat-synced editing that detects the beats and auto-cuts and places clips from your Media Pool on the beat using 5 selectable cut patterns including Energy Map, plus an Auto pattern from mood mode that reads the mood of the music and picks the editing pattern for you. It runs on macOS (Apple Silicon) and Windows 10/11, and comes with a 14-day money-back guarantee."
+                    "text": "Pulse Edit is a standalone beat-synced editor (€13/month, VAT included, cancel any time in one click — no lock-in) that works with every version of DaVinci Resolve — Free and Studio, 18.5+ — through OTIO export. It does two things: automatic beat-synced editing that detects the beats and auto-cuts and places clips from your Media Pool on the beat using 5 cut patterns (Every Beat, Beat + Upbeat, Half Time, Every Bar, Wedding) plus an Energy Map toggle, plus an Auto pattern from mood mode that reads the mood of the music and picks the editing pattern for you. It runs on macOS (Apple Silicon) and Windows 10/11, and comes with a 14-day money-back guarantee."
                 }
             }
         ]
@@ -171,7 +171,10 @@
     <a class="brand" href="/" aria-label="Pulse home">Pulse<span class="dot"></span></a>
     <nav class="nav__links">
         <a href="/pulse-edit.html">Pulse Edit</a>
+        <a href="/pulse-studio.html">Pulse Studio</a>
         <a href="/pulse-color.html">Pulse Color</a>
+        <a href="/pulse-edit-premiere-pro.html">Premiere Pro</a>
+        <a href="/pulse-edit-final-cut-pro.html">Final Cut Pro</a>
         <a href="/#pricing">Pricing</a>
         <a href="/blog/">Blog</a>
     </nav>
@@ -184,7 +187,10 @@
 </div>
 <div class="mobile">
     <a href="/pulse-edit.html">Pulse Edit</a>
+    <a href="/pulse-studio.html">Pulse Studio</a>
     <a href="/pulse-color.html">Pulse Color</a>
+    <a href="/pulse-edit-premiere-pro.html">Premiere Pro</a>
+    <a href="/pulse-edit-final-cut-pro.html">Final Cut Pro</a>
     <a href="/#pricing">Pricing</a>
     <a href="/blog/">Blog</a>
     <a class="pn-btn" href="/checkout.html?plan=monthly" style="margin-top:18px" data-track="buy-mobile">Get Pulse — €13/mo</a>
@@ -200,7 +206,7 @@
             <h1>DR Free scripting API removed — what changed and the <span>workaround</span></h1>
             <p class="lede">DaVinci Resolve 19.1 quietly rolled back third-party scripting on the free edition. If you saw your favourite beat-sync or auto-edit plugin stop working in late 2024, this is why — and OTIO export is the route forward.</p>
             <div class="pe-cta-row" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-                <a href="/pulse-edit-free.html" class="btn btn-primary">Get Pulse Edit Free →</a>
+                <a href="/pulse-edit-free.html" class="btn btn-primary">Get Pulse Edit →</a>
                 <a href="/otio-import-davinci-resolve-free.html" class="btn btn-secondary">OTIO import guide</a>
             </div>
         </div>
@@ -273,7 +279,7 @@
                             <td style="padding:10px 12px;">€295 one-time to Blackmagic — restores scripting, but it is a paid upgrade.</td>
                         </tr>
                         <tr>
-                            <td style="padding:10px 12px;"><strong>OTIO import (Pulse Edit Free)</strong></td>
+                            <td style="padding:10px 12px;"><strong>OTIO import (Pulse Edit)</strong></td>
                             <td style="padding:10px 12px;color:#4ade80;">Yes — permanent</td>
                             <td style="padding:10px 12px;">One import click per render. No scripting bridge, so it cannot be broken by a future Resolve update.</td>
                         </tr>
@@ -304,7 +310,7 @@
         <div class="container">
             <h2>A workflow that's not coupled to the scripting API</h2>
             <p>Pulse Edit exports OTIO timelines DR Free imports natively. €13/month, VAT included — cancel any time.</p>
-            <a href="/pulse-edit-free.html" class="btn btn-primary">Get Pulse Edit Free →</a>
+            <a href="/pulse-edit-free.html" class="btn btn-primary">Get Pulse Edit →</a>
             <p style="color:#9ca3af;font-size:0.92rem;margin-top:12px;">Works on Free <em>and</em> Studio — same OTIO route</p>
         </div>
     </section>

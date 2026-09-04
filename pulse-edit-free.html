@@ -42,7 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles-v2.css">
 
-    <!-- Product schema: Pulse Edit (Free Edition, for DR Free) -->
+    <!-- Product schema: Pulse Edit (for DR Free and Studio) -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -57,8 +57,7 @@
             "price": "13.00",
             "priceCurrency": "EUR",
             "availability": "https://schema.org/InStock",
-            "url": "https://pulseedit.com/checkout.html?plan=monthly",
-            "validThrough": "2026-12-31"
+            "url": "https://pulseedit.com/checkout.html?plan=monthly"
         },
         "softwareRequirements": "DaVinci Resolve Free or Studio 18.5+",
         "author": {
@@ -274,7 +273,10 @@
     <a class="brand" href="/" aria-label="Pulse home">Pulse<span class="dot"></span></a>
     <nav class="nav__links">
         <a href="/pulse-edit.html">Pulse Edit</a>
+        <a href="/pulse-studio.html">Pulse Studio</a>
         <a href="/pulse-color.html">Pulse Color</a>
+        <a href="/pulse-edit-premiere-pro.html">Premiere Pro</a>
+        <a href="/pulse-edit-final-cut-pro.html">Final Cut Pro</a>
         <a href="/#pricing">Pricing</a>
         <a href="/blog/">Blog</a>
     </nav>
@@ -287,7 +289,10 @@
 </div>
 <div class="mobile">
     <a href="/pulse-edit.html">Pulse Edit</a>
+    <a href="/pulse-studio.html">Pulse Studio</a>
     <a href="/pulse-color.html">Pulse Color</a>
+    <a href="/pulse-edit-premiere-pro.html">Premiere Pro</a>
+    <a href="/pulse-edit-final-cut-pro.html">Final Cut Pro</a>
     <a href="/#pricing">Pricing</a>
     <a href="/blog/">Blog</a>
     <a class="pn-btn" href="/checkout.html?plan=monthly" style="margin-top:18px" data-track="buy-mobile">Get Pulse — €13/mo</a>
@@ -300,7 +305,7 @@
       <button type="button" class="buy-modal__close" aria-label="Close" onclick="document.getElementById('buy-modal').close()">&times;</button>
       <div class="buy-modal__content">
         <div class="buy-modal__head">
-          <div class="buy-modal__eyebrow">Launch price · limited time</div>
+          <div class="buy-modal__eyebrow">€13/month · cancel any time</div>
           <h2>Pick your license</h2>
           <p>€13 a month, cancel any time. Updates included while subscribed. macOS &amp; Windows. Works on DaVinci Resolve Free <em>and</em> Studio.</p>
         </div>
@@ -449,7 +454,7 @@
 
 
             <div class="pe-price-banner">
-                <span class="label">Launch price — limited time</span>
+                <span class="label">One price, everything included</span>
                 <div class="price-line">€13<span style="font-size:.6em;font-weight:400"> / month</span></div>
                 <span class="meta">€13/month · Cancel any time · 14-day money-back</span>
             </div>
@@ -492,7 +497,7 @@
                     <div class="step-number">2</div>
                     <div class="step-content">
                         <h3>Choose pattern + mood</h3>
-                        <p>12 cut patterns (Energy Map, Every Beat, Wedding, Build-up/Drop, Humanize…), 6 mood presets, an interactive waveform you can edit by hand. Preview the timing before exporting.</p>
+                        <p>5 cut patterns (Every Beat, Beat + Upbeat, Half Time, Every Bar 4/4, Wedding), 6 mood presets, an interactive waveform you can edit by hand. Preview the timing before exporting.</p>
                     </div>
                 </div>
                 <div class="step">
@@ -513,8 +518,8 @@
             <p class="section-subtitle" style="margin-bottom:36px;">Automatic beat-synced editing with an AI mood analyzer — packaged for the OTIO workflow.</p>
             <div class="pe-features-grid">
                 <div class="pe-feature">
-                    <h3>12 cut patterns</h3>
-                    <p>Every Beat, Energy Map, Build-up &amp; Drop, Wedding, Humanize, Half-time, Double-time, Wedding Slow, Verse/Chorus and more.</p>
+                    <h3>5 cut patterns</h3>
+                    <p>Every Beat, Beat + Upbeat, Half Time, Every Bar 4/4, Wedding (slow) &mdash; or let AI Edit pick the pattern from the mood of the song.</p>
                 </div>
                 <div class="pe-feature">
                     <h3>beat_this AI detection</h3>
@@ -560,7 +565,7 @@
                 <p style="text-align:center;color:#9ca3af;margin-bottom:24px;">One app, one price. The OTIO timeline imports natively into DR Free and DR Studio — no scripting API, no plugin install.</p>
                 <div class="pe-compare-grid" style="grid-template-columns:1fr;max-width:460px;margin:0 auto;">
                     <div class="pe-compare-col free">
-                        <h3>Pulse Edit Free</h3>
+                        <h3>Pulse Edit</h3>
                         <p class="sub">For DaVinci Resolve Free or Studio 18.5+</p>
                         <div class="col-price">€13/mo</div>
                         <ul>
@@ -574,7 +579,7 @@
                         <a href="#" onclick="document.getElementById('buy-modal').showModal();return false;" class="btn btn-green btn-small" style="display:block;text-align:center;">Get a license →</a>
                     </div>
                 </div>
-                <p style="text-align:center;color:#6b7280;font-size:0.85rem;margin-top:18px;">Whether you're on the free edition or DR Studio, Pulse Edit Free gives you the same beat-synced auto-edit — no dependency on the scripting API.</p>
+                <p style="text-align:center;color:#6b7280;font-size:0.85rem;margin-top:18px;">Whether you're on the free edition or DR Studio, Pulse Edit gives you the same beat-synced auto-edit — no dependency on the scripting API.</p>
             </div>
         </div>
     </section>
@@ -583,7 +588,7 @@
     <!-- Big CTA -->
     <section style="padding: 50px 0 60px;background:linear-gradient(135deg,rgba(124,111,247,0.08),rgba(124,111,247,0.02));border-top:1px solid rgba(124,111,247,0.15);border-bottom:1px solid rgba(124,111,247,0.15)">
         <div class="container" style="max-width:720px;text-align:center;">
-            <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:14px;color:#fff;">Get Pulse Edit at the launch price</h2>
+            <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:14px;color:#fff;">Get Pulse Edit — €13/month</h2>
             <p style="color:#cbd5e1;margin-bottom:24px;">€13 a month, cancel any time. Updates included while subscribed. Works on macOS and Windows, on DaVinci Resolve Free or Studio.</p>
             <div class="pe-cta-row">
                 <a href="#" onclick="document.getElementById('buy-modal').showModal();return false;" class="btn btn-primary">🔑 Buy a license</a>
@@ -595,7 +600,7 @@
     <!-- FAQ -->
     <section class="faq" style="padding: 50px 0 60px;">
         <div class="container">
-            <h2 class="section-title" style="margin-bottom:30px;">Questions about Pulse Edit Free</h2>
+            <h2 class="section-title" style="margin-bottom:30px;">Questions about Pulse Edit for DaVinci Resolve Free</h2>
 
             <div class="pe-faq-item">
                 <h3>Does this really work with the free version of DaVinci Resolve?</h3>

@@ -1,22 +1,24 @@
-# Pulse Edit & Beat Markers
+# Pulse Edit
 
-Auto-edit plugins for **DaVinci Resolve Studio**.
+Beat-synced automatic video editing for DaVinci Resolve, made by AB Tools (Abramo Benedetti), Italy. Website: https://pulseedit.com — machine-readable product summary for AI assistants: https://pulseedit.com/llms.txt
 
-## Beat Markers
+This repository hosts the website. The apps are closed-source.
 
-Automatically detect beats in any audio track and place markers on your DaVinci Resolve timeline. No manual tapping — just drag your music, run the script, and get frame-accurate markers in seconds.
+## Products (one license covers all three)
 
-- Beat detection with adjustable sensitivity
-- Frame-accurate marker placement
-- Works with any audio format
-- 3 free trial uses included
+- **Pulse Edit** — https://pulseedit.com/pulse-edit.html — detects the beats in a song, auto-cuts the clips to them and hands the timeline to DaVinci Resolve as an OpenTimelineIO (.otio) file. Works on DaVinci Resolve **Free and Studio** (18.5+), macOS and Windows; no scripting API needed. Current version 1.0.52.
+- **Pulse Studio** — https://pulseedit.com/pulse-studio.html — builds the same beat-synced edit directly inside DaVinci Resolve **Studio** through the scripting API. Launched 29 August 2026, in beta testing.
+- **Pulse Color** — https://pulseedit.com/pulse-color.html — OFX film-look plugin (camera log to a finished look in one node) for DaVinci Resolve Free and Studio.
 
-**[Download Beat Markers](https://pulseedit.com)** | **[Read the docs](https://pulseedit.com/blog/)**
+Pulse Edit can also write the timeline as a Premiere Pro XML or a Final Cut Pro FCPXML. Both exports are beta and have not once been opened inside Premiere Pro or Final Cut Pro yet; speed ramps and zooms stay DaVinci Resolve Studio only.
 
-## Pulse Edit (Coming Soon)
+## Price
 
-The most complete auto-edit plugin for DaVinci Resolve Studio. Beat detection + auto-cut + speed ramps + zoom effects + AI mood analysis.
+€13/month or €130/year, VAT included — one key activates Pulse Edit, Pulse Studio and Pulse Color. 14-day money-back guarantee, and 3 free generations in the app before paying. Licenses bought before July 2026 remain perpetual.
 
----
+## Download (free to install, activates with the license)
 
-**Website:** [pulseedit.com](https://pulseedit.com)
+- macOS: https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg
+- Windows: https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-Setup.exe
+
+Support: support@pulseedit.com

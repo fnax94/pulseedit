@@ -18,17 +18,17 @@
     }
     if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
     </script>
-    <title>Pulse FAQ — Pulse Edit, Pulse Studio & Pulse Color Questions Answered</title>
-    <meta name="description" content="Every common question about the Pulse suite for DaVinci Resolve: which tool fits your Resolve edition, pricing, trial, refunds, OTIO import, scripting setup, weddings, support.">
+    <title>Pulse FAQ — Pulse Edit, Pulse Studio & Pulse Color</title>
+    <meta name="description" content="Pulse suite FAQ for DaVinci Resolve: which tool fits your Resolve edition, pricing (€13/month), trial, refunds, OTIO import, scripting setup and support.">
     <meta name="keywords" content="pulse edit faq, pulse studio faq, davinci resolve auto edit questions, pulse color faq, pulse license">
-    <meta property="og:title" content="Pulse FAQ — Pulse Edit, Pulse Studio & Pulse Color Questions Answered">
-    <meta property="og:description" content="Every common question about the Pulse suite for DaVinci Resolve: which tool fits your Resolve edition, pricing, trial, refunds, OTIO import, scripting setup, weddings, support.">
+    <meta property="og:title" content="Pulse FAQ — Pulse Edit, Pulse Studio & Pulse Color">
+    <meta property="og:description" content="Pulse suite FAQ for DaVinci Resolve: which tool fits your Resolve edition, pricing (€13/month), trial, refunds, OTIO import, scripting setup and support.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pulseedit.com/faq.html">
     <meta property="og:image" content="https://pulseedit.com/og-image.png?v=3">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Pulse FAQ — Pulse Edit, Pulse Studio & Pulse Color Questions Answered">
-    <meta name="twitter:description" content="Every common question about the Pulse suite for DaVinci Resolve: which tool fits your Resolve edition, pricing, trial, refunds, OTIO import, scripting setup, weddings, support.">
+    <meta name="twitter:title" content="Pulse FAQ — Pulse Edit, Pulse Studio & Pulse Color">
+    <meta name="twitter:description" content="Pulse suite FAQ for DaVinci Resolve: which tool fits your Resolve edition, pricing (€13/month), trial, refunds, OTIO import, scripting setup and support.">
     <meta name="twitter:image" content="https://pulseedit.com/og-image.png?v=3">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -89,10 +89,26 @@
     },
     {
       "@type": "Question",
+      "name": "Is Pulse Edit free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Pulse Edit is a subscription: \u20ac13/month or \u20ac130/year, and the one license also unlocks Pulse Studio and Pulse Color. You can try it before paying \u2014 3 free generations in the app \u2014 and there is a 14-day money-back guarantee after purchase. The confusion comes from DaVinci Resolve: Pulse Edit works on the FREE edition of Resolve, which is where the word \"free\" usually comes from. The editor is free; Pulse Edit is not."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Which tool do I need for my edition of DaVinci Resolve?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Resolve Free: Pulse Edit (Resolve Free has no scripting API, so Pulse Edit's OTIO workflow is the way in) and Pulse Color. Resolve Studio: Pulse Studio for the most direct workflow, plus Pulse Edit and Pulse Color if you want them. All from the same license."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Pulse Edit work with Premiere Pro or Final Cut Pro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In beta. Since version 1.0.52 Pulse Edit can write the beat-synced cut as a Premiere Pro XML or a Final Cut Pro FCPXML instead of the OTIO file it writes for DaVinci Resolve \u2014 you pick the editor from the \"Send to\" menu in the app. Honest status: the files are written to spec, but we have not yet opened them inside Premiere Pro or Final Cut Pro ourselves \u2014 not once. That is why the feature is labelled beta. Details and import steps: https://pulseedit.com/pulse-edit-premiere-pro.html and https://pulseedit.com/pulse-edit-final-cut-pro.html"
       }
     },
     {
@@ -177,6 +193,14 @@
     },
     {
       "@type": "Question",
+      "name": "Where can I compare Pulse with other tools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Honest, up-to-date comparison pages on pulseedit.com: vs BeatEdit, vs BeatEdit on Resolve Free, vs ContentClaw, vs Premiere auto-cut, vs Final Cut, vs Runway, vs Descript. Full plan details are in the pricing section of the homepage: https://pulseedit.com/#pricing"
+      }
+    },
+    {
+      "@type": "Question",
       "name": "How do I contact support?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -214,7 +238,10 @@
     <a class="brand" href="/" aria-label="Pulse home">Pulse<span class="dot"></span></a>
     <nav class="nav__links">
         <a href="/pulse-edit.html">Pulse Edit</a>
+        <a href="/pulse-studio.html">Pulse Studio</a>
         <a href="/pulse-color.html">Pulse Color</a>
+        <a href="/pulse-edit-premiere-pro.html">Premiere Pro</a>
+        <a href="/pulse-edit-final-cut-pro.html">Final Cut Pro</a>
         <a href="/#pricing">Pricing</a>
         <a href="/blog/">Blog</a>
     </nav>
@@ -227,7 +254,10 @@
 </div>
 <div class="mobile">
     <a href="/pulse-edit.html">Pulse Edit</a>
+    <a href="/pulse-studio.html">Pulse Studio</a>
     <a href="/pulse-color.html">Pulse Color</a>
+    <a href="/pulse-edit-premiere-pro.html">Premiere Pro</a>
+    <a href="/pulse-edit-final-cut-pro.html">Final Cut Pro</a>
     <a href="/#pricing">Pricing</a>
     <a href="/blog/">Blog</a>
     <a class="pn-btn" href="/checkout.html?plan=monthly" style="margin-top:18px" data-track="buy-mobile">Get Pulse — €13/mo</a>
@@ -240,7 +270,7 @@
             <div class="container">
                 <div class="breadcrumb"><a href="/">Home</a> &rsaquo; FAQ</div>
                 <h1>Frequently Asked Questions</h1>
-                <p class="article-meta">The Pulse suite for DaVinci Resolve, explained &mdash; updated August 29, 2026</p>
+                <p class="article-meta">The Pulse suite for DaVinci Resolve, explained &mdash; updated September 5, 2026</p>
             </div>
         </header>
 
@@ -259,8 +289,12 @@
                 <p>Pulse Color is an OFX color plugin for DaVinci Resolve (Free and Studio) that converts camera log footage to a finished film look in one node, with stackable emulations of on-set optical filters: Black Pro-Mist, Glimmerglass, halation, anamorphic streak and more.</p>
                 <h2>Do I need one license or three?</h2>
                 <p>One. A single Pulse license — €13/month or €130/year, VAT included — activates Pulse Edit, Pulse Studio and Pulse Color with the same key.</p>
+                <h2>Is Pulse Edit free?</h2>
+                <p>No. Pulse Edit is a subscription: <strong>€13/month or €130/year</strong>, and the one license also unlocks Pulse Studio and Pulse Color. You can try it before paying — <strong>3 free generations</strong> in the app — and there is a <strong>14-day money-back guarantee</strong> after purchase. The confusion comes from DaVinci Resolve: Pulse Edit works on the <em>free</em> edition of Resolve, which is where the word "free" usually comes from. The editor is free; Pulse Edit is not. Plans: <a href="/#pricing">pricing</a>.</p>
                 <h2>Which tool do I need for my edition of DaVinci Resolve?</h2>
                 <p>Resolve Free: Pulse Edit (Resolve Free has no scripting API, so Pulse Edit's OTIO workflow is the way in) and Pulse Color. Resolve Studio: Pulse Studio for the most direct workflow, plus Pulse Edit and Pulse Color if you want them. All from the same license.</p>
+                <h2>Does Pulse Edit work with Premiere Pro or Final Cut Pro?</h2>
+                <p>In beta. Since version 1.0.52 Pulse Edit can write the beat-synced cut as a <strong>Premiere Pro XML</strong> or a <strong>Final Cut Pro FCPXML</strong> instead of the OTIO file it writes for DaVinci Resolve — you pick the editor from the "Send to" menu in the app. Honest status: the files are written to spec, but we have not yet opened them inside Premiere Pro or Final Cut Pro ourselves — <strong>not once</strong>. That is why the feature is labelled beta. Details and import steps: <a href="/pulse-edit-premiere-pro.html">Pulse Edit for Premiere Pro</a> · <a href="/pulse-edit-final-cut-pro.html">Pulse Edit for Final Cut Pro</a>.</p>
                 <h2>Does Pulse work on both macOS and Windows?</h2>
                 <p>Yes. macOS builds are signed and notarized (Apple Silicon; Pulse Color also Intel). Windows 10/11 installers are provided for all three tools.</p>
                 <h2>Which DaVinci Resolve versions are supported?</h2>
@@ -282,7 +316,7 @@
                 <h2>Can Pulse edit weddings in chronological order?</h2>
                 <p>Yes. Both Pulse Edit and Pulse Studio can read each clip's real recording time and assemble the day as it happened — getting ready, ceremony, party — while still cutting on the beat. Two cameras interleave correctly when their clocks are in sync.</p>
                 <h2>Where can I compare Pulse with other tools?</h2>
-                <p>Honest, up-to-date comparisons: <a href="/vs-beatedit.html">vs BeatEdit</a> · <a href="/vs-beatedit-dr-free.html">vs BeatEdit on Resolve Free</a> · <a href="/vs-contentclaw.html">vs ContentClaw</a> · <a href="/vs-premiere-auto-cut.html">vs Premiere auto-cut</a> · <a href="/vs-finalcut.html">vs Final Cut</a> · <a href="/vs-runway.html">vs Runway</a> · <a href="/vs-descript.html">vs Descript</a>. Full plan details on the <a href="/pricing.html">pricing page</a>.</p>
+                <p>Honest, up-to-date comparisons: <a href="/vs-beatedit.html">vs BeatEdit</a> · <a href="/vs-beatedit-dr-free.html">vs BeatEdit on Resolve Free</a> · <a href="/vs-contentclaw.html">vs ContentClaw</a> · <a href="/vs-premiere-auto-cut.html">vs Premiere auto-cut</a> · <a href="/vs-finalcut.html">vs Final Cut</a> · <a href="/vs-runway.html">vs Runway</a> · <a href="/vs-descript.html">vs Descript</a>. Full plan details in the <a href="/#pricing">pricing section</a>.</p>
 
                 <h2>How do I contact support?</h2>
                 <p>Write to support@pulseedit.com. Every message lands directly in the developer's inbox and is answered within a day, usually sooner.</p>

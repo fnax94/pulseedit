@@ -16,7 +16,7 @@
     }
     if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
     </script>
-    <title>Pulse Edit vs Final Cut Pro — Beat-Sync Editing Compared (2026)</title>
+    <title>Pulse Edit vs Final Cut Pro — Beat-Sync Editing (2026)</title>
     <meta name="description" content="Pulse Edit (DaVinci Resolve) vs Final Cut Pro auto sync to music. Cross-platform beat detection vs Mac-only proprietary workflow. Honest 2026 comparison.">
     <meta name="keywords" content="pulse edit vs final cut pro, final cut auto sync to music, davinci resolve vs final cut, beat detection final cut pro, fcp auto sync, music video editing fcp vs davinci, beat sync plugin final cut">
     <meta property="og:title" content="Pulse Edit vs Final Cut Pro — Beat-Sync Editing Compared">
@@ -89,7 +89,6 @@
   "description": "DaVinci Resolve plugin for automatic beat-synced video editing. Alternative to Final Cut Pro.",
   "applicationCategory": "MultimediaApplication",
   "operatingSystem": "macOS, Windows",
-  "softwareVersion": "1.5.6",
   "offers": {
     "@type": "Offer",
     "price": "13.00",
@@ -104,12 +103,6 @@
       "unitCode": "MON",
       "valueAddedTaxIncluded": true
     }
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "ratingCount": "8",
-    "bestRating": "5"
   },
   "creator": {
     "@type": "Organization",
@@ -183,7 +176,10 @@
     <a class="brand" href="/" aria-label="Pulse home">Pulse<span class="dot"></span></a>
     <nav class="nav__links">
         <a href="/pulse-edit.html">Pulse Edit</a>
+        <a href="/pulse-studio.html">Pulse Studio</a>
         <a href="/pulse-color.html">Pulse Color</a>
+        <a href="/pulse-edit-premiere-pro.html">Premiere Pro</a>
+        <a href="/pulse-edit-final-cut-pro.html">Final Cut Pro</a>
         <a href="/#pricing">Pricing</a>
         <a href="/blog/">Blog</a>
     </nav>
@@ -196,7 +192,10 @@
 </div>
 <div class="mobile">
     <a href="/pulse-edit.html">Pulse Edit</a>
+    <a href="/pulse-studio.html">Pulse Studio</a>
     <a href="/pulse-color.html">Pulse Color</a>
+    <a href="/pulse-edit-premiere-pro.html">Premiere Pro</a>
+    <a href="/pulse-edit-final-cut-pro.html">Final Cut Pro</a>
     <a href="/#pricing">Pricing</a>
     <a href="/blog/">Blog</a>
     <a class="pn-btn" href="/checkout.html?plan=monthly" style="margin-top:18px" data-track="buy-mobile">Get Pulse — €13/mo</a>
@@ -220,7 +219,7 @@
 
             <h2>The headline difference</h2>
             <p>Final Cut Pro 11+ added a "Sync to Music" feature that automatically aligns clips to a song. It's slick: drop in a song, drop in clips, Apple Intelligence picks cuts. But it's a black box — you don't see the beat grid, you can't customize the pattern, and you can't move it to another editor.</p>
-            <p>Pulse Edit takes the opposite approach. You see every detected beat as a marker on the timeline. You pick from 5 explicit patterns (Energy Map, Every Beat, Every Bar 4/4, Beat + Upbeat, Half Time), or let "Auto pattern from mood" choose for you. You can tweak sensitivity, time signature, subdivisions. The cuts land on the real Resolve timeline so you can move/refine each one.</p>
+            <p>Pulse Edit takes the opposite approach. You see every detected beat as a marker on the timeline. You pick from 5 explicit patterns (Every Beat, Beat + Upbeat, Half Time, Every Bar 4/4, Wedding — plus an Energy Map toggle), or let "Auto pattern from mood" choose for you. You can tweak sensitivity, time signature, subdivisions. The cuts land on the real Resolve timeline so you can move/refine each one.</p>
 
             <h2>Feature comparison</h2>
 
@@ -265,7 +264,7 @@
             </ul>
 
             <div class="tip-box">
-                <p><strong>Pro tip:</strong> If you already own Final Cut Pro and want to add explicit beat-marker control without switching editors, you can export your clips from FCP via XML, edit beat markers in Resolve with Pulse Edit, and round-trip back. Most pros end up with both tools for different jobs.</p>
+                <p><strong>Already on Final Cut Pro?</strong> You don't have to switch editors: Pulse Edit can also write the cut timeline as an <strong>FCPXML</strong> for Final Cut Pro &mdash; cuts, music and beat markers included, same licence, no extra cost. It's in beta: the file is validated against Apple's FCPXML DTD on every export, but we haven't opened it inside Final Cut Pro ourselves &mdash; not once. Details on the <a href="/pulse-edit-final-cut-pro.html">Pulse Edit for Final Cut Pro</a> page.</p>
             </div>
 
             <h2>The cost difference over 3 years</h2>
@@ -273,7 +272,7 @@
             <ul>
                 <li><strong>Pulse Edit + free DaVinci Resolve:</strong> €13/mo × 36 = <strong>€468 over 3 years.</strong> No upfront cost, cancel any time — you only pay for the months you actually edit.</li>
                 <li><strong>Final Cut Pro:</strong> $299 = <strong>~€275 total, lifetime.</strong> (Add €295 for DaVinci Resolve Studio only if you want the paid Resolve tier.)</li>
-                <li><strong>Adobe Premiere + BeatEdit subscription:</strong> €23.99/mo × 36 = <strong>€863+</strong> over 3 years (most expensive long-term).</li>
+                <li><strong>Adobe Premiere Pro + BeatEdit:</strong> Premiere is a subscription (€23.99/mo × 36 = <strong>€863+</strong> over 3 years), plus BeatEdit's one-time license on top &mdash; the most expensive long-term.</li>
             </ul>
             <p>Over a full three years of continuous use, Final Cut's one-time price works out cheaper than Pulse Edit's subscription — that's the honest trade-off. Pulse Edit wins on flexibility: no €275+ upfront, cross-platform (Mac &amp; Windows), a 14-day money-back guarantee, and you can pause or cancel whenever a project wraps. If you edit to music year-round on a Mac and never touch Windows, Final Cut is the lower-cost pick.</p>
 

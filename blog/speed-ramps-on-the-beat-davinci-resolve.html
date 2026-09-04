@@ -18,17 +18,17 @@
     }
     if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
     </script>
-    <title>Speed Ramps on the Beat in DaVinci Resolve — Manual vs Automatic (2026)</title>
-    <meta name="description" content="How to build speed ramps in DaVinci Resolve with Optical Flow — and how Pulse Studio generates them automatically on the beat of your music, with easing, inside Resolve Studio.">
+    <title>Speed Ramps on the Beat in DaVinci Resolve — Manual vs Auto</title>
+    <meta name="description" content="How to build speed ramps in DaVinci Resolve with Optical Flow, and how Pulse Studio generates them automatically on the beat inside Resolve Studio.">
     <meta name="keywords" content="speed ramp davinci resolve, retime curve resolve optical flow, automatic speed ramp on beat, speed warp resolve, music video speed ramps">
-    <meta property="og:title" content="Speed Ramps on the Beat in DaVinci Resolve — Manual vs Automatic (2026)">
-    <meta property="og:description" content="How to build speed ramps in DaVinci Resolve with Optical Flow — and how Pulse Studio generates them automatically on the beat of your music, with easing, inside Resolve Studio.">
+    <meta property="og:title" content="Speed Ramps on the Beat in DaVinci Resolve — Manual vs Auto">
+    <meta property="og:description" content="How to build speed ramps in DaVinci Resolve with Optical Flow, and how Pulse Studio generates them automatically on the beat inside Resolve Studio.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://pulseedit.com/blog/speed-ramps-on-the-beat-davinci-resolve.html">
     <meta property="og:image" content="https://pulseedit.com/og-image.png?v=3">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Speed Ramps on the Beat in DaVinci Resolve — Manual vs Automatic (2026)">
-    <meta name="twitter:description" content="How to build speed ramps in DaVinci Resolve with Optical Flow — and how Pulse Studio generates them automatically on the beat of your music, with easing, inside Resolve Studio.">
+    <meta name="twitter:title" content="Speed Ramps on the Beat in DaVinci Resolve — Manual vs Auto">
+    <meta name="twitter:description" content="How to build speed ramps in DaVinci Resolve with Optical Flow, and how Pulse Studio generates them automatically on the beat inside Resolve Studio.">
     <meta name="twitter:image" content="https://pulseedit.com/og-image.png?v=3">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -57,7 +57,7 @@
     "name": "AB Tools"
   },
   "datePublished": "2026-08-29",
-  "dateModified": "2026-08-29",
+  "dateModified": "2026-09-05",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://pulseedit.com/blog/speed-ramps-on-the-beat-davinci-resolve.html"
@@ -130,7 +130,10 @@
     <a class="brand" href="/" aria-label="Pulse home">Pulse<span class="dot"></span></a>
     <nav class="nav__links">
         <a href="/pulse-edit.html">Pulse Edit</a>
+        <a href="/pulse-studio.html">Pulse Studio</a>
         <a href="/pulse-color.html">Pulse Color</a>
+        <a href="/pulse-edit-premiere-pro.html">Premiere Pro</a>
+        <a href="/pulse-edit-final-cut-pro.html">Final Cut Pro</a>
         <a href="/#pricing">Pricing</a>
         <a href="/blog/">Blog</a>
     </nav>
@@ -143,7 +146,10 @@
 </div>
 <div class="mobile">
     <a href="/pulse-edit.html">Pulse Edit</a>
+    <a href="/pulse-studio.html">Pulse Studio</a>
     <a href="/pulse-color.html">Pulse Color</a>
+    <a href="/pulse-edit-premiere-pro.html">Premiere Pro</a>
+    <a href="/pulse-edit-final-cut-pro.html">Final Cut Pro</a>
     <a href="/#pricing">Pricing</a>
     <a href="/blog/">Blog</a>
     <a class="pn-btn" href="/checkout.html?plan=monthly" style="margin-top:18px" data-track="buy-mobile">Get Pulse — €13/mo</a>
@@ -177,6 +183,15 @@
                 <h2>The automatic way (Resolve Studio)</h2>
                 <p><a href="/pulse-studio.html">Pulse Studio</a> already knows where every beat is — it detected them to cut your timeline. So it places the ramps for you: it reads the energy and mood of the song, picks the moments that deserve a ramp, and animates the speed change with a proper easing curve, not a linear jump. Slow-motion dives on heavy moments, speed-up whips on energetic ones.</p>
                 <p>Every generated ramp gets <strong>Optical Flow retiming applied automatically</strong> — with motion estimation stepped up for deep slow motion — so the frames it invents look like footage, not smearing. The ramps land as real retime data on the clips in your project: you can inspect them, adjust them, or delete any you disagree with.</p>
+
+                <h2>What a Pulse Studio ramp is, inside Resolve</h2>
+                <p>Open a ramped clip in the Fusion page and you see what was written: a <strong>TimeStretcher</strong> node between MediaIn and MediaOut, driven by a keyframed <strong>SourceTime</strong> curve &mdash; for every frame of the clip on the timeline, which frame of the source to show. A slow-motion dive is a curve that flattens; a speed-up whip is one that steepens; the easing is the shape of the bend. Pulse Studio writes it through the scripting API by importing a pre-wired Fusion composition, the one route the API connects reliably &mdash; verified frame-exact at render.</p>
+                <p>Three things version 1.0.52 (4 September 2026) changed, after reports from real projects:</p>
+                <ul>
+                    <li><strong>The curve covers the whole clip.</strong> Earlier builds keyframed only the ramp itself (up to 80% of the clip), and Fusion holds the last value past the final keyframe &mdash; so the tail of the clip froze. Now the clip keeps the speed it reached.</li>
+                    <li><strong>Speed never drops below zero.</strong> Elastic and bounce easings overshoot; on a speed curve that meant a clip pausing, or briefly running backwards. They are now floored.</li>
+                    <li><strong>The ramp has material to burn.</strong> Resolve feeds Fusion the frames beyond the cut &mdash; the handles &mdash; so a 4x whip on a short clip is a real 4x, provided the source has footage past its in and out points. Trim tight, with no handles, and the ramp stays gentler.</li>
+                </ul>
 
                 <h2>Where this stands today</h2>
                 <p>Speed ramps shipped with Pulse Studio on August 29, 2026 and are flagged <strong>beta</strong> in the app — the newest part of a workflow that is itself in beta testing. If a ramp looks wrong on your footage, write to <a href="mailto:support@pulseedit.com">support@pulseedit.com</a> with the clip details; reports go straight to me.</p>
