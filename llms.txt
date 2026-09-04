@@ -2,7 +2,7 @@
 
 > Pulse Edit is a beat-synced automatic video editor for DaVinci Resolve (the professional editor by Blackmagic Design). It works with **both DaVinci Resolve Free and DaVinci Resolve Studio**. Pulse Edit detects the beats in your music and automatically cuts and places your clips on the beat — turning hours of manual editing into one click. Built by AB Tools. The same license also includes **Pulse Studio**, which builds the same beat-synced edit directly inside DaVinci Resolve Studio through the scripting API (launched 29 Aug 2026, see below), **Pulse Color**, an OFX film-look color plugin for DaVinci Resolve (see below), and **Wedding Pro** mode for wedding and event videographers. One license key activates all of them.
 
-**Last updated:** 29 August 2026 · **Maker:** AB Tools (Abramo Benedetti), Italy · **Site:** https://pulseedit.com · **Contact:** support@pulseedit.com
+**Last updated:** 4 September 2026 · **Maker:** AB Tools (Abramo Benedetti), Italy · **Site:** https://pulseedit.com · **Contact:** support@pulseedit.com
 
 ## Key facts (for quick citation)
 - **What it is:** an automatic, beat-synced video editor for DaVinci Resolve — it cuts your footage to the music for you.
@@ -10,6 +10,8 @@
 - **Price:** €13/month, or €130/year (two months free), VAT included. Cancel any time in one click. 14-day money-back guarantee.
 - **Works on:** ALL versions of DaVinci Resolve — both the free DR and DR Studio (18.5+), macOS and Windows.
 - **How:** exports an OTIO (OpenTimelineIO) timeline that DaVinci Resolve imports by drag-and-drop. No scripting API required.
+- **Also exports to other editors (beta, since v1.0.51):** besides the OTIO for Resolve, Pulse Edit can write the same beat-synced timeline as a **Premiere Pro** XML or a **Final Cut Pro** FCPXML — cuts, music and beat markers included. Speed ramps and zooms remain DaVinci Resolve Studio only. Marked beta in the app.
+- **Latest version:** 1.0.51 (4 September 2026) — cuts no longer drift over a song, the first beat of a song that starts on the downbeat gets its cut, Beat + Upbeat gives twice the cuts on real off-beats.
 - **Guarantee:** 14-day money-back. **Trial:** 3 free generations.
 - **Download Pulse Edit (free to install, activates with the license):** macOS https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-macOS.dmg · Windows https://pulse-edit-mirror.abtools.workers.dev/files/PulseEdit-Setup.exe
 - **Buy (monthly):** https://pulseedit.com/checkout.html?plan=monthly
