@@ -185,7 +185,7 @@
 
 <h2 id="why">1. Why beat-synced editing matters</h2>
 
-<p>The single biggest difference between an amateur music video and a professional one is whether the cuts land on the beat. It's not stylistic preference — it's how human perception of rhythm works. When your edit lands on a downbeat, the viewer's brain rewards them with a tiny dopamine hit. When you miss the beat by 100 milliseconds, the cut feels wrong even if the viewer can't articulate why.</p>
+<p>The single biggest difference between an amateur music video and a professional one is whether the cuts land on the beat. It's not stylistic preference — it's how human perception of rhythm works. When your edit lands on a downbeat it feels resolved; when it lands a few frames off, most people can't say what is wrong but they feel it. When you miss the beat by 100 milliseconds, the cut feels wrong even if the viewer can't articulate why.</p>
 
 <p>This effect compounds across an entire video. A 90-second piece with 30 cuts has 30 opportunities to feel "in the pocket" or "off." Get them right and the audience watches in trance. Get them wrong and they bounce.</p>
 
@@ -210,7 +210,7 @@
 
 <div class="callout">
   <strong>Practical implication</strong>
-  Pulse Edit uses librosa's beat-tracking algorithm (the same library powering Spotify's tempo analysis), which means it locks onto the structural pulse rather than every hi-hat. This is why it works on complex genres where simpler tools fail.
+  Pulse Edit uses beat_this (a transformer beat tracker, ISMIR 2024), falling back to librosa's beat-tracking algorithm, which means it locks onto the structural pulse rather than every hi-hat. This is why it works on complex genres where simpler tools fail.
 </div>
 
 <h2 id="manual">3. The manual workflow (and why it's painful)</h2>
@@ -274,13 +274,13 @@
 <p>Open DaVinci Resolve and create a new project. Import your music track (WAV preferred, MP3 works fine) by dragging it into the media pool. Then drop it on the timeline as audio. Add your video clips to the media pool but don't put them on the timeline yet.</p>
 
 <h3>Step 2 — Launch Pulse Edit</h3>
-<p>Open Pulse Edit from your Applications folder (macOS) or Start menu (Windows). Pulse Edit runs as a standalone application that talks to DaVinci Resolve through Blackmagic's official scripting bridge — no plugin installation in Resolve itself.</p>
+<p>Open Pulse Edit from your Applications folder (macOS) or Start menu (Windows). Pulse Edit runs as a standalone application: it builds the timeline itself and writes an OTIO file that DaVinci Resolve imports. It does <em>not</em> use Blackmagic's scripting API &mdash; that is precisely why it works on DaVinci Resolve Free, where the API is disabled. Nothing is installed inside Resolve.</p>
 
 <h3>Step 3 — Select your audio and detect beats</h3>
-<p>In Pulse Edit, click "Select Audio" and pick the music file you just imported. Click "Detect Beats." Pulse Edit analyzes the audio using librosa's beat-tracking algorithm — typically 5–10 seconds for a 3-minute song on any modern Mac or PC. You'll see a waveform with detected beat positions overlaid.</p>
+<p>In Pulse Edit, click "Select Audio" and pick the music file you just imported. Click "Detect Beats." Pulse Edit analyzes the audio with beat_this, a transformer beat tracker (ISMIR 2024), falling back to librosa if it is unavailable — typically 5–15 seconds for a 3-minute song on any modern Mac or PC. You'll see a waveform with detected beat positions overlaid.</p>
 
 <h3>Step 4 — Place markers in Resolve</h3>
-<p>Click "Send Markers to Resolve." Pulse Edit places a marker on your timeline at every detected beat, color-coded blue. You can verify accuracy by scrubbing through the audio in Resolve and watching markers line up with each kick or snare.</p>
+<p>Pick a cut pattern, then click <strong>Generate &amp; Send to DaVinci Resolve</strong>. Pulse Edit builds the whole cut &mdash; clips placed on the beats, music and beat markers included &mdash; and writes it as an OTIO timeline that opens in Resolve. You can check the timing by scrubbing the audio in Resolve and watching the cuts land on the kicks.</p>
 
 <h3>Step 5 — Auto-cut your clips to beats</h3>
 <p>Now drag your video clips onto the timeline above the audio. In Pulse Edit, click "Auto-cut to Markers." Pulse Edit asks how you want to align cuts — every beat, every other beat (downbeats only), every 4 beats (bars), or custom subdivisions. Pick one and click Apply.</p>
@@ -314,10 +314,10 @@
   <li><strong>Detecting beats on the wrong audio version.</strong> If your final mix differs from your reference track (different mastering, EQ, etc), detect on the final mix to avoid drift.</li>
   <li><strong>Forgetting to lock audio when shifting markers.</strong> Markers anchor to timeline position, not audio. If you nudge audio, markers don't follow. Lock audio first.</li>
   <li><strong>Hard-cutting through quiet sections.</strong> Breakdowns deserve held shots. Save the rapid cuts for the drop.</li>
-  <li><strong>Cutting before the kick, not on it.</strong> The kick is the dopamine trigger. A cut that lands 2 frames before the kick feels rushed; on the kick feels powerful.</li>
+  <li><strong>Cutting before the kick, not on it.</strong> A cut that lands a couple of frames before the kick feels rushed; landing on it feels deliberate.</li>
   <li><strong>Re-detecting after every edit.</strong> Detect once on the final master audio, then forget about it. Re-detecting wastes time and risks drift.</li>
   <li><strong>Mismatched FPS conforming.</strong> If your timeline is 23.976 fps and your audio is 48kHz, frame math must conform correctly or markers drift by milliseconds over time.</li>
-  <li><strong>Not testing on a different speaker.</strong> Headphones flatten dynamics. Always check final cuts on phone speakers or a TV — that's how 80% of viewers will watch.</li>
+  <li><strong>Not testing on a different speaker.</strong> Headphones flatten dynamics. Always check final cuts on phone speakers or a TV: that is where most people will actually watch.</li>
 </ol>
 
 <h2 id="workflows">8. Workflow templates by video type</h2>

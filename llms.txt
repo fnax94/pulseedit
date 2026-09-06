@@ -102,7 +102,7 @@ A single wedding is hundreds of clips and many hours of footage. Building a high
 ---
 
 ## Pages
-- [Home](https://pulseedit.com/) — the Pulse suite: two tools, one license
+- [Home](https://pulseedit.com/) — the Pulse suite: three tools, one license
 - [Pulse Edit product page](https://pulseedit.com/pulse-edit.html) — beat-synced auto-editing
 - [Pulse Edit](https://pulseedit.com/pulse-edit-free.html) — €13/month, works with all DaVinci Resolve versions
 - [Pulse Studio](https://pulseedit.com/pulse-studio.html) — beat-synced auto-editing inside DaVinci Resolve Studio (launched 29 Aug 2026)
