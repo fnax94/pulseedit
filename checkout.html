@@ -282,9 +282,7 @@
         tracked[edition] = true;
         postTrack(edition, extra);
       }
-      document.querySelectorAll('[data-track]').forEach(function (el) {
-        el.addEventListener('click', function () { postTrack(this.getAttribute('data-track')); });
-      });
+
 
       function safeLink(url, fallbackUrl) {
         // Only ever send people to Stripe's own hosted checkout, whatever the response says.
