@@ -8,6 +8,12 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     function loadGA() {
+      // ⛔ 06/09/2026 — senza questa guardia GA veniva configurato DUE volte:
+      //    questo blocco chiama loadGA() a fine parsing, poi cookie-consent.js
+      //    (che non vedeva _gaLoaded impostato) la richiamava. Due gtag('config')
+      //    = due page_view per ogni visitatore di ritorno.
+      if (window._gaLoaded) return;
+      window._gaLoaded = true;
       var s = document.createElement('script');
       s.async = true;
       s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2';
@@ -153,7 +159,7 @@
                   <h2 style="margin:0 0 14px;color:#fbbf24;font-size:1.25rem">⚠ Before you start</h2>
                   <ul style="margin:0;padding-left:22px;line-height:1.9;color:#e2e8f0">
                     <li><strong>DaVinci Resolve Free or Studio</strong> 18.5+ installed — OTIO import works on both editions. No scripting API required.</li>
-                    <li><strong>macOS 12+</strong> Apple Silicon or Intel, <em>or</em> <strong>Windows 10/11</strong> 64-bit.</li>
+                    <li><strong>macOS 12+</strong> Apple Silicon only (M1 or later) &mdash; Intel Macs are not supported, <em>or</em> <strong>Windows 10/11</strong> 64-bit.</li>
                     <li>An <strong>audio file</strong> (mp3, wav, m4a) and a few <strong>video clips</strong> (mp4, mov, mxf, etc.) sitting on your disk.</li>
                     <li>Pulse Edit is a <strong>€13/month subscription</strong> (VAT included), cancel any time in one click — no lock-in, and a 14-day money-back guarantee.</li>
                   </ul>
@@ -293,7 +299,7 @@
 
                   <details style="border-bottom:1px solid #1f1f2e;padding:14px 0">
                     <summary style="cursor:pointer;font-weight:600;color:#e2e8f0">Does Pulse Edit ship for both macOS and Windows?</summary>
-                    <p style="margin:10px 0 0;color:#cbd5e1">Yes — macOS 12+ (Apple Silicon and Intel) and Windows 10/11 64-bit. The macOS build is <strong>signed and notarized by Apple</strong>, so Gatekeeper stays quiet. The Windows build is <strong>digitally signed via Microsoft Trusted Signing</strong>, so SmartScreen stays quiet too.</p>
+                    <p style="margin:10px 0 0;color:#cbd5e1">Yes — macOS 12+ (Apple Silicon only: M1, M2, M3, M4 or later — Intel Macs are not supported) and Windows 10/11 64-bit. The macOS build is <strong>signed and notarized by Apple</strong>, so Gatekeeper stays quiet. The Windows build is <strong>digitally signed via Microsoft Trusted Signing</strong>, so SmartScreen stays quiet too.</p>
                   </details>
 
                   <details style="border-bottom:1px solid #1f1f2e;padding:14px 0">

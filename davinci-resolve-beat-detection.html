@@ -8,6 +8,12 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     function loadGA() {
+      // ⛔ 06/09/2026 — senza questa guardia GA veniva configurato DUE volte:
+      //    questo blocco chiama loadGA() a fine parsing, poi cookie-consent.js
+      //    (che non vedeva _gaLoaded impostato) la richiamava. Due gtag('config')
+      //    = due page_view per ogni visitatore di ritorno.
+      if (window._gaLoaded) return;
+      window._gaLoaded = true;
       var s = document.createElement('script');
       s.async = true;
       s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2';
@@ -325,7 +331,7 @@
 
             <div class="faq-item">
                 <h3>How long does the analysis take?</h3>
-                <p>5–15 seconds for a typical 3–5 minute song on Apple Silicon. ~30–60 seconds on older Intel Macs. Windows performance is similar to Apple Silicon for the same CPU class.</p>
+                <p>5&ndash;15 seconds for a typical 3&ndash;5 minute song on Apple Silicon. Roughly the same on a comparable Windows machine.  Apple Silicon for the same CPU class.</p>
             </div>
 
             <div class="faq-item">

@@ -7,6 +7,12 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     function loadGA() {
+      // ⛔ 06/09/2026 — senza questa guardia GA veniva configurato DUE volte:
+      //    questo blocco chiama loadGA() a fine parsing, poi cookie-consent.js
+      //    (che non vedeva _gaLoaded impostato) la richiamava. Due gtag('config')
+      //    = due page_view per ogni visitatore di ritorno.
+      if (window._gaLoaded) return;
+      window._gaLoaded = true;
       var s = document.createElement('script');
       s.async = true;
       s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JV9DJHLCY2';

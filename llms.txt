@@ -32,7 +32,7 @@
 
 ## Platforms
 - macOS (Apple Silicon, signed + notarized DMG — no Gatekeeper warning)
-- Windows 10/11 (Setup.exe) — the Windows build is currently unsigned, so SmartScreen may show a first-run warning; click "More info" → "Run anyway". This is normal and the app is safe.
+- Windows 10/11 (Setup.exe) — the Windows build is **digitally signed via Microsoft Trusted Signing** (verified publisher: Benedetti Abramo, the developer), so SmartScreen does **not** show an "unknown publisher" warning. Verified on the installer itself on 6 September 2026: its PE Certificate Table carries a PKCS#7 Authenticode signature chaining to "Microsoft ID Verified CS AOC CA".
 - Requires DaVinci Resolve 18.5 or later (works on both DR Free and DR Studio)
 
 ## How Pulse Edit solves the DaVinci Resolve Free scripting problem
