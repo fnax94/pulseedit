@@ -208,6 +208,7 @@
                     <div class="pay-state__t">Continue on Stripe</div>
                     <p id="fallback-why">The embedded checkout couldn't load here, so we'll take you to Stripe's hosted page — same payment options, same license.</p>
                     <a class="btn btn--lg" id="fallback-btn" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" rel="noopener">Continue to secure checkout <span class="arr">→</span></a>
+                    <p class="pay-state__why" id="promo-nota" hidden></p>
                     <p class="pay-state__why" id="fallback-reason" hidden></p>
                 </div>
 
@@ -286,7 +287,26 @@
 
       function safeLink(url, fallbackUrl) {
         // Only ever send people to Stripe's own hosted checkout, whatever the response says.
-        return (typeof url === 'string' && /^https:\/\/buy\.stripe\.com\/[A-Za-z0-9]+$/.test(url)) ? url : fallbackUrl;
+        // ⛔ 06/09/2026 — la regex accettava SOLO l'URL nudo, quindi un link che portava
+        //    il codice sconto veniva scartato e sostituito con quello a prezzo pieno.
+        //    Ora si ammette la query, restando ancorati a buy.stripe.com.
+        return (typeof url === 'string'
+                && /^https:\/\/buy\.stripe\.com\/[A-Za-z0-9]+(\?[A-Za-z0-9_=&%.-]*)?$/.test(url))
+               ? url : fallbackUrl;
+      }
+
+      // ⛔ IL DIFETTO CHE QUESTO CHIUDE. Se il modulo incorporato non carica (ad
+      //    blocker, rete, worker giu'), il visitatore finisce sulla pagina ospitata
+      //    da Stripe — ma i link di ripiego erano quelli NUDI: chi era arrivato con
+      //    un codice sconto lo perdeva SENZA CHE NESSUNO GLIELO DICESSE, e pagava
+      //    pieno credendo di avere lo sconto.
+      //    Il codice ora viaggia nel link. E poiche' `prefilled_promo_code` funziona
+      //    solo se il payment link ha i codici promozionali abilitati — e se non li ha
+      //    viene ignorato in SILENZIO — si avvisa anche il visitatore.
+      function linkConPromo(base) {
+        if (!promo) return base;
+        return base + (base.indexOf('?') >= 0 ? '&' : '?')
+                    + 'prefilled_promo_code=' + encodeURIComponent(promo);
       }
 
       function render() {
@@ -297,8 +317,8 @@
         document.querySelectorAll('.plan').forEach(function (b) {
           b.setAttribute('aria-checked', b.getAttribute('data-plan') === plan ? 'true' : 'false');
         });
-        $('fallback-btn').href = p.link;
-        $('hosted-alt').href = p.link;
+        $('fallback-btn').href = linkConPromo(p.link);
+        $('hosted-alt').href = linkConPromo(p.link);
         try {
           history.replaceState(null, '', '/checkout.html?plan=' + plan + (promo ? '&promo=' + encodeURIComponent(promo) : ''));
         } catch (_) {}
@@ -308,7 +328,13 @@
 
       function showFallback(reason, url) {
         showLoading(false);
-        $('fallback-btn').href = safeLink(url, PLANS[plan].link);
+        $('fallback-btn').href = safeLink(url, linkConPromo(PLANS[plan].link));
+        var nota = $('promo-nota');
+        if (promo && nota) {
+          nota.textContent = 'Your discount code ' + promo + ' is carried over. If the total on the next '
+                           + 'page still shows the full price, enter ' + promo + ' in the promotion-code box there.';
+          nota.hidden = false;
+        }
         var why = $('fallback-why');
         if (reason === 'blocked') {
           why.textContent = "Stripe's checkout script didn't load in this browser (an ad blocker, most likely), so we'll take you to Stripe's hosted page — same payment options, same license.";
