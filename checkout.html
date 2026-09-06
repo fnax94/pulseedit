@@ -394,9 +394,44 @@
       // IntegrationError: the init promise never rejects, so a worker 503/502 or a network error would
       // leave "Something went wrong" inside the iframe and the hosted fallback would never appear
       // (review 03/09, reproduced with the real Stripe.js). Fetching first keeps every failure ours.
+      // ⛔ 06/09/2026 — UNA SESSIONE PER PIANO, non una per CLIC.
+      //    mount() veniva richiamato a ogni cambio di piano e ogni volta creava una
+      //    Checkout Session nuova: un visitatore che confronta mensile e annuale ne
+      //    generava tre o quattro da solo. Due danni: le sessioni non pagate gonfiano
+      //    il DENOMINATORE del tasso di conversione (che risultava peggiore del vero),
+      //    e ogni sessione e' una chiamata in piu' al worker.
+      //    Il client secret resta valido finche' la sessione non e' pagata o scaduta,
+      //    quindi tornando su un piano gia' visto si riusa quello. La chiave e' il solo
+      //    piano: `promo` si legge una volta dall'URL (riga 254) e non cambia mai.
+      var secretCache = {};
+      var rimontato   = {};   // per piano: la seconda occasione e' gia' stata usata?
+
+      function clientSecretFor(which) {
+        if (secretCache[which]) return Promise.resolve(secretCache[which]);
+        return fetchClientSecret().then(function (secret) {
+          secretCache[which] = secret;
+          return secret;
+        });
+      }
+
+      // Una sessione in cache puo' essere morta (pagata in un'altra scheda, o scaduta):
+      // in quel caso Stripe.js fallisce l'init. Invece di mandare il visitatore al
+      // fallback, si butta via il secret e si riprova UNA volta con una sessione nuova.
+      // ⛔ Il rimonto va programmato FUORI dalla catena `inflight`: chiamare mount()
+      //    da dentro il suo stesso .then incatenerebbe inflight a se' stesso.
+      function ritentaSenzaCache(which, eraInCache) {
+        if (!eraInCache || rimontato[which]) return false;
+        rimontato[which] = true;
+        delete secretCache[which];
+        setTimeout(mount, 0);
+        return true;
+      }
+
       var inflight = Promise.resolve();
       function mount() {
         var my = ++seq;
+        var pianoAvvio = plan;
+        var eraInCache = !!secretCache[pianoAvvio];
         $('pay-fallback').hidden = true;
         if (!stripe) { showFallback('blocked'); return; }
         showLoading(true);
@@ -404,13 +439,14 @@
           if (my !== seq) return;                       // superseded while waiting: skip, no session created
           if (checkout) { try { checkout.destroy(); } catch (_) {} checkout = null; }
           $('checkout').innerHTML = '';
-          return fetchClientSecret().then(function (secret) {
+          return clientSecretFor(pianoAvvio).then(function (secret) {
             if (my !== seq) return;                     // plan changed while the session was being created
             var p;
             try {
               p = stripe.initEmbeddedCheckout({ fetchClientSecret: function () { return Promise.resolve(secret); } });
             } catch (e) {
               console.error('embedded checkout init:', e && e.message);
+              if (ritentaSenzaCache(pianoAvvio, eraInCache)) return;
               showFallback('init_failed');
               return;
             }
@@ -422,6 +458,7 @@
             }, function (e) {
               if (my !== seq) return;
               console.error('embedded checkout init:', e && e.message);
+              if (ritentaSenzaCache(pianoAvvio, eraInCache)) return;
               showFallback('init_failed');
             });
           }, function (e) {
@@ -439,7 +476,7 @@
           if (next === plan || !PLANS[next]) return;
           plan = next;
           render();
-          mount();          // destroy + new session for the new price
+          mount();          // rimonta il modulo; la sessione si crea solo al PRIMO uso di ogni piano
         });
       });
 
