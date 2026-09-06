@@ -94,6 +94,15 @@
     </script>
 
     <script src="/pulse-nav.js?v=6" defer></script>
-  <script src="/cookie-consent.js?v=1" defer></script>
+  <script>
+    // I blocchi .reveal partono da opacity:0 e si accendono con la classe "in"
+    // (assets/index-dsPNw69o.css: `.reveal{opacity:0}` / `.reveal.in{opacity:1}`).
+    // ⛔ Questa pagina non aveva NESSUNA riga che la aggiungesse: 14 blocchi, 5.512
+    //    caratteri di testo, invisibili a chiunque non avesse "riduci animazioni"
+    //    attivo (l'unica rete e' `.js .reveal{opacity:1}` dentro
+    //    @media (prefers-reduced-motion: reduce)). Misurato via CDP il 06/09.
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+    </script>
+    <script src="/cookie-consent.js?v=1" defer></script>
 </body>
 </html>
