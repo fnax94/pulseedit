@@ -96,32 +96,6 @@
   ]
 }
 </script>
-    <script>
-    document.addEventListener('click', function(e) {
-        var link = e.target.closest('a');
-        if (!link) return;
-        var href = link.href || '';
-        var text = link.textContent.trim();
-        if (href.includes('PulseEdit-') && href.includes('.zip')) {
-            gtag('event', 'download_trial', {
-                event_category: 'conversion',
-                event_label: text,
-                link_url: href,
-                source: 'blog_listicle'
-            });
-        }
-        if (href.includes('buy.stripe.com') || href.includes('/checkout.html')) {
-            gtag('event', 'begin_checkout', {
-                event_category: 'conversion',
-                event_label: 'Pulse Edit',
-                link_url: href,
-                value: 13.00,
-                currency: 'EUR',
-                source: 'blog_listicle'
-            });
-        }
-    });
-    </script>
     <link rel="stylesheet" href="/pulse-nav.css">
     <link rel="stylesheet" href="/blog/blog-v3.css">
 </head>
@@ -380,7 +354,7 @@
 <p style="font-size:13px;color:var(--muted);margin-top:32px;border-top:1px solid var(--line);padding-top:16px;">BeatEdit is a trademark of mamoworld. DaVinci Resolve and Speed Editor are trademarks of Blackmagic Design. Adobe and Premiere Pro are trademarks of Adobe Inc. Pulse Edit is not affiliated with these companies. Pricing references current as of April 2026 &mdash; check vendor sites for the latest.</p>
 
 <div style="margin:40px 0 24px;padding:24px;background:#f5f3ff;border-left:4px solid #7c6ff7;border-radius:4px">
-  <p style="margin:0;font-size:15px;color:#1a1a1a"><strong>📖 Want the full picture?</strong> Read our <a href="/complete-guide-davinci-resolve-music-editing.html" style="color:#7c6ff7;text-decoration:underline;font-weight:600">Complete Guide to DaVinci Resolve Music Editing (2026)</a> — 3500+ words covering fundamentals, manual vs automatic workflows, advanced techniques, and 10 mistakes to avoid.</p>
+  <p style="margin:0;font-size:15px;color:#1a1a1a"><strong>📖 Want the full picture?</strong> Read our <a href="/complete-guide-davinci-resolve-music-editing.html" style="color:var(--accent-ink);text-decoration:underline;font-weight:600">Complete Guide to DaVinci Resolve Music Editing (2026)</a> — 3500+ words covering fundamentals, manual vs automatic workflows, advanced techniques, and 10 mistakes to avoid.</p>
 </div>
 
 </article>
@@ -408,7 +382,7 @@
   <div style="max-width:440px;width:100%;background:#15151f;border:1px solid rgba(124,111,247,0.3);border-radius:16px;padding:32px;text-align:center;box-shadow:0 24px 70px rgba(0,0,0,0.6);">
     <div style="font-size:32px;margin-bottom:12px;">&#127850;</div>
     <h3 style="color:#fff;font-size:1.25rem;margin:0 0 12px;">We use cookies</h3>
-    <p style="color:#a0a0b8;font-size:14px;line-height:1.6;margin:0 0 24px;">We use cookies to analyze site traffic and improve your experience. Please choose how you'd like to continue. <a href="/privacy.html" style="color:#7c6ff7;">Privacy Policy</a></p>
+    <p style="color:#a0a0b8;font-size:14px;line-height:1.6;margin:0 0 24px;">We use cookies to analyze site traffic and improve your experience. Please choose how you'd like to continue. <a href="/privacy.html" style="color:var(--accent-ink);font-weight:600;">Privacy Policy</a></p>
     <div style="display:flex;gap:10px;">
       <button onclick="declineCookies()" style="flex:1;background:transparent;color:#cbd5e1;border:1px solid rgba(255,255,255,0.2);padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:600;">Decline</button>
       <button onclick="acceptCookies()" style="flex:1;background:#7c6ff7;color:#fff;border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:700;">Accept</button>

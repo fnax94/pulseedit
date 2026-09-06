@@ -89,32 +89,6 @@
         ]
     }
     </script>
-    <script>
-    document.addEventListener('click', function(e) {
-        var link = e.target.closest('a');
-        if (!link) return;
-        var href = link.href || '';
-        var text = link.textContent.trim();
-        if (href.includes('BeatMarkers.zip')) {
-            gtag('event', 'download_trial', {
-                event_category: 'conversion',
-                event_label: text,
-                link_url: href,
-                source: 'blog'
-            });
-        }
-        if (href.includes('buy.stripe.com') || href.includes('/checkout.html')) {
-            gtag('event', 'begin_checkout', {
-                event_category: 'conversion',
-                event_label: 'Pulse Edit',
-                link_url: href,
-                value: 13.00,
-                currency: 'EUR',
-                source: 'blog'
-            });
-        }
-    });
-    </script>
     <link rel="stylesheet" href="/pulse-nav.css">
     <link rel="stylesheet" href="/blog/blog-v3.css">
     <script type="application/ld+json">
@@ -224,7 +198,7 @@
                 <div style="margin:28px 0;padding:20px 24px;background:#fff8e1;border-left:4px solid #f0b429;border-radius:4px">
                     <p style="margin:0 0 10px;font-size:15px;color:#1a1a1a"><strong>Where this is weak, stated plainly.</strong></p>
                     <ul style="margin:0;padding-left:20px;font-size:15px;color:#1a1a1a">
-                        <li>The Premiere and Final Cut exports are <strong>in beta</strong>. The files are written to spec &mdash; the FCPXML validates against Apple's DTD &mdash; but <strong>we have not opened them inside Premiere Pro or Final Cut Pro ourselves.</strong> Not once. If you try it and it breaks, that is a real possibility and I want to hear about it: <a href="mailto:support@pulseedit.com" style="color:#7c6ff7;font-weight:600">support@pulseedit.com</a>.</li>
+                        <li>The Premiere and Final Cut exports are <strong>in beta</strong>. The files are written to spec &mdash; the FCPXML validates against Apple's DTD &mdash; but <strong>we have not opened them inside Premiere Pro or Final Cut Pro ourselves.</strong> Not once. If you try it and it breaks, that is a real possibility and I want to hear about it: <a href="mailto:support@pulseedit.com" style="color:var(--accent-ink);font-weight:600">support@pulseedit.com</a>.</li>
                         <li><strong>Speed ramps and zooms do not cross over.</strong> Those are DaVinci Resolve Studio only. What travels to Premiere is cuts, music and markers.</li>
                         <li>It's an <strong>import step</strong>, not a panel inside Premiere. If you want the tool to live in your host app, Method&nbsp;3 is the honest recommendation.</li>
                     </ul>
@@ -258,7 +232,7 @@
                 <p>Yes &mdash; Methods 1 and 2 cost nothing and are entirely native. Zooming into the waveform and marking the visible transients is the more accurate of the two, because you are reading where the beat actually is instead of guessing when it will arrive.</p>
 
                 <h3>Does Pulse Edit work with Premiere Pro?</h3>
-                <p>Pulse Edit exports a Premiere Pro XML containing the cuts, the music and the beat markers, and this export is <strong>in beta</strong>: the file is written to spec, but we have not yet opened one inside Premiere Pro ourselves. Speed ramps and zooms stay DaVinci Resolve Studio only. Pulse Edit does not run inside Premiere &mdash; it produces a timeline you import. Details on the <a href="/pulse-edit-premiere-pro.html" style="color:#7c6ff7;font-weight:600">Premiere Pro page</a>.</p>
+                <p>Pulse Edit exports a Premiere Pro XML containing the cuts, the music and the beat markers, and this export is <strong>in beta</strong>: the file is written to spec, but we have not yet opened one inside Premiere Pro ourselves. Speed ramps and zooms stay DaVinci Resolve Studio only. Pulse Edit does not run inside Premiere &mdash; it produces a timeline you import. Details on the <a href="/pulse-edit-premiere-pro.html" style="color:var(--accent-ink);font-weight:600">Premiere Pro page</a>.</p>
 
                 <h3>What's the difference between beat markers and beat-synced editing?</h3>
                 <p>Markers tell you where the beats are; you still cut and trim every clip yourself. Beat-synced editing places the clips against those beats for you. On a 3-minute track that difference is roughly 180 manual trims. It's the main thing to be clear about when comparing tools, because plugins in this space do one, the other, or both.</p>
@@ -267,7 +241,7 @@
                 <p>For beat-syncing specifically, Resolve currently has more automation available to it: speed ramps and animated zooms are built through the DaVinci Resolve Studio scripting API and live only in <strong>Pulse Studio</strong> &mdash; a different tool in the same licence, which needs the paid DaVinci Resolve Studio. The Premiere export does not carry them. If you already edit in Premiere, that alone isn't a reason to switch; it's a reason to pick your beat-sync route from the four above.</p>
 
                 <div style="margin:36px 0 12px;padding:24px;background:#f5f3ff;border-left:4px solid #7c6ff7;border-radius:4px">
-                    <p style="margin:0;font-size:15px;color:#1a1a1a"><strong>Editing in Premiere or Final Cut?</strong> The Pulse Edit export is in beta and we want real-world reports on it. See the <a href="/pulse-edit-premiere-pro.html" style="color:#7c6ff7;text-decoration:underline;font-weight:600">Premiere Pro page</a> or the <a href="/pulse-edit-final-cut-pro.html" style="color:#7c6ff7;text-decoration:underline;font-weight:600">Final Cut Pro page</a> &mdash; both explain exactly what crosses over and what doesn't.</p>
+                    <p style="margin:0;font-size:15px;color:#1a1a1a"><strong>Editing in Premiere or Final Cut?</strong> The Pulse Edit export is in beta and we want real-world reports on it. See the <a href="/pulse-edit-premiere-pro.html" style="color:var(--accent-ink);text-decoration:underline;font-weight:600">Premiere Pro page</a> or the <a href="/pulse-edit-final-cut-pro.html" style="color:var(--accent-ink);text-decoration:underline;font-weight:600">Final Cut Pro page</a> &mdash; both explain exactly what crosses over and what doesn't.</p>
                 </div>
 
             </div>
@@ -298,7 +272,7 @@
   <div style="max-width:440px;width:100%;background:#15151f;border:1px solid rgba(124,111,247,0.3);border-radius:16px;padding:32px;text-align:center;box-shadow:0 24px 70px rgba(0,0,0,0.6);">
     <div style="font-size:32px;margin-bottom:12px;">&#127850;</div>
     <h3 style="color:#fff;font-size:1.25rem;margin:0 0 12px;">We use cookies</h3>
-    <p style="color:#a0a0b8;font-size:14px;line-height:1.6;margin:0 0 24px;">We use cookies to analyze site traffic and improve your experience. Please choose how you'd like to continue. <a href="/privacy.html" style="color:#7c6ff7;">Privacy Policy</a></p>
+    <p style="color:#a0a0b8;font-size:14px;line-height:1.6;margin:0 0 24px;">We use cookies to analyze site traffic and improve your experience. Please choose how you'd like to continue. <a href="/privacy.html" style="color:var(--accent-ink);font-weight:600;">Privacy Policy</a></p>
     <div style="display:flex;gap:10px;">
       <button onclick="declineCookies()" style="flex:1;background:transparent;color:#cbd5e1;border:1px solid rgba(255,255,255,0.2);padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:600;">Decline</button>
       <button onclick="acceptCookies()" style="flex:1;background:#7c6ff7;color:#fff;border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:700;">Accept</button>

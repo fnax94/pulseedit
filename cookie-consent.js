@@ -123,6 +123,89 @@
   };
   window.manageCookies = mostraModal;
 
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // TRACCIAMENTO CLIC — un posto solo, per tutte le pagine.        (06/09/2026)
+  //
+  // ⛔ PERCHE' STA QUI. Prima ogni pagina aveva (o non aveva) il suo blocco:
+  //    67 pagine avevano attributi `data-track`, ma solo 4 avevano un listener
+  //    che li leggesse. La HOMEPAGE risultava a ZERO clic in GA — non perche'
+  //    nessuno cliccasse, ma perche' nessuno stava ascoltando.
+  //    Questo file e' incluso da 75 pagine su 75: metterlo qui li copre tutti.
+  //
+  // ⛔ E si usa la DELEGA su document, non querySelectorAll: la navigazione e i
+  //    modali sono costruiti da pulse-nav.js DOPO, e un listener attaccato ai
+  //    nodi esistenti al caricamento non li vedrebbe mai.
+  // ══════════════════════════════════════════════════════════════════════════
+  var TRACK_URL = 'https://license-server.abtools.workers.dev/track-click';
+  var visti = {};
+
+  function invia(evento, dati) {
+    // GA solo col consenso (lo garantisce gia' caricaGA, ma gtag potrebbe
+    // esistere per altre vie: meglio esplicito).
+    if (consenso() === 'accepted' && typeof window.gtag === 'function') {
+      try { window.gtag('event', evento, dati); } catch (e) {}
+    }
+  }
+
+  function postTrack(corpo) {
+    // ⛔ /track-click e' analitica di prima parte ma la privacy policy la
+    //    dichiara consensuale: prima si chiede, poi si misura.
+    if (consenso() !== 'accepted') return;
+    try {
+      fetch(TRACK_URL, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(corpo), keepalive: true
+      }).catch(function () {});
+    } catch (e) {}
+  }
+
+  // I nomi VERI dei file sul mirror. Le vecchie condizioni cercavano
+  // "PulseEdit-macOS.zip" e "PulseEdit-Windows.zip": file che non esistono,
+  // quindi download_trial non poteva scattare mai, e i .exe non erano coperti.
+  var RE_DOWNLOAD = /\/(PulseEdit|PulseStudio|PulseColor|BeatMarkers)[^\/]*\.(dmg|exe|zip|pkg)(\?|$)/i;
+
+  function piattaforma(href) {
+    if (/\.dmg(\?|$)/i.test(href) || /macOS/i.test(href)) return 'macOS';
+    if (/\.exe(\?|$)/i.test(href)) return 'Windows';
+    return 'altro';
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a, button[data-track]') : null;
+    if (!a) return;
+    var href = a.href || '';
+    var etichetta = a.getAttribute('data-track');
+
+    if (etichetta) postTrack({ edition: etichetta, ref: location.pathname });
+
+    if (RE_DOWNLOAD.test(href)) {
+      var file = href.split('/').pop().split('?')[0];
+      if (!visti['dl:' + file]) {
+        visti['dl:' + file] = true;
+        invia('download_trial', {
+          event_category: 'conversion', event_label: file,
+          file: file, platform: piattaforma(href), link_url: href
+        });
+      }
+    }
+
+    if (href.indexOf('/checkout.html') >= 0 || href.indexOf('buy.stripe.com') >= 0) {
+      // ⛔ il piano si LEGGE dall'href invece di scriverlo a mano: prima le
+      //    pagine dichiaravano valori diversi (e uno era il prodotto sbagliato).
+      var annuale = /plan=yearly/.test(href);
+      if (!visti['co:' + href]) {
+        visti['co:' + href] = true;
+        invia('begin_checkout', {
+          event_category: 'conversion', event_label: 'Pulse Edit',
+          value: annuale ? 130 : 13, currency: 'EUR',
+          plan: annuale ? 'yearly' : 'monthly', link_url: href
+        });
+      }
+    }
+  }, true);
+  window._pulseTrack = true;
+
   function avvia() {
     var stato = consenso();
     if (stato === 'accepted') attiva();
