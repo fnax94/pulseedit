@@ -161,7 +161,7 @@
     <header class="page-header">
         <div class="container">
             <h1>Privacy Policy</h1>
-            <p>Last updated: 6 September 2026</p>
+            <p>Last updated: 7 September 2026</p>
         </div>
     </header>
 
@@ -173,7 +173,7 @@
             <h2>1. Data We Collect</h2>
 
             <h3>Website Analytics (Google Analytics 4)</h3>
-            <p>When you accept cookies on our website, we use Google Analytics 4 (measurement ID: G-JV9DJHLCY2) to collect anonymized usage data, including:</p>
+            <p>When you accept cookies on our website, we use Google Analytics 4 (measurement ID: G-JV9DJHLCY2) to collect aggregated usage data, including:</p>
             <ul>
                 <li>Pages visited and time spent on each page</li>
                 <li>Session duration and bounce rate</li>
@@ -182,7 +182,7 @@
                 <li>Device type, browser, and operating system</li>
             </ul>
             <p><strong>Google Analytics only activates after you accept cookies.</strong> If you decline cookies, no analytics data is collected.</p>
-            <p>IP addresses are anonymized by Google Analytics 4 by default. We do not collect or store your full IP address.</p>
+            <p>Google Analytics 4 does not log or store IP addresses. Our own servers see your full IP address only transiently &mdash; for up to 60 seconds, as an anti-abuse rate-limit key &mdash; and never store it alongside your purchase, licence or email.</p>
 
             <h3>License and Purchase Data</h3>
             <p>When you purchase a license for Pulse Edit or Beat Markers, the following data is processed:</p>
@@ -190,25 +190,36 @@
                 <li>Email address (for license delivery)</li>
                 <li>Payment information (processed by Stripe; we do not store credit card numbers)</li>
                 <li>License key and activation status</li>
+                <li>An installation identifier generated at random by the app the first time you activate it (stored in your system keychain &mdash; it is not derived from your hardware and does not identify your computer), used only to keep one licence active on one computer at a time</li>
+                <li>The app version, operating system and the date of the last licence check, sent by the app when it verifies your licence</li>
             </ul>
+            <p>Your email address is required to enter into and perform the contract: without it we cannot deliver or manage your licence. The other data above are collected automatically when the app checks the licence and cannot be switched off while the licence is in use &mdash; you can stop them by deactivating the licence on that computer.</p>
 
             <h3>Product Updates &amp; Email List</h3>
             <p>When you sign up for product updates or an early-access list on this site, you voluntarily submit your <strong>email address</strong>. We process it solely to send you updates about the product you signed up for. We also record the date and time of your signup, and your approximate country, IP address and browser user-agent &mdash; used only for security and anti-abuse (spam/rate-limiting) and not for profiling.</p>
             <ul>
                 <li><strong>Lawful basis:</strong> your consent (GDPR Art. 6(1)(a)), given by submitting the form.</li>
-                <li><strong>Use:</strong> only to notify you about the product you signed up for. We never sell or share your email, and you won't receive unrelated marketing.</li>
+                <li><strong>Use:</strong> only to notify you about the product you signed up for. We never sell your email, and never share it for anyone else's purposes; it only passes through the service providers listed in section 5 that deliver our emails and run our servers. You won't receive unrelated marketing.</li>
                 <li><strong>Withdraw anytime:</strong> every email includes an unsubscribe link, or write to <a href="mailto:support@pulseedit.com">support@pulseedit.com</a> to be removed. Withdrawing consent does not affect prior lawful processing.</li>
                 <li><strong>Retention:</strong> kept until you unsubscribe or ask us to delete it.</li>
             </ul>
 
-            <h3>Software Usage &mdash; Anonymous Diagnostic Data</h3>
-            <p>Our desktop applications (Pulse Edit, Pulse Studio, Beat Markers) collect a minimal amount of <strong>anonymous diagnostic data</strong> to help us detect crashes and improve product reliability. Specifically:</p>
+            <h3>Feedback Form</h3>
+            <p>When you fill in our feedback form, we store your answers on our licence server (hosted by Cloudflare) so we can read them and improve the product. If you choose to leave your email &mdash; it is optional &mdash; we use it only to reply to you about that message. A copy of the message is also sent to the operator&rsquo;s private Telegram channel as an internal notification (see &ldquo;Telegram&rdquo; in section 5).</p>
+            <ul>
+                <li><strong>Lawful basis:</strong> our legitimate interest in improving the product (Art. 6(1)(f)); the optional email is used solely to reply to you.</li>
+                <li><strong>Retention:</strong> up to 24 months.</li>
+            </ul>
+
+            <h3>Software Usage &mdash; Pseudonymous Diagnostic Data</h3>
+            <p>Our desktop applications (Pulse Edit, Pulse Studio, Beat Markers) collect a minimal amount of <strong>pseudonymous diagnostic data</strong> to help us detect crashes and improve product reliability. Specifically:</p>
             <ul>
                 <li><strong>Crash reports</strong>: when the app crashes, we receive the exception type, error message, and stack trace (with user file paths removed). No file contents, audio, video, or project data are sent.</li>
                 <li><strong>Application boot events</strong>: a record that the app was started, with version and operating system.</li>
                 <li><strong>Workflow failures</strong>: when an internal operation fails (e.g.&nbsp;beat detection, render), we log the failure type to help diagnose recurring issues.</li>
+                <li><strong>Coarse network location</strong>: the first portion of your IP address (country-level only &mdash; never the full address), stored with the report and deleted after 30 days.</li>
             </ul>
-            <p>Each device generates an anonymous identifier (SHA-256 hash of the machine&rsquo;s hostname, truncated to 24 characters) used to deduplicate reports. This identifier is <strong>not linked</strong> to your name, email, payment information, or any other personal data. We cannot use it to identify you. For Pulse Studio (licensed), crash data is also not linked to your license key or email.</p>
+            <p>Each device generates a pseudonymous identifier (SHA-256 hash of the machine&rsquo;s hostname, truncated to 24 characters) used to deduplicate reports. This identifier is <strong>not linked</strong> to your name, email, payment information, or any other personal data. For Pulse Studio (licensed), crash data is also not linked to your license key or email. (The app version and operating system are, however, also stored on your licence record, as described under License and Purchase Data.)</p>
             <p><strong>How to opt out</strong>: open the application&rsquo;s settings file and set <code>"enabled": false</code> (a toggle in the app settings is in the works). File locations:</p>
             <ul>
                 <li>macOS: <code>~/Library/Application Support/PulseEdit/telemetry.json</code></li>
@@ -229,14 +240,24 @@
                 <li><strong>Consent</strong> (Art. 6(1)(a)) &mdash; for non-essential cookies (Google Analytics, Cloudflare Insights, download-click tracking), and for signing up for product updates (we only email you with your consent). You may withdraw consent at any time via the &ldquo;Manage cookies&rdquo; link in the footer, an email unsubscribe link, or by contacting us.</li>
                 <li><strong>Performance of a contract</strong> (Art. 6(1)(b)) &mdash; for processing your purchase, issuing license keys, and providing software updates after you buy.</li>
                 <li><strong>Legal obligation</strong> (Art. 6(1)(c)) &mdash; for tax, invoicing, and accounting records required by Italian and EU law.</li>
-                <li><strong>Legitimate interest</strong> (Art. 6(1)(f)) &mdash; for essential site security (e.g.&nbsp;DMARC monitoring, error logs, fraud prevention), for replying to support emails you initiate, and for collecting anonymous diagnostic data to keep the desktop software reliable. You can opt out at any time (see Software Usage above).</li>
+                <li><strong>Legitimate interest</strong> (Art. 6(1)(f)) &mdash; for essential site security (e.g.&nbsp;DMARC monitoring, error logs, fraud prevention), for replying to support emails you initiate, and for collecting pseudonymous diagnostic data to keep the desktop software reliable. You can opt out at any time (see Software Usage above).</li>
             </ul>
 
             <h2>4. Cookie Consent</h2>
             <p>We use a cookie consent banner on our website. Google Analytics cookies are only loaded after you click "Accept". Your preference is stored in your browser's local storage under the key <code>cookie_consent</code>.</p>
 
+            <h3>Cookies and similar technologies</h3>
+            <ul>
+                <li><code>cookie_consent</code> &mdash; first party, local storage, technical: stores your choice. Stays until you delete it. No consent required.</li>
+                <li><code>_ga</code>, <code>_ga_JV9DJHLCY2</code> &mdash; Google Analytics 4, analytics. Loaded only after you click Accept. Duration: up to 2 years.</li>
+                <li>Cloudflare Web Analytics &mdash; no cookie, no local storage. Loaded only after you click Accept.</li>
+                <li>Click analytics (<code>/track-click</code>, our own Cloudflare Worker) &mdash; no cookie; records which link was clicked and on which page. Sent only after you click Accept.</li>
+                <li><code>__stripe_mid</code>, <code>__stripe_sid</code> &mdash; set by Stripe on our checkout page for fraud prevention; strictly necessary to process a payment. Duration: about 1 year and 30 minutes respectively.</li>
+                <li>Order session id &mdash; session storage on the thank-you page, technical: retrieves your licence after payment. Deleted when you close the tab.</li>
+            </ul>
+
             <h3>How to Withdraw Consent</h3>
-            <p>You can withdraw cookie consent at any time: click <strong>&ldquo;🍪 Manage cookies&rdquo;</strong> at the bottom-left of any page and choose <strong>Decline</strong>. If you prefer, you can also clear this site&rsquo;s local storage in your browser:</p>
+            <p>You can withdraw cookie consent at any time: click <strong>&ldquo;🍪 Manage cookies&rdquo;</strong> at the bottom-left of any page and choose <strong>Decline</strong>. Declining stops analytics immediately. Google Analytics cookies already stored on your device (<code>_ga</code>, <code>_ga_JV9DJHLCY2</code>) are no longer read by us once you decline; you can remove them at any time from your browser&rsquo;s cookie settings. If you prefer, you can also clear this site&rsquo;s local storage in your browser:</p>
             <ul>
                 <li>Open your browser's Developer Tools (F12 or right-click > Inspect)</li>
                 <li>Go to the Application or Storage tab</li>
@@ -248,24 +269,45 @@
             <h2>5. Third-Party Services</h2>
 
             <h3>Google Analytics</h3>
-            <p>We use Google Analytics 4 for website analytics. Google may process data on servers outside the EU. For more information, see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
+            <p>We use Google Analytics 4 for website analytics. Google may process data on servers outside the EEA &mdash; see &ldquo;International transfers&rdquo; below. For more information, see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
 
             <h3>Stripe</h3>
             <p>Payments are processed by Stripe, Inc. We do not store or have access to your full credit card details. Stripe handles all payment data securely. See <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe's Privacy Policy</a>.</p>
 
             <h3>GitHub</h3>
-            <p>Plugin downloads are hosted on GitHub Releases. GitHub may log your IP address when you download files. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's Privacy Statement</a>.</p>
+            <p>This website is hosted on GitHub Pages (GitHub, Inc., USA). Like any web host, GitHub may log your IP address and browser user agent in its server logs when you visit any page of this site. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's Privacy Statement</a>.</p>
+
+            <h3>Google Fonts</h3>
+            <p>Our pages load typefaces from Google Fonts (fonts.googleapis.com and fonts.gstatic.com). When a page loads, your browser connects to Google's servers, which receive your IP address and browser user-agent in order to deliver the font files. This happens before and independently of your cookie choice, because it is required to render the page. Google LLC is certified under the EU-U.S. Data Privacy Framework. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. We are working to serve these fonts from our own servers so that no connection to Google is made.</p>
+
+            <h3>Cloudflare</h3>
+            <p>Cloudflare, Inc. (USA) runs our licence server and our download mirror, and hosts the database in which licence keys, purchase email addresses and feedback messages are stored. When you download a file, activate a licence or click a tracked link, Cloudflare processes connection data including your IP address and browser user-agent, in order to deliver the file, validate the licence and protect the service from abuse. Cloudflare also provides the cookieless Web Analytics beacon, which loads only after you accept cookies. See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's Privacy Policy</a>.</p>
+
+            <h3>Downloads (Cloudflare) and GitHub</h3>
+            <p>Our installers are served from our own download mirror running on Cloudflare Workers (pulse-edit-mirror.abtools.workers.dev). A few older Beat Markers links still point to GitHub Releases; GitHub may log your IP address when you download from them. When a download starts, our mirror records the file name, date, country, connecting network (ISP) and browser user-agent, in order to count downloads and to tell real users apart from bots (legitimate interest, Art. 6(1)(f)). Your IP address is used only momentarily, to avoid counting the same download twice, and is not retained by us. A summary of this event is sent to a private Telegram channel used by the operator as an internal notification.</p>
+
+            <h3>Resend</h3>
+            <p>Transactional emails (licence keys, receipts, support replies) are delivered by Resend, Inc. (USA). Your email address and the content of those messages pass through their servers. See <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener">Resend's Privacy Policy</a>.</p>
+
+            <h3>Telegram</h3>
+            <p>We receive an internal notification on a private Telegram chat, read only by the operator, for each order (product, amount and the purchase email address), each feedback message submitted through our feedback form (including the message text and, if you provide it, your email address) and each download (country and browser user agent). These notifications are delivered through Telegram's servers, which are located outside the EU. See <a href="https://telegram.org/privacy" target="_blank" rel="noopener">Telegram's Privacy Policy</a>. If you prefer not to have your feedback forwarded this way, write to <a href="mailto:support@pulseedit.com">support@pulseedit.com</a> instead of using the form.</p>
+
+            <h3>International transfers</h3>
+            <p>Some of the services above are established outside the European Economic Area (United States and other countries), or may process data on servers outside the EEA. Where the recipient is certified under the EU&ndash;US Data Privacy Framework, the transfer relies on the European Commission's adequacy decision of 10 July 2023 (Implementing Decision (EU) 2023/1795). In all other cases the transfer relies on the European Commission's Standard Contractual Clauses (Art. 46(2)(c) GDPR), incorporated in each provider's data processing agreement. You can obtain a copy of the safeguards applying to a specific transfer by writing to <a href="mailto:support@pulseedit.com">support@pulseedit.com</a>.</p>
 
             <h2>6. Data Retention</h2>
             <ul>
                 <li><strong>Analytics data:</strong> retained for 14 months, then automatically deleted by Google Analytics</li>
-                <li><strong>License and email data:</strong> retained while your license is active. You may request deletion at any time.</li>
+                <li><strong>License and purchase data:</strong> your licence key, activation status and the email you bought with are kept for as long as your licence exists. The related invoice is kept for 10 years from the date it was issued, because Italian tax law requires it (art. 2220 Italian Civil Code, art. 22 DPR 600/1973). You can ask us at any time to delete anything not covered by that obligation.</li>
                 <li><strong>Payment records:</strong> retained by Stripe according to their data retention policy and legal requirements</li>
+                <li><strong>Support emails:</strong> up to 24 months after our last exchange with you.</li>
+                <li><strong>Feedback form:</strong> your answers are kept for up to 24 months; the email field is optional and used only to reply to you.</li>
+                <li><strong>Licence-server and download-mirror logs:</strong> only for the short period our infrastructure provider (Cloudflare) keeps them, a few days.</li>
             </ul>
 
             <h2>7. Data Sharing</h2>
             <p><strong>We do not sell, trade, or rent your personal data to third parties.</strong></p>
-            <p>Data is shared only with the third-party services listed above (Google Analytics, Stripe, GitHub) strictly for the purposes described in this policy.</p>
+            <p>We share your data only with the third-party services listed in section 5 above (Google Analytics, Google Fonts, Stripe, Cloudflare, Resend, Telegram and GitHub), each strictly for the purposes described there. Some of them act as our service providers on our instructions; others, such as Stripe for payment data, act as independent controllers under their own privacy policies. We share your data with no one else, except where we are required to do so by law.</p>
 
             <h2>8. Your Rights Under GDPR</h2>
             <p>If you are located in the European Economic Area (EEA), you have the following rights regarding your personal data:</p>
@@ -277,10 +319,11 @@
                 <li><strong>Right to data portability:</strong> receive your data in a structured, machine-readable format</li>
                 <li><strong>Right to object:</strong> object to processing of your data for certain purposes</li>
             </ul>
+            <p>One limit applies to erasure: where the law requires us to keep a document &mdash; in particular invoices and tax records &mdash; we cannot delete it on request (GDPR Art. 17(3)(b)). In that case we stop using the data for anything other than that legal purpose, and we delete it when the retention period ends.</p>
             <p>To exercise any of these rights, contact us at the email address below.</p>
 
             <h2>9. Security</h2>
-            <p>We take reasonable measures to protect your data, including HTTPS encryption on our website, secure API communication for license validation, and using trusted third-party processors (Stripe, Google).</p>
+            <p>We take reasonable measures to protect your data, including HTTPS encryption on our website, secure API communication for license validation, and using trusted third-party processors (Stripe, Google, Cloudflare, GitHub, Resend).</p>
 
             <h2>10. Children's Privacy</h2>
             <p>Our website and software are not directed at children under 16. We do not knowingly collect personal data from children.</p>
@@ -322,9 +365,8 @@
 </div>
 <script>
 (function(){
-  if (!localStorage.getItem('cookie_consent')) {
-    document.getElementById('cookie-modal').style.display = 'flex';
-  }
+  // Il banner NON si auto-apre su questa pagina: chi arriva qui deve poter LEGGERE
+  // l'informativa prima di scegliere. Resta raggiungibile dalla pillola "Manage cookies".
   if (localStorage.getItem('cookie_consent') === 'accepted') {
     loadCFInsights();
   }

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Claim su BeatEdit verificati su mamoworld.com/products/ il 07/09/2026. Rivedere ogni 6 mesi. Fonte: https://mamoworld.com/products/ -->
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -23,16 +24,16 @@
     if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
     </script>
     <title>Pulse Edit vs BeatEdit on DR Free — 2026</title>
-    <meta name="description" content="On DR Free, BeatEdit no longer works since BMD disabled scripting in DR 19.1. Comparison vs Pulse Edit — what each plugin can do.">
+    <meta name="description" content="Pulse Edit works on DaVinci Resolve Free because it exports OTIO and never uses the Resolve scripting API, which Blackmagic restricted to Studio in DR 19.1. Side-by-side with BeatEdit — check its current edition requirements on mamoworld.com.">
     <meta name="keywords" content="pulse edit vs beatedit dr free, beatedit davinci resolve free, beatedit alternative comparison, beat detection plugin comparison dr free">
     <meta property="og:title" content="Pulse Edit vs BeatEdit on DaVinci Resolve Free — 2026">
-    <meta property="og:description" content="BeatEdit no longer works on DR Free. Full feature comparison vs Pulse Edit.">
+    <meta property="og:description" content="Pulse Edit works on DR Free through OTIO, with no scripting API. Full feature comparison vs BeatEdit.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://pulseedit.com/vs-beatedit-dr-free.html">
     <meta property="og:image" content="https://pulseedit.com/og-image.png?v=3">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Pulse Edit vs BeatEdit on DaVinci Resolve Free — 2026">
-    <meta name="twitter:description" content="BeatEdit no longer works on DR Free. Full feature comparison vs Pulse Edit.">
+    <meta name="twitter:description" content="Pulse Edit works on DR Free through OTIO, with no scripting API. Full feature comparison vs BeatEdit.">
     <meta name="twitter:image" content="https://pulseedit.com/og-image.png?v=3">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -124,6 +125,7 @@
       .seo-related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; max-width: 880px; margin: 0 auto; }
       .seo-related-grid a { display: block; padding: 16px 18px; background: #111; border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; color: #cbd5e1; text-decoration: none; font-size: 0.92rem; line-height: 1.45; transition: border-color 0.15s ease, color 0.15s ease; }
       .seo-related-grid a:hover { border-color: var(--accent-ink); color: #fff; }
+      .disclaimer { font-size: 12px; color: #666; padding: 24px 0 0; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 40px; line-height: 1.6; }
     </style>
     <link rel="stylesheet" href="/pulse-nav.css">
 </head>
@@ -165,7 +167,7 @@
             <div class="seo-breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/">Comparisons</a> &rsaquo; Pulse Edit vs BeatEdit (DR Free)</div>
             <div class="badge-pill">Side-by-side · 2026</div>
             <h1>Pulse Edit vs BeatEdit on <span>DaVinci Resolve Free</span></h1>
-            <p class="lede">Honest comparison: what each plugin can and cannot do on the free edition of Resolve. BeatEdit's Resolve port relied on the scripting API — and that API isn't there anymore on Free. Here's the real-world picture.</p>
+            <p class="lede">Honest comparison of what each plugin does on the free edition of Resolve. Pulse Edit works on DaVinci Resolve Free because it exports OTIO and never uses the Resolve scripting API, which Blackmagic restricted to Studio in DR 19.1 (November 2024). Here's the real-world picture.</p>
             <div class="pe-cta-row" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
                 <a href="/pulse-edit-free.html" class="btn btn-primary">Get Pulse Edit →</a>
                 <a href="/beatedit-davinci-resolve-free-alternative.html" class="btn btn-secondary">Read the migration guide</a>
@@ -177,7 +179,7 @@
         <div class="container">
             <div class="content">
                 <h2>The short version</h2>
-                <p>BeatEdit is a strong product — but its DaVinci Resolve port was built on the scripting API. In November 2024, Blackmagic disabled that API on the free edition. On DR Free, BeatEdit's Resolve flow effectively went dark. Pulse Edit takes a different architectural route (OTIO export) that doesn't touch the scripting layer. It works on Free and Studio.</p>
+                <p>BeatEdit is a strong product, and mamoworld sells a separate DaVinci Resolve version of it. Pulse Edit works on DaVinci Resolve Free because it exports OTIO and never uses the Resolve scripting API, which Blackmagic restricted to Studio in DR 19.1 (November 2024). For BeatEdit's current edition requirements and price, see the <a href="https://mamoworld.com/products/" target="_blank" rel="nofollow noopener">official product page</a> — checked 07/09/2026.</p>
 
                 <h2>Feature table</h2>
                 <table class="compare-table">
@@ -185,25 +187,25 @@
                         <tr><th>Feature</th><th>Pulse Edit (DR Free build)</th><th>BeatEdit (DR Resolve flow)</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td class="feature-label">Works on DR Free 19.1+</td><td class="col-pe"><span class="yes">Yes</span> — OTIO import path</td><td class="col-be"><span class="no">No</span> — needs scripting API</td></tr>
-                        <tr><td class="feature-label">Works on DR Studio</td><td class="col-pe"><span class="yes">Yes</span> — same OTIO path</td><td class="col-be"><span class="partial">Partial</span> — Premiere is the primary target</td></tr>
-                        <tr><td class="feature-label">Primary host application</td><td class="col-pe">DaVinci Resolve (Free + Studio)</td><td class="col-be">Premiere Pro (Resolve was secondary)</td></tr>
-                        <tr><td class="feature-label">Beat detector</td><td class="col-pe">beat_this (transformer)</td><td class="col-be">Onset-based</td></tr>
-                        <tr><td class="feature-label">Timeline markers in DR Free</td><td class="col-pe"><span class="yes">Yes</span> — via OTIO</td><td class="col-be"><span class="no">No</span> — scripting blocked</td></tr>
-                        <tr><td class="feature-label">Auto-cut clips to the beat</td><td class="col-pe"><span class="yes">Yes</span> — 5 selectable patterns</td><td class="col-be"><span class="no">No</span> — markers only on Resolve</td></tr>
-                        <tr><td class="feature-label">Mood presets</td><td class="col-pe"><span class="yes">Yes</span> — 6 presets</td><td class="col-be"><span class="no">No</span></td></tr>
-                        <tr><td class="feature-label">Interactive waveform editing</td><td class="col-pe"><span class="yes">Yes</span></td><td class="col-be"><span class="partial">Partial</span></td></tr>
-                        <tr><td class="feature-label">FPS conform (23.976 / 29.97 safe)</td><td class="col-pe"><span class="yes">Yes</span> — floor() rounding</td><td class="col-be"><span class="partial">Partial</span> — host-dependent</td></tr>
+                        <tr><td class="feature-label">Works on DR Free 19.1+</td><td class="col-pe"><span class="yes">Yes</span> — OTIO import path, no scripting API</td><td class="col-be">Sold as a separate DaVinci Resolve version — see mamoworld.com for the current edition requirements</td></tr>
+                        <tr><td class="feature-label">Works on DR Studio</td><td class="col-pe"><span class="yes">Yes</span> — same OTIO path</td><td class="col-be">See mamoworld.com for the current edition requirements</td></tr>
+                        <tr><td class="feature-label">Host applications sold</td><td class="col-pe">DaVinci Resolve (Free + Studio)</td><td class="col-be">Premiere Pro, After Effects, Audition, DaVinci Resolve — licensed separately per host</td></tr>
+                        <tr><td class="feature-label">Beat detector</td><td class="col-pe">beat_this (transformer, ISMIR 2024)</td><td class="col-be">Not publicly documented — see mamoworld.com</td></tr>
+                        <tr><td class="feature-label">Timeline markers in DR Free</td><td class="col-pe"><span class="yes">Yes</span> — via OTIO</td><td class="col-be">See mamoworld.com</td></tr>
+                        <tr><td class="feature-label">Auto-cut clips to the beat</td><td class="col-pe"><span class="yes">Yes</span> — 5 selectable patterns</td><td class="col-be">Places beat markers; the cutting and arranging is still yours to do</td></tr>
+                        <tr><td class="feature-label">Mood presets</td><td class="col-pe"><span class="yes">Yes</span> — 6 presets</td><td class="col-be">See mamoworld.com</td></tr>
+                        <tr><td class="feature-label">Interactive waveform editing</td><td class="col-pe"><span class="yes">Yes</span></td><td class="col-be">See mamoworld.com</td></tr>
+                        <tr><td class="feature-label">FPS conform (23.976 / 29.97 safe)</td><td class="col-pe"><span class="yes">Yes</span> — floor() rounding</td><td class="col-be">See mamoworld.com</td></tr>
                         <tr><td class="feature-label">macOS support</td><td class="col-pe"><span class="yes">Yes</span> — signed + notarized</td><td class="col-be"><span class="yes">Yes</span></td></tr>
                         <tr><td class="feature-label">Windows support</td><td class="col-pe"><span class="yes">Yes</span></td><td class="col-be"><span class="yes">Yes</span></td></tr>
                         <tr><td class="feature-label">License model</td><td class="col-pe">€13/month · cancel any time</td><td class="col-be">Per-host tier</td></tr>
-                        <tr><td class="feature-label">Ongoing updates</td><td class="col-pe"><span class="yes">Yes</span> — included while subscribed</td><td class="col-be"><span class="partial">Partial</span> — version-tied</td></tr>
+                        <tr><td class="feature-label">Ongoing updates</td><td class="col-pe"><span class="yes">Yes</span> — included while subscribed</td><td class="col-be">See mamoworld.com for the update policy</td></tr>
                     </tbody>
                 </table>
 
                 <h2>The architectural difference</h2>
-                <p>BeatEdit was designed as a plugin: it sits beside the host editor and pushes data into the active timeline through a scripting bridge. That model is excellent on Premiere Pro (where the bridge is stable) and used to work on DR Studio (same story). On DR Free, the bridge was always lower priority, and in DR 19.1 BMD removed it entirely.</p>
-                <p>Pulse Edit was designed knowing the bridge wasn't trustworthy on Free. Instead of pushing data into Resolve at runtime, it produces a finished timeline as a standalone file (OpenTimelineIO) and asks you to import it. One extra click — and a workflow that works on both editions.</p>
+                <p>Any tool that drives Resolve from the outside has to reach the active timeline through Blackmagic's scripting bridge. In DR 19.1 (November 2024) Blackmagic restricted that bridge to Resolve Studio, so on the free edition it is no longer available to anyone — us included.</p>
+                <p>Pulse Edit was designed knowing the bridge wasn't guaranteed on Free. Instead of pushing data into Resolve at runtime, it produces a finished timeline as a standalone file (OpenTimelineIO) and asks you to import it. One extra click — and a workflow that works on both editions.</p>
 
                 <h2>What BeatEdit still wins on</h2>
                 <ul>
@@ -214,8 +216,10 @@
 
                 <div class="verdict-box">
                     <h3>Verdict (DR Free)</h3>
-                    <p>For DaVinci Resolve Free users in 2026, Pulse Edit is the only one of the two that actually does the job. BeatEdit's Resolve path is broken by BMD's scripting-API rollback in DR 19.1. Pulse Edit's OTIO route sidesteps that change entirely. €13/month, cancel any time, updates included while subscribed, both macOS and Windows.</p>
+                    <p>For DaVinci Resolve Free users in 2026, Pulse Edit's OTIO route sidesteps the DR 19.1 scripting-API rollback entirely: no bridge, no Studio requirement, and it cuts the clips rather than only marking the beats. For what BeatEdit's Resolve version needs today, check mamoworld.com. €13/month, cancel any time, updates included while subscribed, both macOS and Windows.</p>
                 </div>
+
+                <div class="disclaimer">Comparison based on public information as of September 2026. BeatEdit is a trademark of Mamoworld GmbH. Pulse Edit is not affiliated with or endorsed by Mamoworld. Pricing, editions and feature sets may change &mdash; verify current details on the official product page before purchasing.</div>
             </div>
         </div>
     </section>
@@ -250,7 +254,8 @@
             <p style="margin-top: 8px;">Questions? DM on <a href="https://www.instagram.com/aki.vhs/" target="_blank">Instagram</a> or email <a href="mailto:support@pulseedit.com" style="color:var(--accent-ink);font-weight:600;">support@pulseedit.com</a></p>
             <p style="margin-top: 12px;"><a href="/privacy.html" style="color:var(--accent-ink);text-decoration:none;margin-right:16px;">Privacy Policy</a> <a href="/terms.html" style="color:var(--accent-ink);text-decoration:none;">Terms of Service</a></p>
         </div>
-    </footer>
+    <p style="margin:10px 0 0;font-size:12px;color:#8b8b9a">© 2026 AB Tools di Abramo Benedetti · P.IVA / VAT IT02742450469 · <a href="/privacy.html" style="color:#8b8b9a">Privacy</a> · <a href="/terms.html" style="color:#8b8b9a">Terms</a> · <a href="/withdrawal.html" style="color:#8b8b9a">Refunds &amp; Withdrawal</a></p>
+</footer>
 
     <div id="cookie-modal" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(8,8,16,0.88);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px;">
   <div style="max-width:440px;width:100%;background:#15151f;border:1px solid rgba(124,111,247,0.3);border-radius:16px;padding:32px;text-align:center;box-shadow:0 24px 70px rgba(0,0,0,0.6);">

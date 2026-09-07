@@ -24,7 +24,7 @@
     if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
     </script>
     <title>BeatEdit Alternative for DaVinci Resolve (2026)</title>
-    <meta name="description" content="BeatEdit is Premiere-only. Pulse Edit (€13/month) gives DaVinci Resolve editors beat detection, auto-cut and AI mood analysis in 3 clicks, Free or Studio.">
+    <meta name="description" content="BeatEdit for DaVinci Resolve stopped supporting the Free edition after DR 19.1. Pulse Edit works on Free and Studio via OTIO import, and goes past markers to a finished cut.">
     <meta name="keywords" content="beatedit alternative, beatedit alternative davinci resolve, beatedit vs pulse edit, best beat marker plugin davinci resolve, beatedit replacement, beat sync plugin resolve">
     <meta property="og:title" content="Best BeatEdit Alternative for DaVinci Resolve (2026 Comparison)">
     <meta property="og:description" content="Compare BeatEdit vs Pulse Edit for DaVinci Resolve. Features, pricing, and why editors are switching to Pulse Edit in 2026.">
@@ -217,7 +217,7 @@
         <div class="article-body">
             <div class="container">
 
-                <p>BeatEdit has been a go-to beat detection plugin for Premiere Pro editors for years. But if you work in <strong>DaVinci Resolve</strong>, your options have been limited &mdash; BeatEdit doesn't support Resolve natively. Pulse Edit's feature set covers what BeatEdit doesn't &mdash; automatic beat-synced editing and AI mood matching.</p>
+                <p>BeatEdit has been a go-to beat detection plugin for Premiere Pro editors for years. But if you work in <strong>DaVinci Resolve</strong>, your options narrowed &mdash; BeatEdit for DaVinci Resolve stopped supporting the Free edition after DR 19.1. Pulse Edit works on Free and Studio via OTIO import, and goes past markers to a finished cut.</p>
 
                 <p>If you're looking for a <strong>BeatEdit alternative for DaVinci Resolve</strong>, this guide compares the top options in 2026: what they do, what they cost, and which one actually saves you time on the timeline.</p>
 
@@ -226,11 +226,10 @@
                 <p>BeatEdit by Mamoworld is a beat detection extension originally built for Adobe Premiere Pro. It analyzes music, detects beats, and places markers on the timeline. That's useful &mdash; but it comes with real limitations:</p>
 
                 <ul>
-                    <li><strong>Premiere Pro only</strong> &mdash; no native DaVinci Resolve support. If you've moved to Resolve, BeatEdit doesn't follow you.</li>
-                    <li><strong>Markers only</strong> &mdash; BeatEdit places markers but doesn't do anything with them. You still have to manually cut, trim, and arrange every clip by hand.</li>
+                    <li><strong>DaVinci Resolve Free is out</strong> &mdash; mamoworld sells BeatEdit for DaVinci Resolve, but since DaVinci Resolve 19.1 (November 2024) Blackmagic restricted the scripting API to Studio, and mamoworld states on the product page that the Free edition is no longer supported. On DR Free you need a tool that doesn't use the API.</li>
+                    <li><strong>Markers, not a finished cut</strong> &mdash; BeatEdit places beat markers and can cut the music track itself; it does not pull clips from your Media Pool and lay them on the beat.</li>
                     <li><strong>No auto-editing</strong> &mdash; no automatic clip placement on the beat. It's a detection tool, not an editing tool.</li>
-                    <li><strong>Adobe ecosystem dependency</strong> &mdash; requires an active Adobe Creative Cloud subscription for Premiere Pro, which uses a monthly subscription model.</li>
-                    <li><strong>No AI features</strong> &mdash; no mood detection, no intelligent clip matching. It gives you beat positions and nothing more.</li>
+                    <li><strong>No mood-driven pattern</strong> &mdash; mamoworld does not advertise mood detection or automatic clip matching; BeatEdit's detection uses a published research algorithm (University of Porto / University of Victoria).</li>
                 </ul>
 
                 <p>For editors who just need marker placement in Premiere, BeatEdit works. But if you're on DaVinci Resolve and want more than markers, you need a different tool.</p>
@@ -267,7 +266,7 @@
                     <tbody>
                         <tr>
                             <td><strong>DaVinci Resolve support</strong></td>
-                            <td class="cross">No</td>
+                            <td>Yes &mdash; BeatEdit for DaVinci Resolve, $49.99; Studio only since DR 19.1 (Nov 2024)</td>
                             <td class="highlight-col check">Yes</td>
                         </tr>
                         <tr>
@@ -292,24 +291,24 @@
                         </tr>
                         <tr>
                             <td><strong>Pricing model</strong></td>
-                            <td>a paid one-time license (per the official mamoworld site)</td>
+                            <td>$49.99 one-time (mamoworld, price checked April 2026)</td>
                             <td class="highlight-col"><strong>&euro;13/month</strong> (VAT incl., cancel any time)</td>
                         </tr>
                         <tr>
                             <td><strong>Platform</strong></td>
-                            <td>Premiere Pro</td>
+                            <td>Premiere Pro, DaVinci Resolve, After Effects, Audition</td>
                             <td class="highlight-col">DaVinci Resolve</td>
                         </tr>
                         <tr>
                             <td><strong>Free trial</strong></td>
-                            <td class="cross">No</td>
+                            <td class="check">Yes &mdash; free trial version on aescripts.com</td>
                             <td class="highlight-col check">Yes (3 uses)</td>
                         </tr>
                     </tbody>
                 </table>
 
                 <div class="tip-box">
-                    <p><strong>Bottom line:</strong> If you use DaVinci Resolve, Pulse Edit is the only tool in this comparison that actually works with your NLE. And it does significantly more than just placing markers.</p>
+                    <p><strong>Bottom line:</strong> If you use DaVinci Resolve, Pulse Edit is the only tool in this comparison that actually works with your NLE on the free edition of DaVinci Resolve. And it does significantly more than just placing markers.</p>
                 </div>
 
                 <h2>How to Switch from BeatEdit to Pulse Edit</h2>
@@ -364,7 +363,7 @@
             </div>
         </div>
     
-<p style="font-size:13px;color:var(--muted);margin-top:32px;border-top:1px solid var(--line);padding-top:16px;">BeatEdit is a trademark of mamoworld. Pulse Edit is not affiliated with these companies. Pricing references current as of April 2026 &mdash; check vendor sites for the latest.</p>
+<p style="font-size:13px;color:var(--muted);margin-top:32px;border-top:1px solid var(--line);padding-top:16px;">BeatEdit is a trademark of mamoworld (Mathias Möhl). Pulse Edit is not affiliated with, endorsed by, or sponsored by mamoworld. Feature and pricing details verified on mamoworld.com and the aescripts product pages on 7 September 2026 &mdash; check the vendor sites for the latest.</p>
 
 <div style="margin:40px 0 24px;padding:24px;background:#f5f3ff;border-left:4px solid #7c6ff7;border-radius:4px">
   <p style="margin:0;font-size:15px;color:#1a1a1a"><strong>📖 Want the full picture?</strong> Read our <a href="/complete-guide-davinci-resolve-music-editing.html" style="color:var(--accent-ink);text-decoration:underline;font-weight:600">Complete Guide to DaVinci Resolve Music Editing (2026)</a> — 3500+ words covering fundamentals, manual vs automatic workflows, advanced techniques, and 10 mistakes to avoid.</p>
@@ -388,9 +387,10 @@
         <div class="container">
             <p style="margin-bottom: 8px;"><strong>Pulse Edit</strong> &mdash; Auto-edit videos to the beat in DaVinci Resolve</p>
             <p>Made by <a href="https://www.instagram.com/aki.vhs/" target="_blank">Abramo Benedetti</a> &mdash; Professional Video Editor</p>
-            <p style="margin-top: 8px;"><a href="/about.html" style="margin-right:16px;">About</a> <a href="/privacy.html" style="margin-right:16px;">Privacy Policy</a> <a href="/terms.html">Terms of Service</a></p>
+            <p style="margin-top: 8px;"><a href="/about.html" style="margin-right:16px;">About</a> <a href="/privacy.html" style="margin-right:16px;">Privacy Policy</a> <a href="/terms.html" style="margin-right:16px;">Terms of Service</a> <a href="/withdrawal.html">Refunds &amp; Withdrawal</a></p>
         </div>
-    </footer>
+    <p style="margin:10px 0 0;font-size:12px;color:#8b8b9a">© 2026 AB Tools di Abramo Benedetti · P.IVA / VAT IT02742450469 · <a href="/privacy.html" style="color:#8b8b9a">Privacy</a> · <a href="/terms.html" style="color:#8b8b9a">Terms</a> · <a href="/withdrawal.html" style="color:#8b8b9a">Refunds &amp; Withdrawal</a></p>
+</footer>
 
 <div id="cookie-modal" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(8,8,16,0.88);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px;">
   <div style="max-width:440px;width:100%;background:#15151f;border:1px solid rgba(124,111,247,0.3);border-radius:16px;padding:32px;text-align:center;box-shadow:0 24px 70px rgba(0,0,0,0.6);">

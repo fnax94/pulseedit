@@ -70,8 +70,9 @@
       'max-width:440px;width:100%;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,0.5);">' +
       '<h3 style="color:#fff;font-size:1.25rem;margin:0 0 12px;">Cookies</h3>' +
       '<p style="color:#a0a0b8;font-size:14px;line-height:1.6;margin:0 0 24px;">' +
-      'This website uses cookies to enhance your browsing experience and analyze site performance. ' +
-      'Cookies are not enabled until you accept. You may update your preferences anytime from the footer. ' +
+      'This website uses analytics cookies and third-party measurement tools (Google Analytics, Cloudflare) to see how the site is used. ' +
+      'No analytics cookies are loaded until you accept. ' +
+      'You can change your choice anytime with the “🍪 Manage cookies” button at the bottom-left of any page. ' +
       '<a href="/privacy.html" style="color:#7c6ff7;">Privacy Policy</a></p>' +
       '<div style="display:flex;gap:10px;">' +
       '<button type="button" data-cc="decline" style="flex:1;background:#2a2a3e;color:#fff;' +
@@ -209,7 +210,17 @@
   function avvia() {
     var stato = consenso();
     if (stato === 'accepted') attiva();
-    else if (!stato) mostraModal();   // «declined» resta declined: non si richiede
+    // ⛔ NON si auto-apre sulle pagine che SONO l'informativa: un modal a tutto schermo
+    //    sopra la cookie policy impedisce di leggere proprio il documento che il banner
+    //    cita («maggiori informazioni nella Privacy Policy»). Linee guida Garante
+    //    10/06/2021: l'utente dev'essere in grado di consultare l'informativa senza
+    //    dover prima esprimere una scelta. Il banner resta ovunque altro, e da qui si
+    //    apre a mano con la pillola «Manage cookies» (window.manageCookies).
+    //    ⚠️ Questo NON allenta il consenso: senza «accepted» non parte comunque nulla
+    //    (attiva() e' chiamata solo nel ramo sopra) — misurato con consenso.py.
+    else if (!stato && !/^\/(privacy|cookie[-a-z]*)\.html$/.test(location.pathname)) {
+      mostraModal();                  // «declined» resta declined: non si richiede
+    }
     costruisciLink();
   }
 

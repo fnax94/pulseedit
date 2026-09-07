@@ -117,7 +117,7 @@
                 "name": "Do the symlink or environment-variable workarounds restore the scripting API on DR Free?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "No. Symlinking the Studio API folder and setting environment variables both fail, because the edition check runs inside Resolve itself — the missing path is not the gate. Downgrading to Resolve 19.0 or 18.x works temporarily but forfeits later fixes and re-breaks on the next update. The two reliable options are buying DaVinci Resolve Studio (€295 one-time) or switching to the OTIO import workflow, which is a permanent fix that keeps you on current Resolve Free."
+                    "text": "No. Symlinking the Studio API folder and setting environment variables both fail, because the edition check runs inside Resolve itself — the missing path is not the gate. Downgrading to Resolve 19.0 or 18.x works temporarily but forfeits later fixes and re-breaks on the next update. The two reliable options are buying DaVinci Resolve Studio (US$295 / €255 one-time) or switching to the OTIO import workflow, which is a permanent fix that keeps you on current Resolve Free."
                 }
             },
             {
@@ -133,7 +133,7 @@
                 "name": "What is Pulse Edit and what does it do?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Pulse Edit is a standalone beat-synced editor (€13/month, VAT included, cancel any time in one click — no lock-in) that works with every version of DaVinci Resolve — Free and Studio, 18.5+ — through OTIO export. It does two things: automatic beat-synced editing that detects the beats and auto-cuts and places clips from your Media Pool on the beat using 5 cut patterns (Every Beat, Beat + Upbeat, Half Time, Every Bar, Wedding) plus an Energy Map toggle, plus an Auto pattern from mood mode that reads the mood of the music and picks the editing pattern for you. It runs on macOS (Apple Silicon) and Windows 10/11, and comes with a 14-day money-back guarantee."
+                    "text": "Pulse Edit is a standalone beat-synced editor (€13/month, VAT included, cancel any time in one click — no lock-in) that works with every version of DaVinci Resolve — Free and Studio, 18.5+ — through OTIO export. It does two things: automatic beat-synced editing that detects the beats and auto-cuts and places clips from your Media Pool on the beat using 11 cut patterns — Energy Map (Auto, the default), Every Beat, Every Bar (4/4), Beat + Upbeat, Half Time, Fast &rarr; Slow, Slow &rarr; Fast, Buildup, Wedding / Slow, Random Energy Fast and Random Energy Slow, plus an Auto pattern from mood mode that reads the mood of the music and picks the editing pattern for you. It runs on macOS (Apple Silicon) and Windows 10/11, and comes with a 14-day money-back guarantee."
                 }
             }
         ]
@@ -210,7 +210,7 @@
             <div class="seo-breadcrumb"><a href="/">Home</a> &rsaquo; DR Free Scripting API Removed (Workaround)</div>
             <div class="badge-pill">Resolve 19.1 — Updated June 2026</div>
             <h1>DR Free scripting API removed — what changed and the <span>workaround</span></h1>
-            <p class="lede">DaVinci Resolve 19.1 quietly rolled back third-party scripting on the free edition. If you saw your favourite beat-sync or auto-edit plugin stop working in late 2024, this is why — and OTIO export is the route forward.</p>
+            <p class="lede">DaVinci Resolve 19.1 changed what third-party scripts can do on the free edition. If you saw your favourite beat-sync or auto-edit plugin stop working in late 2024, this is why — and OTIO export is the route forward.</p>
             <div class="pe-cta-row" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
                 <a href="/pulse-edit-free.html" class="btn btn-primary">Get Pulse Edit →</a>
                 <a href="/otio-import-davinci-resolve-free.html" class="btn btn-secondary">OTIO import guide</a>
@@ -222,16 +222,16 @@
         <div class="container">
             <div class="content">
                 <h2>The change, in one paragraph</h2>
-                <p>Blackmagic Design ships two versions of DaVinci Resolve: a free edition and Studio (one-time paid licence). Both share the same code, but Studio unlocks features like noise reduction, optical flow, neural engine, and — until late 2024 — the external scripting interface. With Resolve <strong>19.1</strong>, the external scripting interface became Studio-only. Free-edition users no longer have a working <code>DaVinciResolveScript</code> bridge.</p>
+                <p>Blackmagic Design ships two versions of DaVinci Resolve: a free edition and Studio (one-time paid licence). Both share the same code, but Studio unlocks features like noise reduction, optical flow, neural engine, and — until late 2024 — the external scripting interface. From Resolve <strong>19.1</strong> (November 2024) Blackmagic introduced limitations on the free edition that prevent third-party scripts from creating their own user interface, so tools that drove Resolve from an outside process stopped working there. Blackmagic's own scripting documentation describes the API as being for DaVinci Resolve Studio (Help → Documentation → Developer), and mamoworld documents the same change on its <a href="https://aescripts.com/beatedit-for-davinci-resolve/" rel="nofollow noopener" target="_blank">BeatEdit for DaVinci Resolve</a> page, under "Resolve Free vs. Studio: BeatEdit Compatibility".</p>
 
                 <div class="seo-warn">
-                    <p><strong>Concrete effect:</strong> any tool that connects to Resolve from a separate process — to read your timeline, push markers, place clips, modify projects — silently stops working on the free edition. The Resolve binary still launches, but the scripting endpoint refuses the connection.</p>
+                    <p><strong>Concrete effect:</strong> any tool that connects to Resolve from a separate process — to read your timeline, push markers, place clips, modify projects — silently stops working on the free edition. The Resolve binary still launches, but the scripted integration no longer works on the free edition.</p>
                 </div>
 
                 <h2>Why the old plugins broke — quick answers</h2>
 
                 <h3>What exactly changed in DaVinci Resolve 19.1?</h3>
-                <p>The external scripting interface (<code>DaVinciResolveScript</code>) became Studio-only as of Resolve 19.1, released November 2024. On the Free edition the bridge no longer accepts connections, so any tool that scripted Resolve from a separate process stopped working.</p>
+                <p>The external scripting interface (<code>DaVinciResolveScript</code>) became Studio-only as of Resolve 19.1, released November 2024. On the Free edition the scripted integration no longer works, so any tool that scripted Resolve from a separate process stopped working there.</p>
 
                 <h3>Why did beat-detection plugins stop working?</h3>
                 <p>Most Resolve beat-detection plugins ran as an external app or Python script that imported <code>DaVinciResolveScript</code>, then called into the live Resolve instance to read the timeline and add markers or place clips. Every step depended on Blackmagic keeping the bridge alive. When the bridge went Studio-only, that whole pattern collapsed on the Free edition.</p>
@@ -248,7 +248,7 @@
                     <li><strong>Symlink the Studio API folder.</strong> Doesn't help — the binary refuses connections, the missing path isn't the gate.</li>
                     <li><strong>Set environment variables.</strong> No effect; the check is on Resolve's side.</li>
                     <li><strong>Downgrade to 19.0 or 18.x.</strong> Works, but you lose every fix and improvement BMD has shipped since.</li>
-                    <li><strong>Buy Studio.</strong> The real fix BMD offers — €295 one-time. Not bad value, but not what every hobbyist or starter editor wants to spend.</li>
+                    <li><strong>Buy Studio.</strong> The real fix BMD offers — US$295 / €255 one-time from Blackmagic (list price, September 2026). Not bad value, but not what every hobbyist or starter editor wants to spend.</li>
                 </ul>
 
                 <h2>Concrete solutions — what actually works</h2>
@@ -282,7 +282,7 @@
                         <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
                             <td style="padding:10px 12px;"><strong>Buy DaVinci Resolve Studio</strong></td>
                             <td style="padding:10px 12px;color:#4ade80;">Yes</td>
-                            <td style="padding:10px 12px;">€295 one-time to Blackmagic — restores scripting, but it is a paid upgrade.</td>
+                            <td style="padding:10px 12px;">US$295 / €255 one-time from Blackmagic (list price, September 2026) — restores scripting, but it is a paid upgrade.</td>
                         </tr>
                         <tr>
                             <td style="padding:10px 12px;"><strong>OTIO import (Pulse Edit)</strong></td>
@@ -336,6 +336,10 @@
     </section>
 
     <section class="container" style="max-width:860px;margin:40px auto;padding:0 20px"><p style="border:1px solid rgba(23,21,15,.2);border-radius:12px;padding:16px 20px;"><strong>New from AB Tools:</strong> <a href="/pulse-color.html">Pulse Color</a> — film looks for DaVinci Resolve Free &amp; Studio. S-Log3, Apple Log and 16 more camera formats to a cinematic look in one node, with Pro-Mist and halation filters. Included with the Pulse license.</p></section>
+<div class="container">
+    <p style="font-size:13px;color:var(--muted);margin-top:32px;border-top:1px solid var(--line);padding-top:16px;">BeatEdit is a trademark of mamoworld (Mathias Möhl). DaVinci Resolve and DaVinci Resolve Studio are trademarks of Blackmagic Design Pty. Ltd. Pulse Edit is an independent third-party product by AB Tools, not affiliated with, endorsed by, or sponsored by these companies. Comparison based on publicly available information as of September 2026; verify current features and pricing on the vendor's official site.</p>
+</div>
+
 <footer>
         <div class="container">
             <p style="margin-bottom: 8px;"><strong>Pulse Edit</strong> — Auto-edit videos to the beat in DaVinci Resolve</p>
@@ -343,7 +347,8 @@
             <p style="margin-top: 8px;">Questions? DM on <a href="https://www.instagram.com/aki.vhs/" target="_blank">Instagram</a> or email <a href="mailto:support@pulseedit.com" style="color:var(--accent-ink);font-weight:600;">support@pulseedit.com</a></p>
             <p style="margin-top: 12px;"><a href="/privacy.html" style="color:var(--accent-ink);text-decoration:none;margin-right:16px;">Privacy Policy</a> <a href="/terms.html" style="color:var(--accent-ink);text-decoration:none;">Terms of Service</a></p>
         </div>
-    </footer>
+    <p style="margin:10px 0 0;font-size:12px;color:#8b8b9a">© 2026 AB Tools di Abramo Benedetti · P.IVA / VAT IT02742450469 · <a href="/privacy.html" style="color:#8b8b9a">Privacy</a> · <a href="/terms.html" style="color:#8b8b9a">Terms</a> · <a href="/withdrawal.html" style="color:#8b8b9a">Refunds &amp; Withdrawal</a></p>
+</footer>
 
     <div id="cookie-modal" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(8,8,16,0.88);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px;">
   <div style="max-width:440px;width:100%;background:#15151f;border:1px solid rgba(124,111,247,0.3);border-radius:16px;padding:32px;text-align:center;box-shadow:0 24px 70px rgba(0,0,0,0.6);">
