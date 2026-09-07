@@ -45,7 +45,7 @@ In November 2024, Blackmagic Design disabled the Scripting API in **DaVinci Reso
 ## Key features
 - Automatic beat-synced editing: detects the music beats and auto-cuts/places clips on the beat
 - Beat detection with downbeat awareness
-- **11 cut patterns** you pick by hand, from the densest to the sparsest: Beat + Upbeat, Every Beat, Half Time, Every Bar 4/4, Wedding/Slow (one cut every 4 beats). **Energy Map** is not a pattern: it is a separate toggle, on by default, that makes whichever pattern you picked follow the song's energy. Buildup, fast→slow, slow→fast and the random-energy variants are still in the engine — "Auto pattern from mood" and "Per-bar dynamic" select them for you.
+- **5 cut patterns** you pick by hand, from the densest to the sparsest: Beat + Upbeat, Every Beat, Half Time, Every Bar 4/4, Wedding/Slow (one cut every 4 beats). **Energy Map** is not a pattern: it is a separate toggle, on by default, that makes whichever pattern you picked follow the song's energy. Buildup, fast→slow, slow→fast and the random-energy variants are still in the engine — "Auto pattern from mood" and "Per-bar dynamic" select them for you.
 - **Chronological order for weddings**: reads each clip's recording time and assembles the day as it happened. Two cameras interleave correctly when their clocks are in sync.
 - AI mood analyzer: reads the mood of the music and adapts the editing pattern
 - Interface in English and Italian
