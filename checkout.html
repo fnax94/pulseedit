@@ -165,6 +165,7 @@
 
             <div class="amt" aria-live="polite"><span id="amt-val">€13</span><small id="amt-per"> / month</small></div>
             <p class="amt__note" id="amt-note">VAT included. Renews monthly until you cancel — in one click, from the customer portal.</p>
+            <p class="amt__note" id="autumn-countdown-note" hidden style="color:var(--accent-ink);font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;">Autumn Sale ends in <span id="autumn-countdown-checkout"></span></p>
 
             <p class="incl__h">What's included</p>
             <ul class="incl">
@@ -272,6 +273,27 @@
         // missed on the first pass, and it sat right above the correct €78 saying €130.
         var ypEl = document.getElementById('plan-yearly-price');
         if (ypEl) ypEl.textContent = '€78 / year';
+
+        // Abramo, 17/09: the countdown should tick on checkout too, not just the homepage
+        // banner — same end time, same per-second tick, same self-hide once it's over.
+        var cdNote = document.getElementById('autumn-countdown-note');
+        var cdSpan = document.getElementById('autumn-countdown-checkout');
+        if (cdNote && cdSpan) {
+          cdNote.hidden = false;
+          var cdEnd = 1790812799000;
+          var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
+          var cdTick = function () {
+            var left = cdEnd - Date.now();
+            if (left <= 0) { cdNote.hidden = true; return; }
+            var d = Math.floor(left / 86400000);
+            var h = Math.floor((left % 86400000) / 3600000);
+            var m = Math.floor((left % 3600000) / 60000);
+            var s = Math.floor((left % 60000) / 1000);
+            cdSpan.textContent = d + 'd ' + pad(h) + ':' + pad(m) + ':' + pad(s);
+          };
+          cdTick();
+          setInterval(cdTick, 1000);
+        }
       }
 
       var stripe = null;          // Stripe.js instance (null when the script was blocked)

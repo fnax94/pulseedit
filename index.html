@@ -61,16 +61,18 @@
   var el = document.getElementById('autumn-banner');
   var span = document.getElementById('autumn-countdown');
   var end = new Date('2026-09-30T23:59:59Z').getTime();
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
   function tick() {
     var left = end - Date.now();
     if (left <= 0) { el.hidden = true; return; }
     var d = Math.floor(left / 86400000);
     var h = Math.floor((left % 86400000) / 3600000);
     var m = Math.floor((left % 3600000) / 60000);
-    span.textContent = d > 0 ? (d + 'd ' + h + 'h') : (h + 'h ' + m + 'm');
+    var s = Math.floor((left % 60000) / 1000);
+    span.textContent = d + 'd ' + pad(h) + ':' + pad(m) + ':' + pad(s);
   }
   tick();
-  setInterval(tick, 60000);
+  setInterval(tick, 1000);
 })();
 </script>
 <header class="nav"><!-- pulse-nav:canonical --><div class="wrap nav__in">
