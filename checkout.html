@@ -159,7 +159,7 @@
                 </button>
                 <button type="button" class="plan" role="radio" aria-checked="false" data-plan="yearly" id="plan-yearly">
                     <span class="plan__name"><span>Yearly</span><span class="plan__tag">2 months free</span><span class="plan__check" aria-hidden="true"></span></span>
-                    <span class="plan__price">€130 / year</span>
+                    <span class="plan__price" id="plan-yearly-price">€130 / year</span>
                 </button>
             </div>
 
@@ -268,6 +268,10 @@
         PLANS.yearly.amount = '€78';
         PLANS.yearly.note = 'Autumn Sale — was €130, now €78 for the year (VAT included). ' +
           'Billed once a year. Renews at €130/year until you cancel, in one click.';
+        // The plan-toggle button's own price label is static markup, not wired to PLANS —
+        // missed on the first pass, and it sat right above the correct €78 saying €130.
+        var ypEl = document.getElementById('plan-yearly-price');
+        if (ypEl) ypEl.textContent = '€78 / year';
       }
 
       var stripe = null;          // Stripe.js instance (null when the script was blocked)
