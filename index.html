@@ -55,7 +55,24 @@
 </head>
 <body>
 <div id="root">
-<a href="/color-demo/" data-track="color-demo-banner" style="display:block;background:#191512;color:#f3efe6;text-align:center;padding:9px 16px;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:12.5px;letter-spacing:.04em;text-decoration:none;"><span style="color:#ff4b33;">NEW</span>&nbsp;&nbsp;Try Pulse Color in your browser — grade a log clip, no install <span style="color:#ff4b33;">→</span></a>
+<a href="/checkout.html?plan=yearly&amp;promo=AUTUMN26" data-track="autumn-sale-banner" id="autumn-banner" style="display:block;background:#191512;color:#f3efe6;text-align:center;padding:9px 16px;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:12.5px;letter-spacing:.04em;text-decoration:none;"><span style="color:#ff4b33;">AUTUMN SALE</span>&nbsp;&nbsp;€78 for the year, was €130 — ends in <span id="autumn-countdown">…</span> <span style="color:#ff4b33;">→</span></a>
+<script>
+(function () {
+  var el = document.getElementById('autumn-banner');
+  var span = document.getElementById('autumn-countdown');
+  var end = new Date('2026-09-30T23:59:59Z').getTime();
+  function tick() {
+    var left = end - Date.now();
+    if (left <= 0) { el.hidden = true; return; }
+    var d = Math.floor(left / 86400000);
+    var h = Math.floor((left % 86400000) / 3600000);
+    var m = Math.floor((left % 3600000) / 60000);
+    span.textContent = d > 0 ? (d + 'd ' + h + 'h') : (h + 'h ' + m + 'm');
+  }
+  tick();
+  setInterval(tick, 60000);
+})();
+</script>
 <header class="nav"><!-- pulse-nav:canonical --><div class="wrap nav__in">
     <a class="brand" href="/" aria-label="Pulse home">Pulse<span class="dot"></span></a>
     <nav class="nav__links">
@@ -144,7 +161,7 @@
     <div class="price-pts">
         <span class="kicker">Pricing</span>
         <h2 class="h-lg" style="margin-top:18px">One license. The whole suite.</h2>
-        <p>No tiers, no add-ons. Everything Pulse Edit, Pulse Studio and Pulse Color do, for €13 a month or €130 a year (two months free). Every new Pulse tool joins the same license.</p>
+        <p>No tiers, no add-ons. Everything Pulse Edit, Pulse Studio and Pulse Color do, for €13 a month — or €78 a year for the rest of September, down from €130. Every new Pulse tool joins the same license.</p>
         <p class="guarantee">14-day money-back guarantee. If it doesn't work on your DaVinci Resolve setup, we fix it or refund you — no questions asked.</p>
         <p class="guarantee">Bought Pulse Edit before July 2026? Your licence stays yours forever.</p>
     </div>
@@ -160,7 +177,7 @@
             <li>macOS &amp; Windows · cancel any time</li>
         </ul>
         <a class="btn btn--lg" href="/checkout.html?plan=monthly" data-track="buy-pricing" style="width:100%;justify-content:center">Get Pulse <span class="arr">→</span></a>
-        <p style="font-size:14px;margin-top:14px;margin-bottom:0;text-align:center"><a href="/checkout.html?plan=yearly" data-track="buy-yearly">Pay €130 for the year</a> and get two months free.</p>
+        <p style="font-size:14px;margin-top:14px;margin-bottom:0;text-align:center"><a href="/checkout.html?plan=yearly&amp;promo=AUTUMN26" data-track="buy-yearly">Pay €78 for the year</a> <span style="color:var(--faint)">(was €130)</span> — Autumn Sale, ends Sep 30.</p>
         <p style="font-family:var(--font-mono);font-size:12px;color:var(--faint);margin-top:10px;margin-bottom:0;text-align:center">VAT included. Renews until you cancel. <a href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Cancel in one click</a>.</p>
     </div>
 </div></section>

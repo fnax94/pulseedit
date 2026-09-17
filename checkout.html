@@ -217,7 +217,7 @@
                         <div class="pay-state__t">Continue on Stripe</div>
                         <p>Checkout needs JavaScript to load here. You can pay on Stripe's hosted page instead — same payment options, same license.</p>
                         <a class="btn btn--lg" href="https://buy.stripe.com/7sY8wObqu6Zm5gs3YFawo0m" rel="noopener">Continue to secure checkout →</a>
-                        <p class="pay-state__why">Monthly, €13. Prefer yearly? <a href="https://buy.stripe.com/14A28qgKOdnKgZafHnawo0n" rel="noopener" style="color:var(--accent-ink);text-decoration:underline;">€130 / year, two months free</a>.</p>
+                        <p class="pay-state__why">Monthly, €13. Prefer yearly? <a href="https://buy.stripe.com/14A28qgKOdnKgZafHnawo0n?prefilled_promo_code=AUTUMN26" rel="noopener" style="color:var(--accent-ink);text-decoration:underline;">€78 / year with code AUTUMN26</a> (Autumn Sale, normally €130).</p>
                     </div>
                 </noscript>
             </div>
@@ -261,6 +261,14 @@
       var plan = q.get('plan') === 'yearly' ? 'yearly' : 'monthly';
       var promo = String(q.get('promo') || '').trim();
       if (!/^[A-Za-z0-9_-]{1,32}$/.test(promo)) promo = '';
+      // Autumn Sale (AUTUMN26, -€52 once, yearly only, live until 30 Sep 2026): the
+      // static summary must show what Stripe will actually total, or the embedded
+      // iframe's real price looks like a mismatch against this page's own number.
+      if (promo === 'AUTUMN26' && plan === 'yearly' && Date.now() < 1790812799000) {
+        PLANS.yearly.amount = '€78';
+        PLANS.yearly.note = 'Autumn Sale — was €130, now €78 for the year (VAT included). ' +
+          'Billed once a year. Renews at €130/year until you cancel, in one click.';
+      }
 
       var stripe = null;          // Stripe.js instance (null when the script was blocked)
       var checkout = null;        // live EmbeddedCheckout instance
