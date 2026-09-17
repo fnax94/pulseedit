@@ -306,23 +306,37 @@
           var s = Math.floor((left % 60000) / 1000);
           bd.textContent = pad(d); bh.textContent = pad(h);
           bm.textContent = pad(m); bs.textContent = pad(s);
-          cdNote.hidden = (plan !== 'yearly');
         };
         tick();
         setInterval(tick, 1000);
       }
       function applyAutumnSale() {
-        if (Date.now() >= AUTUMN_SALE_END) return;          // sale over: leave everything at full price
-        if (plan === 'yearly' && !promo) promo = 'AUTUMN26'; // the default for THIS page, not other codes
-        if (promo !== 'AUTUMN26') return;                    // a different code: let Stripe judge it, untouched
+        if (Date.now() >= AUTUMN_SALE_END) return;   // sale over: leave everything at full price
+        if (promo && promo !== 'AUTUMN26') return;   // someone else's code: its own price, untouched
+
+        // ⛔ 17/09, Abramo: landing on Monthly and reading «€130 / year» on the Yearly
+        //    button, then watching it flip to €78 the moment you click it, reads like a
+        //    trick. The yearly option ADVERTISES the sale price from the first paint,
+        //    whatever plan happens to be selected.
         PLANS.yearly.amount = '€78';
         PLANS.yearly.note = 'Autumn Sale — was €130, now €78 for the year (VAT included). ' +
           'Billed once a year. Renews at €130/year until you cancel, in one click.';
-        // The plan-toggle button's own price label is static markup, not wired to PLANS.
-        var ypEl = $('plan-yearly-price');
+        var ypEl = $('plan-yearly-price');   // static markup, not wired to PLANS
         if (ypEl) ypEl.textContent = '€78 / year';
+
+        // ⛔⛔ …but the CODE only travels with a YEARLY session, and it must be REMOVED
+        //    when you switch back. The coupon is −€52 flat: on a €13 monthly invoice
+        //    Stripe caps it at the total and the first month goes out FREE. Caught by the
+        //    check below on 17/09 — setting it on yearly was guarded, clearing it on the
+        //    way back was not, so yearly→monthly leaked a free month to anyone toggling.
+        if (plan === 'yearly') {
+          if (!promo) promo = 'AUTUMN26';
+        } else if (promo === 'AUTUMN26') {
+          promo = '';
+        }
+
         var cdNote = $('autumn-countdown-note');
-        if (cdNote) cdNote.hidden = (plan !== 'yearly');
+        if (cdNote) cdNote.hidden = false;   // the sale is on: say so on both plans
         startAutumnCountdown();
       }
       applyAutumnSale();
