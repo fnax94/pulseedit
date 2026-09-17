@@ -262,39 +262,51 @@
       var plan = q.get('plan') === 'yearly' ? 'yearly' : 'monthly';
       var promo = String(q.get('promo') || '').trim();
       if (!/^[A-Za-z0-9_-]{1,32}$/.test(promo)) promo = '';
-      // Autumn Sale (AUTUMN26, -€52 once, yearly only, live until 30 Sep 2026): the
-      // static summary must show what Stripe will actually total, or the embedded
-      // iframe's real price looks like a mismatch against this page's own number.
-      if (promo === 'AUTUMN26' && plan === 'yearly' && Date.now() < 1790812799000) {
+      // ⛔⭐ Autumn Sale (AUTUMN26, -€52 once, yearly only, live until 30 Sep 2026 23:59 UTC).
+      //    17/09 — first cut only applied this when `?promo=AUTUMN26` was already in the
+      //    URL. Almost every CTA on the site links to `?plan=monthly` with no promo (the
+      //    sale only concerns yearly), so the common path — land on Monthly, click the
+      //    Yearly toggle right here on the page — never ran this block, and `promo` stayed
+      //    empty: not just the display, but the ACTUAL Stripe session `mount()` creates
+      //    (POST body `{plan, promo}`) would have charged full price. The sale has to be
+      //    a property of "yearly, during the window", not of one specific URL.
+      var AUTUMN_SALE_END = 1790812799000;
+      var autumnCountdownStarted = false;
+      function startAutumnCountdown() {
+        if (autumnCountdownStarted) return;
+        autumnCountdownStarted = true;
+        var cdNote = $('autumn-countdown-note');
+        var cdSpan = $('autumn-countdown-checkout');
+        if (!cdNote || !cdSpan) return;
+        var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
+        var tick = function () {
+          var left = AUTUMN_SALE_END - Date.now();
+          if (left <= 0) { cdNote.hidden = true; return; }
+          var d = Math.floor(left / 86400000);
+          var h = Math.floor((left % 86400000) / 3600000);
+          var m = Math.floor((left % 3600000) / 60000);
+          var s = Math.floor((left % 60000) / 1000);
+          cdSpan.textContent = d + 'd ' + pad(h) + ':' + pad(m) + ':' + pad(s);
+          cdNote.hidden = (plan !== 'yearly');
+        };
+        tick();
+        setInterval(tick, 1000);
+      }
+      function applyAutumnSale() {
+        if (Date.now() >= AUTUMN_SALE_END) return;          // sale over: leave everything at full price
+        if (plan === 'yearly' && !promo) promo = 'AUTUMN26'; // the default for THIS page, not other codes
+        if (promo !== 'AUTUMN26') return;                    // a different code: let Stripe judge it, untouched
         PLANS.yearly.amount = '€78';
         PLANS.yearly.note = 'Autumn Sale — was €130, now €78 for the year (VAT included). ' +
           'Billed once a year. Renews at €130/year until you cancel, in one click.';
-        // The plan-toggle button's own price label is static markup, not wired to PLANS —
-        // missed on the first pass, and it sat right above the correct €78 saying €130.
-        var ypEl = document.getElementById('plan-yearly-price');
+        // The plan-toggle button's own price label is static markup, not wired to PLANS.
+        var ypEl = $('plan-yearly-price');
         if (ypEl) ypEl.textContent = '€78 / year';
-
-        // Abramo, 17/09: the countdown should tick on checkout too, not just the homepage
-        // banner — same end time, same per-second tick, same self-hide once it's over.
-        var cdNote = document.getElementById('autumn-countdown-note');
-        var cdSpan = document.getElementById('autumn-countdown-checkout');
-        if (cdNote && cdSpan) {
-          cdNote.hidden = false;
-          var cdEnd = 1790812799000;
-          var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
-          var cdTick = function () {
-            var left = cdEnd - Date.now();
-            if (left <= 0) { cdNote.hidden = true; return; }
-            var d = Math.floor(left / 86400000);
-            var h = Math.floor((left % 86400000) / 3600000);
-            var m = Math.floor((left % 3600000) / 60000);
-            var s = Math.floor((left % 60000) / 1000);
-            cdSpan.textContent = d + 'd ' + pad(h) + ':' + pad(m) + ':' + pad(s);
-          };
-          cdTick();
-          setInterval(cdTick, 1000);
-        }
+        var cdNote = $('autumn-countdown-note');
+        if (cdNote) cdNote.hidden = (plan !== 'yearly');
+        startAutumnCountdown();
       }
+      applyAutumnSale();
 
       var stripe = null;          // Stripe.js instance (null when the script was blocked)
       var checkout = null;        // live EmbeddedCheckout instance
@@ -540,6 +552,8 @@
           var next = this.getAttribute('data-plan');
           if (next === plan || !PLANS[next]) return;
           plan = next;
+          applyAutumnSale();   // switching TO yearly during the sale must apply it here too,
+                                // not just when the URL already had ?promo=AUTUMN26 in it
           render();
           mount();          // rimonta il modulo; la sessione si crea solo al PRIMO uso di ogni piano
         });
