@@ -60,6 +60,8 @@
 .pcd__u{flex:0 0 auto;min-width:76px;background:#191512;color:#f3efe6;border-radius:10px;padding:11px 6px 9px}
 .pcd__n{display:block;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:38px;line-height:1;font-weight:700;font-variant-numeric:tabular-nums}
 .pcd__t{display:block;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.65;margin-top:7px}
+.pcd--hero{display:block;text-decoration:none;color:inherit;max-width:420px;margin:26px 0 0;transition:transform .12s ease,box-shadow .12s ease}
+.pcd--hero:hover{transform:translateY(-2px);box-shadow:0 6px 0 0 rgba(232,71,43,.25)}
 @media(max-width:560px){.pcd__u{min-width:62px;padding:9px 4px 7px}.pcd__n{font-size:28px}.pcd__row{gap:6px}}
 </style>
 </head>
@@ -71,31 +73,27 @@
   var el = document.getElementById('autumn-banner');
   var span = document.getElementById('autumn-countdown');
   var end = new Date('2026-09-30T23:59:59Z').getTime();
-  // ⛔ This script sits right under the banner, so the big countdown block down in the
-  //    pricing section does NOT exist yet when it first runs: the elements are looked up
-  //    lazily on each tick until they're found, not once up here (where they'd all be null).
-  var block = null, bd = null, bh = null, bm = null, bs = null;
-  function grab() {
-    if (bd) return;
-    block = document.getElementById('pcd');
-    bd = document.getElementById('pcd-d'); bh = document.getElementById('pcd-h');
-    bm = document.getElementById('pcd-m'); bs = document.getElementById('pcd-s');
-  }
+  // ⛔ This script sits right under the banner, so the countdown blocks further down the
+  //    page don't exist yet on the first run: they're re-queried on every tick. There are
+  //    two of them (hero + pricing) and both move together — hence [data-cd], not ids.
   function pad(n) { return n < 10 ? '0' + n : '' + n; }
   function tick() {
-    grab();
     var left = end - Date.now();
+    var blocchi = document.querySelectorAll('.pcd');
     if (left <= 0) {
       if (el) el.hidden = true;
-      if (block) block.hidden = true;
+      blocchi.forEach(function (b) { b.hidden = true; });
       return;
     }
     var d = Math.floor(left / 86400000);
     var h = Math.floor((left % 86400000) / 3600000);
     var m = Math.floor((left % 3600000) / 60000);
     var s = Math.floor((left % 60000) / 1000);
-    if (span) span.textContent = d + 'd ' + pad(h) + ':' + pad(m) + ':' + pad(s);
-    if (bd) { bd.textContent = pad(d); bh.textContent = pad(h); bm.textContent = pad(m); bs.textContent = pad(s); }
+    var v = { d: pad(d), h: pad(h), m: pad(m), s: pad(s) };
+    if (span) span.textContent = d + 'd ' + v.h + ':' + v.m + ':' + v.s;
+    document.querySelectorAll('[data-cd]').forEach(function (n) {
+      n.textContent = v[n.getAttribute('data-cd')];
+    });
   }
   tick();
   document.addEventListener('DOMContentLoaded', tick);
@@ -138,6 +136,16 @@
         <a class="btn btn--lg" href="/checkout.html?plan=monthly" data-track="buy-hero">Get Pulse — €13/mo <span class="arr">→</span></a>
         <a class="btn btn--ghost btn--lg" href="#products">See the tools ↓</a>
     </div>
+
+    <a class="pcd pcd--hero" id="pcd-hero" href="/checkout.html?plan=yearly&amp;promo=AUTUMN26" data-track="autumn-sale-hero">
+        <div class="pcd__label">Autumn Sale · €78 / year <s style="opacity:.55">€130</s> · ends in</div>
+        <div class="pcd__row">
+            <div class="pcd__u"><span class="pcd__n" data-cd="d">--</span><span class="pcd__t">days</span></div>
+            <div class="pcd__u"><span class="pcd__n" data-cd="h">--</span><span class="pcd__t">hours</span></div>
+            <div class="pcd__u"><span class="pcd__n" data-cd="m">--</span><span class="pcd__t">min</span></div>
+            <div class="pcd__u"><span class="pcd__n" data-cd="s">--</span><span class="pcd__t">sec</span></div>
+        </div>
+    </a>
     <div class="hero__trust"><span>Works on DR Free &amp; Studio</span><span>macOS &amp; Windows, signed</span><span>Cancel any time</span></div>
 </div></section>
 
@@ -195,10 +203,10 @@
         <div class="pcd" id="pcd">
             <div class="pcd__label">Autumn Sale · €78 / year <s style="opacity:.55">€130</s> · ends in</div>
             <div class="pcd__row">
-                <div class="pcd__u"><span class="pcd__n" id="pcd-d">--</span><span class="pcd__t">days</span></div>
-                <div class="pcd__u"><span class="pcd__n" id="pcd-h">--</span><span class="pcd__t">hours</span></div>
-                <div class="pcd__u"><span class="pcd__n" id="pcd-m">--</span><span class="pcd__t">min</span></div>
-                <div class="pcd__u"><span class="pcd__n" id="pcd-s">--</span><span class="pcd__t">sec</span></div>
+                <div class="pcd__u"><span class="pcd__n" data-cd="d">--</span><span class="pcd__t">days</span></div>
+                <div class="pcd__u"><span class="pcd__n" data-cd="h">--</span><span class="pcd__t">hours</span></div>
+                <div class="pcd__u"><span class="pcd__n" data-cd="m">--</span><span class="pcd__t">min</span></div>
+                <div class="pcd__u"><span class="pcd__n" data-cd="s">--</span><span class="pcd__t">sec</span></div>
             </div>
         </div>
 

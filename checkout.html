@@ -178,10 +178,10 @@
             <div class="pcd" id="autumn-countdown-note" hidden>
                 <div class="pcd__label">Autumn Sale · €78 / year <s style="opacity:.55">€130</s> · ends in</div>
                 <div class="pcd__row">
-                    <div class="pcd__u"><span class="pcd__n" id="pcd-d">--</span><span class="pcd__t">days</span></div>
-                    <div class="pcd__u"><span class="pcd__n" id="pcd-h">--</span><span class="pcd__t">hours</span></div>
-                    <div class="pcd__u"><span class="pcd__n" id="pcd-m">--</span><span class="pcd__t">min</span></div>
-                    <div class="pcd__u"><span class="pcd__n" id="pcd-s">--</span><span class="pcd__t">sec</span></div>
+                    <div class="pcd__u"><span class="pcd__n" data-cd="d">--</span><span class="pcd__t">days</span></div>
+                    <div class="pcd__u"><span class="pcd__n" data-cd="h">--</span><span class="pcd__t">hours</span></div>
+                    <div class="pcd__u"><span class="pcd__n" data-cd="m">--</span><span class="pcd__t">min</span></div>
+                    <div class="pcd__u"><span class="pcd__n" data-cd="s">--</span><span class="pcd__t">sec</span></div>
                 </div>
             </div>
 
@@ -294,8 +294,7 @@
         if (autumnCountdownStarted) return;
         autumnCountdownStarted = true;
         var cdNote = $('autumn-countdown-note');
-        var bd = $('pcd-d'), bh = $('pcd-h'), bm = $('pcd-m'), bs = $('pcd-s');
-        if (!cdNote || !bd) return;
+        if (!cdNote || !document.querySelector('[data-cd]')) return;
         var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
         var tick = function () {
           var left = AUTUMN_SALE_END - Date.now();
@@ -304,8 +303,10 @@
           var h = Math.floor((left % 86400000) / 3600000);
           var m = Math.floor((left % 3600000) / 60000);
           var s = Math.floor((left % 60000) / 1000);
-          bd.textContent = pad(d); bh.textContent = pad(h);
-          bm.textContent = pad(m); bs.textContent = pad(s);
+          var v = { d: pad(d), h: pad(h), m: pad(m), s: pad(s) };
+          document.querySelectorAll('[data-cd]').forEach(function (n) {
+            n.textContent = v[n.getAttribute('data-cd')];
+          });
         };
         tick();
         setInterval(tick, 1000);
