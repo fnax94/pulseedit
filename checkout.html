@@ -112,6 +112,16 @@
         .plans{grid-template-columns:1fr;}
       }
     </style>
+<style>
+/* Autumn Sale countdown — same component as index.html */
+.pcd{border:2px solid #e8472b;border-radius:14px;padding:16px 18px 18px;background:rgba(232,71,43,.07);margin:22px 0;text-align:center}
+.pcd__label{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:#c2371d;font-weight:600;margin-bottom:13px}
+.pcd__row{display:flex;gap:9px;justify-content:center}
+.pcd__u{flex:0 0 auto;min-width:76px;background:#191512;color:#f3efe6;border-radius:10px;padding:11px 6px 9px}
+.pcd__n{display:block;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:38px;line-height:1;font-weight:700;font-variant-numeric:tabular-nums}
+.pcd__t{display:block;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.65;margin-top:7px}
+@media(max-width:560px){.pcd__u{min-width:62px;padding:9px 4px 7px}.pcd__n{font-size:28px}.pcd__row{gap:6px}}
+</style>
 </head>
 <body>
 <div id="root">
@@ -165,7 +175,15 @@
 
             <div class="amt" aria-live="polite"><span id="amt-val">€13</span><small id="amt-per"> / month</small></div>
             <p class="amt__note" id="amt-note">VAT included. Renews monthly until you cancel — in one click, from the customer portal.</p>
-            <p class="amt__note" id="autumn-countdown-note" hidden style="color:var(--accent-ink);font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;">Autumn Sale ends in <span id="autumn-countdown-checkout"></span></p>
+            <div class="pcd" id="autumn-countdown-note" hidden>
+                <div class="pcd__label">Autumn Sale · €78 / year <s style="opacity:.55">€130</s> · ends in</div>
+                <div class="pcd__row">
+                    <div class="pcd__u"><span class="pcd__n" id="pcd-d">--</span><span class="pcd__t">days</span></div>
+                    <div class="pcd__u"><span class="pcd__n" id="pcd-h">--</span><span class="pcd__t">hours</span></div>
+                    <div class="pcd__u"><span class="pcd__n" id="pcd-m">--</span><span class="pcd__t">min</span></div>
+                    <div class="pcd__u"><span class="pcd__n" id="pcd-s">--</span><span class="pcd__t">sec</span></div>
+                </div>
+            </div>
 
             <p class="incl__h">What's included</p>
             <ul class="incl">
@@ -276,8 +294,8 @@
         if (autumnCountdownStarted) return;
         autumnCountdownStarted = true;
         var cdNote = $('autumn-countdown-note');
-        var cdSpan = $('autumn-countdown-checkout');
-        if (!cdNote || !cdSpan) return;
+        var bd = $('pcd-d'), bh = $('pcd-h'), bm = $('pcd-m'), bs = $('pcd-s');
+        if (!cdNote || !bd) return;
         var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
         var tick = function () {
           var left = AUTUMN_SALE_END - Date.now();
@@ -286,7 +304,8 @@
           var h = Math.floor((left % 86400000) / 3600000);
           var m = Math.floor((left % 3600000) / 60000);
           var s = Math.floor((left % 60000) / 1000);
-          cdSpan.textContent = d + 'd ' + pad(h) + ':' + pad(m) + ':' + pad(s);
+          bd.textContent = pad(d); bh.textContent = pad(h);
+          bm.textContent = pad(m); bs.textContent = pad(s);
           cdNote.hidden = (plan !== 'yearly');
         };
         tick();
