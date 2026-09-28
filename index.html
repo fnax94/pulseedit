@@ -63,6 +63,13 @@
 .pcd--hero{display:block;text-decoration:none;color:inherit;max-width:420px;margin:26px 0 0;transition:transform .12s ease,box-shadow .12s ease}
 .pcd--hero:hover{transform:translateY(-2px);box-shadow:0 6px 0 0 rgba(232,71,43,.25)}
 @media(max-width:560px){.pcd__u{min-width:62px;padding:9px 4px 7px}.pcd__n{font-size:28px}.pcd__row{gap:6px}}
+.hero__grid{align-items:center}
+.hero__reel{margin:0;justify-self:end;width:min(100%,340px);position:relative}
+.hero__reel video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:#0b0a0d;border:1px solid var(--ink);border-radius:18px;box-shadow:12px 12px 0 0 var(--accent)}
+.hero__sound{position:absolute;left:14px;top:14px;font-family:var(--font-mono);font-size:12px;letter-spacing:.02em;color:#f4f2ee;background:rgba(11,10,13,.62);border:1px solid rgba(244,242,238,.35);border-radius:999px;padding:7px 12px;cursor:pointer;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.hero__sound:hover,.hero__sound:focus-visible{border-color:#f4f2ee;outline:none}
+.hero__reel figcaption{margin-top:18px;font-family:var(--font-mono);font-size:12px;color:var(--muted)}
+@media(max-width:900px){.hero__reel{justify-self:start;width:min(100%,300px);margin-top:34px}}
 </style>
 </head>
 <body>
@@ -128,7 +135,7 @@
 </div></header>
 
 <main>
-<section class="hero wrap"><div>
+<section class="hero wrap"><div class="hero__grid"><div>
     <span class="kicker">A plugin suite for DaVinci Resolve · Free &amp; Studio</span>
     <h1 class="h-xl" style="max-width:16ch;">Edit to the beat.<br /><span class="ln2">Grade to a look.</span></h1>
     <p class="lede hero__lede" style="max-width:56ch;">Three tools that do the tedious parts of editing for you, inside DaVinci Resolve: <strong>Pulse Edit</strong> cuts your footage to the music, <strong>Pulse Studio</strong> builds the whole beat-synced edit directly inside Resolve Studio — speed ramps and zooms included — and <strong>Pulse Color</strong> takes camera log straight to a film look. One license covers everything.</p>
@@ -147,6 +154,14 @@
         </div>
     </a>
     <div class="hero__trust"><span>Works on DR Free &amp; Studio</span><span>macOS &amp; Windows, signed</span><span>Cancel any time</span></div>
+</div>
+    <figure class="hero__reel">
+        <video id="hero-reel" autoplay muted loop playsinline preload="metadata" poster="/images/pulse-edit-reel-poster.jpg" aria-label="16-second motion reel: a music waveform flips into an editing timeline and every clip is cut on the beat, ending on the Pulse Edit logo.">
+            <source src="/images/pulse-edit-reel.mp4" type="video/mp4" />
+        </video>
+        <button class="hero__sound" type="button" aria-pressed="false" data-track="hero-reel-sound">Sound on</button>
+        <figcaption>Every cut on the beat · 16s</figcaption>
+    </figure>
 </div></section>
 
 <div class="ticker" aria-hidden="true"><div class="ticker__track">
@@ -254,5 +269,13 @@
 </div>
     <script src="/pulse-nav.js?v=6" defer></script>
   <script src="/cookie-consent.js?v=1" defer></script>
+<script>
+(function(){
+  var v=document.getElementById('hero-reel'); if(!v) return;
+  var b=document.querySelector('.hero__sound');
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){ v.removeAttribute('autoplay'); v.pause(); v.controls=true; if(b) b.hidden=true; return; }
+  if(b) b.addEventListener('click',function(){ v.muted=!v.muted; if(!v.muted){ v.currentTime=0; v.play(); } b.textContent=v.muted?'Sound on':'Sound off'; b.setAttribute('aria-pressed', String(!v.muted)); });
+})();
+</script>
 </body>
 </html>
