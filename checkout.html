@@ -96,6 +96,10 @@
       .pay-alt a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px;}
       .pay-foot{font-family:var(--font-mono);font-size:12px;color:var(--faint);margin:18px 0 0;text-align:center;}
       .pay-foot a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px;}
+      /* optional marketing consent: native checkbox (keyboard + screen reader for free), unticked by default */
+      .consent{display:flex;align-items:flex-start;gap:10px;margin:0 0 18px;font-size:14px;line-height:1.45;color:var(--muted);cursor:pointer;}
+      .consent input{flex:none;width:18px;height:18px;margin:1px 0 0;accent-color:var(--accent);cursor:pointer;}
+      .consent input:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
 
       /* Stripe's iframe starts at ~620px and grows (address, Link, wallets): on a laptop viewport a
          sticky box would pin the Pay button below the fold while the left column scrolls. */
@@ -212,6 +216,13 @@
         </div>
 
         <div class="co__pay">
+            <!-- Optional, unticked. Its value goes to POST /checkout/session as marketing_consent and onto the
+                 Stripe session as metadata[marketing_consent]: without a tick, no abandoned-cart email, ever.
+                 The hosted fallback (buy.stripe.com) has no box, so it never carries consent. -->
+            <label class="consent" for="mkt-consent">
+                <input type="checkbox" id="mkt-consent" name="marketing_consent" value="yes" autocomplete="off">
+                <span>Email me occasional offers and reminders about Pulse (unsubscribe anytime)</span>
+            </label>
             <div class="pay-box">
                 <!-- Stripe Embedded Checkout mounts here -->
                 <div id="checkout"></div>
@@ -306,7 +317,7 @@
             // (3-D Secure open), and Stripe's own total inside it is what they'd be charged anyway.
             clearInterval(timer);
             applyAutumnSale();
-            if (secretCache) delete secretCache.yearly;
+            if (secretCache) { delete secretCache['yearly:yes']; delete secretCache['yearly:no']; }
             render();
             return;
           }
@@ -466,14 +477,17 @@
       // two apart is the whole point: `network` alone can't say whether the visitor
       // dropped off or the worker was just slow.
       var FETCH_TIMEOUT_MS = 12000;
-      function attemptClientSecret() {
+      // The consent box, read at the moment of the click that creates the session (never cached here).
+      function consentNow() { var c = $('mkt-consent'); return !!(c && c.checked); }
+
+      function attemptClientSecret(req) {
         var ctl = (typeof AbortController === 'function') ? new AbortController() : null;
         var timedOut = false;
         var timer = ctl ? setTimeout(function () { timedOut = true; ctl.abort(); }, FETCH_TIMEOUT_MS) : 0;
         var opts = {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ plan: plan, promo: promo })
+          body: JSON.stringify({ plan: req.plan, promo: promo, marketing_consent: req.consent })
         };
         if (ctl) opts.signal = ctl.signal;
         return fetch(ENDPOINT, opts).then(function (r) {
@@ -513,11 +527,11 @@
       //    retried — a 4xx is deterministic and retrying it just delays the fallback.
       //    Creating a Checkout Session twice is harmless: an unpaid session expires on
       //    its own, charges nothing and issues no licence.
-      function fetchClientSecret() {
-        return attemptClientSecret().catch(function (e) {
+      function fetchClientSecret(req) {
+        return attemptClientSecret(req).catch(function (e) {
           if (!e || !e.retryable) throw e;
           return new Promise(function (res) { setTimeout(res, 800); }).then(function () {
-            return attemptClientSecret().catch(function (e2) {
+            return attemptClientSecret(req).catch(function (e2) {
               if (e2) e2.code = (e2.code || 'error') + '_retried';
               throw e2;
             });
@@ -541,14 +555,19 @@
       //    il DENOMINATORE del tasso di conversione (che risultava peggiore del vero),
       //    e ogni sessione e' una chiamata in piu' al worker.
       //    Il client secret resta valido finche' la sessione non e' pagata o scaduta,
-      //    quindi tornando su un piano gia' visto si riusa quello. La chiave e' il solo
-      //    piano: `promo` si legge una volta dall'URL (riga 254) e non cambia mai.
+      //    quindi tornando su un piano gia' visto si riusa quello (`promo` segue il piano).
+      // ⛔ 29/09/2026 — la chiave della cache e' PIANO + CONSENSO ("yearly:yes"), non il solo piano.
+      //    Il consenso alle email viaggia DENTRO la sessione Stripe (metadata[marketing_consent], scritto
+      //    alla creazione): una sessione creata a casella vuota resta "no" per sempre. Quando la casella
+      //    cambia si rimonta il modulo con la sessione di quel valore (creata al primo uso, poi riusata),
+      //    cosi' a Stripe arriva sempre il valore che il visitatore vede. Al massimo 4 sessioni per visita.
       var secretCache = {};
-      var rimontato   = {};   // per piano: la seconda occasione e' gia' stata usata?
+      var rimontato   = {};   // per chiave: la seconda occasione e' gia' stata usata?
 
-      function clientSecretFor(which) {
+      function clientSecretFor(req) {
+        var which = req.plan + (req.consent ? ':yes' : ':no');
         if (secretCache[which]) return Promise.resolve(secretCache[which]);
-        return fetchClientSecret().then(function (secret) {
+        return fetchClientSecret(req).then(function (secret) {
           secretCache[which] = secret;
           return secret;
         });
@@ -570,7 +589,8 @@
       var inflight = Promise.resolve();
       function mount() {
         var my = ++seq;
-        var pianoAvvio = plan;
+        var req = { plan: plan, consent: consentNow() };   // what this mount asks Stripe for
+        var pianoAvvio = req.plan + (req.consent ? ':yes' : ':no');
         var eraInCache = !!secretCache[pianoAvvio];
         $('pay-fallback').hidden = true;
         if (!stripe) { showFallback('blocked'); return; }
@@ -579,7 +599,7 @@
           if (my !== seq) return;                       // superseded while waiting: skip, no session created
           if (checkout) { try { checkout.destroy(); } catch (_) {} checkout = null; }
           $('checkout').innerHTML = '';
-          return clientSecretFor(pianoAvvio).then(function (secret) {
+          return clientSecretFor(req).then(function (secret) {
             if (my !== seq) return;                     // plan changed while the session was being created
             var p;
             try {
@@ -621,6 +641,11 @@
           mount();          // rimonta il modulo; la sessione si crea solo al PRIMO uso di ogni piano
         });
       });
+
+      // Ticking / unticking the box remounts the form on a session that carries the new value. Anything
+      // already typed INSIDE Stripe's form is lost on that remount — which is why the box sits above it.
+      var consentBox = $('mkt-consent');
+      if (consentBox) consentBox.addEventListener('change', function () { mount(); });
 
       render();
       try {
