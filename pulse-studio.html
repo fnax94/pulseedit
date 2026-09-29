@@ -4,6 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script>document.documentElement.classList.add("js");</script>
+    <!-- Autumn Sale switch-off (AUTUMN26: €78/year instead of €130; the Stripe code dies at SALE_END on its own).
+         Sale-only markup is data-sale="on", the normal copy it replaced is its data-sale="off" twin. Past the
+         deadline <html> gets .sale-over and the rule below swaps them, from <head> so neither state flashes and a
+         page left open switches too. No deploy needed. Without JS the sale copy stays. Same block as index.html. -->
+    <script>
+    var SALE_END = Date.parse('2026-09-30T23:59:59Z');
+    (function () {
+      function check() {
+        if (Date.now() < SALE_END) return false;
+        document.documentElement.classList.add('sale-over');
+        return true;
+      }
+      if (!check()) { var t = setInterval(function () { if (check()) clearInterval(t); }, 1000); }
+    })();
+    </script>
+    <style>html:not(.sale-over) [data-sale="off"],html.sale-over [data-sale="on"]{display:none!important}</style>
 
     <title>Pulse Studio — Beat-Synced Auto-Edit Inside Resolve Studio</title>
     <meta name="description" content="€13/month, DaVinci Resolve Studio: Pulse Studio builds the whole beat-synced edit inside Resolve — AI beat detection, frame-exact cuts, speed ramps.">
@@ -98,7 +114,8 @@
     <div class="price-card reveal"><span class="kicker kicker--plain">Pulse license</span><div class="amt">€13<small> / month</small></div>
     <ul><li>Pulse Studio — auto-edit inside DR Studio</li><li>Pulse Edit — OTIO auto-edit for DR Free</li><li>Pulse Color — film looks &amp; filter FX</li><li>macOS &amp; Windows · cancel any time</li></ul>
     <a class="btn btn--lg" href="/checkout.html?plan=monthly" data-track="studio-buy-pricing" style="width:100%;justify-content:center">Get Pulse <span class="arr">→</span></a>
-    <p style="font-size:14px;margin-top:14px;margin-bottom:0;text-align:center"><a href="/checkout.html?plan=yearly&amp;promo=AUTUMN26" data-track="studio-buy-yearly">Pay €78 for the year</a> <span style="color:var(--faint)">(was €130)</span> — Autumn Sale, ends Sep 30.</p></div>
+    <p data-sale="on" style="font-size:14px;margin-top:14px;margin-bottom:0;text-align:center"><a href="/checkout.html?plan=yearly&amp;promo=AUTUMN26" data-track="studio-buy-yearly">Pay €78 for the year</a> <span style="color:var(--faint)">(was €130)</span> — Autumn Sale, ends Sep 30.</p>
+    <p data-sale="off" style="font-size:14px;margin-top:14px;margin-bottom:0;text-align:center"><a href="/checkout.html?plan=yearly" data-track="studio-buy-yearly">Pay €130 for the year</a> and get two months free.</p></div>
 </div></section>
 
 <section class="section wrap" id="faq">

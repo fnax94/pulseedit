@@ -59,8 +59,9 @@
       .amt__note{font-family:var(--font-mono);font-size:12.5px;color:var(--muted);margin:10px 0 0;}
 
       .incl{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:11px;border-top:1px solid var(--ink);padding-top:22px;}
-      .incl li{display:flex;gap:12px;align-items:baseline;font-size:15.5px;}
-      .incl li::before{content:"—";color:var(--accent);font-family:var(--font-mono);}
+      /* 29/09: era display:flex → testo + <em>/<strong> finivano in 3-4 colonne (stesso bug di .content li) */
+      .incl li{position:relative;padding-left:24px;font-size:15.5px;}
+      .incl li::before{content:"—";color:var(--accent);font-family:var(--font-mono);position:absolute;left:0;top:0;}
       .incl__h{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:26px 0 0;}
       .guarantee{margin-top:24px;}
       .secure{margin-top:22px;font-family:var(--font-mono);font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 18px;}
@@ -288,7 +289,8 @@
       //    empty: not just the display, but the ACTUAL Stripe session `mount()` creates
       //    (POST body `{plan, promo}`) would have charged full price. The sale has to be
       //    a property of "yearly, during the window", not of one specific URL.
-      var AUTUMN_SALE_END = 1790812799000;
+      var AUTUMN_SALE_END = 1790812799000;   // 2026-09-30T23:59:59Z, same instant as SALE_END on the other pages
+      var YEARLY_FULL = { amount: PLANS.yearly.amount, note: PLANS.yearly.note };
       var autumnCountdownStarted = false;
       function startAutumnCountdown() {
         if (autumnCountdownStarted) return;
@@ -296,9 +298,20 @@
         var cdNote = $('autumn-countdown-note');
         if (!cdNote || !document.querySelector('[data-cd]')) return;
         var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
+        var timer = null;
         var tick = function () {
           var left = AUTUMN_SALE_END - Date.now();
-          if (left <= 0) { cdNote.hidden = true; return; }
+          if (left <= 0) {
+            // Page left open across the deadline: back to full price here and now. The yearly session
+            // cached before it carries the code, so it's dropped and the next yearly mount asks for a
+            // full-price one. The form already on screen is NOT remounted: someone may be mid-payment
+            // (3-D Secure open), and Stripe's own total inside it is what they'd be charged anyway.
+            clearInterval(timer);
+            applyAutumnSale();
+            if (secretCache) delete secretCache.yearly;
+            render();
+            return;
+          }
           var d = Math.floor(left / 86400000);
           var h = Math.floor((left % 86400000) / 3600000);
           var m = Math.floor((left % 3600000) / 60000);
@@ -308,11 +321,29 @@
             n.textContent = v[n.getAttribute('data-cd')];
           });
         };
+        timer = setInterval(tick, 1000);
         tick();
-        setInterval(tick, 1000);
       }
       function applyAutumnSale() {
-        if (Date.now() >= AUTUMN_SALE_END) return;   // sale over: leave everything at full price
+        if (Date.now() >= AUTUMN_SALE_END) {
+          // ⛔ 29/09 — sale over: full price, and nothing may still say otherwise. That includes old
+          //    `?promo=AUTUMN26` links: the code is dead in Stripe (the worker falls back to a plain
+          //    session), but carried along it would still print «Your discount code AUTUMN26 is carried
+          //    over» on the fallback and prefill it on the hosted page. Also undoes the branch below for a
+          //    page left open across the deadline. Other codes are untouched, as during the sale.
+          PLANS.yearly.amount = YEARLY_FULL.amount;
+          PLANS.yearly.note = YEARLY_FULL.note;
+          var ypFull = $('plan-yearly-price');
+          if (ypFull) ypFull.textContent = '€130 / year';
+          if (promo === 'AUTUMN26') {
+            promo = '';
+            var notaOff = $('promo-nota');   // already printed if the fallback showed before the deadline
+            if (notaOff) notaOff.hidden = true;
+          }
+          var cdOff = $('autumn-countdown-note');
+          if (cdOff) cdOff.hidden = true;
+          return;
+        }
         if (promo && promo !== 'AUTUMN26') return;   // someone else's code: its own price, untouched
 
         // ⛔ 17/09, Abramo: landing on Monthly and reading «€130 / year» on the Yearly
