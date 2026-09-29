@@ -84,8 +84,8 @@
       .content p{color:var(--ink-soft); margin:14px 0; max-width:66ch;}
       .content .muted{color:var(--muted);}
       .content ul{margin:8px 0 18px; padding:0; list-style:none; max-width:66ch;}
-      .content li{display:flex; gap:12px; align-items:baseline; margin:9px 0; color:var(--ink-soft);}
-      .content li::before{content:"—"; color:var(--accent); font-family:var(--font-mono); flex:none;}
+      /* 29/09: era display:flex → testo + <strong> finivano in 3 colonne su mobile */ .content li{position:relative; padding-left:24px; margin:9px 0; color:var(--ink-soft);}
+      .content li::before{content:"—"; color:var(--accent); font-family:var(--font-mono);  position:absolute; left:0; top:0;}
       .content strong{color:var(--ink);}
       .content a{color:var(--accent-ink); text-decoration:underline; text-underline-offset:3px;}
       .content a:hover{color:var(--ink);}

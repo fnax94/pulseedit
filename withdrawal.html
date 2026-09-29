@@ -84,8 +84,8 @@
       .content p{color:var(--ink-soft); margin:14px 0; max-width:66ch;}
       .content .muted{color:var(--muted);}
       .content ul{margin:8px 0 18px; padding:0; list-style:none; max-width:66ch;}
-      .content li{display:flex; gap:12px; align-items:baseline; margin:9px 0; color:var(--ink-soft);}
-      .content li::before{content:"—"; color:var(--accent); font-family:var(--font-mono); flex:none;}
+      /* 29/09: era display:flex → testo + <strong> finivano in 3 colonne su mobile */ .content li{position:relative; padding-left:24px; margin:9px 0; color:var(--ink-soft);}
+      .content li::before{content:"—"; color:var(--accent); font-family:var(--font-mono);  position:absolute; left:0; top:0;}
       .content strong{color:var(--ink);}
       .content a{color:var(--accent-ink); text-decoration:underline; text-underline-offset:3px;}
       .content a:hover{color:var(--ink);}
@@ -166,7 +166,7 @@
       <div class="wrap wrap--narrow">
         <span class="kicker">Legal · EU consumers</span>
         <h1 class="h-lg" style="margin-top:20px;">Right of Withdrawal<br>&amp; Refunds</h1>
-        <p class="updated">Last updated — 6 September 2026</p>
+        <p class="updated">Last updated — 29 September 2026</p>
       </div>
     </header>
 
@@ -183,9 +183,20 @@
           <li>You don&rsquo;t need to call, send a PEC or print anything. Use the button below or just email us.</li>
         </ul>
 
+        <div class="card" id="instant">
+          <h2>Instant withdrawal &mdash; subscriptions</h2>
+          <p>Bought a Pulse subscription in the last 14 days? Enter the email you used at checkout. We send you a secure link: open it, press <strong>Confirm</strong>, and the full refund and the cancellation happen right away &mdash; no need to wait for us. The link expires after 24 hours.</p>
+          <form class="wform" onsubmit="return requestWithdrawLink(event)">
+            <label for="i-email">Email used at purchase</label>
+            <input id="i-email" type="email" autocomplete="email" required placeholder="you@example.com">
+            <button class="btn" type="submit" id="i-btn">Email me the withdrawal link <span class="arr">&rarr;</span></button>
+            <p class="wnote" id="i-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
         <div class="card">
-          <h2>Withdraw or request a refund</h2>
-          <p>Fill in what you remember and press the button. It opens a pre-written withdrawal notice in your email app, addressed to us — you only have to hit send. If nothing opens, your browser has no email app configured: copy the model form below and send it to support@pulseedit.com from any email account. Your withdrawal takes effect on the day you send it, whichever way you send it, and we confirm receipt in writing with the date and time we received it.</p>
+          <h2>Withdraw or request a refund by email</h2>
+          <p>Works for every purchase. Fill in what you remember and press the button. It opens a pre-written withdrawal notice in your email app, addressed to us — you only have to hit send. If nothing opens, your browser has no email app configured: copy the model form below and send it to support@pulseedit.com from any email account. Your withdrawal takes effect on the day you send it, whichever way you send it, and we confirm receipt in writing with the date and time we received it.</p>
           <form class="wform" onsubmit="return submitWithdrawal(event)">
             <label for="w-name">Your full name</label>
             <input id="w-name" type="text" autocomplete="name" placeholder="Name and surname">
@@ -202,7 +213,7 @@
 
         <h2 class="h-md">What happens next</h2>
         <p>We confirm your withdrawal by email and refund the full amount to your original payment method, normally within a few days and at most within 14 days of receiving your notice. There is nothing to return — Pulse Edit is software — and your license keys keep working for 14 days after the refund, never beyond the period you had already paid for, before they stop. A chargeback suspends them immediately.</p>
-        <p><strong>If you are on the monthly subscription, refunding a payment does not stop the next one.</strong> Cancel the subscription too, in one click, from the <a href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">customer portal</a>: enter your email, open the link Stripe sends you, and press Cancel. You keep access until the end of the month you have already paid for. If you'd rather we did it for you, write to <a href="mailto:support@pulseedit.com">support@pulseedit.com</a> and we will.</p>
+        <p><strong>If you use the instant withdrawal link, your subscription is canceled for you automatically.</strong> If you withdraw by email instead, refunding a payment does not stop the next one: cancel the subscription too, in one click, from the <a href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">customer portal</a>: enter your email, open the link Stripe sends you, and press Cancel. You keep access until the end of the month you have already paid for. If you'd rather we did it for you, write to <a href="mailto:support@pulseedit.com">support@pulseedit.com</a> and we will.</p>
 
         <h2 class="h-md">Digital products and the 14-day window</h2>
         <p>Pulse Edit is downloadable software, delivered immediately after purchase. Under EU law a trader <em>may</em> ask digital buyers to waive their withdrawal right the moment the download begins. <strong>We choose not to.</strong> You get the full 14-day window regardless, and the period stays 14 days because we give you clear pre-purchase information and this withdrawal function — we don't bury it or make you jump through hoops.</p>
@@ -276,6 +287,21 @@ Date: ____________________</div>
         document.getElementById('mobileMenu').classList.remove('open');
         document.body.classList.remove('menu-open');
         document.querySelector('.nav__burger').setAttribute('aria-expanded','false');
+      }
+      function requestWithdrawLink(e){
+        e.preventDefault();
+        var email=(document.getElementById('i-email').value||'').trim();
+        var st=document.getElementById('i-status'), btn=document.getElementById('i-btn');
+        if(!email){ st.textContent='Enter the email you used at purchase.'; return false; }
+        btn.disabled=true; st.textContent='Sending\u2026';
+        fetch('https://license-server.abtools.workers.dev/withdraw/request',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email})})
+          .then(function(r){
+            if(r.status===429||r.status===503){ st.textContent='Too many requests right now \u2014 try again in a minute, or use the email form below.'; return; }
+            st.textContent='If this email has a Pulse subscription bought in the last 14 days, the link is on its way. Check your inbox (and spam). No email in 10 minutes? Use the form below.';
+          })
+          .catch(function(){ st.textContent='Something went wrong on our side \u2014 please use the email form below, it works just the same.'; })
+          .then(function(){ btn.disabled=false; });
+        return false;
       }
       function submitWithdrawal(e){
         e.preventDefault();
