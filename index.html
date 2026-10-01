@@ -50,25 +50,6 @@
     {"@type":"Question","name":"Is this a subscription?","acceptedAnswer":{"@type":"Answer","text":"Yes — €13 per month, or €130 for a year (two months free), VAT included, covering both tools. Cancel any time in one click from the customer portal. 14-day money-back guarantee. Licences bought before July 2026 remain perpetual."}}
     ]}
     </script>
-<!-- Autumn Sale switch-off (AUTUMN26: €78/year instead of €130). The Stripe code dies at SALE_END on its own;
-     this makes the page follow without a deploy. Sale-only markup is tagged data-sale="on", the normal copy it
-     replaced sits next to it as data-sale="off". Past the deadline <html> gets .sale-over and the rule below
-     swaps them. It runs here in <head>, before the body paints, so neither state flashes. Without JS the sale
-     copy stays. -->
-<script>
-var SALE_END = Date.parse('2026-09-30T23:59:59Z');
-(function () {
-  function check() {
-    if (Date.now() < SALE_END) return false;
-    document.documentElement.classList.add('sale-over');
-    return true;
-  }
-  // A page left open across the deadline switches too. An interval rather than one long setTimeout:
-  // it still fires after the laptop sleeps or the tab gets throttled.
-  if (!check()) { var t = setInterval(function () { if (check()) clearInterval(t); }, 1000); }
-})();
-</script>
-<style>html:not(.sale-over) [data-sale="off"],html.sale-over [data-sale="on"]{display:none!important}</style>
 <style>
 /* Autumn Sale countdown — self-contained (index.html and checkout.html load different CSS) */
 .pcd{border:2px solid #e8472b;border-radius:14px;padding:16px 18px 18px;background:rgba(232,71,43,.07);margin:26px 0;text-align:center}
@@ -91,35 +72,7 @@ var SALE_END = Date.parse('2026-09-30T23:59:59Z');
 </head>
 <body>
 <div id="root">
-<a href="/checkout.html?plan=yearly&amp;promo=AUTUMN26" data-track="autumn-sale-banner" id="autumn-banner" data-sale="on" style="display:block;background:#191512;color:#f3efe6;text-align:center;padding:9px 16px;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:12.5px;letter-spacing:.04em;text-decoration:none;"><span style="color:#ff4b33;">AUTUMN SALE</span>&nbsp;&nbsp;€78 for the year, was €130 — ends in <span id="autumn-countdown">…</span> <span style="color:#ff4b33;">→</span></a>
-<a href="/color-demo/" data-track="color-demo-banner" data-sale="off" style="display:block;background:#191512;color:#f3efe6;text-align:center;padding:9px 16px;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:12.5px;letter-spacing:.04em;text-decoration:none;"><span style="color:#ff4b33;">NEW</span>&nbsp;&nbsp;Try Pulse Color in your browser — grade a log clip, no install <span style="color:#ff4b33;">→</span></a>
-<script>
-(function () {
-  var span = document.getElementById('autumn-countdown');
-  // ⛔ This script sits right under the banner, so the countdown blocks further down the
-  //    page don't exist yet on the first run: they're re-queried on every tick. There are
-  //    two of them (hero + pricing) and both move together — hence [data-cd], not ids.
-  function pad(n) { return n < 10 ? '0' + n : '' + n; }
-  function tick() {
-    var left = SALE_END - Date.now();
-    // Past the deadline the head switch hides banner and blocks. Setting `hidden` here did not:
-    // the banner's inline display:block and .pcd--hero's display:block beat the [hidden] default.
-    if (left <= 0) return;
-    var d = Math.floor(left / 86400000);
-    var h = Math.floor((left % 86400000) / 3600000);
-    var m = Math.floor((left % 3600000) / 60000);
-    var s = Math.floor((left % 60000) / 1000);
-    var v = { d: pad(d), h: pad(h), m: pad(m), s: pad(s) };
-    if (span) span.textContent = d + 'd ' + v.h + ':' + v.m + ':' + v.s;
-    document.querySelectorAll('[data-cd]').forEach(function (n) {
-      n.textContent = v[n.getAttribute('data-cd')];
-    });
-  }
-  tick();
-  document.addEventListener('DOMContentLoaded', tick);
-  setInterval(tick, 1000);
-})();
-</script>
+<a href="/color-demo/" data-track="color-demo-banner" style="display:block;background:#191512;color:#f3efe6;text-align:center;padding:9px 16px;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:12.5px;letter-spacing:.04em;text-decoration:none;"><span style="color:#ff4b33;">NEW</span>&nbsp;&nbsp;Try Pulse Color in your browser — grade a log clip, no install <span style="color:#ff4b33;">→</span></a>
 <header class="nav"><!-- pulse-nav:canonical --><div class="wrap nav__in">
     <a class="brand" href="/" aria-label="Pulse home">Pulse<span class="dot"></span></a>
     <nav class="nav__links">
@@ -157,15 +110,6 @@ var SALE_END = Date.parse('2026-09-30T23:59:59Z');
         <a class="btn btn--ghost btn--lg" href="#products">See the tools ↓</a>
     </div>
 
-    <a class="pcd pcd--hero" id="pcd-hero" data-sale="on" href="/checkout.html?plan=yearly&amp;promo=AUTUMN26" data-track="autumn-sale-hero">
-        <div class="pcd__label">Autumn Sale · €78 / year <s style="opacity:.55">€130</s> · ends in</div>
-        <div class="pcd__row">
-            <div class="pcd__u"><span class="pcd__n" data-cd="d">--</span><span class="pcd__t">days</span></div>
-            <div class="pcd__u"><span class="pcd__n" data-cd="h">--</span><span class="pcd__t">hours</span></div>
-            <div class="pcd__u"><span class="pcd__n" data-cd="m">--</span><span class="pcd__t">min</span></div>
-            <div class="pcd__u"><span class="pcd__n" data-cd="s">--</span><span class="pcd__t">sec</span></div>
-        </div>
-    </a>
     <div class="hero__trust"><span>Works on DR Free &amp; Studio</span><span>macOS &amp; Windows, signed</span><span>Cancel any time</span></div>
 </div>
     <figure class="hero__reel">
@@ -226,18 +170,8 @@ var SALE_END = Date.parse('2026-09-30T23:59:59Z');
     <div class="price-pts">
         <span class="kicker">Pricing</span>
         <h2 class="h-lg" style="margin-top:18px">One license. The whole suite.</h2>
-        <p data-sale="on">No tiers, no add-ons. Everything Pulse Edit, Pulse Studio and Pulse Color do, for €13 a month — or €78 a year for the rest of September, down from €130. Every new Pulse tool joins the same license.</p>
-        <p data-sale="off">No tiers, no add-ons. Everything Pulse Edit, Pulse Studio and Pulse Color do, for €13 a month or €130 a year (two months free). Every new Pulse tool joins the same license.</p>
+        <p>No tiers, no add-ons. Everything Pulse Edit, Pulse Studio and Pulse Color do, for €13 a month or €130 a year (two months free). Every new Pulse tool joins the same license.</p>
 
-        <div class="pcd" id="pcd" data-sale="on">
-            <div class="pcd__label">Autumn Sale · €78 / year <s style="opacity:.55">€130</s> · ends in</div>
-            <div class="pcd__row">
-                <div class="pcd__u"><span class="pcd__n" data-cd="d">--</span><span class="pcd__t">days</span></div>
-                <div class="pcd__u"><span class="pcd__n" data-cd="h">--</span><span class="pcd__t">hours</span></div>
-                <div class="pcd__u"><span class="pcd__n" data-cd="m">--</span><span class="pcd__t">min</span></div>
-                <div class="pcd__u"><span class="pcd__n" data-cd="s">--</span><span class="pcd__t">sec</span></div>
-            </div>
-        </div>
 
         <p class="guarantee">14-day money-back guarantee. If it doesn't work on your DaVinci Resolve setup, we fix it or refund you — no questions asked.</p>
         <p class="guarantee">Bought Pulse Edit before July 2026? Your licence stays yours forever.</p>
@@ -254,8 +188,7 @@ var SALE_END = Date.parse('2026-09-30T23:59:59Z');
             <li>macOS &amp; Windows · cancel any time</li>
         </ul>
         <a class="btn btn--lg" href="/checkout.html?plan=monthly" data-track="buy-pricing" style="width:100%;justify-content:center">Get Pulse <span class="arr">→</span></a>
-        <p data-sale="on" style="font-size:14px;margin-top:14px;margin-bottom:0;text-align:center"><a href="/checkout.html?plan=yearly&amp;promo=AUTUMN26" data-track="buy-yearly">Pay €78 for the year</a> <span style="color:var(--faint)">(was €130)</span> — Autumn Sale, ends Sep 30.</p>
-        <p data-sale="off" style="font-size:14px;margin-top:14px;margin-bottom:0;text-align:center"><a href="/checkout.html?plan=yearly" data-track="buy-yearly">Pay €130 for the year</a> and get two months free.</p>
+        <p style="font-size:14px;margin-top:14px;margin-bottom:0;text-align:center"><a href="/checkout.html?plan=yearly" data-track="buy-yearly">Pay €130 for the year</a> and get two months free.</p>
         <p style="font-family:var(--font-mono);font-size:12px;color:var(--faint);margin-top:10px;margin-bottom:0;text-align:center">VAT included. Renews until you cancel. <a href="https://billing.stripe.com/p/login/28E8wO2TY3Na7oAcvbawo00">Cancel in one click</a>.</p>
     </div>
 </div></section>
